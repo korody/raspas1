@@ -1,6 +1,6 @@
 <div class= "user_info">
 	<div class= "user_avatar">
-		<%= image_tag @author.photo.url(:regular) %>
+		<%= link_to (image_tag @author.photo.url(:regular)), edit_author_path %>
 	</div>
 	<div class= "user_info">
 		<div class= "user_info_board round" >
@@ -15,6 +15,7 @@
 				<%= @author.origin %></br>
 			<% end %>
 			<%= render 'fan_form' %>
+			<%= link_to "editar", edit_author_path, class: "edit but round" %>
 		</div>
 		<div class= "user_info_board round" >
 			<%= render 'stats' %>

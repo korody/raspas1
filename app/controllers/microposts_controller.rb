@@ -13,7 +13,12 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
-      redirect_to current_user
+      if @micropost.author
+        redirect_to @micropost.author
+        flash[:success] = "Você adicionou um pensamento de #{@micropost.author.name}. Obrigado!"
+      else
+        redirect_to current_user
+      end
     else
       @feed_items = []
       render 'pages/home'
@@ -35,8 +40,8 @@ class MicropostsController < ApplicationController
   ####### NEEDS WORK ON ###########
 
   def reaspa
-    @micropost = current_user.microposts.build(params[:micropost])
-    if @micropost.save
+    micropost = current_user.microposts.build(params[:micropost])
+    if @icropost.save
       redirect_back_or root_path
       flash[:notice] = "Reaspa concluída! A raspa escolhida foi compartilhada."
     end

@@ -12,5 +12,6 @@
 			<%= f.text_field :origem, placeholder: "origem da raspa" %>
 			<%= f.text_field :tag_names, placeholder: "temas envolvidos" %>
 			<%= image_submit_tag "pen.png", :class => "pen round" %>
+		<%= render 'shared/error_messages', :object => f.object %>  
 		<% end %>
 	</div>

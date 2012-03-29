@@ -6,6 +6,12 @@
 	<div class= "user_card_info">
 		<div class= "user_card_name">
 			<%= link_to user.name, user %>
+			<% if current_user %>
+				<% if current_user.admin? %>
+					<%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
+                    	                		  :title => "Delete #{user.name}" %>
+                <% end %>
+            <% end %>
 			<%= user.job if user.job? %>
 		</div>
 		<div class= "stats">

@@ -25,7 +25,7 @@
       <% unless !micropost.origem? %>
         / extraído de <%= micropost.origem %>
       <% end %>
-      <% if !@user %>
+      <% if micropost.author %>
         / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
       <% end %>
     </div>
@@ -47,7 +47,7 @@
       <div class= "social">
         <%= render 'shared/social' %>
       </div>
-      <% if !@user %>
+      <% if micropost.author %>
         <div class= "user_id">
           <%= link_to image_tag(micropost.user.photo.url(:medium)), micropost.user, 
           title: "ver perfil de #{micropost.user.name}" %>

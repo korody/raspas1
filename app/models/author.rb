@@ -33,7 +33,8 @@ class Author < ActiveRecord::Base
   has_many :fans, :through => :reverse_subscriptions, :source => :user
 
 	validates :name,  :presence => true,
-              	      :length   => { :maximum => 50 }
+                    :length   => { :maximum => 50 },
+                    :uniqueness => { :case_sensitive => false }
 
   validates_attachment_size :photo, :less_than => 5.megabytes
 

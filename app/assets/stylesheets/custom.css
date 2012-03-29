@@ -415,6 +415,14 @@ div.user_info_board {
   width: 100%;
 }
 
+.user_info_board a.edit {  
+  float: left;
+  height: 22px;
+  margin-top: 0.5em;
+  padding: 0;
+  text-align: center;
+  width: 99%;
+}
 .user_info_board input:hover {
   cursor: pointer;
 }
@@ -873,7 +881,7 @@ div.user_card_info {
   div.sobre {
   border: 0px solid black;
   float: left;
-  font-size: 150%;
+  font-size: 160%;
   height: 55px;
   margin-left: 1em;
   margin-top: 3.7em;
