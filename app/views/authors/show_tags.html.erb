@@ -1,0 +1,8 @@
+<div class= "title">
+	<p class= "p_search"><%= @author.name %> já foi citado através de <%= pluralize @author.tags.count, "tema" %></p><%= link_to "explorar + temas", tags_path %>
+</div>
+<div class= "home">
+	<ul class="users">
+		<li><%= render @author.tags %></li>
+	</ul>
+</div>

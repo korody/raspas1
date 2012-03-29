@@ -1,0 +1,8 @@
+<div class= "title">
+	<p class= "p_search"><%= @author.name %> foi citado por <%= pluralize @author.users.count, "usuário" %></p><%= link_to "explorar + usuários", users_path %>
+</div>
+<div class= "home">
+	<ul class="users">
+		<li><%= render @author.users %></li>
+	</ul>
+</div>
