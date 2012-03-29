@@ -52,7 +52,7 @@
 
   has_many :idols, through: :subscriptions, source: :author
 
-  has_many :authors, through: :microposts
+  has_many :authors, through: :microposts, :uniq => true, :order => 'authors.created_at DESC'
 
   has_many :tags, through: :microposts
 
