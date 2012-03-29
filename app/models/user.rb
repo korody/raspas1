@@ -26,7 +26,8 @@
   attr_accessible :name, :email, :photo, :bio, :job, :tipo, :origin, :born
 
   has_attached_file(:photo,
-        
+                    #:path => ":rails_root/app/assets/images/photos/users/:id/:style/:basename.:extension",
+                    #:url => "photos/users/:id/:style/:basename.:extension",
                     :default_url => "photos/default/user.jpg",
                     :styles => {
                                 :tiny => "30x30#",

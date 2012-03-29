@@ -1,10 +1,8 @@
-<div class="raspas">
-  <div class="user_info">
-    <%= render 'micropost_info' %>
-  </div>
-  <div class="stack">
-    <% unless @microposts.empty? %>
-      <%= render @micropost %>
-    <% end %>
-  </div>
+<div class="user_info">
+	<%= render 'micropost_info' %>
+</div>
+<div class="stack">
+	<% unless @microposts.empty? %>
+	  <%= render @micropost %>
+	<% end %>
 </div>
