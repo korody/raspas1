@@ -13,7 +13,7 @@
     @micropost = Micropost.new
     @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all(:order => 'tags.created_at DESC')
-    @authors = @user.authors.all(:order => 'authors.created_at DESC')
+    @authors = @user.authors.all
     @title = @user.name
   end
 
