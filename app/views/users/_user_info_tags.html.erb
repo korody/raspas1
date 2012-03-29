@@ -1,0 +1,24 @@
+<div class= "user_info">
+	<% @user ||= current_user %>
+	<div class= "user_avatar">
+		<%= image_tag @user.photo.url(:regular) %>
+	</div>
+	<div class= "show_info">
+		<% if !@user.tags.empty? %>
+			<div class= "show_info_board round">
+				<div class= "last_header">
+					<p class= "p_tags"><%= @user.name %></p> <p class="p_tag"> temas</p>
+			        <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+			    </div>
+				<div>
+					<% @user.tags.each do |tag| %>
+					  <div>
+					    <%= link_to tag.name, tags_user_path, 
+					    title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
+					  </div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

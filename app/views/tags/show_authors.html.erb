@@ -1,0 +1,12 @@
+<div class= "home">
+	<div class= "title">
+		<p class= "p_search"><%= pluralize @tag_authors.count, "raspa" %> <%= @tag.name %> foram adicionadas recentemente aos seguintes pensadores</p>
+		<%= link_to "voltar para raspas sobre #{@tag.name}", @tag %>
+	</div>
+	<ul class="users">
+	  <li><%= render @tag_authors %></li>
+	</ul>
+	<div class= "pagination_square">
+		<%= will_paginate @authors %>
+	</div>
+</div>

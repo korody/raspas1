@@ -1,0 +1,28 @@
+<%= form_for @user, :html => { :multipart => true } do |f| %>
+	<div class="cartela round">
+    	<div class= "cartela_corner round">
+    		<div class= "board_avatar">
+      			<%= image_tag @user.photo.url(:regular) %>
+	          	<%= f.file_field :photo %>
+	        </div>
+    	</div>
+		<div class= "board_avatar">
+			<div class= "field">
+	    		<%= f.text_field :name, placeholder: " nome e sobrenome", :class => "round field_info" %>
+	    		<%= f.text_field :email, placeholder: " um e-mail válido", :class => "round field_info" %>
+	    		<%= f.text_field :job, placeholder: " ocupação principal", :class => "round field_info" %>
+	    		<%= f.text_field :origin, placeholder: " cidade de origem", :class => "round field_info" %>
+    		</div>
+    	</div>	
+    	<div class= "board_bio">
+        	<%= f.text_area :bio, maxlength: 300, placeholder: " escreva aqui uma breve descrição", :class => "round", id: "bio" %>
+		</div>
+		<div class= "count_bio">
+			<div id= "count">300</div>
+		</div>
+		<div class= "author_create">
+			<%= submit_tag "atualizar", :alt => "atualizar", :class => "but round actions" %>
+    	</div>
+	</div>
+    <%= render 'shared/error_messages', :object => f.object %>	
+<% end %>

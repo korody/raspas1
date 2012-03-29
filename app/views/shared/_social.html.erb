@@ -1,0 +1,13 @@
+compartilhe
+<div>
+
+	<div id='fb-root'></div>
+    <a onclick='postToFeed(); return false;'><%= image_tag "facebook_20.png", title: "compartilhar pelo facebook" %></a>
+    
+	<%= link_to (image_tag "twitter_20.png"), "https://twitter.com/share?url=http://www.raspas.com.br", 
+	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
+
+	<%= link_to (image_tag "google_20.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
+	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
+
+</div>

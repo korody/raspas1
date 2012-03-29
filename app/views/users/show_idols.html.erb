@@ -1,0 +1,14 @@
+<div class= "user_feed">
+    <%= render 'user_idols' %>
+</div>
+<% if @user.idols.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum ídolo encontrado</p><%= link_to "explorar pensadores", authors_path %>
+	</div>
+<% else %>
+	<div class= "home">
+		<ul class="users">
+			<li><%= render @user.idols %></li>
+		</ul>
+	</div>
+<% end %>

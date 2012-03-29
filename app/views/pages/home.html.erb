@@ -1,0 +1,93 @@
+<div class="raspas">
+<% if signed_in? %>
+  <div class= "user_bar">
+    <%= render 'users/user_bar' %>
+  </div>
+  <div class= "home">
+    <div>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+</div>
+<% else %>
+  <div class="raspas">
+    <div class= "user_info">
+      <div class= "user_avatar">
+        <%= image_tag "raspas_logo_user.jpg" %>
+      </div> 
+      <div class= "user_info_board round" >
+        <div class= "contagem">
+          <%= Micropost.count %>
+          <%= link_to "raspas", microposts_path, title: "explorar raspas" %></br>
+        </div>
+        <div class= "contagem">
+          <%= Tag.count %>
+          <%= link_to "temas", tags_path, title: "explorar temas" %></br>
+        </div>
+        <div class= "contagem">
+          <%= Author.count %>
+          <%= link_to "pensadores", authors_path, title: "explorar pensadores" %></br>
+        </div>
+        <div class= "contagem">
+          <%= User.count %>
+          <%= link_to "usuários", users_path, title: "explorar usuários" %></br>
+        </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class="p_tag">últimos</p><p class= "p_tags"> temas</p>
+              <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+          </div>
+        <div>
+          <% @tags.last(8).each do |tag| %>
+            <div>
+              <%= link_to tag.name, tag, 
+              title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p> <p class="p_tag">pensadores</p>
+          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+        </div>
+        <div>
+          <% @authors.last(4).each do |author| %>
+            <div class= "last">
+              <%= link_to image_tag(author.photo.url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+              <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p> <p class="p_tag">usuários</p>
+          <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
+        <div>
+          <% @users.last(4).each do |user| %>
+            <div class= "last">
+              <%= link_to image_tag(user.photo.url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+              <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="quotes round">
+        <div class= "sobre">
+          "Crie, colecione e compartilhe pensamentos.</br>
+          Conecte-se através do
+          <%= link_to "facebook", "/auth/facebook", title: "entre com facebook" %> ou 
+          <%= link_to "twitter.", "/auth/twitter", title: "entre com twitter" %>"
+        </div>
+      </div>
+      <div>
+        <%= render @feed_items %>
+      </div>
+    </div>
+  </div>
+<% end %>

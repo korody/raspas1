@@ -1,0 +1,23 @@
+<div class= "user_card">
+	<div class= "user_gravatar_card">
+		<%= link_to image_tag(author.photo.url(:regular)), author %>
+	</div>
+	<div class= "user_card_info">
+		<div class= "user_card_name">
+			<p class= "p_user_card"><%= link_to author.name, author %></p>
+			<%= author.job if author.job? %>	
+		</div>
+		<div id= "fans" class= "stats">
+			<p class= "p_stats">fãs</p> 
+			<%= link_to (image_tag "ico_heart.png"), fans_author_path(author), :alt => "fäs", :class => "ico round" %>
+			<%= link_to author.fans.count, fans_author_path(author), :class => "but round", 
+			title: "ver fäs de #{author.name}" %>
+		</div>
+		<div class= "stats">
+			<p class= "p_stats">raspas</p>
+			<%= link_to (image_tag "ico_raspas.png"), author, :alt => "raspas", :class => "ico round" %>
+			<%= link_to author.microposts.count, author, :class => "but round", 
+			title: "ver raspas de #{author.name}" %>
+		</div>
+	</div>
+</div>

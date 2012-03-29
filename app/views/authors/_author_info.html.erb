@@ -1,0 +1,46 @@
+<div class= "user_info">
+	<div class= "user_avatar">
+		<%= image_tag @author.photo.url(:regular) %>
+	</div>
+	<div class= "user_info">
+		<div class= "user_info_board round" >
+			<p class="p_user"><%= @author.name %></p>	
+			<% if @author.job? %>
+				<%= @author.job  %></br>
+			<% end %>
+			<% if @author.tipo? %>
+				<%= @author.tipo %></br>
+			<% end %>
+			<% if @author.origin? %>
+				<%= @author.origin %></br>
+			<% end %>
+			<%= render 'fan_form' %>
+		</div>
+		<div class= "user_info_board round" >
+			<%= render 'stats' %>
+		</div>
+		<% if @author.bio? %>
+			<div class= "user_info_board round" >
+				<div class= "bio">
+					<%= @author.bio %>
+				</div>
+			</div>
+		<% end %>
+		<% if !@tags.empty? %>
+			<div class= "user_info_board round">
+				<div class= "last_header">
+					<p class="p_tag"> temas</p> <p class= "p_tags"><%= @author.name %></p>
+			        <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+			    </div>
+				<div>
+					<% @tags.each do |tag| %>
+					  <div>
+					    <%= link_to tag.name, tag, 
+					    title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
+					  </div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

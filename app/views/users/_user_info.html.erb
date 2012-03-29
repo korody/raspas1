@@ -1,0 +1,45 @@
+<div class= "user_info">
+	<% @user ||= current_user %>
+	<div class= "user_avatar">
+		<%= image_tag @user.photo.url(:regular) %>
+	</div>
+	<div class= "user_info_board round" >
+		<p class="p_user"><%= @user.name %></p>	
+		<% if @user.job? %>
+			<%= @user.job %></br>
+		<% end %>
+		<% if @user.tipo? %>
+			<%= @user.tipo %></br>
+		<% end %>
+		<% if @user.origin? %>
+			<%= @user.origin %></br>
+		<% end %>		
+		<%= render 'follow_form' if signed_in? %>
+	</div>
+	<div class= "user_info_board round" >
+		<%= render 'stats' %>
+	</div>
+	<% if @user.bio? %>
+		<div class= "user_info_board round">
+			<div class= "bio">
+				<%= @user.bio %>
+			</div>
+		</div>
+	<% end %>
+	<% if !@tags.empty? %>
+		<div class= "user_info_board round">
+			<div class= "last_header">
+				<p class="p_tag">temas</p><p class= "p_tags"> escritos</p>
+		        <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+	    	</div>
+			<div>
+				<% @tags.each do |tag| %>
+				  <div>
+				    <%= link_to tag.name, tag, 
+				    title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

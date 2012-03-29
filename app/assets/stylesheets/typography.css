@@ -1,0 +1,115 @@
+/* --------------------------------------------------------------
+
+   typography.css
+   * Sets up some sensible default typography.
+
+-------------------------------------------------------------- */
+
+/* Default font settings.
+   The font-size percentage is of 16px. (0.75 * 16px = 12px) */
+html { font-size:100%; }
+body {
+  font-size: 75%;
+  color: #2F4F4F;
+  background: #fff;
+  font-family: "Helvetica Light", Arial, Helvetica, sans-serif;
+}
+
+input {
+  font-size: 120%;
+}
+
+textarea {
+  color: #2F4F4F;
+  font-family: "Helvetica Light", Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  line-height: 1.5em;
+}
+
+
+/* Headings
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6 { font-weight: normal; color: #2F4F4F; }
+
+h1 { font-size: 2.5em; line-height: 1; margin-bottom: 0.5em; }
+h2 { font-size: 2em; margin-bottom: 0.75em; }
+h3 { font-size: 1.5em; line-height: 1; margin-bottom: 1em; }
+h4 { font-size: 1.2em; line-height: 1.25; margin-bottom: 1.25em; }
+h5 { font-size: 1em; font-weight: bold; margin-bottom: 1.5em; }
+h6 { font-size: 1em; font-weight: bold; }
+
+h1 img, h2 img, h3 img,
+h4 img, h5 img, h6 img {
+  margin: 0;
+}
+
+/* Text elements
+-------------------------------------------------------------- */
+
+
+.p_user {
+  color: #2F4F4F;
+  font-size: 150%;
+  margin-top: 0.2em;
+}
+
+.p_tag {
+  color: #2F4F4F;
+  display: inline;
+  font-size: 150%;
+  margin-top: 0.2em;
+}
+
+.p_tags {
+  color: #B0B0B0;
+  display: inline;
+  font-size: 150%;
+  margin-top: 0.2em;
+}
+
+.p_tags a {
+  font-size: 100%;
+}
+
+.p_mais {
+  display: inline;
+  float: right;
+  font-size: 120%;
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+.p_stats {
+  float: left;
+  line-height: 1.7em;
+  width: 7em;
+}
+
+.p_search {
+  color: #D8D8D8;
+  display: inline;
+  font-size: 120%;
+}
+
+p:hover {
+  cursor: default;
+}
+
+
+/* Link elements
+-------------------------------------------------------------- */
+
+a  { 
+	color: #E2492F;
+  font-size: 120%;
+	text-decoration: none; 
+}
+
+a:hover  {
+	cursor: pointer;
+}  
+
+a:active  {
+  color: #fff; 
+}

@@ -1,0 +1,68 @@
+<% if @tags.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum tema encontrado</p><%= link_to "explorar temas", tags_path %>
+	</div>
+<% else %>
+	<div class= "title">
+		<p class= "p_search">encontramos <%= pluralize @tags.count, "tema" %></p>
+		<%= link_to "explorar + temas", tags_path %>
+	</div>
+	<div class= "home">
+		<ul class="users">
+			<li><%= render @tags %></li>
+		</ul>
+	</div>
+<% end %>
+
+<% if @authors.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum pensador encontrado</p>
+		<%= link_to "| explorar pensadores", authors_path %>
+		<%= link_to "criar perfil para #{(params[:search].capitalize)} ", new_author_path %>
+	</div>
+<% else %>
+	<div class= "title">
+		<p class= "p_search">encontramos <%= @authors.count %> pensadores</p>
+		<%= link_to "explorar + pensadores", authors_path %>
+	</div>
+	<div class= "home">
+		<ul class="users">
+			<li><%= render @authors %></li>
+		</ul>
+	</div>
+<% end %>
+
+<% if @users.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum usuário encontrado</p>
+		<%= link_to "explorar usuários", users_path %>
+	</div>
+<% else %>
+	<div class= "title">
+		<p class= "p_search">encontramos <%= pluralize @users.count, "usuário" %></p>
+		<%= link_to "explorar + usuários", users_path %>
+	</div>
+	<div class= "home">
+		<ul class="users">
+			<li><%= render @users %></li>
+		</ul>
+	</div>
+<% end %>
+
+<% if @microposts.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhuma raspa encontrada</p>
+		<%= link_to "explorar raspas", microposts_path %>
+	</div>
+<% else %>
+	<div class= "title">
+		<p class= "p_search">encontramos <%= pluralize @microposts.count, "raspa" %></p>
+		<%= link_to "explorar + raspas", microposts_path %>
+	</div>
+	<div class= "home">
+		<br>
+		<ul class="users">
+			<li><%= render @microposts %></li>
+		</ul>
+	</div>
+<% end %>

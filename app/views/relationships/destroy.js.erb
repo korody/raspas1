@@ -1,0 +1,2 @@
+$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>")
+$("#followers").html('<p class= "p_stats">seguidores -1</p><%= image_tag "ico_followers_fill.png", :alt => "raspas", :class => "ico round" %><%= link_to @user.followers.count, followers_user_path(@user), :class => "but round" %>')

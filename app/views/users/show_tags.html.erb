@@ -1,0 +1,10 @@
+<div class="raspas">
+  <div class="user_info">
+    <%= render 'user_info_tags' %>
+  </div>
+  <div class="stack">
+    <% unless @user.tags.microposts.empty? %>
+      <%= render @user.tags.microposts %>
+    <% end %>
+  </div>
+</div>

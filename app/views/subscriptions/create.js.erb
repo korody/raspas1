@@ -1,0 +1,2 @@
+$("#fan_form").html("<%= escape_javascript(render('authors/fan')) %>")
+$("#fans").html('<p class= "p_stats">fãs +1</p><%= image_tag "ico_heart_fill.png", :alt => "fã", :class => "ico round" %><%= link_to @author.fans.count, fans_author_path(@author), :class => "but round" %>')

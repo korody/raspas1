@@ -1,0 +1,37 @@
+<div class="cartela round">
+    <div class= "cartela_corner round">
+        <div class= "user_avatar">
+            <%= image_tag "raspas_logo_user.jpg" %>
+        </div>
+    </div>
+    <div class= "sobre">
+        Sua opinião vale ouro! Nós queremos ouvi-la.</br>
+        Sinta-se à vontade para criticar, sugerir ou até elogiar ; )</br>
+    </div>  
+</div>
+<%= form_for @message, :url => contact_path do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>  
+  <div class="cartela round">
+    <div class= "cartela_corner round">
+      <div class= "field">
+          <%= f.text_field :name, placeholder: " seu nome", :class => "round field_info" %>
+          <%= f.text_field :email, placeholder: " seu e-mail", :class => "round field_info" %>
+          <%= f.text_field :tel, placeholder: " telefone(opcional)", :class => "round field_info" %>
+          <%= f.text_field :subject, placeholder: " o assunto", :class => "round field_info" %>
+        </div>
+      </div>
+      <div class= "field">
+        <%= f.text_area :body, maxlength: 300, placeholder: "conte-nos algo", :class => "round", id: "bio" %>
+      <div class= "count">
+        <div id= "count">300</div>
+      </div>
+    </div>
+  </div>
+  <div class= "edit_account">
+    <ul>
+      <li>
+        <%= submit_tag "enviar", :class => "but round" %>
+      </li>
+    </ul>
+  </div>
+<% end %>

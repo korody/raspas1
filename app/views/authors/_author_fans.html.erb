@@ -1,0 +1,15 @@
+<div class= "user_feed_avatar">
+	<%= link_to image_tag(@author.photo.url(:regular)), @author %>
+</div>
+<div class= "user_feed_side">
+</br></br>
+	<%= render "stats" %>
+</div>
+<div class= "user_feed_arrow">
+	<%= image_tag "ico_heart_big.png", :alt => "fãs", :class => "ico" %>
+</div>
+<div class= "user_feed_follow">
+	<% @authors_fans.each do |user| %>
+		<%= link_to image_tag(user.photo.url(:tiny)), user %>
+	<% end %>
+</div>

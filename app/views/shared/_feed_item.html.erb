@@ -1,0 +1,59 @@
+<div class="quotes round">
+  <div class= "quote">
+    <div class= "quote_text">
+      <div class= "upwards">
+        <% if !feed_item.author %>
+          <%= feed_item.content %>
+        <% else %>
+          &quot;<%= feed_item.content %>&quot;
+        <% end %>
+      </div>
+    </div>
+    <div class="user">
+      <%= image_tag "ico_raspas.png", alt: "raspa por" %>
+      <% if !feed_item.author %>
+        <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+      <% else %>
+        <%= link_to feed_item.author.name, feed_item.author, title: "ver + de #{feed_item.author.name}" %>
+      <% end %>
+    </div>
+    <div class="timestamp">
+      <%= time_ago_in_words(feed_item.created_at) %>
+      <% if !feed_item.tag_names.empty? %>
+        / sobre <%= link_to feed_item.tag_names, feed_item.tags, title: "ver + raspas sobre #{feed_item.tag_names}" %>
+      <% end %>
+      <% unless !feed_item.origem? %>
+        / extraído de <%= feed_item.origem %>
+      <% end %>
+      <% if !current_user?(feed_item.user) %>
+        / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+      <% end %>
+    </div>
+  </div>
+  <div class= "quote_corner">
+     <div class= "top_corner">
+        <% if current_user?(feed_item.user) %>
+          <%= link_to "x", feed_item, :method => :delete,
+                                                 :confirm => "certeza?",
+                                                 :title => "apagar esta raspa?",
+                                                 :class => "round" %>
+        <% else %>
+          <%= link_to "{ +", feed_item, :method => :reaspa,
+                                                   :confirm => "reaspar esta raspa?",
+                                                   :title => "reaspar",
+                                                   :class => "round" %>
+                                             
+        <% end %>
+      </div>
+    <div class= "social">
+      <%= render 'shared/social' %>
+    </div>
+
+    <% if !current_user?(feed_item.user) %>
+      <div class= "user_id">
+        <%= link_to image_tag(feed_item.user.photo.url(:medium)), feed_item.user, 
+        title: "ver perfil de #{feed_item.user.name}" %>
+      </div>
+    <% end %>
+  </div>
+</div>

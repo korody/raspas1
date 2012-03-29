@@ -1,0 +1,10 @@
+<cfif NOT posts.answerCount>
+<cfset local.postUrl = URLFor(route="rQuestionShortURL", key=posts.id, onlyPath=false)>
+<p class="loud">Você conhece alguém que possa responder a esta pergunta? Compartilhe um link via 
+
+<a href="mailto:?subject=#URLEncodedFormat('Uma pergunta sobre videogames')#&body=#URLEncodedFormat(posts.title)##URLEncodedFormat('#chr(10)##local.postUrl#')#">e-mail</a>, 
+
+#linkTo(text="Twitter", href="http://twitter.com/share?url=#local.postURL#&text=#posts.title#")#, 
+
+ou #linkTo(text="Facebook", href="http://www.facebook.com/sharer.php?u=#local.postURL#&t=#posts.title#")#.</p>
+</cfif>

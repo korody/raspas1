@@ -1,0 +1,17 @@
+<div class= "user_feed">
+    <%= render 'user_following' %>
+</div>
+<% if @user.following.empty? %>
+	<div class= "title">
+		<p class= "p_search"><%= @user.name if !@user %> ainda não segue ninguém ;(</p>
+		<%= link_to "explorar usuários", users_path %>
+	</div>
+<% else %>
+	<div class= "home">
+	  	<% unless @user.following.empty? %>
+			<div>
+				<%= render @user.following %>
+			</div>
+	  	<% end %>
+	</div>
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for current_user.subscriptions.find_by_author_id(@author),
+             html: { method: :delete },
+             remote: true do |f| %>
+  <div>
+  	<%= f.submit "não sou mais fã", :class => "unfan round" %>
+  </div>
+<% end %>

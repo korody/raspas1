@@ -1,0 +1,58 @@
+<div class="quotes round">
+  <div class= "quote">
+    <div class= "quote_text">
+      <div class= "upwards">
+        <% if !micropost.author %>
+          <%= micropost.content %>
+        <% else %>
+          &quot;<%= micropost.content %>&quot;
+        <% end %>
+      </div>
+    </div>
+    <div class="user">
+      <%= image_tag "ico_raspas.png", alt: "raspa por" %>
+      <% if !micropost.author %>
+        <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+      <% else %>
+        <%= link_to micropost.author.name, micropost.author, title: "ver + de #{micropost.author.name}" %>
+      <% end %>  
+    </div>
+    <div class="timestamp">
+      <%= time_ago_in_words(micropost.created_at) %>
+      <% if !micropost.tag_names.empty? %>
+        / sobre <%= link_to micropost.tag_names, micropost.tags, title: "ver + raspas sobre #{micropost.tag_names}" %>
+      <% end %>
+      <% unless !micropost.origem? %>
+        / extraído de <%= micropost.origem %>
+      <% end %>
+      <% if !@user %>
+        / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+      <% end %>
+    </div>
+  </div>
+    <div class= "quote_corner">
+      <div class= "top_corner">
+        <% if current_user?(micropost.user) %>
+        <%= link_to "x", micropost, :method => :delete,
+                                               :confirm => "apagar esta raspa?",
+                                               :title => "apagar",
+                                               :class => "round" %>
+        <% else %>
+          <%= link_to "{ +", micropost, :method => :reaspa,
+                                                   :confirm => "reaspar esta raspa?",
+                                                   :title => "reaspar",
+                                                   :class => "round" %>
+        <% end %>
+      </div>
+      <div class= "social">
+        <%= render 'shared/social' %>
+      </div>
+      <% if !@user %>
+        <div class= "user_id">
+          <%= link_to image_tag(micropost.user.photo.url(:medium)), micropost.user, 
+          title: "ver perfil de #{micropost.user.name}" %>
+        </div>
+      <% end %>
+    </div>
+</div>
+

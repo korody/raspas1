@@ -1,0 +1,13 @@
+<div class= "home">
+	<div class="user_info">
+	 	<%= render 'micropost_explorer' %>
+	</div>
+	<div class="stack">
+	    <% unless @microposts.empty? %>
+	      <%= render @microposts %>
+	    <% end %>
+	    <div class= "pagination_square">
+			<%= will_paginate @users %>
+		</div>
+	</div>
+</div>

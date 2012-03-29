@@ -1,0 +1,16 @@
+<div class= "user_feed">
+    <%= render 'user_followers' %>
+</div>
+<% if @user.followers.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum seguidor encontrado ; (</p>
+	</div>
+<% else %>
+	<div class= "home">
+		<% unless @user.followers.empty? %>
+			<div>
+				<%= render @user.followers %>
+			</div>
+		<% end %>
+	</div>
+<% end %>

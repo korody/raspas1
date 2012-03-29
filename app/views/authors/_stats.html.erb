@@ -1,0 +1,12 @@
+<div id= "fans" class= "stats">
+	<p class= "p_stats">fãs</p> 
+	<%= link_to (image_tag "ico_heart.png"), fans_author_path(@author), :alt => "fäs", :class => "ico round" %>
+	<%= link_to @author.fans.count, fans_author_path(@author), :class => "but round", 
+	title: "ver fäs de #{@author.name}" %>
+</div>
+<div class= "stats">
+	<p class= "p_stats">raspas</p>
+	<%= link_to (image_tag "ico_raspas.png"), @author,  :alt => "raspas", :class => "ico round" %>
+	<%= link_to @author.microposts.count, @author, :class => "but round", 
+	title: "ver raspas de #{@author.name}" %>
+</div>

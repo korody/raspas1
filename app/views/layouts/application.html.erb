@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title><%= title %></title>
+    <%= csrf_meta_tag %>
+    <%= render 'layouts/stylesheets' %>
+   <!--  <%= stylesheet_link_tag "application" %> -->
+    <%= javascript_include_tag "application" %>
+
+
+    <!-- GOOGLE +1 -->
+
+    <script type="text/javascript">
+      window.___gcfg = {lang: 'pt-BR'};
+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <%= render 'layouts/header' %>
+      <section>
+        <div class="raspas">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= key %>"><%= value %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </section>
+     <!-- <%= render 'layouts/footer' %> -->
+      <!-- <%= debug(params) if Rails.env.development? %> -->
+    </div>
+
+    <!-- FACEBOOK SHARER -->
+
+    <div id="fb-root"></div>
+    <script src='http://connect.facebook.net/pt_BR/all.js'></script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '282523151767333', // App ID
+          channelUrl : '//localhost:3000/channel.html', // Channel File
+          status     : true, // check login status
+          cookie     : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+
+        // Additional initialization code here
+      };
+
+      // Load the SDK Asynchronously
+      (function(d){
+         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement('script'); js.id = id; js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         ref.parentNode.insertBefore(js, ref);
+       }(document));
+    </script>
+
+  </body>
+</html>

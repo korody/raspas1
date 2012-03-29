@@ -1,0 +1,11 @@
+<div class="raspas">
+  <div class="user_info">
+    <%= render 'author_info' %>
+  </div>
+  <div class="stack">
+    <% unless @author.microposts.empty? %>
+      <%= render @microposts %>
+    <% end %>
+      <%= will_paginate @microposts %>
+  </div>
+</div>
