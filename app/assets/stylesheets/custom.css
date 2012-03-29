@@ -300,18 +300,19 @@ div.cartela_corner {
 }
 
 .social_but {
-  border: 0px solid #D8D8D8;
+  border: 1px solid transparent;
   display: block;
   float: left;
-  margin-left: 3.4em;
-  margin-top: 6em;
+  margin-left: 5em;
+  margin-top: 5em;
 }
 
-a.social_but  { 
-  opacity: 0.8;
-}
 a.social_but:hover  {
-   opacity: 1;
+  background: #E2492F;
+  border: 1px solid #D8D8D8;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .field {
