@@ -11,7 +11,8 @@ class AuthorsController < ApplicationController
  def show
     @author = Author.find(params[:id])
     @microposts = @author.microposts.paginate(:page => params[:page])
-    @tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 15)
+    @tags = @author.tags.all(:order => 'tags.created_at DESC')
+    @users = @author.users.all(:order => 'users.created_at DESC')
   end
   
   def new
@@ -54,6 +55,14 @@ class AuthorsController < ApplicationController
     redirect_to root_path
   end
 
+    def tags
+      @title = "tags"
+      @author = Author.find(params[:id])
+      @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
+      @authors = @author.tags.paginate(:page => params[:page])
+      render 'show_tags'
+  end
+
   def fans
     @title = "Fans"
     @author = Author.find(params[:id])
@@ -67,6 +76,14 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @authors = @author.idols.paginate(:page => params[:page])
     render 'show_idols'
+  end
+
+  def users
+    @title = "users"
+    @author = Author.find(params[:id])
+    @authors_users = @author.users.all(:order => 'users.created_at DESC')
+    @authors = @author.users.paginate(:page => params[:page])
+    render 'show_users'
   end
 
  private

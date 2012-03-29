@@ -1,10 +1,8 @@
-<div class="raspas">
-  <div class="user_info">
-    <%= render 'user_info_tags' %>
-  </div>
-  <div class="stack">
-    <% unless @user.tags.microposts.empty? %>
-      <%= render @user.tags.microposts %>
-    <% end %>
-  </div>
+<div class= "title">
+	<p class= "p_search"><%= @user.name %> já escreveu sobre <%= pluralize @user.tags.count, "tema" %></p><%= link_to "explorar + temas", tags_path %>
+</div>
+<div class= "home">
+	<ul class="users">
+		<li><%= render @user.tags %></li>
+	</ul>
 </div>

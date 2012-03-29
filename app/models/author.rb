@@ -23,7 +23,7 @@ class Author < ActiveRecord::Base
 
   has_many :microposts
 
-  has_many :tags, through: :microposts
+  has_many :tags, through: :microposts, :uniq => true
 
   has_many :subscriptions, :dependent => :destroy
 
@@ -31,6 +31,8 @@ class Author < ActiveRecord::Base
                                    :dependent => :destroy
 
   has_many :fans, :through => :reverse_subscriptions, :source => :user
+
+  has_many :users, :through => :microposts, :uniq => true
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },

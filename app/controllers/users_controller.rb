@@ -12,7 +12,8 @@
     @user = User.find(params[:id])
     @micropost = Micropost.new
     @microposts = @user.microposts.paginate(:page => params[:page])
-    @tags = @user.tags.all(:order => 'tags.created_at DESC', :limit => 15)
+    @tags = @user.tags.all(:order => 'tags.created_at DESC')
+    @authors = @user.authors.all(:order => 'authors.created_at DESC')
     @title = @user.name
   end
 
@@ -85,6 +86,14 @@
     @users_idols = @user.idols.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.idols.paginate(:page => params[:page])
     render 'show_idols'
+  end
+
+  def authors
+    @title = "authors"
+    @user = User.find(params[:id])
+    @users_authors = @user.authors.all(:order => 'authors.created_at DESC', :limit => 40)
+    @users = @user.authors.paginate(:page => params[:page])
+    render 'show_authors'
   end
 
   def fans

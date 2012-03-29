@@ -404,7 +404,7 @@ div.user_info_board {
   width: 94%;
 }
 
-.user_info_board input {  
+div.user_info_board input {  
   border: 1px solid #D8D8D8;
   color: #E2492F;
   float: left;
@@ -415,7 +415,7 @@ div.user_info_board {
   width: 100%;
 }
 
-.user_info_board a.edit {  
+div.user_info_board a.edit {  
   float: left;
   height: 22px;
   margin-top: 0.5em;
@@ -423,6 +423,7 @@ div.user_info_board {
   text-align: center;
   width: 99%;
 }
+
 .user_info_board input:hover {
   cursor: pointer;
 }

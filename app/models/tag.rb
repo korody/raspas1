@@ -14,9 +14,9 @@ class Tag < ActiveRecord::Base
 
 	has_many :microposts, :through => :taggings
 
-  has_many :users, through: :microposts
+  has_many :users, through: :microposts, :uniq => true
 
-  has_many :authors, through: :microposts
+  has_many :authors, through: :microposts, :uniq => true
 
   validates :name,  :length   => { :maximum => 15 }
 

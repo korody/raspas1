@@ -1,13 +1,13 @@
 Benfeitor::Application.routes.draw do
   resources :authors do
     member do
-      get :fans, :idols, :subscriptions
+      get :fans, :idols, :subscriptions, :users, :tags
     end
   end
 
   resources :users do
     member do
-      get :following, :followers, :idols, :fans, :tags
+      get :following, :followers, :idols, :fans, :tags, :authors  
     end
   end
 
