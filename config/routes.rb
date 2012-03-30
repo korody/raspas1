@@ -36,7 +36,6 @@ Benfeitor::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/search', to: "search#index"
-  match '/tags', :to => 'tags#index'
   
   root :to => 'pages#home'
 

@@ -33,7 +33,7 @@
 		        <p class= "p_mais"><%= link_to "+", tags_user_path(@user), title: "ver todos os temas escritos por #{@user.name}" %></p>
 	    	</div>
 			<div>
-				<% @tags.last(20).each do |tag| %>
+				<% @tags.last(8).each do |tag| %>
 				  <div>
 				    <%= link_to tag.name, tag, 
 				    title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
