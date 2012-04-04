@@ -1,11 +1,18 @@
-<div class="raspas">
-	<% unless @author.published? %>
-      <% flash[:success] = "O perfil de #{@author.name} está sob análise." %>
-    <% end %> 
+<div class="raspas"> 
   <div class="user_info">
     <%= render 'author_info' %>
   </div>
   <div class="stack">
+    <% if @author %>
+      <% unless @author.published? %>
+        <div class="quotes round">
+          <div class= "sobre">
+            O perfil de <%= @author.name %> é recente e está sob análise.</br>
+            Não gosta do que está vendo? Marque como abusivo!<%= link_to (image_tag "flag_big.png"), @author, title: "denunciar raspa abusiva" %>
+          </div>
+        </div>
+      <% end %> 
+    <% end %> 
     <% unless @author.microposts.empty? %>
       <%= render @microposts %>
     <% end %>

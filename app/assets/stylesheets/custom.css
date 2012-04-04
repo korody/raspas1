@@ -914,6 +914,7 @@ div.name_edit p {
   float: left;
   font-weight: bold;
   font-size: 150%;
+  max-width: 9em;
 }
 
   div.sobre {
