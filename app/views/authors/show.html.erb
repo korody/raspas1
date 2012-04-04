@@ -1,4 +1,7 @@
 <div class="raspas">
+	<% unless @author.published? %>
+      <% flash[:success] = "O perfil de #{@author.name} está sob análise." %>
+    <% end %> 
   <div class="user_info">
     <%= render 'author_info' %>
   </div>

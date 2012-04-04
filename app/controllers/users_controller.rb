@@ -99,7 +99,7 @@
   def fans
     @title = "Fans"
     @user = User.find(params[:id])
-    @a_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
+    @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
     @authors = @author.fans.paginate(:page => params[:page])
     render 'show_fans'
   end

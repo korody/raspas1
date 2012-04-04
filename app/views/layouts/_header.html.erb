@@ -16,8 +16,8 @@
       <ul class= "nave_r"> 
         <div class= "topo">
           <li><%= link_to (image_tag "menu_arrow.png"), current_user %> 
-            <li class= "sider"><%= link_to "editar", edit_user_path(current_user) %></li>   
-            <li class= "sider"><%= link_to "sair", signout_path %></li>
+            <li class= "sider"><%= link_to (image_tag "edit.png"), edit_user_path(current_user) %></li>   
+            <li class= "sider"><%= link_to (image_tag "sair.png"), signout_path %></li>
           </li>
         </div>   
       </ul> 

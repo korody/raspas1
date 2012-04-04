@@ -4,7 +4,7 @@
 	</div>
 	<div class= "user_card_info">
 		<div class= "user_card_name">
-			<p class= "p_user_card"><%= link_to author.name, author %></p>
+			<%= link_to author.name, author %>
 			<% if current_user %>
 				<% if current_user.admin? %>
 					<%= link_to "delete", author, :method => :delete, :confirm => "You sure?",

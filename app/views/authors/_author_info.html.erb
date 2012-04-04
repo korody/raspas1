@@ -3,8 +3,11 @@
 		<%= link_to (image_tag @author.photo.url(:regular)), edit_author_path %>
 	</div>
 	<div class= "user_info">
-		<div class= "user_info_board round" >
-			<p class="p_user"><%= @author.name %></p>	
+		<div class= "user_info_board round">
+			<div class= "name_edit">
+				<p><%= @author.name %></p>
+				<%= link_to (image_tag "edit_author.png"), edit_author_path %>
+			</div>
 			<% if @author.job? %>
 				<%= @author.job  %></br>
 			<% end %>
@@ -15,7 +18,6 @@
 				<%= @author.origin %></br>
 			<% end %>
 			<%= render 'fan_form' %>
-			<%= link_to "editar", edit_author_path, class: "edit but round" %>
 		</div>
 		<div class= "user_info_board round" >
 			<%= render 'stats' %>

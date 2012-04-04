@@ -1,10 +1,16 @@
 <div class= "user_info">
-	<% @user ||= current_user %>
 	<div class= "user_avatar">
 		<%= image_tag @user.photo.url(:regular) %>
 	</div>
 	<div class= "user_info_board round" >
-		<p class="p_user"><%= @user.name %></p>	
+		<div class= "name_edit">
+			<p><%= @user.name %></p>
+			<% if signed_in? %>
+				<% if current_user?(@user) %>	
+					<%= link_to (image_tag "edit_author.png"), edit_user_path(current_user) %>
+				<% end %>
+			<% end %>
+		</div>
 		<% if @user.job? %>
 			<%= @user.job %></br>
 		<% end %>

@@ -48,7 +48,8 @@
 
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
-  has_many :subscriptions, :dependent => :destroy
+  has_many :subscriptions, :foreign_key => "user_id",
+                           :dependent => :destroy
 
   has_many :idols, through: :subscriptions, source: :author
 
@@ -103,7 +104,7 @@
   end
 
   def idols?(author)
-    subscriptions.find_by_author_id(author.id)
+    subscriptions.find_by_author_id(author)
   end
 
   def fan!(author)
@@ -116,6 +117,7 @@
 
   def feed
     Micropost.from_users_followed_by(self)
+    #Micropost.from_authors_idols_of(self)
   end  
 
     private

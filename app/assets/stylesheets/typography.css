@@ -47,13 +47,6 @@ h4 img, h5 img, h6 img {
 /* Text elements
 -------------------------------------------------------------- */
 
-
-.p_user {
-  color: #2F4F4F;
-  font-size: 150%;
-  margin-top: 0.2em;
-}
-
 .p_tag {
   color: #2F4F4F;
   display: inline;

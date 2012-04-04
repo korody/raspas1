@@ -42,7 +42,7 @@ nav {
   height: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 1010px;
+  width: 1000px;
 }
 
 nav input::-webkit-input-placeholder {
@@ -53,10 +53,11 @@ nav input:-moz-placeholder {
 }
 
 .raspas_logo {
+  border: 0px solid #E6674A;
   float: left;
   height: 18px;
-  padding: 14px 17px 1px;
-  width: 73px;
+  padding: 14px 20px 7px 10px;
+  width: 74px;
 }
 
 nav ul {
@@ -81,7 +82,7 @@ nav ul li a {
   border: 0px solid #E6674A;
   color: #FFF;
   display: inline-block;
-  padding: 9px;
+  padding: 10px;
   min-width: 15px;
 }
 
@@ -91,6 +92,11 @@ nav ul li a {
 
 nav ul.nave_r li a {
   float: left;
+}
+
+nav ul.nave_r li.sider a img {
+  height: 15px;
+  padding: 0;
 }
 
 nav ul li input {
@@ -114,7 +120,7 @@ nav ul li.search {
 
 nav ul li.search input.search_li {
   float: left;
-  width: 11.3em;
+  width: 11.4em;
 }
 
 .lupa {
@@ -122,8 +128,7 @@ nav ul li.search input.search_li {
   border-left: 0px solid #E6674A;
   float: left;
   opacity: 0.8;
-  padding-left: 0.2em;
-  padding-right: 0.4em;
+  padding: 0 0.2em;
   height: 27px;
   width: 27px;
 }
@@ -135,7 +140,7 @@ nav ul li a:hover {
 
 div.topo {
   border: 0px solid blue;
-  width: 142px;
+  width: 140px;
 }
 
 /* PAGINATION */
@@ -488,17 +493,17 @@ div.user_info_board a.temas {
   margin: 0 0.4em 0.4em 0;
 }
 
+div.last_header {
+  border: 0px solid #D8D8D8;
+  margin-bottom: 0.5em;
+}
+
 div.last {
   border: 0px solid #D8D8D8;
   height: 30px;
   margin-bottom: 0.5em;
   vertical-align: text-top;
 }
-
-div.last_header {
-  margin-bottom: 0.5em;
-}
-
 
 div.last img {
   height: 30px;
@@ -705,6 +710,14 @@ div.top_corner a:hover {
   opacity: 1;
 }
 
+div.top_corner a.published {
+  background: #E2492F;
+  color: #FFF;
+  font-size: 120%;
+  font-weight: bold;
+  line-height: 1.1em;
+}
+
 div.social {
   border: 0px solid #D8D8D8;
   display: block;
@@ -878,6 +891,30 @@ div.user_card_info {
 }
 
 /* AUTHOR */
+
+  div.name_edit {
+  border: 0px solid #D8D8D8;
+  height: 30px;
+  margin-bottom: 2px;
+}
+
+div.name_edit img {
+  border: 0px solid #D8D8D8;
+  display: inline;
+  float: right;
+  height: 15px;
+  margin: 3px 3px 0 0;
+  width: 20px;
+}
+
+div.name_edit p {
+  border: 0px solid #D8D8D8;
+  color: #2F4F4F;
+  display: inline;
+  float: left;
+  font-weight: bold;
+  font-size: 150%;
+}
 
   div.sobre {
   border: 0px solid black;

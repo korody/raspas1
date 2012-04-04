@@ -28,22 +28,41 @@
       <% if !current_user?(feed_item.user) %>
         / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
       <% end %>
+      <% if feed_item.author %>
+        / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+        <% if !feed_item.author.published? %>
+        / raspa <%= link_to "sob análise", root_path %>
+        <% end %> 
+      <% end %>
     </div>
   </div>
   <div class= "quote_corner">
      <div class= "top_corner">
-        <% if current_user?(feed_item.user) %>
-          <%= link_to "x", feed_item, :method => :delete,
-                                                 :confirm => "certeza?",
-                                                 :title => "apagar esta raspa?",
-                                                 :class => "round" %>
-        <% else %>
-          <%= link_to "{ +", feed_item, :method => :reaspa,
-                                                   :confirm => "reaspar esta raspa?",
-                                                   :title => "reaspar",
+        <% if feed_item.author %>
+          <% if feed_item.author.published? %>
+            <%= link_to (image_tag "reaspa.png"), feed_item, :method => :reaspa,
+                                                     :confirm => "reaspar esta raspa?",
+                                                     :title => "reaspar",
+                                                     :class => "round" %>
+          <% else %>
+            <%= link_to (image_tag "flag.png"), @author, 
+                                                     :title => "marcar como raspa abusiva",
+                                                       :class => "published round" %>
+          <% end %>
+
+        <% else %>                                              
+          <% if current_user?(feed_item.user) %>
+            <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
+                                                   :confirm => "apagar esta raspa?",
+                                                   :title => "descartar",
                                                    :class => "round" %>
-                                             
-        <% end %>
+          <% else %>
+            <%= link_to (image_tag "reaspa.png"), feed_item, :method => :reaspa,
+                                                     :confirm => "reaspar esta raspa?",
+                                                     :title => "reaspar",
+                                                     :class => "round" %>
+          <% end %>
+        <% end %> 
       </div>
     <div class= "social">
       <%= render 'shared/social' %>

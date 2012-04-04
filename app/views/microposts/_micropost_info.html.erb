@@ -20,7 +20,7 @@
 	<% if @micropost.author %>
 		<div class= "user_info_board round">
 	        <div class= "last_header">
-	          <p class="p_tag">pensador</p><p class= "p_tags"> original</p>
+	          <p class="p_tag">pensador</p><p class= "p_tags"> citado</p>
 	          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
 	        </div>
 	        <div>
@@ -33,7 +33,7 @@
 	<% end %>
 	<div class= "user_info_board round">
         <div class= "last_header">
-          <p class="p_tag">usuário</p><p class= "p_tags"> envolvido</p>
+          <p class="p_tag">usuário</p><p class= "p_tags"> contribuinte</p>
           <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
         </div>
         <div>

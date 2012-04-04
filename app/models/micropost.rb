@@ -27,6 +27,7 @@ class Micropost < ActiveRecord::Base
 
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
+  scope :from_authors_idols_of, lambda { |author| idols_of(author) }
 
   attr_accessor :author_name
   attr_writer :tag_names
@@ -49,9 +50,16 @@ class Micropost < ActiveRecord::Base
 
     def self.followed_by(user)
       following_ids = %(SELECT followed_id FROM relationships
-                        WHERE follower_id = :user_id)
+                            WHERE follower_id = :user_id)
       where("user_id IN (#{following_ids}) OR user_id = :user_id",
-            { :user_id => user })
+            { user_id: user })
+    end 
+
+    def self.idols_of(user)
+      idols_ids = %(SELECT author_id FROM subscriptions
+                            WHERE user_id = :user_id)
+      where("author_id IN (#{idols_ids}) OR user_id = :user_id",
+            { user_id: user })
     end
 
     def assign_author
