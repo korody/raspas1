@@ -34,6 +34,7 @@
         / raspa <%= link_to "sob análise", root_path %>
         <% end %> 
       <% end %>
+      / <%= link_to (image_tag "flag_ico.png"), root_path %>
     </div>
   </div>
   <div class= "quote_corner">
@@ -45,8 +46,8 @@
                                                      :title => "reaspar",
                                                      :class => "round" %>
           <% else %>
-            <%= link_to (image_tag "flag.png"), @author, 
-                                                     :title => "marcar como raspa abusiva",
+            <%= link_to (image_tag "review.png"), @author, 
+                                                     :title => "raspa sob análise / denunciar abuso",
                                                        :class => "published round" %>
           <% end %>
 

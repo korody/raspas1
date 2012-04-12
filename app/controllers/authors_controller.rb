@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
     @authors = Author.paginate(:page => params[:page])
   end
 
- def show
+  def show
       @author = Author.find(params[:id])
       @microposts = @author.microposts.paginate(:page => params[:page])
       @tags = @author.tags.all(:order => 'tags.created_at DESC')

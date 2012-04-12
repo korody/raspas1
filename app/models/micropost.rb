@@ -63,7 +63,7 @@ class Micropost < ActiveRecord::Base
     end
 
     def assign_author
-      author = Author.find_or_create_by_name(author_name)
+      author = Author.find_or_create_by_name(author_name.titlecase)
       self.author_id = author ? author.id : 0
     end
 
