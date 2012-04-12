@@ -998,10 +998,10 @@ div.tag_word a {
 /* ERRORS */
 
 .field_with_errors {
-  background: #FFF;
-  height: 34px;
-  margin-bottom: 0.9em;
-  width: 100%;
+  background-image: url('error.png');
+  background-repeat: no-repeat;
+  background-position: right top; 
+  float: left;
 }
 
 .field_with_errors input {
@@ -1011,17 +1011,15 @@ div.tag_word a {
 #error_explanation {
   border: 0px solid #D8D8D8;
   color: #B0B0B0;
-  font-size: 160%;
+  font-size: 140%;
   height: 90%;
-  margin: 0.3em;
+  margin: 0.5em;
   text-indent: 0.5em;
   width: 97%;
 }
 
 #error_explanation ul li {
-  color: #E2492F;
-  font-size: 85%;
-  font-weight: bold;
+  color: #2F4F4F;
   list-style: none;
   margin-top: 0.5em;
 }
@@ -1029,32 +1027,47 @@ div.tag_word a {
 /* NOTICES */
 
 .cartela_error {
-  background: transparent;
+  background-image: url('sad.png');
+  background-repeat: no-repeat;
+  background-position: right center; 
   border: 2px solid #E2492F;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5em;
-  width: 800px;
+  float: right;
+  padding: 0.5em 0;
+  width: 595px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
 }
 
+div.cartela_error img{
+  float: right;
+  margin-right: 1em;
+}
+
 div.flash.success {
-  background: #F8F8F8;
-  border: 1 solid #D8D8D8;
+  background: #FFF5EE;
+  background-image: url('happy.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  border: 2px solid #2F4F4F;
+  border-top: 0px solid #D8D8D8;
   border-radius: 4px;
   color: #2F4F4F;
   display: inline-block;
   float: right;
-  font-size: 160%;
+  font-size: 140%;
   margin: 0 0.3em 0.5em 0.5em;
-  padding: 4.5em 0 4.5em 1em;
-  width: 567px;
+  padding: 0.7em;
+  text-indent: 0.5em;
+  width: 561px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+}
+
+div.flash.succeess img{
+  float: right;
+  margin-right: 1em;
 }
 
 div.flash.notice {
