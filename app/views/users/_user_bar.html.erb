@@ -4,9 +4,9 @@
 	</div>
 	<div class= "user_board">
 		<%= form_for @micropost do |f| %>
-			<%= f.text_area :content, :maxlength => 300, placeholder: '"escreva aqui um pensamento"' %>
+			<%= f.text_area :content, :maxlength => 240, placeholder: '"escreva aqui um pensamento"' %>
 			<div class= "count_micropost">
-				<div id= "count">300</div>
+				<div id= "count">240</div>
 			</div>
 			<%= f.text_field :author_name, placeholder: "autor original" %>
 			<%= f.text_field :origem, placeholder: "origem da raspa" %>

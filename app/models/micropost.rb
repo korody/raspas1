@@ -18,7 +18,7 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :author
 
-  validates :content, :presence => true, :length => { :maximum => 300 },
+  validates :content, :presence => true, :length => { :maximum => 240 },
                       :uniqueness => { :case_sensitive => false }
 
   validates :user_id, :presence => true
