@@ -39,7 +39,7 @@
               <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
           </div>
         <div>
-          <% @tags.last(8).each do |tag| %>
+          <% @tags.first(8).each do |tag| %>
             <div>
               <%= link_to tag.name, tag, 
               title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
@@ -53,7 +53,7 @@
           <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
         </div>
         <div>
-          <% @authors.last(4).each do |author| %>
+          <% @authors.first(4).each do |author| %>
             <div class= "last">
               <%= link_to image_tag(author.photo.url(:tiny)), author, title: "ver perfil de #{author.name}" %>
               <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
@@ -67,7 +67,7 @@
           <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
         </div>
         <div>
-          <% @users.last(4).each do |user| %>
+          <% @users.first(4).each do |user| %>
             <div class= "last">
               <%= link_to image_tag(user.photo.url(:tiny)), user, title: "ver perfil de #{user.name}" %>
               <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>

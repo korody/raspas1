@@ -21,7 +21,7 @@ class Author < ActiveRecord::Base
                                 :medium => "100x100#",
                                 :regular => "200x200#" })
 
-  has_many :microposts
+  has_many :microposts, :dependent => :destroy
 
   has_many :tags, through: :microposts#, :uniq => true
 

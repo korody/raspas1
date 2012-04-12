@@ -7,8 +7,8 @@ class PagesController < ApplicationController
       @feed_items = current_user.feed.paginate(:page => params[:page])
     else
       @user = User.new
-      @authors = Author.all
-      @users = User.all
+      @authors = Author.all(:order => 'authors.created_at DESC')
+      @users = User.all(:order => 'users.created_at DESC')
       @tags = Tag.all(:order => 'tags.created_at DESC')
       @feed_items = Micropost.all(:order => 'microposts.created_at DESC', :limit => 20)
     end
