@@ -28,38 +28,26 @@
       <% if micropost.author %>
         / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
         <% if !micropost.author.published? %>
-        / raspa <%= link_to "sob análise", @author %>
-        <% end %> 
-      <% end %>
-      / <%= link_to (image_tag "flag_ico.png"), root_path %>
+          / raspa <%= link_to "sob análise", @author %>
+          <%= link_to (image_tag "flag_ico.png"), root_path %>
+        <% end %>
+      <% else %>
+        / <%= link_to (image_tag "flag_ico.png"), root_path %>
+      <% end %> 
     </div>
   </div>
     <div class= "quote_corner">
-      <div class= "top_corner">
-        <% if micropost.author %>
-          <% if micropost.author.published? %>
-            <%= link_to (image_tag "reaspa.png"), micropost, :method => :reaspa,
-                                                     :confirm => "reaspar esta raspa?",
-                                                     :title => "reaspar",
-                                                     :class => "round" %>
-          <% else %>
-            <%= link_to (image_tag "review.png"), @author, 
-                                                     :title => "raspa sob análise / denunciar abuso",
-                                                       :class => "published round" %>
-          <% end %>
-
-        <% else %>                                              
-          <% if current_user?(micropost.user) %>
-            <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
-                                                   :confirm => "apagar esta raspa?",
-                                                   :title => "descartar",
+      <div class= "top_corner">                                             
+        <% if current_user?(micropost.user) %>
+          <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
+                                                 :confirm => "apagar esta raspa?",
+                                                 :title => "descartar",
+                                                 :class => "round" %>
+        <% else %>
+          <%= link_to (image_tag "reaspa.png"), micropost, :method => :reaspa,
+                                                   :confirm => "reaspar esta raspa?",
+                                                   :title => "reaspar",
                                                    :class => "round" %>
-          <% else %>
-            <%= link_to (image_tag "reaspa.png"), micropost, :method => :reaspa,
-                                                     :confirm => "reaspar esta raspa?",
-                                                     :title => "reaspar",
-                                                     :class => "round" %>
-          <% end %>
         <% end %>  
       </div>
       <div class= "social">

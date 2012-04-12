@@ -641,13 +641,9 @@ div.quote {
 
 div.quote_text {
   border: 0px solid blue;
-  font-size: 150%;
-  padding-top: 8em;
+  font-size: 146%;
+  padding-top: 7.5em;
   position: relative;
-}
-
-div.quote_text a {
-  font-size: 100%;
 }
 
 div.upwards {
@@ -674,7 +670,7 @@ div.timestamp {
   color: #B0B0B0;
   display: block;
   float: left;  
-  margin: 0.4em 0 0 0.4em;
+  margin: 0.9em 0 0 0.4em;
 }
 
 div.timestamp a {
@@ -723,7 +719,7 @@ div.social {
   display: block;
   float: right;
   height: 1.8em;
-  margin-top: 3.7em;
+  margin-top: 4.9em;
   padding-right: 0.1em;
 }
 
@@ -747,7 +743,7 @@ div.user_id img {
   float: right;
   height: 65px;
   margin-bottom: 0;
-  margin-top: 2.7em;
+  margin-top: 1.6em;
   width: 65px;
 }
 
@@ -912,7 +908,8 @@ div.name_edit p {
   color: #2F4F4F;
   display: inline;
   float: left;
-  font-size: 150%;
+  font-size: 140%;
+  font-weight: bold;
   max-width: 9em;
 }
 
