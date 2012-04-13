@@ -700,7 +700,7 @@ div.quote_corner {
   width: 14%;
 }
 
-div.top_corner a, div.top_corner input {
+div.top_corner a {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;`
   display: block;
@@ -709,9 +709,10 @@ div.top_corner a, div.top_corner input {
   opacity: 0.7;
   padding: 1px 1.2em;
   text-align: center;
+  width: 30px;
 }
 
-div.top_corner a:hover, div.top_corner input:hover {
+div.top_corner a:hover {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
   background: #E2492F;
