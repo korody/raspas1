@@ -7,9 +7,9 @@ class TagsController < ApplicationController
 
   	def show
 	    @tag = Tag.find(params[:id])
-	    @tags = Tag.all
-	    @users = @tag.users
-	    @authors = @tag.authors
+	    @tags = Tag.all(:order => 'tags.created_at DESC')
+	    @users = @tag.users(:order => 'users.created_at DESC')
+	    @authors = @tag.authors(:order => 'authors.created_at DESC')
 	    @microposts = @tag.microposts.paginate(:page => params[:page])
 	end
 

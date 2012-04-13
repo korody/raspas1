@@ -5,10 +5,13 @@
   <div class="stack">
     <% if @author %>
       <% unless @author.published? %>
-        <div class="quotes round">
-          <div class= "sobre">
+        <div class="half_quotes round">
+          <div class= "sign">
             O perfil de <%= @author.name %> é recente e está sob análise.</br>
-            Não gosta do que está vendo? Marque como abusivo!<%= link_to (image_tag "flag_big.png"), @author, title: "denunciar raspa abusiva" %>
+            Não gosta do que está vendo? Marque como abusivo!
+          </div>
+          <div class= "flag_sign">
+            <%= link_to (image_tag "flag_sign.png"), @author, title: "denunciar raspa abusiva" %>
           </div>
         </div>
       <% end %> 

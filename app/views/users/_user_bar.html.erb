@@ -1,17 +1,20 @@
-<% @user ||= current_user %>
-	<div class= "board_avatar">
-		<%= link_to image_tag(@user.photo.url(:regular)), current_user %>
-	</div>
-	<div class= "user_board">
-		<%= form_for @micropost do |f| %>
-			<%= f.text_area :content, :maxlength => 240, placeholder: '"escreva aqui um pensamento"' %>
-			<div class= "count_micropost">
-				<div id= "count">240</div>
-			</div>
-			<%= f.text_field :author_name, placeholder: "autor original" %>
-			<%= f.text_field :origem, placeholder: "origem da raspa" %>
-			<%= f.text_field :tag_names, placeholder: "temas envolvidos" %>
-			<%= image_submit_tag "pen.png", :class => "pen round" %>
+<div class= "user_bar">
+	<% @user ||= current_user %>
+		<div class= "board_avatar">
+			<%= link_to image_tag(@user.photo.url(:regular)), current_user %>
+		</div>
+		<div class= "user_board">
+			<%= form_for @micropost do |f| %>
+				<%= f.text_area :content, :maxlength => 240, placeholder: '"escreva aqui um pensamento"' %>
+				<div class= "count_micropost">
+					<div id= "count">240</div>
+				</div>
+				<%= f.text_field :author_name, placeholder: "autor original" %>
+				<%= f.text_field :origem, placeholder: "origem da raspa" %>
+				<%= f.text_field :tag_names, placeholder: "temas envolvidos" %>
+				<%= image_submit_tag "pen.png", :class => "pen round" %>
+		</div>
+</div>	
 		<%= render 'shared/error_messages', :object => f.object %>  
-		<% end %>
-	</div>
+	<% end %>
+	
