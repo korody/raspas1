@@ -44,7 +44,10 @@
                                                  :title => "descartar",
                                                  :class => "round" %>
         <% else %>
-          <%= render "microposts/reaspa" %>
+          <%= link_to (image_tag "reaspa.png"), micropost, :method => :create,
+                                                   :confirm => "reaspar esta raspa?",
+                                                   :title => "reaspar",
+                                                   :class => "round" %>
         <% end %>  
       </div>
       <div class= "social">
