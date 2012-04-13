@@ -3,6 +3,11 @@ class TagsController < ApplicationController
 	def index
 	    @title = "temas"
 	    @tags = Tag.paginate(:page => params[:page])
+	    @tags = Tag.where("name like ?", "%#{params[:q]}%")
+		  respond_to do |format|
+		    format.html
+		    format.json { render :json => @tags.map(&:attributes) }
+  end
   	end
 
   	def show

@@ -11,7 +11,7 @@
 #
 
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :tag_names, :author_id, :author_name, :origem
+  attr_accessible :content, :tag_names, :author_id, :author_name, :origem, :tag_tokens
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
 
@@ -31,11 +31,16 @@ class Micropost < ActiveRecord::Base
 
   attr_accessor :author_name
   attr_writer :tag_names
+  attr_reader :tag_tokens
   before_save :assign_author
   after_save :assign_tags
 
   def tag_names
-    @tag_names || tags.map(&:name).join(' ')
+    @tag_names || tags.map(&:name).join(',')
+  end
+
+  def tag_tokens=(ids)
+    self.tag_ids = ids.split(",")
   end
 
   private
