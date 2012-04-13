@@ -1,8 +1,5 @@
-<%= form_for Micropost.new do |f| %>
+<%= form_for Micropost.create, method: "reaspa" do |f| %>
 	<div>
-		<%= f.hidden_field :content %>
-	</div>
-	<div>
-	  	<%= f.submit "reaspa", :class => "follow round" %>
+	  	<%= image_submit_tag "reaspa.png", :class => "follow round" %>
 	</div>
 <% end %>
