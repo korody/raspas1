@@ -80,10 +80,9 @@ h4 img, h5 img, h6 img {
 }
 
 .p_search {
-  color: #B0B0B0;
+  color: #D8D8D8;
   display: inline;
-  font-size: 140%;
-  font-weight: normal;
+  font-size: 120%;
 }
 
 p:hover {

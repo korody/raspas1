@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
     @title = "All authors"
     @authors = Author.all
     @authors = Author.paginate(:page => params[:page])
-    @authors = Author.order(:name).where("name like ?", "%#{params[:term]}%")
+    @authors = Author.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
     render json: @authors.map(&:name)
   end
 

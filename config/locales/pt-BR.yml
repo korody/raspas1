@@ -96,10 +96,7 @@ pt-BR:
       second: Segundo
       year: Ano
   errors:
-    format: ! 'Opa, quase! Só faltou preencher o %{attribute}'
-    attributes:
-      Content: pensamento
-      Name: nome
+    format: ! '%{attribute} %{message}'
     messages:
       accepted: deve ser aceito
       blank: não pode ficar em branco
