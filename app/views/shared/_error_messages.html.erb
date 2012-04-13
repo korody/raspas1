@@ -1,10 +1,11 @@
 <% if object.errors.any? %>
   <div class= "cartela_error round">
     <div id="error_explanation">
-      <!-- Opa, quase! Faltou <%= pluralize(object.errors.count, "detalhe") %>: !-->
+      Opa, quase. Só mais <%= pluralize(object.errors.count, "detalhe") %>
+      entre você e o sucesso:
       <ul>
         <% object.errors.full_messages.each do |msg| %>
-          <li>.<%= msg %></li>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>

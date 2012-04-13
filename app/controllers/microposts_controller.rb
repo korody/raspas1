@@ -35,14 +35,13 @@ class MicropostsController < ApplicationController
       @microposts = Micropost.find(:all)
       @microposts = Micropost.paginate(:page => params[:page])
       @tags = @micropost.tags
-      @reaspa = current_user.microposts.build(params[:micropost])
   end
 
   ####### NEEDS WORK ON ###########
 
   def reaspa
-    micropost = current_user.microposts.new
-    if micropost.save
+    micropost = current_user.microposts.build(params[:micropost])
+    if @icropost.save
       redirect_back_or root_path
       flash[:notice] = "Reaspa concluída! A raspa escolhida foi compartilhada."
     end

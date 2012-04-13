@@ -1,6 +1,8 @@
 <div class="raspas">
 <% if signed_in? %>
-  <%= render 'users/user_bar' %>
+  <div class= "user_bar">
+    <%= render 'users/user_bar' %>
+  </div>
   <div class= "home">
     <div>
       <%= render 'shared/feed' %>

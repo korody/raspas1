@@ -276,6 +276,7 @@ div.likes {
   color: #B0B0B0;
   display: inline-block;
   font-size: 140%;
+  font-weight: bold;
   margin-top: 0.4em;
   width: 100%;
 }
@@ -521,9 +522,8 @@ div.last p {
 div.user_bar {
   background: #F8F8F8;
   border: 1px solid #D8D8D8;
-  float: left;
   height: 200px;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   margin-left:auto;
   margin-right:auto;
   width: 100%;
@@ -627,18 +627,6 @@ div.quotes {
   -moz-box-shadow: 0 2px 2px #D8D8D8;
 }
 
-div.half_quotes {
-  background-color: #F8F8F8;
-  border: 1px solid #E8E8E8;
-  height: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1em;
-  width: 98%;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 2px 2px #D8D8D8;
-}
-
 div.quotes:nth-child(even) { 
   background: #FFF5EE; 
 }
@@ -700,23 +688,30 @@ div.quote_corner {
   width: 14%;
 }
 
-div.top_corner a, div.top_corner input {
-  border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;`
+div.top_corner a {
+  border: 1px solid #B0B0B0;
+  border-top: 0px solid #B0B0B0;
   display: block;
   float: right;
-  height: 30px;
-  opacity: 0.7;
-  padding: 1px 1.2em;
+  font-size: 160%;
+  height: 32px;
+  opacity: 0.4;
   text-align: center;
+  width: 65px;
 }
 
-div.top_corner a:hover, div.top_corner input:hover {
-  border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;
+div.top_corner a:hover {
   background: #E2492F;
   color: #FFF;
   opacity: 1;
+}
+
+div.top_corner a.published {
+  background: #E2492F;
+  color: #FFF;
+  font-size: 120%;
+  font-weight: bold;
+  line-height: 1.1em;
 }
 
 div.social {
@@ -921,36 +916,17 @@ div.name_edit p {
   div.sobre {
   border: 0px solid black;
   float: left;
-  font-size: 145%;
-  font-weight: bold;
+  font-size: 160%;
   height: 55px;
   margin-left: 1em;
-  margin-top: 4.3em;
+  margin-top: 3.7em;
   width: 560px;
-}
-
-div.sign {
-  border: 0px solid black;
-  float: left;
-  font-size: 140%;
-  height: 55px;
-  margin-left: 1em;
-  margin-top: 1.4em;
-  width: 500px;
-}
-
-div.flag_sign {
-  border: 0px solid black;
-  float: left;
-  font-size: 140%;
-  height: 40px;
-  margin-top: 2em;
-  width: 40px;
 }
 
  div.sobre a {
   font-size: 100%;
 }
+
 
 .user_info_board a.mimic {
   margin-bottom: 0.5em;  
@@ -1022,10 +998,10 @@ div.tag_word a {
 /* ERRORS */
 
 .field_with_errors {
-  background-image: url('error.png');
-  background-repeat: no-repeat;
-  background-position: right top; 
-  float: left;
+  background: #FFF;
+  height: 34px;
+  margin-bottom: 0.9em;
+  width: 100%;
 }
 
 .field_with_errors input {
@@ -1035,15 +1011,17 @@ div.tag_word a {
 #error_explanation {
   border: 0px solid #D8D8D8;
   color: #B0B0B0;
-  font-size: 140%;
+  font-size: 160%;
   height: 90%;
-  margin: 0.5em;
+  margin: 0.3em;
   text-indent: 0.5em;
   width: 97%;
 }
 
 #error_explanation ul li {
-  color: #B0B0B0;
+  color: #E2492F;
+  font-size: 85%;
+  font-weight: bold;
   list-style: none;
   margin-top: 0.5em;
 }
@@ -1051,60 +1029,43 @@ div.tag_word a {
 /* NOTICES */
 
 .cartela_error {
-  background-image: url('sad.png');
-  background-repeat: no-repeat;
-  background-position: right center; 
+  background: transparent;
   border: 2px solid #E2492F;
-  float: right;
-  padding: 2em 0;
-  width: 595px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  width: 800px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
 }
 
-div.cartela_error img{
-  float: right;
-  margin-right: 1em;
-}
-
 div.flash.success {
-  background: #FFF5EE;
-  background-image: url('happy.png');
-  background-repeat: no-repeat;
-  background-position: right center;
-  border: 2px solid #E2492F;
-  border-top: 0px solid #D8D8D8;
+  background: #F8F8F8;
+  border: 1 solid #D8D8D8;
   border-radius: 4px;
-  color: #B0B0B0;
+  color: #2F4F4F;
   display: inline-block;
   float: right;
-  font-size: 140%;
+  font-size: 160%;
   margin: 0 0.3em 0.5em 0.5em;
-  padding: 2em 0.5em;
-  text-indent: 0.5em;
-  width: 565px;
+  padding: 4.5em 0 4.5em 1em;
+  width: 567px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
 
-div.flash.success img{
-  float: right;
-  margin-right: 1em;
-}
-
 div.flash.notice {
   background: transparent;
-  background-image: url('surprise.png');
-  background-repeat: no-repeat;
-  background-position: right center;
   border: 2px solid #E2492F;
   border-top: 0 solid #E2492F;
   color: #B0B0B0;
   display: inline-block;
-  font-size: 140%;
-  padding: 2em 0;
+  font-size: 160%;
+  padding-bottom: 2em;
+  padding-top: 2em;
   margin: 0 auto 1em;
   text-align: center;
   width: 792px;
@@ -1119,7 +1080,8 @@ div.flash.error {
   color: #B0B0B0;
   display: inline-block;
   font-size: 160%;
-  padding: 2em 0;
+  padding-bottom: 2em;
+  padding-top: 2em;
   margin: 0 auto 1em;
   text-align: center;
   width: 795px;
