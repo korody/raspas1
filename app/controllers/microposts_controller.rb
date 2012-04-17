@@ -40,7 +40,8 @@ class MicropostsController < ApplicationController
   def reaspas
     original_micropost = Micropost.find(params[:id])
     if original_micropost
-      new_micropost = current_user.microposts.build(content: original_micropost.content, author_id: original_micropost.author_id, user_id: original_micropost.user_id)
+      new_micropost = current_user.microposts.build(content: original_micropost.content, author_id: original_micropost.author_id, 
+                                                    user_id: original_micropost.user_id, tags: original_micropost.tags)
       if new_micropost.save
         redirect_to user_path(current_user)
         flash[:success] = "Reaspa concluída! Veja a Raspa aí embaixo."
@@ -49,7 +50,7 @@ class MicropostsController < ApplicationController
       end
     else
       redirect_back_or current_user
-      flash[:error] = "O raspa mencionada não existe mais!"
+      flash[:error] = "A raspa mencionada não existe mais!"
     end
   end
 

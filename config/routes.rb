@@ -32,6 +32,7 @@ Benfeitor::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
+  resources :autocomplete
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

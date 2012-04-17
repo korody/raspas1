@@ -18,25 +18,25 @@
       <% end %>  
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(micropost.created_at) %> /
+      <%= time_ago_in_words(micropost.created_at) %>
       <% if !micropost.tags.empty? %>
-         sobre 
+        / sobre 
         <% micropost.tags.each do |tag| %>
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
+          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>
         extraído de <%= micropost.origem %>
       <% end %>
       <% if micropost.author %>
-        por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
-        <% if !micropost.author.published? %>
-          / raspa <%= link_to "sob análise", @author %>
-          <%= link_to (image_tag "flag_ico.png"), root_path %>
+        <% if !current_user?(micropost.user) %>
+          por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
         <% end %>
-      <% else %>
-        denunciar <%= link_to (image_tag "flag_ico.png"), root_path %>
-      <% end %> 
+      <% end %>
+      <% if !micropost.published? %>
+        / sob <%= link_to "análise", @author %>
+        <%= link_to (image_tag "flag_ico.png"), root_path %>
+      <% end %>
     </div>
   </div>
     <div class= "quote_corner">

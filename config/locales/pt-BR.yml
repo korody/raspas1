@@ -68,7 +68,7 @@ pt-BR:
         other: há %{count} anos
       half_a_minute: agora mesmo
       less_than_x_minutes:
-        one: boa! deu certo.
+        one: boa! deu certo
         other: há menos de %{count} minutos
       less_than_x_seconds:
         one: agora por
