@@ -36,7 +36,7 @@
 			        <p class= "p_mais"><%= link_to "+", tags_author_path(@author), title: "ver todos os temas de #{@author.name}" %></p>
 			    </div>
 				<div>
-					<% @tags.last(20).each do |tag| %>
+					<% @tags.first(20).each do |tag| %>
 					  <div>
 					    <%= link_to tag.name, tag, 
 					    title: "ver + raspas sobre #{tag.name}", :class => "but round temas" %>
@@ -48,11 +48,11 @@
 		<% if !@users.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class= "p_tags">citado pelos</p><p class="p_tag"> usuários</p>
+				<p class="p_tag">citado</p><p class= "p_tags"> pelos</p><p class="p_tag"> usuários</p>
 		        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
 	    	</div>
 			<div>
-				<% @users.last(4).each do |user| %>
+				<% @users.first(4).each do |user| %>
 			        <div class= "last">
 			            <%= link_to image_tag(user.photo.url(:tiny)), user, title: "ver perfil de #{user.name}" %>
 			            <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>

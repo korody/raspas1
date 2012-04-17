@@ -11,8 +11,8 @@ class AuthorsController < ApplicationController
   def show
       @author = Author.find(params[:id])
       @microposts = @author.microposts.paginate(:page => params[:page])
-      @tags = @author.tags.all(:order => 'tags.created_at DESC')
-      @users = @author.users.all(:order => 'users.created_at DESC')
+      @tags = @author.tags.all
+      @users = @author.users.all
       @reaspas = Micropost.new
   end
   

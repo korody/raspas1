@@ -8,9 +8,9 @@ body {
 }
 
 body img.author_back {
-  position: absolute;
-  opacity: 0.1;
-  filter:alpha(opacity=10);
+  position: fixed;
+  opacity: 0.2;
+  filter:alpha(opacity=20);
   width: 100%;
   z-index: -2;
 }
