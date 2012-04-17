@@ -15,6 +15,7 @@ class AuthorsController < ApplicationController
       @microposts = @author.microposts.paginate(:page => params[:page])
       @tags = @author.tags.all(:order => 'tags.created_at DESC')
       @users = @author.users.all(:order => 'users.created_at DESC')
+      @reaspas = Micropost.new
   end
   
   def new

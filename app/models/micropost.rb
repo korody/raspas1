@@ -18,8 +18,8 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :author
 
-  validates :content, :presence => true, :length => { :maximum => 240 },
-                      :uniqueness => { :case_sensitive => false }
+  validates :content, :presence => true, :length => { :maximum => 240 }
+                     #, :uniqueness => { :case_sensitive => false }
 
   validates :user_id, :presence => true
 
@@ -68,8 +68,10 @@ class Micropost < ActiveRecord::Base
     end
 
     def assign_author
-      author = Author.find_or_create_by_name(author_name.titlecase)
-      self.author_id = author ? author.id : 0
+      if author_name
+        author = Author.find_or_create_by_name(author_name.titlecase)
+        self.author_id = author ? author.id : 0
+      end
     end
 
     def self.search(search)

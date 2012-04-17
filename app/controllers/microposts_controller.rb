@@ -37,17 +37,21 @@ class MicropostsController < ApplicationController
       @tags = @micropost.tags
   end
 
-  ####### NEEDS WORK ON ###########
-
-  def reaspa
-    micropost = current_user.microposts.build(params[:micropost])
-    if @icropost.save
-      redirect_back_or root_path
-      flash[:notice] = "Reaspa concluída! A raspa escolhida foi compartilhada."
+  def reaspas
+    original_micropost = Micropost.find(params[:id])
+    if original_micropost
+      new_micropost = current_user.microposts.build(content: original_micropost.content, author_id: original_micropost.author_id, user_id: original_micropost.user_id)
+      if new_micropost.save
+        redirect_to user_path(current_user)
+        flash[:success] = "Reaspa concluída! Veja a Raspa aí embaixo."
+      else
+        redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
+      end
+    else
+      redirect_back_or current_user
+      flash[:error] = "O raspa mencionada não existe mais!"
     end
   end
-
-  ####################################
 
   private
 

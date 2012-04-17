@@ -18,21 +18,24 @@
       <% end %>  
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(micropost.created_at) %>
-      <% if !micropost.tag_names.empty? %>
-        / sobre <%= link_to micropost.tag_names, micropost.tags, title: "ver + raspas sobre #{micropost.tag_names}" %>
+      <%= time_ago_in_words(micropost.created_at) %> /
+      <% if !micropost.tags.empty? %>
+         sobre 
+        <% micropost.tags.each do |tag| %>
+          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
+        <% end %>
       <% end %>
       <% unless !micropost.origem? %>
-        / extraído de <%= micropost.origem %>
+        extraído de <%= micropost.origem %>
       <% end %>
       <% if micropost.author %>
-        / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+        por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
         <% if !micropost.author.published? %>
           / raspa <%= link_to "sob análise", @author %>
           <%= link_to (image_tag "flag_ico.png"), root_path %>
         <% end %>
       <% else %>
-        / denunciar <%= link_to (image_tag "flag_ico.png"), root_path %>
+        denunciar <%= link_to (image_tag "flag_ico.png"), root_path %>
       <% end %> 
     </div>
   </div>
@@ -44,10 +47,7 @@
                                                  :title => "descartar",
                                                  :class => "round" %>
         <% else %>
-          <%= link_to (image_tag "reaspa.png"), micropost, :method => :reaspa,
-                                                   :confirm => "reaspar esta raspa?",
-                                                   :title => "reaspar",
-                                                   :class => "round" %>
+          <%= link_to (image_tag "reaspa.png"), reaspas_micropost_path(micropost) %>
         <% end %>  
       </div>
       <div class= "social">

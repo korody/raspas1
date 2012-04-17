@@ -23,8 +23,13 @@ Benfeitor::Application.routes.draw do
     end
   end
 
+  resources :microposts do
+    member do
+      get :reaspas
+    end
+  end
+
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
-  resources :microposts
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
   

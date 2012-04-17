@@ -18,9 +18,12 @@
       <% end %>
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(feed_item.created_at) %>
-      <% if !feed_item.tag_names.empty? %>
-        / sobre <%= link_to feed_item.tag_names, feed_item.tags, title: "ver + raspas sobre #{feed_item.tag_names}" %>
+      <%= time_ago_in_words(feed_item.created_at) %> /
+      <% if !feed_item.tags.empty? %>
+        sobre 
+          <% feed_item.tags.each do |tag| %>
+            <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
+          <% end %>      
       <% end %>
       <% unless !feed_item.origem? %>
         / extraído de <%= feed_item.origem %>
@@ -29,13 +32,13 @@
         / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
       <% end %>
       <% if feed_item.author %>
-        / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+        por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
         <% if !feed_item.author.published? %>
           / raspa <%= link_to "sob análise", @author %>
           <%= link_to (image_tag "flag_ico.png"), root_path %>
         <% end %>
       <% else %>
-        / denunciar <%= link_to (image_tag "flag_ico.png"), root_path %>
+        denunciar <%= link_to (image_tag "flag_ico.png"), root_path %>
       <% end %>
     </div>
   </div>
@@ -47,10 +50,7 @@
                                                  :title => "descartar",
                                                  :class => "round" %>
         <% else %>
-          <%= link_to (image_tag "reaspa.png"), feed_item, :method => :reaspa,
-                                                   :confirm => "reaspar esta raspa?",
-                                                   :title => "reaspar",
-                                                   :class => "round" %>
+          <%= link_to (image_tag "reaspa.png"), reaspas_micropost_path(feed_item) %>
         <% end %>
       </div>
     <div class= "social">
