@@ -39,7 +39,7 @@
 		        <p class= "p_mais"><%= link_to "+", tags_user_path(@user), title: "ver todos os temas escritos por #{@user.name}" %></p>
 	    	</div>
 			<div>
-				<% @tags.last(8).each do |tag| %>
+				<% @tags.first(8).each do |tag| %>
 				  <div>
 				    <%= link_to tag.name, tag, 
 				    title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
@@ -55,7 +55,7 @@
 		        <p class= "p_mais"><%= link_to "+", authors_user_path(@user), title: "ver todos os pensadores citados por #{@user.name}" %></p>
 	    	</div>
 			<div>
-				<% @authors.last(4).each do |author| %>
+				<% @authors.first(4).each do |author| %>
 			        <div class= "last">
 			            <%= link_to image_tag(author.photo.url(:tiny)), author, title: "ver perfil de #{author.name}" %>
 			            <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
