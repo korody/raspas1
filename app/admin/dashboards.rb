@@ -1,5 +1,33 @@
 ActiveAdmin::Dashboards.build do
 
+  section 'RECENT QUOTES' do
+    table_for Micropost.order("created_at desc").limit(10) do
+      column :user
+      column :author
+      column :content
+      column :tag_names
+    end
+    strong { link_to "ALL QUOTES", admin_microposts_path }
+  end
+
+  section 'RECENT AUTHORS' do
+    table_for Author.order("created_at desc").limit(10) do
+      column :name
+      column :job
+      column :bio
+    end
+    strong { link_to "ALL AUTHORS", admin_authors_path }
+  end
+
+   section 'RECENT USERS' do
+    table_for User.order("created_at desc").limit(10) do
+      column :name
+      column :job
+      column :bio
+    end
+    strong { link_to "ALL USERS", admin_authors_path }
+  end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
