@@ -104,6 +104,14 @@
     render 'show_fans'
   end
 
+  def favoritas
+    @title = "favoritas"
+    @user = User.find(params[:id])
+    @users_favoritas = @user.favoritas.all(:order => 'microposts.created_at DESC', :limit => 40) 
+    @users = @user.favoritas.paginate(:page => params[:page])
+    render 'show_favoritas'
+  end
+
  private
 
   def correct_user

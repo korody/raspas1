@@ -12,8 +12,12 @@
 
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :tag_names, :author_id, :author_name, :origem, :tag_tokens
+  
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
+
+  has_many :eleitas, dependent: :destroy
+  has_many :users, through: :eleitas
 
   belongs_to :user
   belongs_to :author

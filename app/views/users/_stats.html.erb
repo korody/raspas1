@@ -10,6 +10,12 @@
 	<%= link_to @user.microposts.count, @user, :class => "but round", 
 	title: "ver raspas de #{@user.name}" %>
 </div>
+<div id= "followers" class= "stats">
+	<p class= "p_stats">favoritas</p>
+	<%= link_to (image_tag "ico_heart.png"), favoritas_user_path(@user), :alt => "favoritas", :class => "round" %>
+	<%= link_to @user.favoritas.count, favoritas_user_path(@user), :class => "but round", 
+	title: "ver favoritas de #{@user.name}" %>
+</div>
 <div id= "following" class= "stats">
 	<p class= "p_stats">seguindo</p>
 	<%= link_to (image_tag "ico_following.png"), following_user_path(@user), :alt => "raspas", :class => "round" %>
@@ -22,3 +28,4 @@
 	<%= link_to @user.followers.count, followers_user_path(@user), :class => "but round", 
 	title: "ver seguidores de #{@user.name}" %>
 </div>
+

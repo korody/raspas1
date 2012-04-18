@@ -37,6 +37,21 @@ class MicropostsController < ApplicationController
       @tags = @micropost.tags
   end
 
+   def elencar
+    raspa = Micropost.find(params[:id])
+    if raspa
+      favorita = current_user.eleitas.build(micropost_id: favorita.id)
+      if favorita.save
+        redirect_to user_path(current_user)
+      else
+        redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
+      end
+    else
+      redirect_back_or current_user
+      flash[:error] = "A raspa mencionada não existe mais!"
+    end
+  end
+
   def reaspas
     original_micropost = Micropost.find(params[:id])
     if original_micropost

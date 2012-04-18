@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418022137) do
+ActiveRecord::Schema.define(:version => 20120418173909) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20120418022137) do
     t.string   "origin"
     t.string   "born"
     t.boolean  "published"
+  end
+
+  create_table "eleita", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "microposts", :force => true do |t|

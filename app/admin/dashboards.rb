@@ -2,25 +2,36 @@ ActiveAdmin::Dashboards.build do
 
   section 'RECENT QUOTES' do
     table_for Micropost.order("created_at desc").limit(10) do
+      column :id do |micropost|
+        link_to micropost.id, [:admin, micropost]
+      end
       column :user
       column :author
       column :content
       column :tag_names
+      column :published
     end
     strong { link_to "ALL QUOTES", admin_microposts_path }
   end
 
   section 'RECENT AUTHORS' do
     table_for Author.order("created_at desc").limit(10) do
+      column :id do |author|
+        link_to author.id, [:admin, author]
+      end
       column :name
       column :job
       column :bio
+      column :published
     end
     strong { link_to "ALL AUTHORS", admin_authors_path }
   end
 
    section 'RECENT USERS' do
     table_for User.order("created_at desc").limit(10) do
+      column :id do |user|
+        link_to user.id, [:admin, user]
+      end
       column :name
       column :job
       column :bio
