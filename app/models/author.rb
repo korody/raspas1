@@ -12,6 +12,9 @@
 class Author < ActiveRecord::Base
   attr_accessible :name, :photo, :bio, :job, :tipo, :origin, :born
 
+  scope :PUBLISHED, where(published: true)
+  scope :UNPUBLISHED, where(published: false)
+
   has_attached_file(:photo,
                     :path => ":rails_root/app/assets/images/photos/authors/:id/:style/:basename.:extension",
                     :url => "photos/authors/:id/:style/:basename.:extension",

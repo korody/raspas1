@@ -1,13 +1,14 @@
 ActiveAdmin.register Micropost do
   
-  scope :published	
+  scope :PUBLISHED
+  scope :UNPUBLISHED
 
   index do
   	column :id
+  	column :user
+  	column :author
   	column :content
   	column :tag_names
-  	column :user_id
-  	column :author_id
   	column :origem
   	column :published
   	default_actions

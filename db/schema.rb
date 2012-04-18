@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417210227) do
+ActiveRecord::Schema.define(:version => 20120418015049) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20120417210227) do
     t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -60,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120417210227) do
     t.string   "tipo"
     t.string   "origin"
     t.string   "born"
+    t.boolean  "published"
   end
 
   create_table "microposts", :force => true do |t|
