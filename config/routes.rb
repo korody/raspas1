@@ -1,4 +1,8 @@
 Benfeitor::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :authors do
     member do
       get :fans, :idols, :subscriptions, :users, :tags

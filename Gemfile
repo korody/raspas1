@@ -9,8 +9,10 @@ gem 'omniauth-facebook'
 
 gem "paperclip", "2.7.0"
 gem 'gravatar_image_tag', '1.0.0.pre2'
-gem "will_paginate", "~> 3.0.2"
+gem "will_paginate", "3.0.pre2"
 
+gem "formtastic", "~> 2.1.1"
+gem "activeadmin", "~> 0.4.3"
 
 # Asset template engines
 gem 'sass-rails', "~> 3.1.0.rc"

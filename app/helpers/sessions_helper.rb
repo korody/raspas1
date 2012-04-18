@@ -5,7 +5,7 @@ module SessionsHelper
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def sign_in(user)
+  def signin(user)
       self.current_user = user
   end
 

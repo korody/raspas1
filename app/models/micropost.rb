@@ -25,6 +25,7 @@ class Micropost < ActiveRecord::Base
 
   default_scope :order => 'microposts.created_at DESC'
 
+  scope :published, where(published: 'false')
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
   scope :from_authors_idols_of, lambda { |author| idols_of(author) }
