@@ -120,8 +120,9 @@
   end  
 
   def feed
-    Micropost.from_users_followed_by(self)
-    #Micropost.from_authors_idols_of(self)
+    user_feed = Micropost.from_users_followed_by(self)
+    author_feed = Micropost.from_authors_idols_of(self)
+    user_feed.merge(author_feed)
   end  
 
     private
