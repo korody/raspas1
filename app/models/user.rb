@@ -83,9 +83,9 @@
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-      user.email = auth["info"]["email"]
+      # user.email = auth["info"]["email"]
       user.origin = auth["info"]["location"]
-      (@user.photo.url(:regular)) = auth["info"]["image"]    
+      user.photo = auth["info"]["image"]    
     end
   end
 
