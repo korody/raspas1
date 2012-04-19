@@ -62,13 +62,6 @@ ActiveRecord::Schema.define(:version => 20120418192232) do
     t.boolean  "published"
   end
 
-  create_table "favourites", :force => true do |t|
-    t.string   "user_id"
-    t.string   "micropost_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
