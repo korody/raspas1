@@ -83,11 +83,13 @@
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-      # user.email = auth["info"]["email"]
+      user.email = auth["info"]["email"]
       user.origin = auth["info"]["location"]
+      user.bio = auth["info"]["bio"]
       user.photo = auth["info"]["image"]    
     end
   end
+# omniauth['user_info']['image'] ? @authhash[:image] =  omniauth['user_info']['image'] : @authhash[:image] = 'avatar.jpg'
 
   def self.search(search)
     if search
