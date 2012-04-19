@@ -27,7 +27,7 @@ Benfeitor::Application.routes.draw do
     end
   end
 
-  resources :microposts do
+  resources :microposts 
     member do
       get :reaspas, :favourites
     end
