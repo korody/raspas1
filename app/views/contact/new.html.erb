@@ -10,7 +10,6 @@
     </div>  
 </div>
 <%= form_for @message, :url => contact_path do |f| %>
-<%= render 'shared/error_messages', :object => f.object %>  
   <div class="cartela round">
     <div class= "cartela_corner round">
       <div class= "field">
@@ -34,4 +33,5 @@
       </li>
     </ul>
   </div>
+  <%= render 'shared/error_messages', :object => f.object %>  
 <% end %>
