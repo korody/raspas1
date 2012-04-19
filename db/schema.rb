@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419020857) do
+ActiveRecord::Schema.define(:version => 20120418022137) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -61,17 +61,6 @@ ActiveRecord::Schema.define(:version => 20120419020857) do
     t.string   "born"
     t.boolean  "published"
   end
-
-  create_table "favourites", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "micropost_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "favourites", ["micropost_id"], :name => "index_favourites_on_micropost_id"
-  add_index "favourites", ["user_id", "micropost_id"], :name => "index_favourites_on_user_id_and_micropost_id", :unique => true
-  add_index "favourites", ["user_id"], :name => "index_favourites_on_user_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
