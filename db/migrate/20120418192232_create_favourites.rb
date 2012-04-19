@@ -1,8 +1,8 @@
 class CreateFavourites < ActiveRecord::Migration
   def self.up
     create_table :favourites do |t|
-      t.string :user_id
-      t.string :micropost_id
+      t.integer :user_id
+      t.integer :micropost_id
 
       t.timestamps
     end
