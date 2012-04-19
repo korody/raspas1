@@ -3,25 +3,25 @@ namespace :db do
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
     make_users
+    make_authors
     make_microposts
     make_relationships
   end
 end
 
 def make_users
-  admin = User.create!(:name => "Elvis Presley",
-                       :email => "markusfranca@gmail.com",
-                       :password => "imalive",
-                       :password_confirmation => "imalive")
-  admin.toggle!(:admin)
   99.times do |n|
     name  = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
-    password  = "password"
     User.create!(:name => name,
-                 :email => email,
-                 :password => password,
-                 :password_confirmation => password)
+                 :email => email)
+  end
+end
+
+def make_authors
+  99.times do |n|
+    name  = Faker::Name.name
+    Author.create!(:name => name)
   end
 end
 

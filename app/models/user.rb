@@ -83,7 +83,9 @@
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-#     user.email = auth["info"]["email"]
+      user.email = auth["info"]["email"]
+      user.origin = auth["info"]["location"]
+      user.photo = auth["info"]["image"]    
     end
   end
 
@@ -124,7 +126,4 @@
     author_feed = Micropost.from_authors_idols_of(self)
     user_feed.merge(author_feed)
   end  
-
-    private
-
 end

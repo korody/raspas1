@@ -39,7 +39,6 @@
     else
       @title = "cadastre-se"
       render 'new'
-      #Reset @user.password.???
     end
   end
 
@@ -60,6 +59,7 @@
 
   def destroy
     User.find(params[:id]).destroy
+    sign_out
     flash[:success] = "Obrigado por honrar-nos com suas raspas! Até logo."
     redirect_to root_path
   end
