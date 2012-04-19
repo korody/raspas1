@@ -777,7 +777,7 @@ div.quotes {
 
 div.half_quotes {
   background-color: #F8F8F8;
-  border: 1px solid #E8E8E8;
+  border: 1px solid #E2492F;
   height: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -785,6 +785,11 @@ div.half_quotes {
   width: 98%;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+}
+
+div.half_quotes a {
+  font-size: 100%;
+  font-weight: bold;
 }
 
 div.quotes:nth-child(even) { 
@@ -1089,9 +1094,10 @@ div.sign {
 
 div.flag_sign {
   border: 0px solid black;
-  float: left;
+  float: right;
   font-size: 140%;
   height: 40px;
+  margin-right: 1.5em;
   margin-top: 2em;
   width: 40px;
 }
@@ -1217,7 +1223,7 @@ div.cartela_error img{
 
 div.flash.success {
   background: #FFF5EE;
-  background-image: url('happy.png');
+  background-image: url('super.png');
   background-repeat: no-repeat;
   background-position: right center;
   border: 2px solid #E2492F;

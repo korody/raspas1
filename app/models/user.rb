@@ -89,7 +89,6 @@
       user.photo = auth["info"]["image"]    
     end
   end
-# omniauth['user_info']['image'] ? @authhash[:image] =  omniauth['user_info']['image'] : @authhash[:image] = 'avatar.jpg'
 
   def self.search(search)
     if search

@@ -3,6 +3,19 @@
     <%= render 'user_info' %>
   </div>
   <div class="stack">
+    <% if @user %>
+      <% if @user.microposts.empty? %>
+        <div class="half_quotes round">
+          <div class= "sign">
+            Novo por aqui? Você ainda não possui nenhum pensamento.</br>
+            Navegue para o seu <%= link_to "mural", root_path %> e escreva suas primeiras raspas!
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "happy.png" %>
+          </div>
+        </div>
+      <% end %> 
+    <% end %>
     <% unless @user.microposts.empty? %>
       <%= render @microposts %>
     <% end %>

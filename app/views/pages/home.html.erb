@@ -2,6 +2,27 @@
 <% if signed_in? %>
   <%= render 'users/user_bar' %>
   <div class= "home">
+    <% if @user.microposts.empty? %>
+      <div class="half_quotes round">
+        <div class= "sign">
+          Para começar basta escrever sua primeira raspa acima. </br>
+          Quer explorar? Veja dicas e exemplos abaixo e divirta-se.
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "super.png" %>
+        </div>
+      </div>
+      <div class="half_quotes round">
+        <div class= "sign">
+          .Explore nossos <%= link_to "pensadores", authors_path %> e <%= link_to "usuários", authors_path %> e inspire-se. </br>
+          .Explore nossas raspas através de <%= link_to "temas", microposts_path %> específicos.
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "happy.png" %>
+        </div>
+      </div>
+      <%= render @feed_intro %>
+    <% end %> 
     <div>
       <%= render 'shared/feed' %>
     </div>

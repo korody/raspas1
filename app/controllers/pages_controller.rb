@@ -5,6 +5,7 @@
     if signed_in?
       @micropost = Micropost.new
       @feed_items = current_user.feed.paginate(:page => params[:page])
+      @feed_intro = Micropost.all(:order => 'microposts.created_at DESC', :limit => 20)
     else
       @user = User.new
       @authors = Author.all(:order => 'authors.created_at DESC')
