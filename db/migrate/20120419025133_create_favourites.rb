@@ -1,5 +1,5 @@
 class CreateFavourites < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :favourites do |t|
       t.integer :user_id
       t.integer :micropost_id
@@ -12,6 +12,6 @@ class CreateFavourites < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :relationships
+    drop_table :favourites
   end
 end
