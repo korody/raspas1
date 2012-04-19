@@ -23,7 +23,10 @@
 		<%= render 'follow_form' if signed_in? %>
 	</div>
 	<div class= "user_info_board round" >
-		<%= render 'stats' %>
+		<%= render 'stats_raspas' %>
+	</div>
+	<div class= "user_info_board round" >
+		<%= render 'stats_relations' %>
 	</div>
 	<% if @user.bio? %>
 		<div class= "user_info_board round">

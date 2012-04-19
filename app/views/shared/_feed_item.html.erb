@@ -6,6 +6,9 @@
           <%= feed_item.content %>
         <% else %>
           &quot;<%= feed_item.content %>&quot;
+          <% if !current_user?(feed_item.user) %>
+            <%= link_to (image_tag "reaspas.png"), reaspas_micropost_path(feed_item) %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -40,21 +43,20 @@
     </div>
   </div>
   <div class= "quote_corner">
-     <div class= "top_corner">
-        <% if current_user?(feed_item.user) %>
-          <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
-                                                 :confirm => "apagar esta raspa?",
-                                                 :title => "descartar",
-                                                 :class => "round" %>
-        <% else %>
-          <%= link_to (image_tag "reaspa.png"), reaspas_micropost_path(feed_item) %>
-        <% end %>
-      </div>
+    <div class= "top_corner">                                             
+      <% if current_user?(feed_item.user) %>
+        <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
+                                               :confirm => "apagar esta raspa?",
+                                               :title => "descartar",
+                                               :class => "round" %>
+      <% else %>
+        <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round"  %>
+      <% end %>  
+    </div>
     <div class= "social">
       <%= render 'shared/social' %>
     </div>
-
-    <% if !current_user?(feed_item.user) %>
+    <% if feed_item.author %>
       <div class= "user_id">
         <%= link_to image_tag(feed_item.user.photo.url(:medium)), feed_item.user, 
         title: "ver perfil de #{feed_item.user.name}" %>

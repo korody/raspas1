@@ -8,8 +8,9 @@ body {
 }
 
 body img.author_back {
-  position: fixed;
+  position: absolute;
   opacity: 0.2;
+  top: 0;
   filter:alpha(opacity=20);
   width: 100%;
   z-index: -2;
@@ -1040,13 +1041,6 @@ div.user_card_info {
 }
 
 /* AUTHOR */
-
-/*div.author_background {
-  width: 100%;
-  height: 100%;
-  background: url(trash.png) no-repeat;
-  background-size: 100%;
-}*/
 
 div.name_edit {
   border: 0px solid #D8D8D8;

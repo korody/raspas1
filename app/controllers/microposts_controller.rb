@@ -1,6 +1,6 @@
 # encoding: utf-8
 class MicropostsController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :reaspas]
+  before_filter :authenticate, :only => [:create, :destroy, :reaspas, :favourites]
   before_filter :authorized_user, :only => :destroy
 
   def index
@@ -17,7 +17,7 @@ class MicropostsController < ApplicationController
         redirect_to @micropost.author
         flash[:success] = "Você adicionou um pensamento de #{@micropost.author.name}. Obrigado!"
       else
-        redirect_to current_user
+        redirect_back_or current_user
       end
     else
       @feed_items = []
@@ -37,12 +37,12 @@ class MicropostsController < ApplicationController
       @tags = @micropost.tags
   end
 
-   def elencar
-    raspa = Micropost.find(params[:id])
-    if raspa
-      favorita = current_user.eleitas.build(micropost_id: favorita.id)
-      if favorita.save
-        redirect_to user_path(current_user)
+  def favourites
+    original_micropost = Micropost.find(params[:id])
+    if original_micropost
+      favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id)
+      if favourite_micropost.save
+        redirect_to favourites_user_path(current_user)
       else
         redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
       end

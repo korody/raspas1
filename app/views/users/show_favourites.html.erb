@@ -1,0 +1,20 @@
+<div class= "home">
+	<div class= "user_feed">
+	    <%= render 'user_favourites' %>
+	</div>
+	<% if @user.eleitas.empty? %>
+		<div class= "title">
+			<p class= "p_search"><%= @user.name if !@user %> 
+				ainda não tem raspas favoritas ;(</p>
+			<%= link_to "explorar raspas", microposts_path %>
+		</div>
+	<% else %>
+		<div class= "home">
+		  	<% unless @user.eleitas.empty? %>
+				<div>
+					<%= render @user.eleitas %>
+				</div>
+		  	<% end %>
+		</div>
+	<% end %>
+</div>

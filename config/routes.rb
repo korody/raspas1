@@ -11,7 +11,7 @@ Benfeitor::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers, :idols, :fans, :tags, :authors, :favoritas
+      get :following, :followers, :idols, :fans, :tags, :authors, :favourites
     end
   end
 
@@ -29,14 +29,14 @@ Benfeitor::Application.routes.draw do
 
   resources :microposts do
     member do
-      get :reaspas, :elencar
+      get :reaspas, :favourites
     end
   end
 
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
-  resources :eleitas, :only => [:create, :destroy]
+  resources :favoritas, :only => [:create, :destroy] 
   resources :autocomplete
   
   match '/signup',  :to => 'users#new'

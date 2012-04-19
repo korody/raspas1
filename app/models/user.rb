@@ -36,11 +36,11 @@
 
 
   has_many :microposts, :dependent => :destroy
-
-  has_many :eleitas, dependent: :destroy
-
-  has_many :favoritas, through: :eleitas, source: :micropost
   
+  has_many :favourites, dependent: :destroy
+
+  has_many :eleitas, through: :favourites, source: :micropost
+
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
 

@@ -6,6 +6,9 @@
           <%= micropost.content %>
         <% else %>
           &quot;<%= micropost.content %>&quot;
+          <% if !current_user?(micropost.user) %>
+            <%= link_to (image_tag "reaspas.png"), reaspas_micropost_path(micropost) %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -22,16 +25,15 @@
       <% if !micropost.tags.empty? %>
         / 
         <% micropost.tags.each do |tag| %>
-          sobre
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+        sobre <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>
-      / extraído de <%= micropost.origem %>
+        / extraído de <%= micropost.origem %>
       <% end %>
       <% if micropost.author %>
         <% if !current_user?(micropost.user) %>
-        / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+          / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
         <% end %>
       <% end %>
       <% if !micropost.published? %>
@@ -48,7 +50,7 @@
                                                  :title => "descartar",
                                                  :class => "round" %>
         <% else %>
-          <%= link_to (image_tag "heart.png"), elencar_micropost_path(micropost), :class => "round" %>
+          <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "round" %>
         <% end %>  
       </div>
       <div class= "social">

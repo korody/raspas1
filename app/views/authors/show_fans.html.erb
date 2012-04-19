@@ -1,15 +1,17 @@
-<div class= "user_feed">
-    <%= render 'author_fans' %>
-</div>
-<% if @author.fans.empty? %>
-	<div class= "title">
-		<p class= "p_search">nenhum fã encontrado</p><%= link_to "vire fã de #{@author.name}", 
-		@author %>
+<div class="home">  
+	<div class= "user_feed">
+	    <%= render 'author_fans' %>
 	</div>
-<% else %>
-	<div class= "home">
-		<ul class="users">
-			<li><%= render @author.fans %></li>
-		</ul>
-	</div>
-<% end %>
+	<% if @author.fans.empty? %>
+		<div class= "title">
+			<p class= "p_search">nenhum fã encontrado</p><%= link_to "vire fã de #{@author.name}", 
+			@author %>
+		</div>
+	<% else %>
+		<div class= "home">
+			<ul class="users">
+				<li><%= render @author.fans %></li>
+			</ul>
+		</div>
+	<% end %>
+</div>	
