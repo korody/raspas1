@@ -5,11 +5,12 @@ module ApplicationHelper
     	base_title = "raspas"
     	if @title.nil?
       	base_title
-    else      "#{base_title} | #{@title}"
+      else      
+        "#{base_title} | #{@title}"
+      end
   end
 
     def logo
     	image_tag("logo.png", :alt => "raspas", :class => "logo")
   	end
-  end
 end 

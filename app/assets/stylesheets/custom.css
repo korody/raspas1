@@ -65,8 +65,12 @@ nav input:-moz-placeholder {
   border: 0px solid #E6674A;
   float: left;
   height: 18px;
-  padding: 14px 20px 7px 10px;
+  padding: 14px 14px 7px;
   width: 74px;
+}
+
+.raspas_logo:hover {
+  background: #E6674A;
 }
 
 nav ul {
@@ -129,10 +133,10 @@ nav ul li.search {
 
 nav ul li.search input.search_li {
   float: left;
-  width: 11.4em;
+  width: 11.5em;
 }
 
-.lupa {
+nav ul li.search input.lupa {
   border-right: 1px solid #E6674A;
   border-left: 0px solid #E6674A;
   float: left;
@@ -142,6 +146,13 @@ nav ul li.search input.search_li {
   width: 27px;
 }
 
+nav ul.nave_r li input#button {
+  border: 0px solid #E6674A;
+  height: 15px;
+  margin-top: 0;
+  padding: 13px;
+}
+
 nav ul li a:hover {
   background: #E6674A;
   color: #FFF;
@@ -149,7 +160,7 @@ nav ul li a:hover {
 
 div.topo {
   border: 0px solid blue;
-  width: 140px;
+  width: 142px;
 }
 
 /* PAGINATION */
@@ -277,6 +288,43 @@ div.likes {
   margin-right: 0.8em;
   margin-top: 1.5em;
   width: 4.5em;
+}
+
+/* POPPUP FORMS */
+
+#backgroundPopup {  
+  background: #000000;  
+  border: 1px solid #E8E8E8;  
+  display: none;
+  height: 100%;  
+  left: 0;  
+  position: fixed;  
+  _position: absolute; /* hack for internet explorer 6*/  
+  top: 0;  
+  width: 100%;  
+  z-index: 1;  
+}
+
+#popupContact {  
+  border: 0px solid #E8E8E8;  
+  display: none;  
+  font-size: 13px;  
+  height: 200px;  
+  position: fixed;  
+  _position: absolute; /* hack for internet explorer 6*/  
+  width: 800px;  
+  z-index: 2;  
+}
+
+#popupContactClose {
+  display: block;
+  float: right;
+  height: 32px;
+  opacity: 0.7;
+  padding: 2px;
+  position: absolute;
+  right: 0;
+  width: 30px;
 }
 
 /* SIGNUP PAGE */
@@ -573,8 +621,8 @@ textarea#micropost_content {
   border: 1px solid transparent;
   float: left;
   font-size: 140%;
-  height: 142px;
-  width: 550px;
+  height: 139px;
+  width: 540px;
 }
 
 div.count {
@@ -584,14 +632,13 @@ div.count {
 
 div.count_micropost {
   float: right;
-  margin-top: 10.7em;
+  margin-top: 9.8em;
 }
 
 div.count_bio {
   float: left;
   margin-top: 1.2em;
 }
-
 
 div#count {
   color: #B0B0B0;
@@ -858,10 +905,9 @@ div.top_corner a {
   border-top: 0px solid #D8D8D8;
   display: block;
   float: right;
-  height: 30px;
+  height: 32px;
   opacity: 0.7;
   padding: 1px 1.2em;
-  text-align: center;
   width: 30px;
 }
 
@@ -878,7 +924,7 @@ div.social {
   display: block;
   float: right;
   height: 1.8em;
-  margin-top: 4.9em;
+  margin-top: 4.6em;
   padding-right: 0.1em;
 }
 
@@ -953,6 +999,7 @@ div.user_feed {
   height: 130px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1em;
   width: 798px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
@@ -1250,7 +1297,7 @@ div.flash.success img{
 
 div.flash.notice {
   background: transparent;
-  background-image: url('surprise.png');
+  background-image: url('surprise_.png');
   background-repeat: no-repeat;
   background-position: right center;
   border: 2px solid #E2492F;
@@ -1267,16 +1314,28 @@ div.flash.notice {
 }
 
 div.flash.error {
-  background: transparent;
+  background: #FFF5EE;
+  background-image: url('dull_.png');
+  background-repeat: no-repeat;
+  background-position: right center;
   border: 2px solid #E2492F;
-  border-top: 0 solid #E2492F;
+  border-top: 0px solid #D8D8D8;
+  border-radius: 4px;
   color: #B0B0B0;
   display: inline-block;
-  font-size: 160%;
-  padding: 2em 0;
-  margin: 0 auto 1em;
-  text-align: center;
-  width: 795px;
+  float: right;
+  font-size: 140%;
+  margin: 0 0.3em 0.5em 0.5em;
+  padding: 2em 0.5em;
+  text-indent: 0.5em;
+  width: 565px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+
+div.flash.error img{
+  float: right;
+  margin-right: 1em;
 }

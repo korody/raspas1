@@ -1,0 +1,36 @@
+<% if signed_in? %>
+  <div class= "user_feed">
+    <%= render 'users/user_bar' %>
+  </div>
+  <div class= "home">
+    <% if @feed_items.empty? %>
+      <div class="half_quotes round">
+        <div class= "sign">
+          Para começar basta escrever clicando no <%= image_submit_tag "edit_author.png", id: "button" %> acima.</br>
+          Quer exemplos? Veja nossas últimas raspas abaixo.
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "super.png" %>
+        </div>
+      </div>
+        <%= render @feed_intro %>
+      </br>
+      <div class="half_quotes round">
+        <div class= "sign">
+          Quer ver mais? </br>
+          Veja nossos últimos pensadores.
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "happy.png" %>
+        </div>
+      </div>
+      <% @authors_intro.each do |author| %>
+        <%= link_to image_tag(author.photo.url(:original)), author %>
+      <% end %>
+    <% else %> 
+      <div>
+        <%= render 'shared/feed' %>
+      </div>
+    <% end %> 
+  </div>
+<% end %>

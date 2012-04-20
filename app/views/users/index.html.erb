@@ -1,6 +1,6 @@
 <div class= "home">
 	<div class= "title">
-		<p class= "p_search">explore nossos <%= @users.count %> usuários</p>
+		<p class= "p_search">explore nossos <%= User.count %> usuários</p>
 		<%= link_to "também quero um perfil!", signin_path if ! signed_in? %>
 	</div>
 	<ul class="users">

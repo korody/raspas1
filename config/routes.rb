@@ -11,7 +11,7 @@ Benfeitor::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers, :idols, :fans, :tags, :authors, :favourites
+      get :feed, :following, :followers, :idols, :fans, :tags, :authors, :favourites
     end
   end
 
@@ -38,6 +38,7 @@ Benfeitor::Application.routes.draw do
   resources :subscriptions, :only => [:create, :destroy]
   resources :favoritas, :only => [:create, :destroy] 
   resources :autocomplete
+
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -47,7 +48,7 @@ Benfeitor::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/search', to: "search#index"
-  
+
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

@@ -6,8 +6,9 @@ class MicropostsController < ApplicationController
   def index
     @title = "microposts"
     @microposts = Micropost.paginate(:page => params[:page])
-    @tags = Tag.all
+    @micropost = Micropost.new
     @authors = Author.all
+    @tags = Tag.all
   end
 
   def create
@@ -20,8 +21,8 @@ class MicropostsController < ApplicationController
         redirect_back_or current_user
       end
     else
-      @feed_items = []
-      render 'pages/home'
+      flash[:error] = "Ops! Algo deu errado. Você lembrou de escrever a raspa?"
+      redirect_back_or current_user
     end
   end
 

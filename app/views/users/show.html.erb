@@ -3,12 +3,12 @@
     <%= render 'user_info' %>
   </div>
   <div class="stack">
-    <% if @user %>
-      <% if @user.microposts.empty? %>
+    <% if current_user?(@user) %>
+      <% if current_user.microposts.empty? %>
         <div class="half_quotes round">
           <div class= "sign">
             Novo por aqui? Você ainda não possui nenhum pensamento.</br>
-            Navegue para o seu <%= link_to "mural", root_path %> e escreva suas primeiras raspas!
+            Clique no <%= image_submit_tag "edit_author.png", id: "button" %> acima para escrever suas primeiras raspas!
           </div>
           <div class= "flag_sign">
             <%= image_tag "happy.png" %>
@@ -17,7 +17,19 @@
       <% end %> 
     <% end %>
     <% unless @user.microposts.empty? %>
-      <%= render @microposts %>
+    	<%= render @microposts %>
+    <% else %>
+      <% if !current_user?(@user) %>
+        <div class= "half_quotes round">
+          <div class= "sign">
+            <%= @user.name %> ainda não possui nenhuma raspa.</br>
+            Explore as raspas de outros <%= link_to "usuários", users_path %>!
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "happy.png" %>
+          </div>
+        </div>
+      <% end %>  	
     <% end %>
       <%= will_paginate @microposts %>
   </div>

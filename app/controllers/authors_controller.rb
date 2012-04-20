@@ -6,20 +6,23 @@ class AuthorsController < ApplicationController
     @title = "All authors"
     @authors = Author.all
     @authors = Author.paginate(:page => params[:page])
+    @micropost = Micropost.new
+    @tags = Tag.all
   end
 
   def show
       @author = Author.find(params[:id])
       @microposts = @author.microposts.paginate(:page => params[:page])
-      @tags = @author.tags.all
       @users = @author.users.all
-      @reaspas = Micropost.new
+      @micropost = Micropost.new
+      @authors = Author.all
+      @tags = Tag.all
   end
   
   def new
-  	@author = Author.new
+    @title = "novo pensador"
+    @author = Author.new
     @micropost = Micropost.new
-    @title = "Sign up"
   end
 
   def create
@@ -30,13 +33,15 @@ class AuthorsController < ApplicationController
     else
       @title = "cadastre-se"
       render 'new'
-      #Reset @user.password.???
     end
   end
 
   def edit
+    @title = "editar pensador"
     @author = Author.find(params[:id])
-    @title = "editar"
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
   end
 
   def update
@@ -57,26 +62,25 @@ class AuthorsController < ApplicationController
   end
 
     def tags
-      @title = "tags"
+      @title = "temas"
       @author = Author.find(params[:id])
       @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
       @authors = @author.tags.paginate(:page => params[:page])
+      @micropost = Micropost.new
+      @authors = Author.all
+      @tags = Tag.all
       render 'show_tags'
   end
 
   def fans
-    @title = "Fans"
+    @title = "fãs"
     @author = Author.find(params[:id])
     @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
     @authors = @author.fans.paginate(:page => params[:page])
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
     render 'show_fans'
-  end
-
-  def idols
-    @title = "Idols"
-    @author = Author.find(params[:id])
-    @authors = @author.idols.paginate(:page => params[:page])
-    render 'show_idols'
   end
 
   def users
@@ -84,6 +88,9 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @authors_users = @author.users.all(:order => 'users.created_at DESC')
     @authors = @author.users.paginate(:page => params[:page])
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
     render 'show_users'
   end
 

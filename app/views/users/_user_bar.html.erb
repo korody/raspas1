@@ -1,20 +1,14 @@
-<div class= "user_bar">
-	<% @user ||= current_user %>
-		<div class= "board_avatar">
-			<%= link_to image_tag(@user.photo.url(:regular)), current_user %>
-		</div>
-		<div class= "user_board">
-			<%= form_for @micropost do |f| %>
-				<%= f.text_area :content, :maxlength => 240, placeholder: '"escreva aqui um pensamento"' %>
-				<div class= "count_micropost">
-					<div id= "count">240</div>
-				</div>
-				<%= f.text_field :author_name, data: {autocomplete_source: autocomplete_index_path}, placeholder: "autor original" %>
-				<%= f.text_field :origem, placeholder: "origem da raspa" %>
-				<%= f.text_field :tag_tokens, placeholder: "temas envolvidos", "data-pre" => @micropost.tags.map(&:attributes).to_json %>
-				<%= image_submit_tag "pen.png", :class => "pen round" %>
-		</div>
+<div class= "user_feed_avatar">
+	<%= link_to image_tag(current_user.photo.url(:regular)), @user %>
 </div>
-	<%= render 'shared/error_messages', :object => f.object %>  
+<div class= "user_feed_side">
+	<%= render "stats" %>
+</div>
+<div class= "user_feed_arrow">
+	<%= image_tag "ico_following_big.png", :alt => "lê" %>
+</div>
+<div class= "user_feed_follow">
+	<% @users_following.each do |user| %>
+		<%= link_to image_tag(current_user.photo.url(:tiny)), user %>
 	<% end %>
-
+</div>

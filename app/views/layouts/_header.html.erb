@@ -2,27 +2,28 @@
   <nav>
     <%= link_to logo, root_path, :class => "raspas_logo" %>
     <ul>
-       <li class= "search">
+      <li class= "search">
         <%= form_tag :search, :action => 'search', :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder: "buscar", :id => 'search_field', :class => "search_li"%>
+          <%= text_field_tag :search, params[:search], placeholder: "buscar", :id => 'search_field', class: "search_li" %>
           <%= image_submit_tag "lupa.png", :name => nil, :class => "lupa" %> 
         <% end %> 
       </li>
     </ul>
     <% if signed_in? %> 
       <ul>
-        <li><%= link_to "mural", root_path %></li>
+        <li><%= link_to "mural", feed_user_path(current_user) %></li>
       </ul>
       <ul class= "nave_r"> 
         <div class= "topo">
           <li><%= link_to (image_tag "menu_arrow.png"), current_user %> 
-            <li class= "sider"><%= link_to (image_tag "edit.png"), edit_user_path(current_user) %></li>   
+            <li class= "sider"><%= link_to "editar", edit_user_path(current_user) %></li>   
             <li class= "sider"><%= link_to (image_tag "sair.png"), signout_path %></li>
           </li>
         </div>   
       </ul> 
       <ul class= "nave_r"> 
         <li><%= link_to @author.name, @author if @author %></li>
+        <li><%= image_submit_tag "edit.png", id: "button" %></li>
         <li><%= link_to current_user.name, current_user %></li>
       <ul>
     <% else %>
