@@ -140,8 +140,8 @@
   def favourites
     @title = "favoritas"
     @user = User.find(params[:id])
-    @users_eleitas = @user.eleitas.all(:order => 'microposts.created_at DESC', :limit => 40) 
-    @users = @user.eleitas.paginate(:page => params[:page])
+    @user_eleitas = @user.eleitas
+    @user_eleitas = @user.eleitas.paginate(:page => params[:page])
     @micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all

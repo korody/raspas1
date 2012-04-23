@@ -42,7 +42,7 @@ function centerPopup(){
 	//centering
 	$("#popupContact").css({
 		"position": "fixed",
-		"top": windowHeight/4-popupHeight/1,
+		"top": windowHeight/0-popupHeight/0,
 		"left": windowWidth/2-popupWidth/2
 	});
 	//only need force for IE6

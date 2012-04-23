@@ -18,7 +18,7 @@ class Tag < ActiveRecord::Base
 
   has_many :authors, through: :microposts#, :uniq => true
 
-  validates :name,  :length   => { :maximum => 15 }
+  validates :name,  :length   => { :maximum => 20 }
 
 	  def self.search(search)
     if search

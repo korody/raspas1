@@ -26,6 +26,9 @@ class AuthorsController < ApplicationController
   end
 
   def create
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
     @author = Author.new(params[:author])
     if @author.save
       flash[:success] = "Perfil para #{@author.name} criado com sucesso!"
@@ -46,6 +49,9 @@ class AuthorsController < ApplicationController
 
   def update
   	@author = Author.find(params[:id])
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
     if @author.update_attributes(params[:author])
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author

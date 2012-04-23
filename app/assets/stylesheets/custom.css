@@ -274,6 +274,16 @@ div.title {
   width: 800px;
 }
 
+input#button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 140%;
+  font-weight: normal;
+}
+
+
 div.title a {
   float: right;
   margin-left: 0.5em;
@@ -562,8 +572,8 @@ div.last {
 }
 
 div.last img {
-  height: 30px;
-  width: 30px;
+  height: 32px;
+  width: px;
 }
 
 div.last p {
@@ -635,9 +645,9 @@ div.count_micropost {
   margin-top: 9.8em;
 }
 
-div.count_bio {
+div.count_bio {  
   float: left;
-  margin-top: 1.2em;
+  margin-top: 14em;
 }
 
 div#count {
@@ -970,18 +980,18 @@ textarea:hover {
   border: 1px solid #D8D8D8;
 }
 
-
 input#user_photo {
   border: 1px solid #D8D8D8;
-  color: #FFF;
-  height: 223px;
-  margin-top: -230px;
+  color: #E2492F;
+  margin-top: -205px;
+  padding-top: 176px;
   position: absolute;
   width: 198px;
 }
 
 input#user_photo:hover {
   background: #F8F8F8;
+  color: #2F4F4F;
   cursor: pointer;
 }
 
@@ -1038,17 +1048,15 @@ div.user_feed_arrow img:hover {
 div.user_feed_follow {
   border: 0px solid #D8D8D8;
   float: left;
-  height: 125px;
-  margin: 2px;
-  width: 322px
+  height: 132px;
+  width: 332px
 }
 
 div.user_feed_follow img {
   border: 0px solid #D8D8D8;
   float: left;
-  height: 28x;
-  margin: 2px;
-  width: 28px
+  height: 32px;
+  width: 32px
 }
 
 div.user_card {
@@ -1178,22 +1186,17 @@ div.user_info_board input.unfan:hover {
 
 /* AUTHOR EDIT */
 
-div.board_bio {
-  float: left;
-  margin: 1.5em 0 0 1em;
-  width: 300px;
-}
-
 textarea#bio {
   height: 160px;
-  width: 285px;
+  width: 332px;
+  float: left;
+  margin: 1.5em 0 0 1em;
 }
 
 input#author_photo {
   border: 1px solid #D8D8D8;
-  color: #FFF;
-  height: 223px;
-  margin-top: -230px;
+  color: #2F4F4F;
+  height: 20px;
   position: absolute;
   width: 198px;
 }
@@ -1270,7 +1273,7 @@ div.cartela_error img{
 
 div.flash.success {
   background: #FFF5EE;
-  background-image: url('super.png');
+  background-image: url('super_.png');
   background-repeat: no-repeat;
   background-position: right center;
   border: 2px solid #E2492F;

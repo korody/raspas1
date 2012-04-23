@@ -3,7 +3,7 @@
         <div class= "cartela_corner round">
             <div class= "board_avatar">
                 <%= image_tag @author.photo.url(:regular) %>
-                <%= f.file_field :photo %>
+                <%= f.file_field :photo, class: "round" %>
             </div> 
         </div>
         <div class= "board_avatar">
@@ -14,16 +14,14 @@
                 <%= f.text_field :origin, placeholder: " cidade de origem", :class => "round field_info" %>
             </div>
         </div>
-        <div class= "board_bio">
+        <div>
             <%= f.text_area :bio, maxlength: 300, placeholder: " descrição do autor", 
             :class => "round", id: "bio" %>
         </div>
         <div class= "count_bio">
             <div id= "count">300</div>
         </div>
-        <div class= "author_create">
-            <%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
-        </div>
     </div>
+    <%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
     <%= render 'shared/error_messages', :object => f.object %>  
 <% end %>

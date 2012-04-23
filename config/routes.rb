@@ -5,7 +5,7 @@ Benfeitor::Application.routes.draw do
 
   resources :authors do
     member do
-      get :fans, :idols, :subscriptions, :users, :tags
+      get :fans, :idols, :subscriptions, :users, :tags, :photo
     end
   end
 
@@ -36,7 +36,7 @@ Benfeitor::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
-  resources :favoritas, :only => [:create, :destroy] 
+  resources :favourites, :only => [:create, :destroy] 
   resources :autocomplete
 
   

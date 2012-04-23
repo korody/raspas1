@@ -1,3 +1,4 @@
+
 <div class= "user_card">
 	<div class= "user_gravatar_card">
 		<%= link_to image_tag(author.photo.url(:regular)), author %>
@@ -7,6 +8,7 @@
 			<%= link_to author.name, author %>
 			<%= author.job if author.job? %>	
 		</div>
+		</br>
 		<div id= "fans" class= "stats">
 			<p class= "p_stats">fãs</p> 
 			<%= link_to (image_tag "ico_star.png"), fans_author_path(author), :alt => "fäs", :class => "ico round" %>
@@ -20,7 +22,7 @@
 			title: "ver raspas de #{author.name}" %>
 		</div>
 		<div id= "fans" class= "stats">
-			<p class= "p_stats">favoritas</p> 
+			<p class= "p_stats">favoritadas</p> 
 			<%= link_to (image_tag "ico_heart.png"), author, :alt => "fäs", :class => "ico round" %>
 			<%= link_to author.eleitas.count, author, :class => "but round", 
 			title: "#{author.name} recebeu #{author.eleitas.count} favoritos" %>

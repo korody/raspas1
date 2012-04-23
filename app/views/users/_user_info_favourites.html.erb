@@ -1,0 +1,38 @@
+<div class= "user_info">
+	<div class= "user_avatar">
+		<%= image_tag @user.photo.url(:regular) %>
+	</div>
+	<div class= "user_info_board round" >
+		<div class= "name_edit">
+			<p><%= @user.name %></p>
+			<% if signed_in? %>
+				<% if current_user?(@user) %>	
+					<%= link_to (image_tag "edit_author.png"), edit_user_path(current_user) %>
+				<% end %>
+			<% end %>
+		</div>
+		<% if @user.job? %>
+			<%= @user.job %></br>
+		<% end %>
+		<% if @user.tipo? %>
+			<%= @user.tipo %></br>
+		<% end %>
+		<% if @user.origin? %>
+			<%= @user.origin %></br>
+		<% end %>		
+		<%= render 'follow_form' if signed_in? %>
+	</div>
+	<div class= "user_info_board round" >
+		<%= render 'stats_raspas' %>
+	</div>
+	<div class= "user_info_board round" >
+		<%= render 'stats_relations' %>
+	</div>
+	<% if @user.bio? %>
+		<div class= "user_info_board round">
+			<div class= "bio">
+				<%= @user.bio %>
+			</div>
+		</div>
+	<% end %>
+</div>

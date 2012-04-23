@@ -1,20 +1,25 @@
-<div class= "home">
-	<div class= "user_feed">
-	    <%= render 'user_favourites' %>
-	</div>
+<div class="raspas">
+  <div class="user_info">
+    <%= render 'user_info_favourites' %>
+  </div>
 	<% if @user.eleitas.empty? %>
-		<div class= "title">
-			<p class= "p_search"><%= @user.name if !@user %> 
-				ainda não tem raspas favoritas ;(</p>
-			<%= link_to "explorar raspas", microposts_path %>
+		<div class="half_quotes round">
+			<div class= "sign">
+				Novo por aqui? Você ainda não possui nenhum pensamento.</br>
+				Clique no <%= image_submit_tag "edit_author.png", id: "button" %> acima para escrever suas primeiras raspas!
+			</div>
+			<div class= "flag_sign">
+				<%= image_tag "happy.png" %>
+			</div>
 		</div>
 	<% else %>
-		<div class= "home">
-		  	<% unless @user.eleitas.empty? %>
+		<div class= "stack">
+		  	<% unless @user_eleitas.empty? %>
 				<div>
-					<%= render @user.eleitas %>
+					<%= render @user_eleitas %>
 				</div>
 		  	<% end %>
 		</div>
 	<% end %>
+    <%= will_paginate @user_eleitas %>
 </div>

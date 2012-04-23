@@ -9,22 +9,16 @@
 			<%= user.job if user.job? %>
 		</div>
 		<div class= "stats">
+			<p class= "p_stats">raspas</p>
+			<%= link_to (image_tag "ico_raspas.png"), user, :alt => "raspas", :class => "round" %>
+			<%= link_to user.microposts.count, user, :class => "but round", 
+			title: "ver raspas de #{user.name}" %>
+		</div>
+		<div class= "stats">
 			<p class= "p_stats">favoritas</p>
 			<%= link_to (image_tag "ico_heart.png"), user, :alt => "raspas", :class => "round" %>
 			<%= link_to user.eleitas.count, favourites_user_path(user), :class => "but round", 
 			title: "ver raspas de #{user.name}" %>
-		</div>
-		<div id= "following" class= "stats">
-			<p class= "p_stats">seguindo</p>
-			<%= link_to (image_tag "ico_following.png"), following_user_path(user), :alt => "raspas", :class => "round" %>
-			<%= link_to user.following.count, following_user_path(user), :class => "but round", 
-			title: "ver usuários seguidos por #{user.name}" %>
-		</div>
-		<div id= "followers" class= "stats">
-			<p class= "p_stats">seguidores</p>
-			<%= link_to (image_tag "ico_followers.png"), followers_user_path(user), :alt => "raspas", :class => "round" %>
-			<%= link_to user.followers.count, followers_user_path(user), :class => "but round", 
-			title: "ver seguidores de #{user.name}" %>
 		</div>
 		<div class= "stats">
 			<p class= "p_stats">ídolos</p> 
@@ -32,6 +26,11 @@
 			<%= link_to user.idols.count, idols_user_path(user), :class => "but round", 
 			title: "ver ídolos de #{user.name}" %>
 		</div>
-
+		<div id= "followers" class= "stats">
+			<p class= "p_stats">seguidores</p>
+			<%= link_to (image_tag "ico_followers.png"), followers_user_path(user), :alt => "raspas", :class => "round" %>
+			<%= link_to user.followers.count, followers_user_path(user), :class => "but round", 
+			title: "ver seguidores de #{user.name}" %>
+		</div>
 	</div>
 </div>

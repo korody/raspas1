@@ -7,7 +7,7 @@
 			<p><%= @user.name %></p>
 			<% if signed_in? %>
 				<% if current_user?(@user) %>	
-					<%= link_to (image_tag "edit_author.png"), edit_user_path(current_user) %>
+					<%= link_to (image_tag "edit.png"), edit_user_path(current_user) %>
 				<% end %>
 			<% end %>
 		</div>

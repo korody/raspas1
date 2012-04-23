@@ -22,6 +22,17 @@
           <%= link_to "usuários", users_path, title: "explorar usuários" %></br>
         </div>
       </div>
+      <div class= "user_info_board round" >
+          <%= submit_tag "escrever raspas", id: "button", title: "escrever raspas" %></li>
+      </div>
+      <div class= "user_info_board round" >
+        <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
+      </div>
+      <% if !signed_in? %>
+        <div class= "user_info_board round" >
+          <p class= "p_tags"><%= link_to "cadastre-se", signin_path, title: "entre no raspas" %></p></br>
+        </div>
+      <% end %>
       <div class= "user_info_board round">
         <div class= "last_header">
           <p class="p_tag">últimos</p><p class= "p_tags"> temas</p>

@@ -18,7 +18,7 @@ class Author < ActiveRecord::Base
   has_attached_file(:photo,
                     :path => ":rails_root/app/assets/images/photos/authors/:id/:style/:basename.:extension",
                     :url => "photos/authors/:id/:style/:basename.:extension",
-                    :default_url => "photos/default/author.jpg",
+                    :default_url => "photos/default/:style/author.jpg",
                     :styles => {
                                 :tiny => "30x30#",
                                 :medium => "100x100#",

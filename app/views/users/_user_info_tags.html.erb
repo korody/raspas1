@@ -14,7 +14,7 @@
 					<% @user.tags.each do |tag| %>
 					  <div>
 					    <%= link_to tag.name, tags_user_path, 
-					    title: "ver raspas de #{@user.name} sobre #{tag.name}", :class => "but round temas" %>
+					    title: "ver + raspas de sobre #{tag.name}", :class => "but round temas" %>
 					  </div>
 					<% end %>
 				</div>

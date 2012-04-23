@@ -28,9 +28,9 @@
   has_attached_file(:photo,
                     :path => ":rails_root/app/assets/images/photos/users/:id/:style/:basename.:extension",
                     :url => "photos/users/:id/:style/:basename.:extension",
-                    :default_url => "photos/default/user.jpg",
+                    :default_url => "photos/default/:style/user.jpg",
                     :styles => {
-                                :tiny => "30x30#",
+                                :tiny => "32x32#",
                                 :medium => "130x130#",
                                 :regular => "200x200#" })
 
