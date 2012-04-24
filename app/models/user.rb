@@ -123,8 +123,6 @@
   end  
 
   def feed
-    user_feed = Micropost.from_users_followed_by(self)
-    author_feed = Micropost.from_authors_idols_of(self)
-    user_feed.merge(author_feed)
+    Micropost.user_feed(self)
   end  
 end

@@ -7,7 +7,7 @@
         <% else %>
           &quot;<%= feed_item.content %>&quot;
           <% if !current_user?(feed_item.user) %>
-            <%= link_to (image_tag "reaspas.png"), reaspas_micropost_path(feed_item) %>
+            <%= link_to (image_tag "reaspas.png"), reaspas_micropost_path(feed_item), title: "reaspas" %>
           <% end %>
         <% end %>
       </div>
@@ -47,10 +47,19 @@
       <% if current_user?(feed_item.user) %>
         <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
                                                :confirm => "apagar esta raspa?",
-                                               :title => "descartar",
+                                               :title => "descartar favorita",
                                                :class => "round" %>
       <% else %>
-        <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round"  %>
+        <% if feed_item.favourites?(feed_item) %>
+            <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
+                 :html => { :method => :delete } do |f| %>
+              <div>
+                <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round", title: "adicionar às favoritas" %>
+          <% end %>
       <% end %>  
     </div>
     <div class= "social">

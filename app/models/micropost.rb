@@ -35,6 +35,7 @@ class Micropost < ActiveRecord::Base
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
   scope :from_authors_idols_of, lambda { |author| idols_of(author) }
+  scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)) }
 
   attr_accessor :author_name
   attr_writer :tag_names

@@ -13,7 +13,7 @@
             </div>
             <%= f.text_field :author_name, data: {autocomplete_source: autocomplete_index_path}, placeholder: "autor original" %>
             <%= f.text_field :origem, placeholder: "origem da raspa" %>
-            <%= f.text_field :tag_names, placeholder: "temas envolvidos", "data-pre" => @micropost.tags.map(&:attributes).to_json %>
+            <%= f.text_field :tag_tokens, placeholder: "temas envolvidos", "data-pre" => @micropost.tags.map(&:attributes).to_json %>
             <%= image_submit_tag "pen.png", :class => "pen round" %>
           <% end %>
         </div>
