@@ -23,10 +23,10 @@
     <div class="timestamp">
       <%= time_ago_in_words(feed_item.created_at) %>
       <% if !feed_item.tags.empty? %>
-        / sobre 
-          <% feed_item.tags.each do |tag| %>
-            <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
-          <% end %>      
+        / 
+        <% feed_item.tags.each do |tag| %>
+          sobre <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+        <% end %>      
       <% end %>
       <% unless !feed_item.origem? %>
         / extraído de <%= feed_item.origem %>

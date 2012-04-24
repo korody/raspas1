@@ -62,11 +62,4 @@ class Author < ActiveRecord::Base
     subscriptions.find_by_author_id(author)
   end
 
-    private
-
-
-  # add validations
-  # add default scope
-  # modify the micropost before_save callback to use find_by_or_create
-  # Do a auto-suggest/auto-complete menu for the other name in the view
 end
