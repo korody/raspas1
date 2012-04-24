@@ -42,8 +42,12 @@ class Micropost < ActiveRecord::Base
   before_save :assign_author
   after_save :assign_tags
 
+  def favourites?(micropost)
+    favourites.find_by_micropost_id(micropost)
+  end
+
   def tag_names
-    @tag_names || tags.map(&:name).join(',')
+    @tag_names || tags.map(&:name).join(' ')
   end
 
   def tag_tokens=(ids)

@@ -6,6 +6,8 @@
   def index
     @title = "All users"
     @users = User.paginate(:page => params[:page])
+    @micropost = Micropost.new
+    @authors = Author.all  
   end
 
   def show
@@ -66,6 +68,7 @@
   end
 
   def update
+    @micropost = Micropost.new
     if @user.update_attributes(params[:user])
       flash[:success] = "Perfil atualizado com sucesso! Veja aí as alterações."
       redirect_to @user
@@ -109,6 +112,7 @@
     @user = User.find(params[:id])
     @users_idols = @user.idols.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.idols.paginate(:page => params[:page])
+    @author_favourites = @user.authors
     @micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
@@ -140,6 +144,7 @@
   def favourites
     @title = "favoritas"
     @user = User.find(params[:id])
+    @favourites = @user.favourites.all
     @user_eleitas = @user.eleitas
     @user_eleitas = @user.eleitas.paginate(:page => params[:page])
     @micropost = Micropost.new

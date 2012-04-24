@@ -20,8 +20,8 @@ class Author < ActiveRecord::Base
                     :url => "photos/authors/:id/:style/:basename.:extension",
                     :default_url => "photos/default/:style/author.jpg",
                     :styles => {
-                                :tiny => "30x30#",
-                                :medium => "100x100#",
+                                :tiny => "32x32#",
+                                :medium => "130x130#",
                                 :regular => "200x200#" })
 
   has_many :microposts, :dependent => :destroy
@@ -37,7 +37,9 @@ class Author < ActiveRecord::Base
 
   has_many :users, :through => :microposts#, :uniq => true
 
-  has_many :eleitas, through: :users
+  has_many :favourites
+
+  has_many :eleitas, through: :favourites, source: :micropost
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },

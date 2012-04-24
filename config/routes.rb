@@ -5,7 +5,7 @@ Benfeitor::Application.routes.draw do
 
   resources :authors do
     member do
-      get :fans, :idols, :subscriptions, :users, :tags, :photo
+      get :fans, :idols, :subscriptions, :users, :tags, :photo, :favourites
     end
   end
 
@@ -32,7 +32,7 @@ Benfeitor::Application.routes.draw do
       get :reaspas, :favourites
     end
   end
-
+  
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]

@@ -151,6 +151,7 @@ nav ul.nave_r li input#button {
   height: 15px;
   margin-top: 0;
   padding: 13px;
+  width: 20px;
 }
 
 nav ul li a:hover {
@@ -220,7 +221,7 @@ div.pagination a, .pagination span, .pagination em {
   font-weight: bold;
   min-height: 20px;
   min-width: 8px;
-  padding: 5px 7px;
+  padding: 4px 7px;
 }
 
 .but:hover {
@@ -308,7 +309,7 @@ div.likes {
   display: none;
   height: 100%;  
   left: 0;  
-  position: fixed;  
+  position: fixed;
   _position: absolute; /* hack for internet explorer 6*/  
   top: 0;  
   width: 100%;  
@@ -318,8 +319,8 @@ div.likes {
 #popupContact {  
   border: 0px solid #E8E8E8;  
   display: none;  
-  font-size: 13px;  
   height: 200px;  
+  margin-top: 41px;  
   position: fixed;  
   _position: absolute; /* hack for internet explorer 6*/  
   width: 800px;  
@@ -573,7 +574,7 @@ div.last {
 
 div.last img {
   height: 32px;
-  width: px;
+  width: 32px;
 }
 
 div.last p {
@@ -587,7 +588,7 @@ div.last p {
 
 div.user_bar {
   background: #F8F8F8;
-  border: 1px solid #D8D8D8;
+  border: 0px solid #D8D8D8;
   float: left;
   height: 200px;
   margin-bottom: 1.5em;
@@ -605,8 +606,8 @@ div.user_bar img {
 
 div.user_board {
   border-bottom: 1px solid #D8D8D8;
-  float:left;
-  height: 180px;
+  float: left;
+  height: 190px;
   margin: 0.5em;
   width: 585px;
 }
@@ -631,7 +632,7 @@ textarea#micropost_content {
   border: 1px solid transparent;
   float: left;
   font-size: 140%;
-  height: 139px;
+  height: 150px;
   width: 540px;
 }
 
@@ -642,7 +643,7 @@ div.count {
 
 div.count_micropost {
   float: right;
-  margin-top: 9.8em;
+  margin-top: 11.5em;
 }
 
 div.count_bio {  
@@ -655,7 +656,7 @@ div#count {
   font-size: 140%;
 }
 
-input#micropost_author_name, input#micropost_origem, ul.token-input-list-facebook {
+input#micropost_author_name, input#micropost_origem, input#micropost_tag_names, ul.token-input-list-facebook {
   background-color: transparent;
   border: 0px solid #D8D8D8;
   border-left: 1px solid #D8D8D8;
@@ -665,8 +666,8 @@ input#micropost_author_name, input#micropost_origem, ul.token-input-list-faceboo
   height: 20px;
   margin-left : 0.4em;
   margin-right: 0.5em;
-  margin-top: 1.1em;
-  width: 153px;
+  margin-top: 1em;
+  width: 161px;
 }
 
 .pen {
@@ -819,7 +820,6 @@ div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-faceb
     color: #FFF;
 }
 
-
 div.quotes {
   background-color: #F8F8F8;
   border: 1px solid #E8E8E8;
@@ -910,7 +910,7 @@ div.quote_corner {
   width: 14%;
 }
 
-div.top_corner a {
+div.top_corner a, div.top_corner input {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
   display: block;
@@ -921,7 +921,7 @@ div.top_corner a {
   width: 30px;
 }
 
-div.top_corner a:hover {
+div.top_corner a:hover, div.top_corner input:hover {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
   background: #E2492F;
@@ -1195,20 +1195,22 @@ textarea#bio {
 
 input#author_photo {
   border: 1px solid #D8D8D8;
-  color: #2F4F4F;
-  height: 20px;
+  color: #E2492F;
+  margin-top: -205px;
+  padding-top: 176px;
   position: absolute;
   width: 198px;
 }
 
 input#author_photo:hover {
   background: #F8F8F8;
+  color: #2F4F4F;
   cursor: pointer;
 }
 
 div.author_create {
   float: right;
-  margin: 9.8em 1em 0 0;
+  font-size: 120%;
 }
 
 /* TAGS */
@@ -1225,8 +1227,26 @@ div.tag_word a {
 
 /* ERRORS */
 
+.cartela_error {
+  background-image: url('sad_.png');
+  background-repeat: no-repeat;
+  background-position: right center; 
+  border: 2px solid #E2492F;
+  border-top: 0px solid #E2492F;
+  margin-bottom: 1em;
+  padding: 2em 0;
+  width: 100%;
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 2px 2px #D8D8D8;
+}
+
+div.cartela_error img{
+  float: right;
+  margin-right: 1em;
+}
+
 .field_with_errors {
-  background-image: url('error.png');
+  background-image: url('raspa_.png');
   background-repeat: no-repeat;
   background-position: right top; 
   float: left;
@@ -1253,23 +1273,6 @@ div.tag_word a {
 }
 
 /* NOTICES */
-
-.cartela_error {
-  background-image: url('sad.png');
-  background-repeat: no-repeat;
-  background-position: right center; 
-  border: 2px solid #E2492F;
-  float: right;
-  padding: 2em 0;
-  width: 595px;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 2px 2px #D8D8D8;
-}
-
-div.cartela_error img{
-  float: right;
-  margin-right: 1em;
-}
 
 div.flash.success {
   background: #FFF5EE;

@@ -50,14 +50,16 @@
                                                  :title => "descartar",
                                                  :class => "round" %>
         <% else %>
-          <% if @user_eleitas %>
-            <%= link_to (image_tag "trash.png"), @user.favourite, :method => :delete,
-                                                 :confirm => "remover esta raspa das favoritas?",
-                                                 :title => "remover raspas",
-                                                 :class => "round" %>
+          <% if micropost.favourites?(micropost) %>
+            <%= form_for micropost.favourites.find_by_micropost_id(micropost),
+                 :html => { :method => :delete } do |f| %>
+              <div>
+                <%= image_submit_tag "heart_fill.png", :class => "unfollow round" %>
+              </div>
+            <% end %>
           <% else %>
             <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "round" %>
-          <% end %>  
+          <% end %>
         <% end %>  
       </div>
       <div class= "social">

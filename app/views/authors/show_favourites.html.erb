@@ -1,0 +1,25 @@
+<div class="raspas">
+	<div class="author_info">
+		<%= render 'author_info_favourites' %>
+	</div>	
+		<div class= "stack">
+			<% if @author_eleitas.empty? %>
+				<div class="half_quotes round">
+					<div class= "sign">
+						Nenhuma raspa favoritada.</br>
+						Visite o perfil de <%= link_to @author.name, @author %> e marque suas favoritas!</br>
+					</div>
+					<div class= "flag_sign">
+						<%= image_tag "happy.png" %>
+					</div>
+				</div>
+			<% else %>
+			  	<% unless @author_eleitas.empty? %>
+					<div>
+						<%= render @author_eleitas %>
+					</div>
+			  	<% end %>
+			<% end %>
+		</div>
+<%= will_paginate @author_eleitas %>
+</div>

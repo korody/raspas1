@@ -16,7 +16,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       if @micropost.author
         redirect_to @micropost.author
-        flash[:success] = "Você adicionou um pensamento de #{@micropost.author.name}. Obrigado!"
+        flash[:success] = "Você adicionou um pensamento de #{@micropost.author.name}! Obrigado."
       else
         redirect_back_or current_user
       end
@@ -41,7 +41,7 @@ class MicropostsController < ApplicationController
   def favourites
     original_micropost = Micropost.find(params[:id])
     if original_micropost
-      favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id)
+      favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, author_id: original_micropost.author)
       if favourite_micropost.save
         redirect_to favourites_user_path(current_user)
       else

@@ -99,6 +99,17 @@ class AuthorsController < ApplicationController
     @tags = Tag.all
     render 'show_users'
   end
+       
+  def favourites
+    @title = "favoritas"
+    @author = Author.find(params[:id])
+    @author_eleitas = @author.eleitas
+    @author_eleitas = @author.eleitas.paginate(:page => params[:page])
+    @micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    render 'show_favourites'
+  end
 
  private
 

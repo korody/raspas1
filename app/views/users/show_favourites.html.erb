@@ -1,25 +1,36 @@
 <div class="raspas">
-  <div class="user_info">
-    <%= render 'user_info_favourites' %>
-  </div>
-	<% if @user.eleitas.empty? %>
-		<div class="half_quotes round">
-			<div class= "sign">
-				Novo por aqui? Você ainda não possui nenhum pensamento.</br>
-				Clique no <%= image_submit_tag "edit_author.png", id: "button" %> acima para escrever suas primeiras raspas!
-			</div>
-			<div class= "flag_sign">
-				<%= image_tag "happy.png" %>
-			</div>
-		</div>
-	<% else %>
-		<div class= "stack">
+	<div class="user_info">
+		<%= render 'user_info_favourites' %>
+	</div>
+	<div class= "stack">
+		<% if @user.eleitas.empty? %>
+	  		<% if !@current_user %>
+				<div class="half_quotes round">
+					<div class= "sign">
+						Novo por aqui? Você ainda não possui nenhum pensamento.</br>
+						Clique no <%= image_submit_tag "raspa_.png", id: "button" %> acima para escrever suas primeiras raspas!
+					</div>
+					<div class= "flag_sign">
+						<%= image_tag "happy.png" %>
+					</div>
+				</div>
+			<% else %>
+				<div class="half_quotes round">
+					<div class= "sign">
+						<%= @user.name %> ainda não possui nenhuma raspa favorita.</br>
+					</div>
+					<div class= "flag_sign">
+						<%= image_tag "dull.png" %>
+					</div>
+				</div>
+			<% end %>		
+		<% else %>
 		  	<% unless @user_eleitas.empty? %>
 				<div>
 					<%= render @user_eleitas %>
 				</div>
 		  	<% end %>
-		</div>
-	<% end %>
+		<% end %>
+	</div>
     <%= will_paginate @user_eleitas %>
 </div>

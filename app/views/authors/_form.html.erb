@@ -1,4 +1,5 @@
 <%= form_for @author, :html => { :multipart => true } do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>  
     <div class="cartela round">
         <div class= "cartela_corner round">
             <div class= "board_avatar">
@@ -22,6 +23,7 @@
             <div id= "count">300</div>
         </div>
     </div>
-    <%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
-    <%= render 'shared/error_messages', :object => f.object %>  
+    <div class= "author_create">
+        <%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
+    </div>
 <% end %>
