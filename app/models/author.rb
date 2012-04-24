@@ -37,9 +37,9 @@ class Author < ActiveRecord::Base
 
   has_many :users, :through => :microposts#, :uniq => true
 
-  # has_many :favourites
+  has_many :favourites
 
-  # has_many :eleitas, through: :favourites, source: :micropost
+  has_many :eleitas, through: :favourites, source: :micropost
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },

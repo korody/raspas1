@@ -1,8 +1,7 @@
 compartilhe
 <div>
 
-	<div id='fb-root'></div>
-    <a onclick='postToFeed(); return false;'><%= image_tag "facebook_20.png", title: "compartilhar pelo facebook" %></a>
+	<div class="fb-like" data-href="http://www.raspas.com.br" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="trebuchet ms"></div>
     
 	<%= link_to (image_tag "twitter_20.png"), "https://twitter.com/share?url=http://www.raspas.com.br", 
 	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
