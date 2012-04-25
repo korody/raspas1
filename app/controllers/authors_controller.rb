@@ -17,6 +17,7 @@ class AuthorsController < ApplicationController
       @micropost = Micropost.new
       @authors = Author.all
       @tags = Tag.all
+      @author_micropost = Micropost.find(params[:id])
   end
   
   def new
