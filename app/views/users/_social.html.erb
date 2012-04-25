@@ -10,9 +10,9 @@
       method: 'feed',
       link: 'https://raspas.herokuapp.com/',
       picture: '<%= image_tag @user.photo.url(:medium) %>',
-      name: '<%= @micropost.content %>',
-      caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% end %>',                                
-      description: 'por <%= @user.name %>',  
+      name: '<%= @user_micropost.content %>',
+      caption: '<% if @user_micropost.author %>{ <%= @user_micropost.author.name %><% end %>',                                
+      description: 'por <%= @user_micropost.user.name %>',  
     };
 
     function callback(response) {

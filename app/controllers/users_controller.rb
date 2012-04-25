@@ -17,6 +17,7 @@
     @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all(:order => 'tags.created_at DESC')
     @authors = @user.authors.all(:order => 'authors.created_at DESC')
+    @user_micropost = Micropost.find(params[:id])
   end
 
   def feed
