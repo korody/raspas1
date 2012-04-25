@@ -9,7 +9,7 @@
     var obj = {
       method: 'feed',
       link: 'https://raspas.herokuapp.com/',
-      picture: '<%= @micropost.user.photo.url(:medium) %>',
+      picture: '<%= image_tag @micropost.user.photo.url(:medium) %>',
       name: '<%= @micropost.content %>',
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% end %>',                                
       description: 'por <%= @micropost.user.name %>',  
