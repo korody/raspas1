@@ -8,10 +8,12 @@
         method: 'feed',
         link: 'https://raspas.herokuapp.com/',
         picture: 'http://fbrell.com/f8.jpg',
-        name: '<%= @micropost.content %>', 
-        caption: '{ <%= @author.name %>',
-
-        description: 'Using Dialogs to interact with users.'
+        name: '<%= @micropost.content %>',
+        caption: '{ <% unless @micropost.author %>
+                        <%= @micropost.user.name %>
+                      <% else %>
+                        <%= @micropost.author.name %><% end %>',                                 
+        description: 'Something Else'
       };
 
       function callback(response) {
@@ -22,7 +24,6 @@
     }
   
 </script>
-
 <p id='msg'>compartilhe</p>
 
 <div>
