@@ -921,9 +921,21 @@ div.top_corner a {
   width: 30px;
 }
 
+div.top_corner a.share {
+  border: 1px solid #D8D8D8;
+  margin-top: 3.5em;
+}
+
 div.top_corner a:hover {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
+  background: #E2492F;
+  color: #FFF;
+  opacity: 1;
+}
+
+div.top_corner a.share:hover {
+  border: 1px solid #D8D8D8;
   background: #E2492F;
   color: #FFF;
   opacity: 1;
@@ -949,35 +961,13 @@ div.top_corner input:hover {
   opacity: 1;
 }
 
-div.social {
-  border: 0px solid #D8D8D8;
-  display: block;
-  float: right;
-  height: 1.8em;
-  margin-top: 4.6em;
-  padding-right: 0.1em;
-}
-
-div.social img {
-  float: left;
-  height: 20px;
-  margin-right: 1px;
-  opacity: 0.7;
-  width: 20px;
-}
-
-div.social img:hover {
-  opacity: 1;
-}
-
 div.user_id img {
   border: 1px solid #D8D8D8;
   border-bottom: 0px;
   display: inline-block;
   float: right;
   height: 65px;
-  margin-bottom: 0;
-  margin-top: 1.6em;
+  margin-top: 1em;
   width: 65px;
 }
 

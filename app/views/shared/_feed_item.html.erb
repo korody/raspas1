@@ -60,10 +60,8 @@
           <% else %>
             <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round", title: "adicionar às favoritas" %>
           <% end %>
-      <% end %>  
-    </div>
-    <div class= "social">
-      <%= link_to "SHARE", micropost_path(feed_item), title: "reaspas" %>
+      <% end %>
+      <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "share round" %>  
     </div>
     <% if feed_item.author %>
       <div class= "user_id">
