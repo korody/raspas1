@@ -71,6 +71,30 @@
              ref.parentNode.insertBefore(js, ref);
            }(document));
         </script>
+
+        <script> 
+          FB.init({appId: "282523151767333", status: true, cookie: true});
+
+          function postToFeed() {
+
+            // calling the API ...
+            var obj = {
+              method: 'feed',
+              link: 'https://raspas.herokuapp.com/',
+              picture: 'http://fbrell.com/f8.jpg',
+              name: '<%= @micropost.content %>',
+              caption: '{ <%= @micropost.user.name %>',                                
+              description: 'Something Else'
+            };
+
+            function callback(response) {
+              document.getElementById('msg').innerHTML = "compartilhado!";
+            }
+
+            FB.ui(obj, callback);
+          }
+        
+        </script>
   
         
 

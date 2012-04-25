@@ -1,29 +1,4 @@
-<script> 
-    FB.init({appId: "282523151767333", status: true, cookie: true});
 
-    function postToFeed() {
-
-      // calling the API ...
-      var obj = {
-        method: 'feed',
-        link: 'https://raspas.herokuapp.com/',
-        picture: 'http://fbrell.com/f8.jpg',
-        name: '<%= @micropost.content %>',
-        caption: '{ <% unless @micropost.author %>
-                        <%= @micropost.user.name %>
-                      <% else %>
-                        <%= @micropost.author.name %><% end %>',                                 
-        description: 'Something Else'
-      };
-
-      function callback(response) {
-        document.getElementById('msg').innerHTML = "compartilhado!";
-      }
-
-      FB.ui(obj, callback);
-    }
-  
-</script>
 <p id='msg'>compartilhe</p>
 
 <div>
