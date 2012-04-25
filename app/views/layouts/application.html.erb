@@ -83,8 +83,8 @@
               link: 'https://raspas.herokuapp.com/',
               picture: 'http://fbrell.com/f8.jpg',
               name: '<%= @micropost.content %>',
-              caption: '{ <%= @micropost.user.name %>',                                
-              description: 'Something Else'
+              caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% end %>',                                
+              description: 'por <%= @micropost.user.name %>',  
             };
 
             function callback(response) {
