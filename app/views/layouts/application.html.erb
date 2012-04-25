@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
   <head>
     <title><%= title %></title>
     <%= csrf_meta_tag %>
@@ -22,14 +24,6 @@
 
   </head>
   <body>
-    <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=282523151767333";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
       <%= render 'layouts/header' %>
       <% if signed_in? %>
@@ -49,5 +43,58 @@
       <!-- <%= render 'layouts/footer' %> -->
       <%#= debug(params) if Rails.env.development? %>
     </div> 
+
+    <!-- FACEBOOK SHARER -->
+
+
+        <div id='fb-root'></div>
+        <script src='http://connect.facebook.net/pt_BR/all.js'></script>
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '282523151767333', // App ID
+              channelUrl : 'http://raspas.herokuapp.com/channel.html', // Channel File
+              status     : true, // check login status
+              cookie     : true, // enable cookies to allow the server to access the session
+              xfbml      : true  // parse XFBML
+            });
+
+            // Additional initialization code here
+          };
+
+          // Load the SDK Asynchronously
+          (function(d){
+             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/pt_BR/all.js";
+             ref.parentNode.insertBefore(js, ref);
+           }(document));
+        </script>
+  
+        <script> 
+          FB.init({appId: "282523151767333", status: true, cookie: true});
+
+          function postToFeed() {
+
+            // calling the API ...
+            var obj = {
+              method: 'feed',
+              link: 'https://developers.facebook.com/docs/reference/dialogs/',
+              picture: 'http://fbrell.com/f8.jpg',
+              name: 'Facebook Dialogs',
+              caption: 'Reference Documentation',
+              description: 'Using Dialogs to interact with users.'
+            };
+
+            function callback(response) {
+              document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+            }
+
+            FB.ui(obj, callback);
+          }
+        
+        </script>
+
   </body>
 </html>
