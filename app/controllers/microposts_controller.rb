@@ -11,6 +11,13 @@ class MicropostsController < ApplicationController
     @tags = Tag.all
   end
 
+  def show
+      @micropost = Micropost.find(params[:id])
+      @microposts = Micropost.find(:all)
+      @microposts = Micropost.paginate(:page => params[:page])
+      @tags = @micropost.tags
+  end
+
   def create
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
@@ -29,13 +36,6 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     redirect_back_or current_user
-  end
-
-  def show
-      @micropost = Micropost.find(params[:id])
-      @microposts = Micropost.find(:all)
-      @microposts = Micropost.paginate(:page => params[:page])
-      @tags = @micropost.tags
   end
 
   def favourites
@@ -70,7 +70,7 @@ class MicropostsController < ApplicationController
       flash[:error] = "A raspa mencionada não existe mais!"
     end
   end
-
+  
   private
 
     def authorized_user

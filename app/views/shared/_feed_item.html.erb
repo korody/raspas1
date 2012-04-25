@@ -63,7 +63,7 @@
       <% end %>  
     </div>
     <div class= "social">
-      <%= render 'shared/social' %>
+      <%= link_to "SHARE", micropost_path(feed_item), title: "reaspas" %>
     </div>
     <% if feed_item.author %>
       <div class= "user_id">
