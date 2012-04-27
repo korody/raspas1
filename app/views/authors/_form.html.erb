@@ -1,4 +1,4 @@
-<% form_for @author, :html => { :multipart => true } do |f| %>
+<%= form_for @author, :html => { :multipart => true } do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>  
     <div class="cartela round">
         <div class= "cartela_corner round">
@@ -16,11 +16,11 @@
             </div>
         </div>
         <div>
-            <%= f.text_area :bio, maxlength: 300, placeholder: " descrição do autor", 
+            <%= f.text_area :bio, maxlength: 320, placeholder: " descrição do autor", 
             :class => "round", id: "bio" %>
         </div>
         <div class= "count_bio">
-            <div id= "count">300</div>
+            <div id= "count_bio">320</div>
         </div>
     </div>
     <div class= "author_create">

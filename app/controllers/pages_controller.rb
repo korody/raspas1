@@ -12,5 +12,6 @@
 
   def about
   	@title = "conceito"
+    @micropost = Micropost.new
   end
 end

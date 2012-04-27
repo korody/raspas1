@@ -7,14 +7,13 @@
     @title = "All users"
     @users = User.paginate(:page => params[:page])
     @micropost = Micropost.new
-    @authors = Author.all  
   end
 
   def show
     @user = User.find(params[:id])
     @title = @user.name
     @micropost = Micropost.new
-    @microposts = @user.microposts.paginate(:page => params[:page])
+    @microposts = @user.favo.paginate(:page => params[:page])
     @tags = @user.tags.all(:order => 'tags.created_at DESC')
     @authors = @user.authors.all(:order => 'authors.created_at DESC')
     @user_micropost = Micropost.find(params[:id])
@@ -45,7 +44,7 @@
 
   def new
   	@user = User.new
-    @title = "Sign up"
+    @title = "cadastre-se"
   end
 
   def create
@@ -64,8 +63,6 @@
     @user = User.find(params[:id])
     @title = "editar"
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
   end
 
   def update
@@ -103,8 +100,6 @@
     @users_followers = @user.followers.all(:order => 'users.created_at DESC', :limit => 40)
     @users = @user.followers.paginate(:page => params[:page])
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
     render 'show_followers'
   end
 
@@ -115,8 +110,6 @@
     @users = @user.idols.paginate(:page => params[:page])
     @author_favourites = @user.authors
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
     render 'show_idols'
   end
 
@@ -126,8 +119,6 @@
     @users_authors = @user.authors.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.authors.paginate(:page => params[:page])
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
     render 'show_authors'
   end
 
@@ -137,8 +128,6 @@
     @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
     @authors = @author.fans.paginate(:page => params[:page])
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
     render 'show_fans'
   end
 
@@ -149,8 +138,6 @@
     @user_eleitas = @user.eleitas
     @user_eleitas = @user.eleitas.paginate(:page => params[:page])
     @micropost = Micropost.new
-    @authors = Author.all
-    @tags = Tag.all
     render 'show_favourites'
   end
 

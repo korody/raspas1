@@ -5,7 +5,7 @@ $('#micropost_content').live('keyup keydown', function(e) {
 });
 
 $('#bio').live('keyup keydown', function(e) {
-  var maxLen = 300;
+  var maxLen = 320;
   var left = maxLen - $(this).val().length;
-  $('#count').html(left);
+  $('#count_bio').html(left);
 });

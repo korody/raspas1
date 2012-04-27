@@ -32,7 +32,7 @@
 		<% if !@tags.empty? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
-					<p class="p_tag">temas</p> <p class= "p_tags"> escritos</p>
+					<p class="p_tag">temas</p> <p class= "p_tags">escritos</p>
 			        <p class= "p_mais"><%= link_to "+", tags_author_path(@author), title: "ver todos os temas de #{@author.name}" %></p>
 			    </div>
 				<div>
@@ -48,7 +48,7 @@
 		<% if !@users.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">citado</p><p class= "p_tags"> pelos</p><p class="p_tag"> usuários</p>
+				<p class="p_tag">citado</p> <p class= "p_tags">pelos</p> <p class="p_tag">usuários</p>
 		        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
 	    	</div>
 			<div>

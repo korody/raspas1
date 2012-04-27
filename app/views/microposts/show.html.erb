@@ -2,7 +2,7 @@
 	<%= render 'micropost_info' %>
 </div>
 <div class="stack">
-	<% unless @microposts.empty? %>
+	<% if @micropost %>
 	  <%= render @micropost %>
 	<% end %>
 	<%= render 'social' %>

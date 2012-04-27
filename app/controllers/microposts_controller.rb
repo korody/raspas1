@@ -1,6 +1,6 @@
 # encoding: utf-8
 class MicropostsController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :reaspas, :favourites]
+  before_filter :authenticate, :only => [:create, :destroy, :favourites]
   before_filter :authorized_user, :only => :destroy
 
   def index
@@ -12,10 +12,8 @@ class MicropostsController < ApplicationController
   end
 
   def show
-      @micropost = Micropost.find(params[:id])
-      @microposts = Micropost.find(:all)
-      @microposts = Micropost.paginate(:page => params[:page])
-      @tags = @micropost.tags
+    @micropost = Micropost.find(params[:id])
+    @tags = @micropost.tags
   end
 
   def create
@@ -54,23 +52,6 @@ class MicropostsController < ApplicationController
     end
   end
 
-  def reaspas
-    original_micropost = Micropost.find(params[:id])
-    if original_micropost
-      new_micropost = current_user.microposts.build(content: original_micropost.content, author_id: original_micropost.author_id, 
-                                                    user_id: original_micropost.user_id, tags: original_micropost.tags)
-      if new_micropost.save
-        redirect_to user_path(current_user)
-        flash[:success] = "Reaspa concluída! Veja a Raspa aí embaixo."
-      else
-        redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
-      end
-    else
-      redirect_back_or current_user
-      flash[:error] = "A raspa mencionada não existe mais!"
-    end
-  end
-  
   private
 
     def authorized_user

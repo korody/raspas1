@@ -11,8 +11,8 @@
       link: 'https://raspas.herokuapp.com/',
       picture: '<% if @micropost.author %><%= image_tag @micropost.author.photo.url(:medium) %><% else %><%= image_tag @micropost.user.photo.url(:medium) %><% end %>',
       name: '<%= @micropost.content %>',
-      caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% end %>',                                
-      description: 'por <%= @micropost.user.name %>',  
+      caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
+      description: '',  
     };
 
     function callback(response) {
@@ -24,19 +24,29 @@
 
 </script>
 
+<!-- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script> -->
 
-<p id='msg'>compartilhe</p>
-
-<div>
-
+<p id='msg'></p>
+<div class= "sharing cartela round">
 	<div id='fb-root'></div>
     <script src='http://connect.facebook.net/en_US/all.js'></script>
-    <p><a onclick='postToFeed(); return false;'><%= image_tag "facebook_20.png", title: "compartilhar pelo facebook" %></a></p>
+    <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb.png", title: "compartilhar pelo facebook" %></a></p>
     
-	<%= link_to (image_tag "twitter_20.png"), "https://twitter.com/share?url=http://www.raspas.com.br", 
+	<%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?text=#{@micropost.content}&hashtags=raspas&via=raspas_app&lang=pt", 
 	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
-	<%= link_to (image_tag "google_20.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
-	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
+  
+  <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="raspas_app" 
+  data-text="'<%= @micropost.content %>'
+  {  <% if @micropost.author %><%= @micropost.author.name %>
 
+  <% else %><%= @micropost.user.name %>
+
+  <% end %>" 
+  data-lang="pt" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="raspas"></a>
+ -->
+	
+  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
+	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
 </div>

@@ -35,7 +35,8 @@ class Micropost < ActiveRecord::Base
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
   scope :from_authors_idols_of, lambda { |author| idols_of(author) }
-  scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)) }
+  scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost) }
+  scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
 
   attr_accessor :author_name
   attr_writer :tag_names
@@ -56,14 +57,6 @@ class Micropost < ActiveRecord::Base
   end
 
   private
-  
-    def assign_tags
-      if @tag_names
-        self.tags = @tag_names.split(',').map do |name|
-          Tag.find_or_create_by_name(name.downcase)    
-        end
-      end   
-    end
 
     def self.followed_by(user)
       following_ids = %(SELECT followed_id FROM relationships
@@ -77,6 +70,21 @@ class Micropost < ActiveRecord::Base
                             WHERE user_id = :user_id)
       where("author_id IN (#{idols_ids}) OR user_id = :user_id",
             { user_id: user })
+    end
+
+    def self.favourites_of(user)
+      eleitas_ids = %(SELECT micropost_id FROM favourites
+                            WHERE user_id = :user_id)
+      where("id IN (#{eleitas_ids}) OR user_id = :user_id",
+            { user_id: user })
+    end
+  
+    def assign_tags
+      if @tag_names
+        self.tags = @tag_names.split(',').map do |name|
+          Tag.find_or_create_by_name(name.downcase)    
+        end
+      end   
     end
 
     def assign_author

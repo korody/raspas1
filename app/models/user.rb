@@ -124,5 +124,9 @@
 
   def feed
     Micropost.user_feed(self)
-  end  
+  end
+
+  def favo
+    Micropost.from_microposts_favourites_of(self)
+  end    
 end

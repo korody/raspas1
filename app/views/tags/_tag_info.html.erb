@@ -9,7 +9,7 @@
 		<% if !@tag.authors.empty? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
-					<p class="p_tags">últimos</p><p class="p_tag"> pensadores</p>
+					<p class="p_tags">últimos</p> <p class="p_tag">pensadores</p>
 					<p class= "p_mais"><%= link_to "+", authors_tag_path, 
 					title: "ver todos autores que escreveram sore #{@tag.name}" %></p>
 				</div>
@@ -26,7 +26,7 @@
 		<% if !@tag.users.empty? %>
 			<div class= "user_info_board round" >
 				<div class= "last_header">
-					<p class="p_tags">últimos</p><p class="p_tag"> usuários</p>
+					<p class="p_tags">últimos</p> <p class="p_tag">usuários</p>
 					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sore #{@tag.name}" %></p>
 				</div>
 				<div>
@@ -41,7 +41,7 @@
 		<% end %>	   
 		<div class= "user_info_board round" >
 			<div class= "last_header">
-				<p class="p_tags">outros</p><p class="p_tag"> temas</p>
+				<p class="p_tags">outros</p> <p class="p_tag">temas</p>
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
 			</div>
 			<div>

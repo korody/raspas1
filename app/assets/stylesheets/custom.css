@@ -355,12 +355,12 @@ div.likes {
 
 .cartela {
   background: #F8F8F8;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #E8E8E8;
   height: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1.5em;
-  width: 100%;
+  width: 98%;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
 }
@@ -370,22 +370,6 @@ div.cartela_corner {
   float: left;
   height: 200px;
   width: 200px;
-}
-
-.social_but {
-  border: 1px solid transparent;
-  display: block;
-  float: left;
-  margin-left: 5em;
-  margin-top: 5em;
-}
-
-a.social_but:hover  {
-  background: #E2492F;
-  border: 1px solid #D8D8D8;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
 }
 
 .field {
@@ -461,7 +445,6 @@ div.user_info {
 div.user_avatar {
   background: #F8F8F8;
   border: 1px solid #E8E8E8;
-  margin-top: 0px;
   height: 200px;
   width: 200px;
 }
@@ -471,8 +454,8 @@ div.user_info_board {
   border: 1px solid #E8E8E8;
   color: #B0B0B0;
   float: right;
-  margin-top: 0.9em;
-  padding: 0.5em 0.5em 0.8em;
+  margin-top: 1em;
+  padding: 0.5em;
   width: 94%;
 }
 
@@ -544,7 +527,6 @@ div.stats img:hover {
   opacity: 1;
 }
 
-
 div.stats a.but {
   border: 1px solid #D8D8D8;
   font-weight: normal;
@@ -558,6 +540,10 @@ div.stats a.but {
 div.user_info_board a.temas {
   float: left;
   margin: 0 0.4em 0.4em 0;
+}
+
+div.bio {
+  line-height: 1.6em;
 }
 
 div.last_header {
@@ -651,7 +637,7 @@ div.count_bio {
   margin-top: 14em;
 }
 
-div#count {
+div#count, div#count_bio {
   color: #B0B0B0;
   font-size: 140%;
 }
@@ -838,7 +824,7 @@ div.half_quotes {
   height: 100px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1em;
+  margin-bottom: 0.7em;
   width: 98%;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
@@ -919,23 +905,13 @@ div.top_corner a {
   opacity: 0.7;
   padding: 1px 1.2em;
   width: 30px;
-}
-
-div.top_corner a.share {
-  border: 1px solid #D8D8D8;
-  margin-top: 3.5em;
+  -webkit-box-shadow: 0 1px 1px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 div.top_corner a:hover {
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
-  background: #E2492F;
-  color: #FFF;
-  opacity: 1;
-}
-
-div.top_corner a.share:hover {
-  border: 1px solid #D8D8D8;
   background: #E2492F;
   color: #FFF;
   opacity: 1;
@@ -967,12 +943,40 @@ div.user_id img {
   display: inline-block;
   float: right;
   height: 65px;
-  margin-top: 1em;
+  margin-top: 4.5em;
   width: 65px;
+  -webkit-box-shadow: 0 1px 1px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 div.quotes:hover div.timestamp {
   color: #2F4F4F;
+}
+
+/* SHARING */
+
+div.sharing {
+  border: 1px solid #E2492F;
+  background: transparent;
+}
+
+div.sharing a, div.sharing img {
+  border: 1px solid transparent;
+  padding: 0;
+  float: left;
+  margin: 2.5em 0.4em 0;
+}
+
+div.sharing img:hover {
+  background: #E2492F;
+  border: 1px solid #D8D8D8;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+a.social_but img{
+  margin: 2.6em;
 }
 
 /* USER EDIT PAGE */
@@ -1197,9 +1201,9 @@ div.user_info_board input.unfan:hover {
 
 textarea#bio {
   height: 160px;
-  width: 332px;
   float: left;
   margin: 1.5em 0 0 1em;
+  width: 332px;
 }
 
 input#author_photo {
@@ -1208,13 +1212,16 @@ input#author_photo {
   margin-top: -205px;
   padding-top: 176px;
   position: absolute;
+  visibility: hidden;
   width: 198px;
 }
 
 input#author_photo:hover {
-  background: #F8F8F8;
-  color: #2F4F4F;
   cursor: pointer;
+}
+
+div.board_avatar:hover input#author_photo {
+  visibility: visible;
 }
 
 div.author_create {
@@ -1284,11 +1291,10 @@ div.cartela_error img{
 /* NOTICES */
 
 div.flash.success {
-  background: #FFF5EE;
   background-image: url('super_.png');
   background-repeat: no-repeat;
   background-position: right center;
-  border: 2px solid #E2492F;
+  border: 1px solid #E2492F;
   border-top: 0px solid #D8D8D8;
   border-radius: 4px;
   color: #B0B0B0;
