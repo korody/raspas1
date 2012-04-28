@@ -33,7 +33,7 @@
     <script src='http://connect.facebook.net/en_US/all.js'></script>
     <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb.png", title: "compartilhar pelo facebook" %></a></p>
     
-	<%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
+	<%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
 	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
   
