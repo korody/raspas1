@@ -8,6 +8,8 @@ class AuthorsController < ApplicationController
     @authors = Author.paginate(:page => params[:page])
     @micropost = Micropost.new
     @tags = Tag.all
+    @authors = Author.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
+    render json: @authors.map(&:name) 
   end
 
   def show

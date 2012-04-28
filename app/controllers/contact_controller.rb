@@ -2,6 +2,7 @@ class ContactController < ApplicationController
 
   def new
     @message = Message.new
+    @micropost = Micropost.new
   end
 
   def create
