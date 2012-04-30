@@ -23,16 +23,9 @@
 
   require 'digest'
   class User < ActiveRecord::Base
-  attr_accessible :name, :email, :photo, :bio, :job, :tipo, :origin, :born
-
-  has_attached_file(:photo,
-                    :path => ":rails_root/app/assets/images/photos/users/:id/:style/:basename.:extension",
-                    :url => "photos/users/:id/:style/:basename.:extension",
-                    :default_url => "photos/default/:style/user.jpg",
-                    :styles => {
-                                :tiny => "32x32#",
-                                :medium => "130x130#",
-                                :regular => "200x200#" })
+  attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
+  
+  mount_uploader :image, ImageUploader
 
 
   has_many :microposts, :dependent => :destroy
@@ -52,8 +45,7 @@
 
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
-  has_many :subscriptions, :foreign_key => "user_id",
-                           :dependent => :destroy
+  has_many :subscriptions, :foreign_key => "user_id"
 
   has_many :idols, through: :subscriptions, source: :author
 
@@ -72,10 +64,6 @@
  #                     :format     => { :with => email_regex },
  #                     :uniqueness => { :case_sensitive => false }
 	
-
-  validates_attachment_size :photo, :less_than => 5.megabytes
-
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
 
   def self.create_with_omniauth(auth)

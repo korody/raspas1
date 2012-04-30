@@ -10,19 +10,11 @@
 #
 
 class Author < ActiveRecord::Base
-  attr_accessible :name, :photo, :bio, :job, :tipo, :origin, :born
+  attr_accessible :name, :bio, :job, :tipo, :origin, :born
 
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
 
-  has_attached_file(:photo,
-                    :path => ":rails_root/app/assets/images/photos/authors/:id/:style/:basename.:extension",
-                    :url => "photos/authors/:id/:style/:basename.:extension",
-                    :default_url => "photos/default/:style/author.jpg",
-                    :styles => {
-                                :tiny => "32x32#",
-                                :medium => "130x130#",
-                                :regular => "200x200#" })
 
   has_many :microposts, :dependent => :destroy
 
@@ -44,11 +36,6 @@ class Author < ActiveRecord::Base
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },
                     :uniqueness => { :case_sensitive => false }
-
-  validates_attachment_size :photo, :less_than => 5.megabytes
-
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
-
 
   def self.search(search)
     if search

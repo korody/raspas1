@@ -1005,19 +1005,22 @@ textarea:hover {
   border: 1px solid #D8D8D8;
 }
 
-input#user_photo {
+input#user_image {
   border: 1px solid #D8D8D8;
   color: #E2492F;
   margin-top: -205px;
   padding-top: 176px;
   position: absolute;
+  visibility: hidden;
   width: 198px;
 }
 
-input#user_photo:hover {
-  background: #F8F8F8;
-  color: #2F4F4F;
+input#user_image:hover {
   cursor: pointer;
+}
+
+div.board_avatar:hover input#user_image {
+  visibility: visible;
 }
 
 div.field input.field_info {

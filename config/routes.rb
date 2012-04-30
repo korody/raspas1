@@ -5,7 +5,7 @@ Benfeitor::Application.routes.draw do
 
   resources :authors do
     member do
-      get :fans, :idols, :subscriptions, :users, :tags, :photo, :favourites
+      get :fans, :idols, :subscriptions, :users, :tags, :favourites
     end
   end
 
