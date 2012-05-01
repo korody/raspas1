@@ -3,8 +3,8 @@
     <div class="cartela round">
         <div class= "cartela_corner round">
             <div class= "board_avatar">
-                <%= image_tag @author.photo.url(:regular) %>
-                <%= f.file_field :photo, class: "round" %>
+                <%= image_tag @author.image_url(:regular).to_s %>
+                <%= f.file_field :image %>
             </div> 
         </div>
         <div class= "board_avatar">

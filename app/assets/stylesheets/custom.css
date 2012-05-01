@@ -1222,7 +1222,7 @@ textarea#bio {
   width: 332px;
 }
 
-input#author_photo {
+input#author_image {
   border: 1px solid #D8D8D8;
   color: #E2492F;
   margin-top: -205px;
@@ -1232,11 +1232,11 @@ input#author_photo {
   width: 198px;
 }
 
-input#author_photo:hover {
+input#author_image:hover {
   cursor: pointer;
 }
 
-div.board_avatar:hover input#author_photo {
+div.board_avatar:hover input#author_image {
   visibility: visible;
 }
 

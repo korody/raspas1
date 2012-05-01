@@ -3,19 +3,19 @@
     <%= render 'author_info' %>
   </div>
   <div class="stack">
-    <% if @author %>
-      <% unless @author.published? %>
-        <div class="half_quotes round">
+    <%# if @author %>
+      <%# unless @author.published? %>
+        <!-- <div class="half_quotes round">
           <div class= "sign">
             O perfil de <%= @author.name %> é recente e está sob análise.</br>
             Não gosta do que está vendo? Marque como abusivo!
           </div>
           <div class= "flag_sign">
-            <%= link_to (image_tag "flag_sign.png"), @author %>
+            <%#= link_to (image_tag "flag_sign.png"), @author %>
           </div>
-        </div>
-      <% end %> 
-    <% end %> 
+        </div> -->
+      <%# end %> 
+    <%# end %> 
     <% unless @author.microposts.empty? %>
       <%= render @microposts %>
     <% end %>

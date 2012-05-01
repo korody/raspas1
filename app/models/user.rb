@@ -24,9 +24,8 @@
   require 'digest'
   class User < ActiveRecord::Base
   attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
-  
-  mount_uploader :image, ImageUploader
 
+  mount_uploader :image, ImageUploader
 
   has_many :microposts, :dependent => :destroy
   
@@ -45,7 +44,8 @@
 
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
-  has_many :subscriptions, :foreign_key => "user_id"
+  has_many :subscriptions, :foreign_key => "user_id",
+                           :dependent => :destroy
 
   has_many :idols, through: :subscriptions, source: :author
 
@@ -65,7 +65,6 @@
  #                     :uniqueness => { :case_sensitive => false }
 	
 
-
   def self.create_with_omniauth(auth)
       create! do |user|
       user.provider = auth["provider"]
@@ -74,7 +73,7 @@
       user.email = auth["info"]["email"]
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["bio"]
-      user.photo = auth["info"]["image"]    
+      user.image = auth["info"]["image"]    
     end
   end
 

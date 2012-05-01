@@ -36,10 +36,10 @@
           / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
         <% end %>
       <% end %>
-      <% if !feed_item.published? %>
-        / sob <%= link_to "análise", @author %>
-        <%= link_to (image_tag "flag_ico.png"), root_path %>
-      <% end %>
+      <%# if !feed_item.published? %>
+        <!-- / sob <%#= link_to "análise", @author %> -->
+        <%#= link_to (image_tag "flag_ico.png"), root_path %>
+      <%# end %>
     </div>
   </div>
   <div class= "quote_corner">
@@ -65,7 +65,7 @@
     </div>
     <% if feed_item.author %>
       <div class= "user_id">
-        <%= link_to image_tag(feed_item.user.photo.url(:medium)), feed_item.user, 
+        <%= link_to image_tag(feed_item.user.image_url(:medium)), feed_item.user, 
         title: "ver perfil de #{feed_item.user.name}" %>
       </div>
     <% end %>

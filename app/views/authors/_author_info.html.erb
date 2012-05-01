@@ -1,6 +1,6 @@
 <div class= "user_info">
 	<div class= "user_avatar">
-		<%= link_to (image_tag @author.photo.url(:regular)), edit_author_path %>
+		<%= link_to (image_tag @author.image_url(:regular).to_s), edit_author_path %>
 	</div>
 	<div class= "user_info">
 		<div class= "user_info_board round">
@@ -54,7 +54,7 @@
 			<div>
 				<% @users.first(4).each do |user| %>
 			        <div class= "last">
-			            <%= link_to image_tag(user.photo.url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+			            <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
 			            <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
 			        </div>
 		        <% end %>

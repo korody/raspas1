@@ -1,7 +1,7 @@
 <div class= "user_info">
 	<% @user ||= current_user %>
 	<div class= "user_avatar">
-		<%= image_tag @user.photo.url(:regular) %>
+		<%= image_tag @user.image_url(:regular).to_s %>
 	</div>
 	<div class= "show_info">
 		<% if !@user.tags.empty? %>

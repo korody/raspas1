@@ -10,11 +10,12 @@
 #
 
 class Author < ActiveRecord::Base
-  attr_accessible :name, :bio, :job, :tipo, :origin, :born
+  attr_accessible :name, :image, :bio, :job, :tipo, :origin, :born
+
+  mount_uploader :image, ImageUploader
 
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
-
 
   has_many :microposts, :dependent => :destroy
 
@@ -36,6 +37,7 @@ class Author < ActiveRecord::Base
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },
                     :uniqueness => { :case_sensitive => false }
+
 
   def self.search(search)
     if search

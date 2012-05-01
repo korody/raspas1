@@ -33,10 +33,10 @@
           / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
         <% end %>
       <% end %>
-      <% if !micropost.published? %>
-        / sob <%= link_to "análise", @author %>
-        <%= link_to (image_tag "flag_ico.png"), root_path %>
-      <% end %>
+      <%# if !micropost.published? %>
+        <!-- / sob <%#= link_to "análise", @author %> -->
+        <%#= link_to (image_tag "flag_ico.png"), root_path %>
+      <%# end %>
     </div>
   </div>
     <div class= "quote_corner">
@@ -62,7 +62,7 @@
       </div>   
       <% if micropost.author %>
         <div class= "user_id">
-          <%= link_to image_tag(micropost.user.photo.url(:medium)), micropost.user, 
+          <%= link_to image_tag(micropost.user.image_url(:medium)), micropost.user, 
           title: "ver perfil de #{micropost.user.name}" %>
         </div>
       <% end %>

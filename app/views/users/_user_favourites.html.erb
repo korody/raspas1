@@ -1,5 +1,5 @@
 <div class= "user_feed_avatar">
-	<%= link_to image_tag(@user.photo.url(:regular)), @user %>
+	<%= link_to image_tag(@user.image_url(:regular)), @user %>
 </div>
 <div class= "user_feed_side">
 	<%= render "stats" %>

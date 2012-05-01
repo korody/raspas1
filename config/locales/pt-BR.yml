@@ -119,6 +119,9 @@ pt-BR:
       too_long: ! 'é muito longo (máximo: %{count} caracteres)'
       too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
       wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      carrierwave_integrity_error: 'não é um arquivo válido.'
+      carrierwave_download_error: 'não foi armazenada.'
+      extension_white_list_error: 'não é um arquivo válido.' 
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
