@@ -50,10 +50,10 @@
     <script src='http://connect.facebook.net/en_US/all.js'></script>
     <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb.png", title: "compartilhar pelo facebook" %></a></p>
     
-  <%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
+  <%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&title=#{@micropost.author.name}&hashtags=raspas&via=raspas_app&lang=pt", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
-  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br&text=#{@micropost.content}", 
+  <%= link_to (image_tag "share_gp.png"), "https://plus.google.com/share?url=http://www.raspas.com.br&text='#{@micropost.content}'&title=#{@micropost.author.name}", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
 </div>
 
