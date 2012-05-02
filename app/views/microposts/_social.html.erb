@@ -1,6 +1,6 @@
 <!-- Add the following three tags to your body. -->
 <meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
-<!-- <meta property="og:image" content="<% if @micropost.author %><%= image_tag @micropost.author.image_url(:regular).to_s %><% else %><%= image_tag @micropost.user.image_url(:regular).to_s %><% end %>" /> -->
+<meta property="og:image" content=" " />
 <meta property="og:description" content="<%= @micropost.content %>" />
 
 <div id='fb-root'></div>
@@ -56,12 +56,12 @@
   <% else %><%= @micropost.user.name %>
 
   <% end %>" 
-  data-lang="none" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="raspas"></a>
+  data-lang="none" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="raspas" title></a>
   
 </br>  
 </br>  
   <div id='fb-root'></div>
-  <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb_.png", title: "compartilhar pelo facebook" %></a></p>
+  <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb_.png", title: "compartilhar raspa no facebook" %></a></p>
 </div>
 
 </br>

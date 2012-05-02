@@ -901,6 +901,12 @@ div.sharers {
   width: 62px;
 }
 
+div.sharers img:hover {
+  opacity: 0.9;
+  -webkit-box-shadow: 0 1px 2px #2F4F4F;
+  -moz-box-shadow: 0 1px 2px #2F4F4F;
+}
+
 /* USER EDIT PAGE */
 
 textarea {
