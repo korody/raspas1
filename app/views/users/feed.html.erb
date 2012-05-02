@@ -6,19 +6,19 @@
     <% if @feed_items.empty? %>
       <div class="half_quotes round">
         <div class= "sign">
-          Para começar basta escrever clicando no <%= image_submit_tag "raspa_.png", id: "button" %> acima.</br>
-          Quer exemplos? Veja nossas últimas raspas abaixo.
+          Para começar escreva um pensamento clicando no lápis acima.</br>
+          Quer exemplos? Veja nossas últimas raspas abaixo e inspire-se.
         </div>
         <div class= "flag_sign">
-          <%= image_tag "super.png" %>
+          <%= image_tag "raspa_sign.png" %>
         </div>
       </div>
         <%= render @feed_intro %>
       </br>
       <div class="half_quotes round">
         <div class= "sign">
-          Quer ver mais? </br>
-          Veja nossos últimos pensadores.
+          Está sem ideias? <%= link_to "Crie um perfil", new_author_path %> para um pensador, </br>
+          ou veja os últimos perfis criados por nossos usuários.
         </div>
         <div class= "flag_sign">
           <%= image_tag "happy.png" %>

@@ -12,15 +12,15 @@
                 <%= f.text_field :name, placeholder: " nome do pensador", :class => "round field_info" %>
                 <%= f.text_field :job, placeholder: " ocupação principal", :class => "round field_info" %>
                 <%= f.text_field :tipo, placeholder: " alguma especialidade", :class => "round field_info" %>
-                <%= f.text_field :origin, placeholder: " cidade de origem", :class => "round field_info" %>
+                <%= f.text_field :origin, placeholder: " local de origem", :class => "round field_info" %>
             </div>
         </div>
         <div>
-            <%= f.text_area :bio, maxlength: 320, placeholder: " descrição do autor", 
+            <%= f.text_area :bio, maxlength: 321, placeholder: " descrição do autor", 
             :class => "round", id: "bio" %>
         </div>
         <div class= "count_bio">
-            <div id= "count_bio">320</div>
+            <div id= "count_bio">321</div>
         </div>
     </div>
     <div class= "author_create">
