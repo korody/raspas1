@@ -8,7 +8,7 @@ end
 if Rails.env.development? or Rails.env.production? # Using Amazon S3 for Development and Production
   CarrierWave.configure do |config|
     config.root = Rails.root.join('tmp')
-    config.cache_dir = 'uploads'
+    config.cache_dir = 'photos'
 
     config.fog_credentials = {
       :provider               => 'AWS',       # required
