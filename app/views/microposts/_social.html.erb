@@ -53,7 +53,7 @@
   <%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
-  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
+  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url='www.raspas.com.br'&title='#{@micropost.content}'", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
 </div>
 
