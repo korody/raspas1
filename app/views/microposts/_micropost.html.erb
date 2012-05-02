@@ -45,7 +45,7 @@
           <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
                                                  :confirm => "apagar esta raspa?",
                                                  :title => "descartar",
-                                                 :class => "round" %>
+                                                 :class => "top_button round" %>
         <% else %>
           <% if micropost.favourites?(micropost) %>
             <%= form_for micropost.favourites.find_by_micropost_id(micropost),
@@ -57,14 +57,20 @@
           <% else %>
             <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "round", title: "adicionar às favoritas" %>
           <% end %>
-        <% end %>  
-        <%= link_to (image_tag "share.png"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "round" %>
-      </div>   
-      <% if micropost.author %>
-        <div class= "user_id">
-          <%= link_to image_tag(micropost.user.image_url(:medium)), micropost.user, 
-          title: "ver perfil de #{micropost.user.name}" %>
-        </div>
+        <% end %>
+        <% unless @micropost %>  
+          <%= link_to (image_tag "share.png"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
+        <% else %>
+          <%= render "microposts/social" %>
+        <% end %>
+      </div>
+      <% unless @micropost %>   
+        <% if micropost.author %>
+          <div class= "user_id">
+            <%= link_to image_tag(micropost.user.image_url(:medium)), micropost.user, 
+            title: "ver perfil de #{micropost.user.name}" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 </div>
