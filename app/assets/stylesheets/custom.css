@@ -617,7 +617,7 @@ div.user_board {
 }
 
 div.board_avatar {
-  border: 0px solid #D8D8D8;
+  border-left: 1px solid #D8D8D8;
   float: left;
   height: 200px;
   width: 200px;

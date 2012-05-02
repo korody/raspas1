@@ -12,12 +12,10 @@
 	    		<%= f.text_field :name, placeholder: " nome e sobrenome", :class => "round field_info" %>
 	    		<%= f.text_field :email, placeholder: " um e-mail válido", :class => "round field_info" %>
 	    		<%= f.text_field :job, placeholder: " ocupação principal", :class => "round field_info" %>
-	    		<%= f.text_field :origin, placeholder: " cidade de origem", :class => "round field_info" %>
+	    		<%= f.text_field :origin, placeholder: " local de origem", :class => "round field_info" %>
     		</div>
     	</div>	
-    	<div class= "board_bio">
-        	<%= f.text_area :bio, maxlength: 321, placeholder: " escreva aqui uma breve descrição", :class => "round", id: "bio" %>
-		</div>
+    	<%= f.text_area :bio, maxlength: 321, placeholder: " escreva aqui uma breve descrição", :class => "round", id: "bio" %>
 		<div class= "count_bio">
 			<div id= "count">321</div>
 		</div>

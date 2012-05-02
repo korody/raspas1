@@ -11,6 +11,7 @@ gem 'omniauth-facebook'
 #gem 'gravatar_image_tag', '1.0.0.pre2'
 gem "will_paginate", "3.0.pre2"
 gem "carrierwave"
+gem "fog", "~> 1.3.1"
 gem "rmagick"
 
 gem "formtastic", "~> 2.1.1"
