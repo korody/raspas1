@@ -1,3 +1,8 @@
+<!-- Add the following three tags to your body. -->
+<meta property="og:title" content="<%= @micropost.content %>" />
+<meta property="og:image" content="<% if @micropost.author %><%= @micropost.author.image_url%><% else %><%= @micropost.user.image_url %><% end %>" />
+<meta property="og:description" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
+
 <div id='fb-root'></div>
 <script src='http://connect.facebook.net/pt_BR/all.js'></script>
 <script> 
@@ -8,8 +13,8 @@
     // calling the API ...
     var obj = {
       method: 'feed',
-      link: 'https://raspas.com.br',
-      picture: '<%= image_tag @micropost.author.image_url(:tiny) %>',
+      link: 'https://raspas.com.br/',
+      picture: '<% if @micropost.author %><%= image_tag @micropost.author.image_url(:medium) %><% else %><%= image_tag @micropost.user.image_url(:medium) %><% end %>',
       name: '<%= @micropost.content %>',
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
       description: '',  
@@ -24,39 +29,51 @@
 
 </script>
 
-<!-- Add the following three tags to your body. -->
-<meta property="og:title" content="<%= @micropost.author.name %>" />
-<meta property="og:image" content="<%= @micropost.author.image_url %>" />
-<meta property="og:description" content="<%= @micropost.content %>" />
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=282523151767333";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-
-<!-- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script> -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
 
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
-<p id='msg'></p>
+
+
 <div class= "sharing cartela round">
-	<div id='fb-root'></div>
+  <div id='fb-root'></div>
     <script src='http://connect.facebook.net/en_US/all.js'></script>
     <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb.png", title: "compartilhar pelo facebook" %></a></p>
     
-	<%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
-	:class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
+  <%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
+  :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
-  
-  <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-via="raspas_app" 
-  data-text="'<%= @micropost.content %>'
-  {  <%# if @micropost.author %><%= @micropost.author.name %>
-
-  <%# else %><%= @micropost.user.name %>
-
-  <%# end %>" 
-  data-lang="pt" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="raspas"></a>
- -->
-	
   <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
-	:class => "popup", :size => "20x20", :alt => "+1", title: "compartilhar pelo google +" %>
+  :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
 </div>
 
-<g:plusone></g:plusone>
+
+
+<div class= "sharers">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="raspas_app" 
+  data-text="'<%= @micropost.content %>'
+  {  <% if @micropost.author %><%= @micropost.author.name %>
+
+  <% else %><%= @micropost.user.name %>
+
+  <% end %>" 
+  data-lang="pt" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="raspas"></a>
+</div>
+<div class= "sharers">
+  <g:plusone size="tall"></g:plusone>
+</div>
+<div class= "sharers">
+  <div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+</div>
+  <p id='msg'></p>
+

@@ -890,6 +890,17 @@ a.social_but img{
   margin: 2.6em;
 }
 
+div.fb-like{
+  border: 1px solid blue;
+}
+
+div.sharers {
+  border: 1px solid black;
+  display: block-inline;
+  float: left;
+  margin: 1em;
+}
+
 /* USER EDIT PAGE */
 
 textarea {
