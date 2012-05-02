@@ -1,6 +1,6 @@
 <!-- Add the following three tags to your body. -->
 <meta property="og:title" content="<%= @micropost.content %>" />
-<meta property="og:image" content="<% if @micropost.author %><%= @micropost.author.image_url%><% else %><%= @micropost.user.image_url %><% end %>" />
+<meta property="og:image" content="<% if @micropost.author %><%= image_tag (@micropost.author.image_url(:regular))%><% else %><%= image_tag (@micropost.user.image_url(:regular)) %><% end %>" />
 <meta property="og:description" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
 
 <div id='fb-root'></div>
@@ -13,7 +13,7 @@
     // calling the API ...
     var obj = {
       method: 'feed',
-      link: 'https://raspas.com.br/',
+      link: 'https://raspas.com.br',
       picture: '<% if @micropost.author %><%= image_tag @micropost.author.image_url(:medium) %><% else %><%= image_tag @micropost.user.image_url(:medium) %><% end %>',
       name: '<%= @micropost.content %>',
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
@@ -53,7 +53,7 @@
   <%= link_to (image_tag "share_tw.png"), "http://twitter.com/share?url=&text='#{@micropost.content}'&hashtags=raspas&via=raspas_app&lang=pt", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo twitter" %>
 
-  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en", 
+  <%= link_to (image_tag "share_gp.png"), "https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.raspas.com.br", 
   :class => "popup", :size => "20x20", :alt => "tweet", title: "compartilhar pelo google +" %>
 </div>
 
