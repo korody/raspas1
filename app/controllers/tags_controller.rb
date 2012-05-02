@@ -13,7 +13,7 @@ class TagsController < ApplicationController
 	    @users = @tag.users(:order => 'tags.created_at DESC')
 	    @authors = @tag.authors(:order => 'tags.created_at DESC')
 	    @microposts = @tag.microposts.paginate(:page => params[:page])
-	    @micropost = Micropost.new
+	    @new_micropost = Micropost.new
 	end
 
 end

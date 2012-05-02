@@ -5,6 +5,6 @@ class SearchController < ApplicationController
     @authors = Author.search(params[:search].titlecase)
     @users = User.search(params[:search].titlecase)
     @microposts = Micropost.search(params[:search].downcase)
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
   end
 end

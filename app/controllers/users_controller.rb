@@ -6,13 +6,13 @@
   def index
     @title = "All users"
     @users = User.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
   end
 
   def show
     @user = User.find(params[:id])
     @title = @user.name
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @microposts = @user.favo.paginate(:page => params[:page])
     @tags = @user.tags.all(:order => 'tags.created_at DESC')
     @authors = @user.authors.all(:order => 'authors.created_at DESC')
@@ -21,7 +21,7 @@
   def feed
     @title = "mural"
     @user = User.find(params[:id])
-    @micropost = Micropost.new        
+    @new_micropost = Micropost.new        
     @feed_items = current_user.feed.paginate(:page => params[:page])
     @feed_intro = Micropost.all(order: 'microposts.created_at DESC', limit: 10)
     @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 10)
@@ -35,7 +35,7 @@
       @user = User.find(params[:id])
       @user_tags = @user.tags.all(:order => 'tags.created_at DESC', :limit => 20)
       @users = @user.tags.paginate(:page => params[:page])
-      @micropost = Micropost.new
+      @new_micropost = Micropost.new
       @authors = Author.all
       @tags = Tag.all
       render 'show_tags'
@@ -61,11 +61,11 @@
   def edit
     @user = User.find(params[:id])
     @title = "editar"
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
   end
 
   def update
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     if @user.update_attributes(params[:user])
       flash[:success] = "Perfil atualizado com sucesso! Veja aí as alterações."
       redirect_to @user
@@ -87,7 +87,7 @@
     @user = User.find(params[:id])
     @users_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
     @users = @user.following.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
     render 'show_follow'
@@ -98,7 +98,7 @@
     @user = User.find(params[:id])
     @users_followers = @user.followers.all(:order => 'users.created_at DESC', :limit => 40)
     @users = @user.followers.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_followers'
   end
 
@@ -108,7 +108,7 @@
     @users_idols = @user.idols.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.idols.paginate(:page => params[:page])
     @author_favourites = @user.authors
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_idols'
   end
 
@@ -117,7 +117,7 @@
     @user = User.find(params[:id])
     @users_authors = @user.authors.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.authors.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_authors'
   end
 
@@ -126,7 +126,7 @@
     @user = User.find(params[:id])
     @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
     @authors = @author.fans.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_fans'
   end
 
@@ -136,7 +136,7 @@
     @favourites = @user.favourites.all
     @user_eleitas = @user.eleitas
     @user_eleitas = @user.eleitas.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_favourites'
   end
 

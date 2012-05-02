@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
     @title = "All authors"
     @authors = Author.all
     @authors = Author.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @tags = Tag.all
     @authors = Author.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
     render json: @authors.map(&:name) 
@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
       @author = Author.find(params[:id])
       @microposts = @author.microposts.paginate(:page => params[:page])
       @users = @author.users.all
-      @micropost = Micropost.new
+      @new_micropost = Micropost.new
       @authors = Author.all
       @tags = Tag.all
   end
@@ -24,11 +24,11 @@ class AuthorsController < ApplicationController
   def new
     @title = "novo pensador"
     @author = Author.new
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
   end
 
   def create
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @author = Author.new(params[:author])
     if @author.save
       flash[:success] = "Perfil para #{@author.name} criado com sucesso!"
@@ -42,12 +42,12 @@ class AuthorsController < ApplicationController
   def edit
     @title = "editar pensador"
     @author = Author.find(params[:id])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
   end
 
   def update
   	@author = Author.find(params[:id])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     if @author.update_attributes(params[:author])
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author
@@ -68,7 +68,7 @@ class AuthorsController < ApplicationController
       @author = Author.find(params[:id])
       @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
       @authors = @author.tags.paginate(:page => params[:page])
-      @micropost = Micropost.new
+      @new_micropost = Micropost.new
       render 'show_tags'
   end
 
@@ -77,7 +77,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
     @authors = @author.fans.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
     render 'show_fans'
@@ -88,7 +88,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @authors_users = @author.users.all(:order => 'users.created_at DESC')
     @authors = @author.users.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_users'
   end
        
@@ -97,7 +97,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @author_eleitas = @author.eleitas
     @author_eleitas = @author.eleitas.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     render 'show_favourites'
   end
 

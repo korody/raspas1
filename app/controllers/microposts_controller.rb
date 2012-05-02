@@ -6,13 +6,14 @@ class MicropostsController < ApplicationController
   def index
     @title = "microposts"
     @microposts = Micropost.paginate(:page => params[:page])
-    @micropost = Micropost.new
+    @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
   end
 
   def show
     @micropost = Micropost.find(params[:id])
+    @new_micropost = Micropost.new
     @tags = @micropost.tags
   end
 
