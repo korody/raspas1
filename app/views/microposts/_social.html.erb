@@ -1,7 +1,7 @@
 <!-- Add the following three tags to your body. -->
-<meta property="og:title" content="<%= @micropost.content %>" />
+<meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
 <meta property="og:image" content="<%= image_tag @micropost.author.image_url(:regular).to_s %>" />
-<meta property="og:description" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
+<meta property="og:description" content="<%= @micropost.content %>" />
 
 <div id='fb-root'></div>
 <script src='http://connect.facebook.net/pt_BR/all.js'></script>
@@ -44,14 +44,14 @@
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 
 
-
+<div class= "sharers">
   <div id='fb-root'></div>
   <p><a onclick='postToFeed(); return false;'><%= image_tag "share_fb.png", title: "compartilhar pelo facebook" %></a></p>
-    
+</div>
   
 
 <div class= "sharers">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="raspas_app" 
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="" data-count="vertical" data-via="raspas_app" 
   data-text="'<%= @micropost.content %>'
   {  <% if @micropost.author %><%= @micropost.author.name %>
 
