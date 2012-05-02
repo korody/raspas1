@@ -1,6 +1,6 @@
 <!-- Add the following three tags to your body. -->
 <meta property="og:title" content="<%= @micropost.content %>" />
-<meta property="og:image" content="<%= image_tag (@micropost.author.image_url(:regular)) %>" />
+<meta property="og:image" content="<%= image_tag @micropost.author.image_url(:regular).to_s %>" />
 <meta property="og:description" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
 
 <div id='fb-root'></div>
@@ -14,7 +14,7 @@
     var obj = {
       method: 'feed',
       link: 'https://raspas.com.br',
-      picture: '<% if @micropost.author %><%= image_tag @micropost.author.image_url(:medium) %><% else %><%= image_tag @micropost.user.image_url(:medium) %><% end %>',
+      picture: '<% if @micropost.author %><%= image_tag @micropost.author.image_url(:regular).to_s %><% else %><%= image_tag @micropost.user.image_url(:regular).to_s %><% end %>',
       name: '<%= @micropost.content %>',
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
       description: '',  
