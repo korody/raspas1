@@ -18,7 +18,7 @@ class AuthorsController < ApplicationController
       @users = @author.users.all
       @new_micropost = Micropost.new
       @authors = Author.all
-      @tags = Tag.all
+      @tags = @author.tags.all
   end
   
   def new
