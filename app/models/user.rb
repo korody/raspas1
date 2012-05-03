@@ -66,14 +66,14 @@
 	
 
   def self.create_with_omniauth(auth)
-      create! do |user|
+    create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.email = auth["info"]["email"]
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["bio"]
-      user.image = auth["info"]["image"]    
+      user.image_url = auth["info"]["image"]    
     end
   end
 
