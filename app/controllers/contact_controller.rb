@@ -10,7 +10,7 @@ class ContactController < ApplicationController
     
     if @message.valid?
       NotificationsMailer.new_message(@message).deliver
-      flash[:success] = "Mensagem enviada! Entraremos em contato em breve."
+      flash[:success] = "Obrigado pelo contato! Responderemos a mensagem em breve."
       redirect_to current_user
     else
       render :new

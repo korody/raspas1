@@ -4,7 +4,7 @@ class Message
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :email, :tel, :subject, :body
+  attr_accessor :name, :email, :mobile, :subject, :body
 
   validates :name, :email, :subject, :body, :presence => true
   validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
