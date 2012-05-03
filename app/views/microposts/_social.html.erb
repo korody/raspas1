@@ -1,6 +1,6 @@
 <!-- Add the following three tags to your body. -->
-<meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
-<meta property="og:image" content="<%= image_tag "logo_beta.jpg" %>" />
+<meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name %><% else %><%= @micropost.user.name %><% end %>" />
+<meta property="og:image" content="<%= image_tag @user.image_url(:regular).to_s %>" />
 <meta property="og:description" content="<%= @micropost.content %>" />
 
 <div id='fb-root'></div>
