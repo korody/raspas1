@@ -22,7 +22,7 @@
       <% if !micropost.tags.empty? %>
         / sobre 
         <% micropost.tags.each do |tag| %>
-        -  <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> 
+          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> -
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>
@@ -55,7 +55,7 @@
               </div>
             <% end %>
           <% else %>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "round", title: "adicionar às favoritas" %>
+            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
           <% end %>
         <% end %>
         <% unless @micropost %>  
