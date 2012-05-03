@@ -20,9 +20,9 @@
     <div class="timestamp">
       <%= time_ago_in_words(micropost.created_at) %>
       <% if !micropost.tags.empty? %>
-        / 
+        / sobre 
         <% micropost.tags.each do |tag| %>
-        sobre <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+        -  <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> 
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>

@@ -4,7 +4,7 @@
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
-    @title = "All users"
+    @title = "usuários"
     @users = User.paginate(:page => params[:page])
     @new_micropost = Micropost.new
   end
