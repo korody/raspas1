@@ -4,8 +4,8 @@ class AuthorsController < ApplicationController
 
   def index
     @title = "pensadores"
-    @authors = Author.all
-    @authors = Author.paginate(:page => params[:page])
+    @authors = Author.all(order: :name)
+    # @authors = Author.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @tags = Tag.all
   end

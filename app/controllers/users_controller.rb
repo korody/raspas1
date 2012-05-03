@@ -5,7 +5,8 @@
 
   def index
     @title = "usuários"
-    @users = User.paginate(:page => params[:page])
+    @users = User.all(order: :name)
+    # @users = User.paginate(:page => params[:page])
     @new_micropost = Micropost.new
   end
 
