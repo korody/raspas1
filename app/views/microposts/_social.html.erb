@@ -14,7 +14,7 @@
     var obj = {
       method: 'feed',
       link: 'https://raspas.com.br/microposts/<%= @micropost.id %>',
-      picture: '<% if @micropost.author %><%= @micropost.author.image_url %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
+      picture: '<% if @micropost.author %><%= @micropost.author.image_url(:regular) %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
       name: "'<%= @micropost.content %>'",
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
       description: '',  
