@@ -242,6 +242,7 @@ div.pagination a, .pagination span, .pagination em {
 }
 
 .invisible {
+  position: absolute;
   visibility: hidden;
 }
 

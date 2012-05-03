@@ -1,6 +1,10 @@
 <div class= "user_info">
 	<div class= "user_avatar">
-		<%= image_tag "raspas_logo_user.jpg" %>
+		<% if @micropost.author %>
+			<%= link_to image_tag(@micropost.author.image_url(:regular)), @micropost.author, title: "ver perfil de #{@micropost.author.name}" %>
+		<% else %>
+			<%= link_to image_tag(@micropost.user.image_url(:regular)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
+		<% end %>
 	</div>
 	<div class= "user_info_board round">
 		<div class= "last_header">
