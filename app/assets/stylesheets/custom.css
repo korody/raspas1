@@ -572,7 +572,7 @@ div.last_header {
 
 div.last {
   border: 0px solid #D8D8D8;
-  height: 30px;
+  min-height: 30px;
   margin-bottom: 0.5em;
   vertical-align: text-top;
 }
