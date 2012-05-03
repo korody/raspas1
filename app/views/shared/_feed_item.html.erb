@@ -6,9 +6,6 @@
           <%= feed_item.content %>
         <% else %>
           &quot;<%= feed_item.content %>&quot;
-          <% if !current_user?(feed_item.user) %>
-            <%= link_to (image_tag "reaspas.png"), reaspas_micropost_path(feed_item), title: "reaspas" %>
-          <% end %>
         <% end %>
       </div>
     </div>
@@ -58,7 +55,7 @@
               </div>
             <% end %>
           <% else %>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round", title: "adicionar às favoritas" %>
+            <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
           <% end %>
       <% end %>
       <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>  
