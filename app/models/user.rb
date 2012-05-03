@@ -73,7 +73,7 @@
       user.email = auth["info"]["email"]
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["bio"]
-      user.image_url = auth["info"]["image"]    
+      user.image = auth["info"]["image"]    
     end
   end
 
