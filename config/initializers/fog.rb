@@ -16,7 +16,7 @@ if Rails.env.development? or Rails.env.production? # Using Amazon S3 for Develop
       :aws_secret_access_key  => 'HQVaVF1qAefRz1lcoeuheLJYD01CErEAFdcXpgGM',       # required
       :region                 => 'sa-east-1'  # optional, defaults to 'us-east-1'
     }
-    config.fog_directory  = 'raspas.images'                     # required
+    config.fog_directory  = 'raspasimages'                     # required
     config.fog_host       = false                                  # optional, defaults to true
   end
 end
