@@ -48,7 +48,7 @@
         <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
                                                :confirm => "apagar esta raspa?",
                                                :title => "descartar favorita",
-                                               :class => "round" %>
+                                               :class => "top_button round" %>
       <% else %>
         <% if feed_item.favourites?(feed_item) %>
             <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
@@ -61,7 +61,7 @@
             <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "round", title: "adicionar às favoritas" %>
           <% end %>
       <% end %>
-      <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "share round" %>  
+      <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>  
     </div>
     <% if feed_item.author %>
       <div class= "user_id">
