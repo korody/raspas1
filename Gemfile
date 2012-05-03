@@ -6,6 +6,7 @@ gem 'rails-i18n'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-google'
 
 #gem "paperclip", "2.7.0"
 #gem 'gravatar_image_tag', '1.0.0.pre2'
