@@ -58,6 +58,6 @@ Benfeitor::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host  => 'raspas.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host  => 'raspas.com.br' }
 
 end
