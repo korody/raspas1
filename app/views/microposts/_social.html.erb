@@ -1,6 +1,6 @@
 <!-- Add the following three tags to your body. -->
 <meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name%><% else %><%= @micropost.user.name %><% end %>" />
-<meta property="og:image" content=" " />
+<meta property="og:image" content="<%= @micropost.author.image %>" />
 <meta property="og:description" content="<%= @micropost.content %>" />
 
 <div id='fb-root'></div>
@@ -21,7 +21,7 @@
     };
 
     function callback(response) {
-      document.getElementById('msg').innerHTML = "compartilhado!";
+      document.getElementById('msg').innerHTML = "/ compartilhado";
     }
 
     FB.ui(obj, callback);
@@ -65,5 +65,3 @@
 </div>
 
 </br>
-<p id='msg'></p>
-
