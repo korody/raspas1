@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 	
 	def index
 	    @title = "temas"
-	    @tags = Tag.paginate(:page => params[:page])
+	    @tags = Tag.all(order: :name)
   		@new_micropost = Micropost.new
   	end
 
