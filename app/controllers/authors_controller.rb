@@ -3,11 +3,14 @@ class AuthorsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :new]
 
   def index
-    @title = "All authors"
+    @title = "pensadores"
     @authors = Author.all
     @authors = Author.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @tags = Tag.all
+  end
+
+  def autocomplete
     @authors = Author.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
     render json: @authors.map(&:name) 
   end

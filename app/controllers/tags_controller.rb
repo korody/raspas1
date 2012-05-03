@@ -3,8 +3,7 @@ class TagsController < ApplicationController
 	def index
 	    @title = "temas"
 	    @tags = Tag.paginate(:page => params[:page])
-	    @tags = Tag.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
-   		render json: @tags.map(&:name) 
+  		@new_micropost = Micropost.new
   	end
 
   	def show
@@ -16,4 +15,8 @@ class TagsController < ApplicationController
 	    @new_micropost = Micropost.new
 	end
 
+	def autocomplete
+	    @tags = Tag.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
+   		render json: @tags.map(&:name) 
+   	end	
 end

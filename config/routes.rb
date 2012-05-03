@@ -5,7 +5,7 @@ Benfeitor::Application.routes.draw do
 
   resources :authors do
     member do
-      get :fans, :idols, :subscriptions, :users, :tags, :favourites
+      get :fans, :idols, :subscriptions, :users, :tags, :favourites, :autocomplete
     end
   end
 
@@ -17,7 +17,7 @@ Benfeitor::Application.routes.draw do
 
   resources :tags do
     member do
-      get :microposts, :users, :authors
+      get :microposts, :users, :authors, :autocomplete
     end
   end
 
