@@ -51,7 +51,7 @@
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Seja bemvindo à sua coleção de raspas! Divirta-se."
+      flash[:success] = "Seja bem-vindo à sua coleção de raspas! Divirta-se."
       redirect_to @user
     else
       @title = "cadastre-se"

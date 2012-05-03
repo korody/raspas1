@@ -43,7 +43,7 @@ class MicropostsController < ApplicationController
       favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id)
       if favourite_micropost.save
         redirect_to favourites_user_path(current_user)
-        flash[:success] = "Raspa adicionada às favoritas!"   
+        flash[:success] = "Raspa adicionada às suas favoritas!"   
       else
         redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
       end
