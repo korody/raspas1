@@ -154,7 +154,7 @@ nav ul.nave_r li input#button {
   width: 20px;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul.nave_r li input#button:hover {
   background: #E6674A;
   color: #FFF;
 }
@@ -1175,11 +1175,17 @@ div.author_create {
 
 div.tag_word a {
   float: left;
+  font-size: 120%;
+  font-weight: bold;
   margin: 0.3em;
   padding: 0.2em 0.8em;
   text-align: center;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+}
+
+div.tag_index {
+  margin-top: 4em;
 }
 
 /* ERRORS */

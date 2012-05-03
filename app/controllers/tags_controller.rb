@@ -2,8 +2,8 @@ class TagsController < ApplicationController
 	
 	def index
 	    @title = "temas"
-	    @tags = Tag.all(order: :name)
   		@new_micropost = Micropost.new
+	    @tags = Tag.all(order: :name)
   	end
 
   	def show

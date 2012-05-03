@@ -3,7 +3,13 @@
 		<p class= "p_search">explore raspas entre <%= pluralize @tags.count, "tema" %></p>
 	</div>
 	<ul class="users">
-	  <li><%= render @tags %></li>
+		<div class= "tag_index">
+			<div class= "tag_word">
+				<% @tags.each do |tag| %>
+			  		<li><%= link_to tag.name, tag, class: "but round" %></li>
+			  	<% end %>
+			</div>
+		</div>  	
 	</ul>
 	<div class= "pagination_square">
 		<%#= will_paginate @tags %>
