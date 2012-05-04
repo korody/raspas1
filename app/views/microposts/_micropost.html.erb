@@ -38,32 +38,28 @@
     </div>
   </div>
     <div class= "quote_corner">
-      <div class= "top_corner">                                             
-        <% if current_user?(micropost.user) %>
-          <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
-                                                 :confirm => "apagar esta raspa?",
-                                                 :title => "descartar",
-                                                 :class => "top_button round" %>
-        <% else %>
-          <% if signed_in? %>
-            <% if !current_user?(current_user.favourites) %>
-              <% if micropost.favourites?(micropost) %>
-                <%= form_for micropost.favourites.find_by_micropost_id(micropost),
-                     :html => { :method => :delete } do |f| %>
-                  <div>
-                    <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
-                  </div>
-                <% end %>
-              <% else %>
-                <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+      <div class= "top_corner">   
+
+        <% if current_user.favourites(micropost) %>                                          
+          <% if current_user?(micropost.user) %>
+            <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
+                                                   :confirm => "apagar esta raspa?",
+                                                   :title => "descartar",
+                                                   :class => "top_button round" %>
+          <% else %>
+            <% if micropost.favourites?(micropost) %>
+              <%= form_for micropost.favourites.find_by_micropost_id(micropost),
+                   :html => { :method => :delete } do |f| %>
+                <div>
+                  <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+                </div>
               <% end %>
             <% else %>
               <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
             <% end %>
-          <% else %>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
-          <% end %>    
+          <% end %>
         <% end %>
+
         <% unless @micropost %>  
           <%= link_to (image_tag "share.png"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
         <% else %>
