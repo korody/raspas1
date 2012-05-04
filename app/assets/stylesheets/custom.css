@@ -571,7 +571,7 @@ div.last_header {
 
 div.last {
   border: 0px solid #D8D8D8;
-  min-height: 30px;
+  height: 32px;
   margin-bottom: 0.5em;
   vertical-align: text-top;
 }
@@ -581,11 +581,20 @@ div.last img {
   width: 32px;
 }
 
-div.last p {
+div.last_users {
   border: 0px solid #D8D8D8;
   display: inline;
+  position: relative;  
+}
+
+div.last_upwards {
+  border: 0px solid black;
+  bottom: 0;
   font-weight: bold;
-  vertical-align: text-bottom;
+  line-height: 1.4em;
+  margin-left: 0.3em;
+  position: absolute;
+  width: 145px;
 }
 
 /* USER HOME PAGE */

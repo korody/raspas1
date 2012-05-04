@@ -29,9 +29,13 @@
 	        </div>
 	        <div>
 	            <div class= "last">
-	              <%= link_to image_tag(@micropost.author.image_url(:tiny)), @micropost.author, title: "ver perfil de #{@micropost.author.name}" %>
-	              <p><%= link_to @micropost.author.name, @micropost.author, title: "ver perfil de #{@micropost.author.name}" %></p>
-	            </div>
+	              	<%= link_to image_tag(@micropost.author.image_url(:tiny)), @micropost.author, title: "ver perfil de #{@micropost.author.name}" %>
+	              	<div class= "last_users">
+		            	<div class= "last_upwards">	
+		              		<p><%= link_to @micropost.author.name, @micropost.author, title: "ver perfil de #{@micropost.author.name}" %></p>
+		            	</div>
+		            </div>
+	            </div>    
 	        </div>
 	    </div>
 	<% end %>
@@ -42,9 +46,13 @@
         </div>
         <div>
             <div class= "last">
-              <%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
-              <p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
-            </div>
+	          	<%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
+	          	<div class= "last_users">
+	          		<div class= "last_upwards">
+              			<p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
+           			</div>
+       			</div>
+       		</div>
         </div>
     </div>
 </div>

@@ -15,10 +15,14 @@
 				</div>
 				<div>
 		            <% @authors.first(4).each do |author| %>
-		              <div class= "last">
-		                <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
-		                <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
-		              </div>
+						<div class= "last">
+							<%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+							<div class= "last_users">
+								<div class= "last_upwards">
+									<p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
+								</div>
+							</div>
+						</div>		              		
 		            <% end %>
 		        </div>	
 			</div>
@@ -33,7 +37,11 @@
 			        <% @users.first(4).each do |user| %>
 				        <div class= "last">
 				            <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-				            <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+				            <div class= "last_users">
+                				<div class= "last_upwards">
+				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+				        		</div>
+				        	</div>
 				        </div>
 			        <% end %>
 		        </div>

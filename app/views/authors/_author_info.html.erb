@@ -55,7 +55,11 @@
 				<% @users.first(4).each do |user| %>
 			        <div class= "last">
 			            <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-			            <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+			            <div class= "last_users">
+                			<div class= "last_upwards">
+			            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+			        		</div>
+			        	</div>
 			        </div>
 		        <% end %>
 			</div>
