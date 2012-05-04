@@ -18,20 +18,18 @@
       <% end %>  
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(micropost.created_at) %>
+      <%= time_ago_in_words(micropost.created_at) %> /
       <% if !micropost.tags.empty? %>
-        / sobre 
+        sobre 
         <% micropost.tags.each do |tag| %>
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> -
+          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>
-        / extraído de <%= micropost.origem %>
+        extraído de <%= micropost.origem %>
       <% end %>
       <% if micropost.author %>
-        <% if !current_user?(micropost.user) %>
-          / por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
-        <% end %>
+        por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
       <% end %>
       <%# if !micropost.published? %>
         <!-- / sob <%#= link_to "análise", @author %> -->
@@ -47,15 +45,19 @@
                                                  :title => "descartar",
                                                  :class => "top_button round" %>
         <% else %>
-          <% if micropost.favourites?(micropost) %>
-            <%= form_for micropost.favourites.find_by_micropost_id(micropost),
-                 :html => { :method => :delete } do |f| %>
-              <div>
-                <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
-              </div>
+          <% if signed_in?  %>
+            <% if micropost.favourites?(micropost) %>
+              <%= form_for micropost.favourites.find_by_micropost_id(micropost),
+                   :html => { :method => :delete } do |f| %>
+                <div>
+                  <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
             <% end %>
           <% else %>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
           <% end %>
         <% end %>
         <% unless @micropost %>  

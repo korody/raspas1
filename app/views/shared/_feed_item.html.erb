@@ -18,19 +18,19 @@
       <% end %>
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(feed_item.created_at) %>
+      <%= time_ago_in_words(feed_item.created_at) %> /
       <% if !feed_item.tags.empty? %>
-        / sobre 
+        sobre 
         <% feed_item.tags.each do |tag| %>
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> - 
+          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> / 
         <% end %>      
       <% end %>
       <% unless !feed_item.origem? %>
-        / extraído de <%= feed_item.origem %>
+        extraído de <%= feed_item.origem %>
       <% end %>
       <% if feed_item.author %>
         <% if !current_user?(feed_item.user) %>
-          / por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+          por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
         <% end %>
       <% end %>
       <%# if !feed_item.published? %>

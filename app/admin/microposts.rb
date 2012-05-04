@@ -8,7 +8,7 @@ ActiveAdmin.register Micropost do
   	column :user
   	column :author
   	column :content
-  	column :tag_names
+  	column :tag
   	column :origem
   	column :published
   	default_actions
