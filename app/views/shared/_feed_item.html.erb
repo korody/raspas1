@@ -47,16 +47,16 @@
                                                :title => "descartar favorita",
                                                :class => "top_button round" %>
       <% else %>
-        <% if feed_item.favourites?(feed_item) %>
-            <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
-                 :html => { :method => :delete } do |f| %>
-              <div>
-                <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
-              </div>
-            <% end %>
-          <% else %>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
+        <% if feed_item.favourites.find_by_user_id(current_user) %>  
+          <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
+               :html => { :method => :delete } do |f| %>
+            <div>
+              <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+            </div>
           <% end %>
+        <% else %>
+          <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
+        <% end %>
       <% end %>
       <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>  
     </div>
