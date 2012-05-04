@@ -45,7 +45,7 @@
                                                  :title => "descartar",
                                                  :class => "top_button round" %>
         <% else %>
-          <% if current_user %>
+          <% if micropost.user(current_user) %>
             <% if micropost.favourites?(micropost) %>
               <%= form_for micropost.favourites.find_by_micropost_id(micropost),
                    :html => { :method => :delete } do |f| %>
