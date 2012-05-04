@@ -46,7 +46,7 @@
                                                  :class => "top_button round" %>
         <% else %>
           <% if signed_in? %>
-            <% if !current_user?(micropost.user) %>
+            <% if !current_user?(current_user.favourites) %>
               <% if micropost.favourites?(micropost) %>
                 <%= form_for micropost.favourites.find_by_micropost_id(micropost),
                      :html => { :method => :delete } do |f| %>
@@ -58,10 +58,10 @@
                 <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
               <% end %>
             <% else %>
-                <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
             <% end %>
           <% else %>
-              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
           <% end %>    
         <% end %>
         <% unless @micropost %>  
