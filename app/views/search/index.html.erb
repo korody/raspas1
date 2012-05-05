@@ -8,9 +8,13 @@
 		<%= link_to "explorar + temas", tags_path %>
 	</div>
 	<div class= "home">
-		<ul class="users">
-			<li><%= render @tags %></li>
-		</ul>
+		<div class= "tag_word">
+			<% @tags.each do |tag| %>
+				<div class= "tag_index">
+			  		<%= link_to tag.name, tag, class: "but round" %><p class= "p_tags">x <%= tag.taggings.count %></p>
+				</div>  	
+		  	<% end %>
+		</div>
 	</div>
 <% end %>
 

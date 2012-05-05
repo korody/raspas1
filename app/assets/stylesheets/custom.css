@@ -681,7 +681,14 @@ input#micropost_author_name, input#micropost_origem, input#micropost_tag_names {
   margin-left : 0.4em;
   margin-right: 0.5em;
   margin-top: 1em;
-  width: 240px;
+  width: 156px;
+}
+
+input#micropost_author_name::-webkit-input-placeholder {
+  color:    #E2492F;
+}
+input#micropost_author_name:-moz-placeholder {
+  color:    #E2492F;
 }
 
 .write {
@@ -1193,7 +1200,14 @@ div.tag_word a {
 }
 
 div.tag_index {
-  margin-top: 4em;
+  border: 0px solid #E2492F;
+  display: inline-block;
+  height: 3em;
+  margin: 0.5em 1.5em 0 0;
+}
+
+div.tag_index p {
+  line-height: 2.3em;
 }
 
 /* ERRORS */

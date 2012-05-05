@@ -5,22 +5,10 @@
         <%= image_tag "raspas_logo_user.jpg" %>
       </div> 
       <div class= "user_info_board round" >
-        <div class= "contagem">
-          <%= Micropost.count %>
-          <%= link_to "raspas", microposts_path, title: "explorar raspas" %></br>
-        </div>
-        <div class= "contagem">
-          <%= Tag.count %>
-          <%= link_to "temas", tags_path, title: "explorar temas" %></br>
-        </div>
-        <div class= "contagem">
-          <%= Author.count %>
-          <%= link_to "pensadores", authors_path, title: "explorar pensadores" %></br>
-        </div>
-        <div class= "contagem">
-          <%= User.count %>
-          <%= link_to "usuários", users_path, title: "explorar usuários" %></br>
-        </div>
+        <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag"> raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p></br></br>
+        <p class= "p_tags"><%= Tag.count %></p><p class= "p_tag"> temas</p><p class= "p_mais"><%= link_to "+", tags_path, title: "explorar temas" %></p></br></br>
+        <p class= "p_tags"><%= Author.count %></p><p class= "p_tag"> pensadores</p><p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p></br></br>
+        <p class= "p_tags"><%= User.count %></p><p class= "p_tag"> usuários</p><p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p></br>
       </div>
       <div class= "user_info_board round">
         <div class= "last_header">

@@ -8,7 +8,10 @@
 	</div>
 	<div class= "user_info_board round">
 		<div class= "last_header">
-			<p class="p_tags">raspa</p> <p class="p_tag">#<%= @micropost.id %></p>
+			<p class="p_tag">raspa</p><p class="p_tags">#</p><p class="p_tag"><%= @micropost.id %></p>
+			<% if @micropost.favourites?(@micropost) %>
+				<p class="p_tags">favorita</p><p class="p_tag"><%= @micropost.favourites.count %></p><p class="p_tags">x</p>
+			<% end %>
 			<p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar + raspas" %></p>
 		</div>
 	</div>
@@ -18,7 +21,13 @@
 				<p class="p_tag">temas</p> <p class="p_tags">envolvidos</p>
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar + temas" %></p>
 			</div>
-			<%= render @tags %>
+			<div>
+				<% @tags.each do |tag| %>
+				  <div>
+				    <%= link_to tag.name, tag, :class => "but round temas" %>
+				  </div>
+				<% end %>
+			</div>
 		</div>
 	<% end %>
 	<% if @micropost.author %>
