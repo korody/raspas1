@@ -5,10 +5,18 @@
         <%= image_tag "raspas_logo_user.jpg" %>
       </div> 
       <div class= "user_info_board round" >
-        <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag"> raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p></br></br>
-        <p class= "p_tags"><%= Tag.count %></p><p class= "p_tag"> temas</p><p class= "p_mais"><%= link_to "+", tags_path, title: "explorar temas" %></p></br></br>
-        <p class= "p_tags"><%= Author.count %></p><p class= "p_tag"> pensadores</p><p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p></br></br>
-        <p class= "p_tags"><%= User.count %></p><p class= "p_tag"> usuários</p><p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p></br>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag"> raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p>
+        </div>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Tag.count %></p><p class= "p_tag"> temas</p><p class= "p_mais"><%= link_to "+", tags_path, title: "explorar temas" %></p>
+        </div>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Author.count %></p><p class= "p_tag"> pensadores</p><p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+        </div>
+        <div>
+          <p class= "p_tags"><%= User.count %></p><p class= "p_tag"> usuários</p><p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
       </div>
       <div class= "user_info_board round">
         <div class= "last_header">
@@ -82,7 +90,7 @@
       <% if !signed_in? %>
         <div class="quotes round">
           <div class= "sobre">
-            "Crie, colecione e compartilhe pensamentos.</br>
+            "Crie, colecione e compartilhe pensamentos.<br />
             Conecte-se através do
             <%= link_to "google", "/auth/google", title: "entre com google" %>,
             <%= link_to "twitter", "/auth/twitter", title: "entre com twitter" %> ou
