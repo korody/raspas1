@@ -17,6 +17,7 @@ class AuthorsController < ApplicationController
 
   def show
       @author = Author.find(params[:id])
+      @title = @author.name
       @microposts = @author.microposts.paginate(:page => params[:page])
       @users = @author.users.all
       @new_micropost = Micropost.new
