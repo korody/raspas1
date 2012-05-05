@@ -7,7 +7,7 @@
       <% if current_user.microposts.empty? %>
         <div class="half_quotes round">
           <div class= "sign">
-            Novo por aqui? Você ainda não possui nenhum pensamento.</br>
+            Novo por aqui? Você ainda não possui nenhum pensamento.<br />
             Clique no lápis acima para escrever suas primeiras raspas!
           </div>
           <div class= "flag_sign">
@@ -16,7 +16,7 @@
         </div>
         <div class="half_quotes round">
           <div class= "sign">
-            Outra forma de participar é <%= link_to "criando um prefil para um pensador", new_author_path %>.</br>
+            Outra forma de participar é <%= link_to "criando um prefil para um pensador", new_author_path %>.<br />
             Especifique o nome no campo "pensador" de uma nova raspa. 
           </div>
           <div class= "flag_sign">
@@ -31,7 +31,7 @@
       <% if !current_user?(@user) %>
         <div class= "half_quotes round">
           <div class= "sign">
-            <%= @user.name %> ainda não possui nenhuma raspa.</br>
+            <%= @user.name %> ainda não possui nenhuma raspa.<br />
             Explore as raspas de outros <%= link_to "usuários", users_path %>!
           </div>
           <div class= "flag_sign">

@@ -7,7 +7,7 @@
 	  		<% if !@current_user %>
 				<div class="half_quotes round">
 					<div class= "sign">
-						Novo por aqui? Você ainda não possui nenhum pensamento.</br>
+						Novo por aqui? Você ainda não possui nenhum pensamento.<br />
 						Clique no <%= image_submit_tag "raspa_.png", id: "button" %> acima para escrever suas primeiras raspas!
 					</div>
 					<div class= "flag_sign">
@@ -17,7 +17,7 @@
 			<% else %>
 				<div class="half_quotes round">
 					<div class= "sign">
-						<%= @user.name %> ainda não possui nenhuma raspa favorita!</br>
+						<%= @user.name %> ainda não possui nenhuma raspa favorita!<br />
 						Explore as <%= link_to "raspas", microposts_path %> de outros usuários.
 					</div>
 					<div class= "flag_sign">

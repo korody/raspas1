@@ -9,13 +9,13 @@
 				<%= link_to (image_tag "edit.png"), edit_author_path %>
 			</div>
 			<% if @author.job? %>
-				<%= @author.job  %></br>
+				<%= @author.job  %><br />
 			<% end %>
 			<% if @author.tipo? %>
-				<%= @author.tipo %></br>
+				<%= @author.tipo %><br />
 			<% end %>
 			<% if @author.origin? %>
-				<%= @author.origin %></br>
+				<%= @author.origin %><br />
 			<% end %>
 			<%= render 'fan_form' %>
 		</div>
