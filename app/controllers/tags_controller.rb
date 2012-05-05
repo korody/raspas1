@@ -16,7 +16,7 @@ class TagsController < ApplicationController
 	end
 
 	def autocomplete
-	    @tags = Tag.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
+	    @tags = Tag.order(:name).where("name like ?", "%#{params[:term].downcase}%")
    		render json: @tags.map(&:name) 
    	end	
 end
