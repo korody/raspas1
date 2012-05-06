@@ -8,6 +8,7 @@ body {
 }
 
 body img.author_back {
+  display: none\8;
   position: fixed;
   _position: absolute; /* hack for internet explorer 6*/  
   opacity: 0.2;
