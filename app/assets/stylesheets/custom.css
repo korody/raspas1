@@ -8,7 +8,7 @@ body {
 }
 
 body img.author_back {
-  position: absolute;
+  position: fixed;
   opacity: 0.2;
   top: 0;
   filter:alpha(opacity=20);
@@ -213,6 +213,12 @@ div.pagination a, .pagination span, .pagination em {
 .pagination a:hover, .pagination a:focus {
   background: #E2492F;
   color: #FFF;
+}
+
+footer {
+  float: left;
+  height: 80px;
+  width: 100%;
 }
 
 /* GENERAL */

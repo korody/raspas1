@@ -27,7 +27,7 @@ class MicropostsController < ApplicationController
         redirect_back_or current_user
       end
     else
-      flash[:error] = "Ops! Algo deu errado. Você lembrou de escrever a raspa?"
+      flash[:error] = "Opa! Algo deu errado. Parece que já temos esta raspa."
       redirect_back_or current_user
     end
   end

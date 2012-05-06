@@ -1,5 +1,8 @@
 <% if signed_in? %>
   <div class="home">  
     <%= render "form" %>
+	    <% if @author %>
+	        <%= link_to "voltar", @author, class: "but round actions", title: "voltar para o perfil de #{@author.name}" %> 
+      	<% end %>
   </div> 
 <% end %>
