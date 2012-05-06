@@ -40,8 +40,8 @@
         <div>
           <% @authors.first(4).each do |author| %>
             <div class= "last">
-              <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
               <div class= "last_users">
+                <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
                 <div class= "last_upwards">
                   <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
                 </div>
@@ -58,8 +58,8 @@
         <div>
           <% @users.first(4).each do |user| %>
             <div class= "last">
-              <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
               <div class= "last_users">
+                <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
                 <div class= "last_upwards">
                   <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
                 </div>
@@ -69,21 +69,21 @@
         </div>
       </div>
       <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p><br />
+        <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
       </div>
       <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p><br />
+        <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
       </div>
       <% if !signed_in? %>
         <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no raspas" %></p><br />
+          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no raspas" %></p></br>
         </div>
       <% end %>
       <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "saiba mais", about_path, title: "saiba mais" %></p><br />
+        <p class= "p_tags"><%= link_to "saiba mais", about_path, title: "saiba mais" %></p></br>
       </div>
       <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p><br />
+        <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
       </div>
     </div>
     <div class="stack">

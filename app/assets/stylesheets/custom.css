@@ -39,6 +39,8 @@ header {
   width: 100%;
   -webkit-box-shadow: 0 1px 2px #2F4F4F;
   -moz-box-shadow: 0 1px 2px #2F4F4F;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#F8F8F8')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#D8D8D8');
   z-index: 1;
 }
 
@@ -61,11 +63,15 @@ nav input:-moz-placeholder {
   color:    #FFF5EE;
 }
 
+nav.placeholder {
+  color:    #FFF5EE;
+}
+
 .raspas_logo {
   border: 0px solid #E6674A;
   float: left;
   height: 18px;
-  padding: 14px 14px 9px;
+  padding: 12px 14px 9px;
   width: 74px;
 }
 
@@ -95,7 +101,7 @@ nav ul li a {
   border: 0px solid #E6674A;
   color: #FFF;
   display: inline-block;
-  padding: 10px;
+  padding: 9px;
   min-width: 15px;
 }
 
@@ -150,7 +156,7 @@ nav ul.nave_r li input#button {
   border: 0px solid #E6674A;
   height: 15px;
   margin-top: 0;
-  padding: 13px;
+  padding: 12px;
   width: 20px;
 }
 
@@ -253,6 +259,10 @@ input:-moz-placeholder {
   color:    #B0B0B0;
 }
 
+.placeholder {
+  color:    #B0B0B0;
+}
+
 .raspas {
   margin-left: auto;
   margin-right: auto;
@@ -349,27 +359,19 @@ div.likes {
 }
 
 textarea#contact {
+  border: 1px solid #E8E8E8;
   height: 160px;
   float: left;
-  margin: 1.5em 0 0 1em;
+  margin: 1.3em 0 0 1em;
   width: 550px;
+}
+
+textarea#contact:hover {
+  border: 1px solid #D8D8D8;
 }
 
 
 /* SIGNUP PAGE */
-
-.contagem {
-  color: #B0B0B0;
-  display: inline-block;
-  font-size: 150%;
-  margin-top: 0.4em;
-  width: 100%;
-}
-
-.contagem a {
-  font-size: 85%;
-  font-weight: bold;
-}
 
 .cartela {
   background: #F8F8F8;
@@ -401,7 +403,7 @@ div.cartela_corner {
 
 div.field input {
   background: transparent;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #E8E8E8;
   color: #2F4F4F;
   display: inline;
   float: left;
@@ -411,9 +413,7 @@ div.field input {
 }
 
 div.field input:hover {
-  background: #FFF;
   border: 1px solid #D8D8D8;
-  color: #2F4F4F;
 }
 
 div.field input.password {
@@ -577,23 +577,26 @@ div.last {
 }
 
 div.last img {
+  border: 0px solid #D8D8D8;
+  float: left;
   height: 32px;
   width: 32px;
 }
 
 div.last_users {
   border: 0px solid #D8D8D8;
-  display: inline;
-  position: relative;  
+  display: inline-block;
+  position: relative;
 }
 
 div.last_upwards {
   border: 0px solid black;
   bottom: 0;
   font-weight: bold;
-  line-height: 1.4em;
+  line-height: 1.2em;
   margin-left: 0.3em;
   position: absolute;
+  left: 32px;
   width: 145px;
 }
 
@@ -689,6 +692,10 @@ input#micropost_author_name::-webkit-input-placeholder {
 }
 input#micropost_author_name:-moz-placeholder {
   color:    #E2492F;
+}
+
+input#micropost_author_name.placeholder {
+  color:    #FFF5EE;
 }
 
 .write {
@@ -937,26 +944,20 @@ textarea {
   width: 535px;
 }
 
-textarea:hover {
-  border: 1px solid #D8D8D8;
-}
-
 input#user_image {
-  border: 1px solid #D8D8D8;
+  background: transparent;
+  border: 0px solid #D8D8D8;
   color: #E2492F;
-  margin-top: -205px;
-  padding-top: 176px;
-  position: absolute;
-  visibility: hidden;
+  float: left;
+  padding: 94px 0;
+  margin-top: -204px;
+  position: relative;
+  visibility: visible;
   width: 198px;
 }
 
 input#user_image:hover {
   cursor: pointer;
-}
-
-div.board_avatar:hover input#user_image {
-  visibility: visible;
 }
 
 div.field input.field_info {
@@ -975,8 +976,10 @@ div.user_feed {
   margin-right: auto;
   margin-bottom: 1em;
   width: 798px;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 2px 2px #D8D8D8;
+  -webkit-box-shadow: 0 1px 1px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#F8F8F8')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#D8D8D8');
 }
 
 div.user_feed_avatar img {
@@ -1033,6 +1036,8 @@ div.user_card {
   width: 374px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#F8F8F8')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#D8D8D8');
 }
 
 div.user_gravatar_card img {
@@ -1157,28 +1162,31 @@ div.user_info_board input.unfan:hover {
 /* AUTHOR EDIT */
 
 textarea#bio {
+  border: 1px solid #E8E8E8;
   height: 160px;
   float: left;
-  margin: 1.5em 0 0 1em;
+  margin: 1.3em 0 0 1em;
   width: 332px;
 }
 
-input#author_image {
+textarea#bio:hover {
   border: 1px solid #D8D8D8;
+}
+
+input#author_image {
+  background: transparent;
+  border: 0px solid #D8D8D8;
   color: #E2492F;
-  margin-top: -205px;
-  padding-top: 176px;
-  position: absolute;
-  visibility: hidden;
+  float: left;
+  padding: 94px 0;
+  margin-top: -204px;
+  position: relative;
+  visibility: visible;
   width: 198px;
 }
 
 input#author_image:hover {
   cursor: pointer;
-}
-
-div.board_avatar:hover input#author_image {
-  visibility: visible;
 }
 
 div.author_create {

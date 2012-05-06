@@ -21,8 +21,10 @@
       </div>
     </div>
     <div class= "board_bio">
-      <%= f.text_area :body, placeholder: "conte-nos algo", :class => "round", id: "contact" %>
+      <%= f.text_area :body, placeholder: " conte-nos algo", :class => "round", id: "contact", title: "conte-nos algo" %>
     </div>
   </div>
-  <%= submit_tag "enviar", :alt => "enviar", :class => "but round" %>
+  <div class= "author_create">
+    <%= submit_tag "enviar", :alt => "enviar", :class => "but round" %>
+  </div>  
 <% end %>

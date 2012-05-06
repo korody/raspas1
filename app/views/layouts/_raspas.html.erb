@@ -7,7 +7,7 @@
         </div>
         <div class= "user_board">
           <%= form_for @new_micropost do |f| %>
-            <%= f.text_area :content, :maxlength => 246, placeholder: '"escreva aqui um pensamento"' %>
+            <%= f.text_area :content, :maxlength => 246, placeholder: '"escreva aqui um pensamento"', title: "escreva uma raspa aqui" %>
             <div class= "count_micropost">
               <div id= "count">246</div>
             </div>

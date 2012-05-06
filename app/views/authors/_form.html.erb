@@ -16,8 +16,8 @@
             </div>
         </div>
         <div>
-            <%= f.text_area :bio, maxlength: 321, placeholder: " breve descrição deste pensador", 
-            :class => "round", id: "bio" %>
+            <%= f.text_area :bio, maxlength: 321, placeholder: " breve descrição de #{@author.name}", 
+            :class => "round", id: "bio", title: "escreva aqui uma descrição para este pensador" %>
         </div>
         <div class= "count_bio">
             <div id= "count_bio">321</div>

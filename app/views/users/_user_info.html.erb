@@ -60,8 +60,8 @@
 			<div>
 				<% @authors.first(4).each do |author| %>
 			        <div class= "last">
-			            <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
 			            <div class= "last_users">
+			            	<%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
                 			<div class= "last_upwards">
 			            		<p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
 			        		</div>
