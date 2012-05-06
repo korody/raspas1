@@ -10,9 +10,8 @@ body {
 div.container img.author_back {
   filter:alpha(opacity=20);
   opacity: 0.2;
-  position: absolute;
-  left:0;
-  float:left;  
+  position: fixed;
+  left: 0;
   width: 100%;
   z-index: -2;
 }
