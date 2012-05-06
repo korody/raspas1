@@ -15,15 +15,15 @@
           <% if signed_in? %>
             <%= render 'layouts/raspas' %>
           <% end %>
+          <div class= "author_back">  
+            <% if @author %>
+              <%= image_tag @author.image_url.to_s, :class => "author_back" %>
+            <% end %>
+            <% if @micropost %>
+              <%= image_tag @micropost.author.image_url.to_s, :class => "author_back" if @micropost.author %>
+            <% end %>
+          </div>
         <![endif]>
-      <div class= "author_back">  
-        <% if @author %>
-          <%= image_tag @author.image_url.to_s, :class => "author_back" %>
-        <% end %>
-        <% if @micropost %>
-          <%= image_tag @micropost.author.image_url.to_s, :class => "author_back" if @micropost.author %>
-        <% end %>
-      </div>
       <section>
         <div class="raspas">
           <% flash.each do |key, value| %>
