@@ -7,16 +7,12 @@ body {
   background: transparent;
 }
 
-div.author_back {
+div.container img.author_back {
   filter:alpha(opacity=20);
   opacity: 0.2;
   position: absolute;  
   width: 100%;
   z-index: -2;
-}
-
-div.author_back img {
-  width: 100%;
 }
 
 * {
