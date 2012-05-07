@@ -11,7 +11,7 @@
 				<div class= "last_header">
 					<p class="p_tags">últimos</p> <p class="p_tag">pensadores</p>
 					<p class= "p_mais"><%= link_to "+", authors_tag_path, 
-					title: "ver todos autores que escreveram sore #{@tag.name}" %></p>
+					title: "ver todos autores que escreveram sobre #{@tag.name}" %></p>
 				</div>
 				<div>
 		            <% @authors.first(4).each do |author| %>
@@ -31,7 +31,7 @@
 			<div class= "user_info_board round" >
 				<div class= "last_header">
 					<p class="p_tags">últimos</p> <p class="p_tag">usuários</p>
-					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sore #{@tag.name}" %></p>
+					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sobre #{@tag.name}" %></p>
 				</div>
 				<div>
 			        <% @users.first(4).each do |user| %>
@@ -55,7 +55,7 @@
 			<div>
 				<% @tags.first(8).each do |tag| %>
 				  <div>
-				    <%= link_to tag.name, tag, title: "ver raspas sobre#{tag.name}", :class => "but round temas" %>
+				    <%= link_to tag.name, tag, title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
 				  </div>
 				<% end %>
 			</div>
