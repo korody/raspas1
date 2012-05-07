@@ -19,9 +19,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
       if @author
-        "photos/default/" + [version_name, "author.jpg"].compact.join('_')
+        "photos/default/" + [version_name, "author.png"].compact.join('_')
       else
-        "photos/default/" + [version_name, "user.jpg"].compact.join('_')
+        "photos/default/" + [version_name, "user.png"].compact.join('_')
       end
   end
 
@@ -35,6 +35,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :tiny do
     process :resize_to_fill => [32, 32]
+  end
+
+  version :small do
+    process :resize_to_fill => [65, 65]
   end
 
   version :medium do

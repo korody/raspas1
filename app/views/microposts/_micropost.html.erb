@@ -71,7 +71,7 @@
       <% unless @micropost %>   
         <% if micropost.author %>
           <div class= "user_id">
-            <%= link_to image_tag(micropost.user.image_url(:medium)), micropost.user, 
+            <%= link_to image_tag(micropost.user.image_url(:small)), micropost.user, 
             title: "ver perfil de #{micropost.user.name}" %>
           </div>
         <% end %>
