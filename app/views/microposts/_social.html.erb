@@ -1,7 +1,7 @@
 <!-- Add the following three tags to your body. -->
-<meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name %><% else %><%= @micropost.user.name %><% end %>" />
+<meta property="og:title" content="'<%= @micropost.content %>'" />
 <meta property="og:image" content="" />
-<meta property="og:description" content="'<%= @micropost.content %>'" />
+<meta property="og:description" content="<% if @micropost.author %><%= @micropost.author.name %><% else %><%= @micropost.user.name %><% end %>" />
 
 <div id='fb-root'></div>
 <script src='http://connect.facebook.net/pt_BR/all.js'></script>
@@ -13,11 +13,11 @@
     // calling the API ...
     var obj = {
       method: 'feed',
-      link: '<% if @micropost.author %>https://raspas.com.br/pensadores/<%= @micropost.author.id %><% else %>https://raspas.com.br/usuarios/<%= @micropost.user.id %><% end %>',
+      link: 'https://raspas.com.br/raspas/<%= @micropost.id %>',
       picture: '<% if @micropost.author %><%= @micropost.author.image_url(:regular) %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
       name: "'<%= @micropost.content %>'",
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
-      description: '',  
+      description: '...crie, colecione e compartilhe pensamentos através do Raspas, a rede de pensadores contemporâneos.',  
     };
 
     function callback(response) {

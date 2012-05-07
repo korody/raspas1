@@ -19,9 +19,6 @@
 			<% end %>
 			<%= render 'fan_form' %>
 		</div>
-		<div class= "user_info_board round" >
-			<%= render 'stats' %>
-		</div>
 		<% if @author.bio? %>
 			<div class= "user_info_board round" >
 				<div class= "bio">
@@ -29,6 +26,9 @@
 				</div>
 			</div>
 		<% end %>
+		<div class= "user_info_board round" >
+			<%= render 'stats' %>
+		</div>
 		<% if !@tags.empty? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
