@@ -25,7 +25,7 @@
         </div>
       <% end %> 
     <% end %>
-    <% unless @user.microposts.empty? %>
+    <% unless @microposts.empty? %>
     	<%= render @microposts %>
     <% else %>
       <% if !current_user?(@user) %>
