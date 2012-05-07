@@ -1,9 +1,13 @@
-<div class= "title">
-	<p class= "p_search"><%= @author.name %> foi citado através de <%= pluralize @author.tags.count, "tema" %></p>
-	<%= link_to " explorar + temas", tags_path %><%= link_to "voltar para #{@author.name} |", @author %>
-</div>
 <div class= "home">
-	<ul class="users">
-		<li><%= render @author.tags %></li>
-	</ul>
+	<div class= "title">
+		<p class= "p_search"><%= @author.name %> foi citado através de <%= pluralize @author.tags.count, "tema" %></p>
+		<%= link_to " explorar + temas", tags_path %><%= link_to "voltar", @author %>
+	</div>
+	<div class= "tag_word">
+		<% @author.tags.each do |tag| %>
+			<div class= "tag_index">
+		  		<%= link_to tag.name, tag, class: "but round" %>
+			</div>  	
+	  	<% end %>
+	</div>
 </div>

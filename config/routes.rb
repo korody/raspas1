@@ -3,33 +3,50 @@ Benfeitor::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :authors do
+  resources :authors, :path => "pensadores" do
     member do
-      get :fans, :idols, :subscriptions, :users, :tags, :favourites, :autocomplete
+      get :fans, path: "fas"
+      get :idols, path: "idolos"
+      get :users, path: "usuarios"
+      get :tags, path: "temas"
+      get :favourites, path: "favoritadas"
+      get :subscriptions, :autocomplete
     end
   end
 
-  resources :users do
+  resources :users, path: "usuarios" do
     member do
-      get :feed, :following, :followers, :idols, :fans, :tags, :authors, :favourites
+      get :feed, path: "mural"
+      get :following, path: "seguindo"
+      get :followers, path: "seguidores"
+      get :idols, path: "idolos"
+      get :fans, path: "fas"
+      get :tags, path: "temas"
+      get :authors, path: "pensadores"
+      get :favourites, path: "favoritas"
     end
   end
 
-  resources :tags do
+  resources :tags, path: "temas" do
     member do
-      get :microposts, :users, :authors, :autocomplete
+      get :microposts, path: "raspas"
+      get :users, path: "usuarios"
+      get :authors, path: "pensadores"
+      get :autocomplete
     end
   end
 
   resources :taggins do
     member do
-      get :tags, :microposts, :users
+      get :tags, path: "temas"
+      get :microposts, path: "raspas"
+      get :users, path: "usuarios"
     end
   end
 
-  resources :microposts do
+  resources :microposts, path: "raspas" do
     member do
-      get :favourites
+      get :favourites, path: "favoritas"
     end
   end
   

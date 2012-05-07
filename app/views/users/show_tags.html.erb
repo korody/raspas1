@@ -1,9 +1,13 @@
-<div class= "title">
-	<p class= "p_search"><%= @user.name %> escreveu sobre <%= pluralize @user.tags.count, "tema" %></p>
-	<%= link_to " explorar + temas", tags_path %><%= link_to "voltar para #{@user.name} |", @user %>
-</div>
 <div class= "home">
-	<ul class="users">
-		<li><%= render @user.tags %></li>
-	</ul>
+	<div class= "title">
+		<p class= "p_search"><%= @user.name %> escreveu sobre <%= pluralize @user.tags.count, "tema" %></p>
+		<%= link_to " explorar + temas", tags_path %>
+	</div>
+	<div class= "tag_word">
+		<% @user.tags.each do |tag| %>
+			<div class= "tag_index">
+		  		<%= link_to tag.name, tag, class: "but round" %>
+			</div>  	
+	  	<% end %>
+	</div>
 </div>

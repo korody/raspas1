@@ -15,7 +15,7 @@
 			</div>
 			<% @tags.last(8).each do |tag| %>
 			  <div>
-			    <%= link_to tag.name, tag, :class => "but round temas" %>
+			    <%= link_to tag.name, tag, :class => "but round temas", title: "ver raspas sobre#{tag.name}" %>
 			  </div>
 			<% end %>
 		</div>

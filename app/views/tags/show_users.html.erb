@@ -1,9 +1,9 @@
 <div class= "home">
 	<div class= "title">
-		<p class= "p_search"><%= pluralize @tag_users.count, "usuários" %> escreveram recentemente sobre <%= @tag.name %></p><%= link_to "voltar para raspas sobre #{@tag.name}", @tag %>
+		<p class= "p_search"><%= pluralize @tag.users.count, "usuário" %> escreveram sobre <%= @tag.name %></p><%= link_to "voltar para raspas sobre #{@tag.name}", @tag %>
 	</div>
 	<ul class="users">
-	  <li><%= render @tag_users %></li>
+	  <li><%= render @tag.users %></li>
 	</ul>
 	<div class= "pagination_square">
 		<%= will_paginate @users %>
