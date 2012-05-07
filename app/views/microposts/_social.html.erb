@@ -13,7 +13,7 @@
     // calling the API ...
     var obj = {
       method: 'feed',
-      link: 'https://raspas.com.br/microposts/<%= @micropost.id %>',
+      link: '<% if @micropost.author %>https://raspas.com.br/pensadores/<%= @micropost.author.id %><% else %>https://raspas.com.br/usuarios/<%= @micropost.user.id %><% end %>',
       picture: '<% if @micropost.author %><%= @micropost.author.image_url(:regular) %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
       name: "'<%= @micropost.content %>'",
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
@@ -45,7 +45,7 @@
 
 
 <div class= "sharers">
-  <g:plusone size="medium"></g:plusone>
+  <g:plusone size="tall" annotation= "none"></g:plusone>
 
 <br />
 <br />

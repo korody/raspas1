@@ -9,8 +9,13 @@
 	<div class= "user_info_board round">
 		<div class= "last_header">
 			<p class="p_tag">raspa</p><p class="p_tags">#</p><p class="p_tag"><%= @micropost.id %></p>
+			<p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar + raspas" %></p>
+		</div>
+	</div>
+	<div class= "user_info_board round">
+		<div class= "last_header">
 			<% if @micropost.favourites?(@micropost) %>
-				<p class="p_tags">favorita</p><p class="p_tag"><%= @micropost.favourites.count %></p><p class="p_tags">x</p>
+				<p class="p_tag"><%= @micropost.favourites.count %></p><p class="p_tags">x</p><p class="p_tag">favorita</p>
 			<% end %>
 			<p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar + raspas" %></p>
 		</div>

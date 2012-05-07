@@ -4,7 +4,10 @@
 	</div>
 	<div class= "show_info">
 		<div class= "user_info_board round">
-			<p class= "p_tags">sobre</p><p class="p_tag"><%= @tag.name %></p><p class="p_tags"> x </p><p class="p_tag"><%= @tag.taggings.count %></p>
+			<p class= "p_tags">sobre</p><p class="p_tag"><%= @tag.name %></p>
+		</div>
+		<div class= "user_info_board round">
+			<p class= "p_tag">tema</p> <p class="p_tags">citado</p> <p class="p_tag"> <%= @tag.taggings.count %></p> <p class="p_tags">x</p>
 		</div>
 		<% if !@tag.authors.empty? %>
 			<div class= "user_info_board round">
