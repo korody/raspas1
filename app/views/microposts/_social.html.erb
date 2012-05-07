@@ -17,7 +17,7 @@
       picture: '<% if @micropost.author %><%= @micropost.author.image_url(:regular) %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
       name: "'<%= @micropost.content %>'",
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
-      description: 'crie, colecione e compartilhe pensamentos pelo Raspas, a rede de pensadores contemporâneos.',  
+      description: ' crie, colecione e compartilhe pensamentos pelo Raspas, a rede de pensadores contemporâneos.',  
     };
 
     function callback(response) {
@@ -49,14 +49,14 @@
 
 <br />
 <br />
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="raspas_app" 
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="none" data-via="raspas_app" 
   data-text="'<%= @micropost.content %>'
   {  <% if @micropost.author %><%= @micropost.author.name %>
 
   <% else %><%= @micropost.user.name %>
 
   <% end %>" 
-  data-lang="none" data-size="small" data-related="raspas_app" data-count="none" data-hashtags="none" title></a>
+  data-lang="none" data-size="small" data-related="raspas_app" data-count="none" title="tweetar esta raspa"></a>
   
 <br />  
 <br />  
