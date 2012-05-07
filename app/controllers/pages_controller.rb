@@ -1,7 +1,7 @@
   class PagesController < ApplicationController
   
   def home
-    @title = "casa"
+    @title = "crie, colecione e compartilhe pensamentos"
     @user = User.new
     @feed_items = Micropost.all(:order => 'microposts.created_at DESC', :limit => 20)
     @new_micropost = Micropost.new
