@@ -9,7 +9,7 @@ Benfeitor::Application.routes.draw do
       get :idols, path: "idolos"
       get :users, path: "usuarios"
       get :tags, path: "temas"
-      get :favourites, path: "favoritadas"
+      get :favourites, path: "favoritas"
       get :subscriptions, :autocomplete
     end
   end

@@ -1136,6 +1136,10 @@ div.name_edit p {
   max-width: 9em;
 }
 
+div.name_edit a {
+  font-size: 100%;
+}
+
   div.sobre {
   border: 0px solid black;
   float: left;

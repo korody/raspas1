@@ -4,7 +4,7 @@
 	</div>
 	<div class= "user_info_board round" >
 		<div class= "name_edit">
-			<p><%= @user.name %></p>
+			<p><%= link_to @user.name, @user %></p>
 			<% if signed_in? %>
 				<% if current_user?(@user) %>	
 					<%= link_to (image_tag "edit.png"), edit_user_path(current_user) %>
@@ -22,12 +22,6 @@
 		<% end %>		
 		<%= render 'follow_form' if signed_in? %>
 	</div>
-	<div class= "user_info_board round" >
-		<%= render 'stats_raspas' %>
-	</div>
-	<div class= "user_info_board round" >
-		<%= render 'stats_relations' %>
-	</div>
 	<% if @user.bio? %>
 		<div class= "user_info_board round">
 			<div class= "bio">
@@ -35,4 +29,10 @@
 			</div>
 		</div>
 	<% end %>
+	<div class= "user_info_board round" >
+		<%= render 'stats_raspas' %>
+	</div>
+	<div class= "user_info_board round" >
+		<%= render 'stats_relations' %>
+	</div>
 </div>
