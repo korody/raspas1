@@ -4,11 +4,11 @@
 	</div>
 	<div class= "stack">
 		<% if @user.eleitas.empty? %>
-	  		<% if !@current_user %>
+	  		<% if current_user?(@user) %>
 				<div class="half_quotes round">
 					<div class= "sign">
-						Novo por aqui? Você ainda não possui nenhum pensamento.<br />
-						Clique no <%= image_submit_tag "raspa_.png", id: "button" %> acima para escrever suas primeiras raspas!
+						Você ainda não tem nenhuma raspa favorita...<br />
+						Escolha suas <%= link_to "raspas", microposts_path %> favoritas e clique nos corações!
 					</div>
 					<div class= "flag_sign">
 						<%= image_tag "happy.png" %>
@@ -17,8 +17,9 @@
 			<% else %>
 				<div class="half_quotes round">
 					<div class= "sign">
-						<%= @user.name %> ainda não possui nenhuma raspa favorita!<br />
-						Explore as <%= link_to "raspas", microposts_path %> de outros usuários.
+						<%= @user.name %> ainda não possui raspas favoritas...<br />
+						Explore as <%= link_to "raspas", microposts_path %> de outros <%= link_to "usuários", users_path %> ou 
+						<%= link_to "pensadores", authors_path %>!
 					</div>
 					<div class= "flag_sign">
 						<%= image_tag "dull.png" %>

@@ -1,0 +1,39 @@
+<div class= "user_feed">
+    <%= render 'user_following' %>
+</div>
+<div class= "home">
+	<% if current_user?(@user) %>
+		<% if @user.following.empty? %>
+	        <div class="half_quotes round">
+	          <div class= "sign">
+	           	Você ainda não segue ninguém...<br />
+	            Explore abaixo os últimos usuários ou encontre seus amigos na busca acima!
+	          </div>
+	          <div class= "flag_sign">
+	            <%= image_tag "happy.png" %>
+	          </div>
+	        </div>
+	        <div class= "home_authors">
+	          <% @users_intro.each do |user| %>
+	            <p><%= link_to user.name, user %></p>
+	            <%= link_to image_tag(user.image_url(:medium)), user %>
+	          <% end %>
+	        </div>
+	    <% else %>
+	      <div>
+			<%= render @user.following %>
+	      </div>
+	    <% end %> 
+	<% else %>
+		<% if @user.following.empty? %>
+			<div class= "title">
+				<p class= "p_search"><%= @user.name %> ainda não segue ninguém</p>
+				<%= link_to "explorar usuários", users_path %>
+			</div>
+		<% else %>
+			<div>
+				<%= render @user.following %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

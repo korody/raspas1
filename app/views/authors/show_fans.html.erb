@@ -4,7 +4,7 @@
 	</div>
 	<% if @author.fans.empty? %>
 		<div class= "title">
-			<p class= "p_search">nenhum fã encontrado</p><%= link_to "vire fã de #{@author.name}", 
+			<p class= "p_search">nenhum fã encontrado</p><%= link_to "você é fã de #{@author.name}?", 
 			@author %>
 		</div>
 	<% else %>

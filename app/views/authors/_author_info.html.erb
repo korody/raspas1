@@ -46,42 +46,42 @@
 			</div>
 		<% end %>
 		<% if !@users.empty? %>
+			<div class= "user_info_board round">
+				<div class= "last_header">
+					<p class="p_tag">citado</p> <p class= "p_tags">pelos</p> <p class="p_tag">usuários</p>
+			        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
+		    	</div>
+				<div>
+					<% @users.first(4).each do |user| %>
+				        <div class= "last">
+				            <div class= "last_users">
+				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+	                			<div class= "last_upwards">
+				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+				        		</div>
+				        	</div>
+				        </div>
+			        <% end %>
+				</div>
+			</div>
+		<% end %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">citado</p> <p class= "p_tags">pelos</p> <p class="p_tag">usuários</p>
-		        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
-	    	</div>
+			  <p class= "p_tags">outros</p> <p class="p_tag">pensadores</p>
+			  <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+			</div>
 			<div>
-				<% @users.first(4).each do |user| %>
-			        <div class= "last">
-			            <div class= "last_users">
-			            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-                			<div class= "last_upwards">
-			            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
-			        		</div>
-			        	</div>
-			        </div>
-		        <% end %>
+				<% @authors.first(4).each do |author| %>
+					<div class= "last">
+					  <div class= "last_users">
+					    <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+					    <div class= "last_upwards">
+					      <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
 			</div>
 		</div>
-		<div class= "user_info_board round">
-	        <div class= "last_header">
-	          <p class= "p_tags">outros</p> <p class="p_tag">pensadores</p>
-	          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
-	        </div>
-	        <div>
-	          <% @authors.first(4).each do |author| %>
-	            <div class= "last">
-	              <div class= "last_users">
-	                <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
-	                <div class= "last_upwards">
-	                  <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
-	                </div>
-	              </div>
-	            </div>
-	          <% end %>
-	        </div>
-	      </div>
-	<% end %>
 	</div>
 </div>

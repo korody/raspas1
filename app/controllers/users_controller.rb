@@ -1,6 +1,6 @@
   # encoding: utf-8
   class UsersController < ApplicationController
-  before_filter :authenticate, :except => [:show, :new, :create, :search, :index, :following, :followers]
+  before_filter :authenticate, :except => [:show, :new, :create, :search, :index, :following, :followers, :favourites]
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
@@ -24,10 +24,9 @@
     @user = User.find(params[:id])
     @new_micropost = Micropost.new        
     @feed_items = current_user.feed.paginate(:page => params[:page])
-    @feed_intro = Micropost.all(order: 'microposts.created_at DESC', limit: 10)
-    @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 10)
-    @users_eleitas = @user.eleitas.all(:order => 'microposts.created_at DESC', :limit => 40)
-    @users_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
+    @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 24)
+    @users_intro = User.all(order: 'users.created_at DESC', limit: 24)
+    @user_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
 
   end
 
@@ -88,10 +87,11 @@
     @user = User.find(params[:id])
     @users_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
     @users = @user.following.paginate(:page => params[:page])
+    @users_intro = User.all(order: 'users.created_at DESC', limit: 24)
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
-    render 'show_follow'
+    render 'show_following'
   end
 
   def followers
@@ -109,6 +109,7 @@
     @users_idols = @user.idols.all(:order => 'authors.created_at DESC', :limit => 40)
     @users = @user.idols.paginate(:page => params[:page])
     @author_favourites = @user.authors
+    @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 24)
     @new_micropost = Micropost.new
     render 'show_idols'
   end

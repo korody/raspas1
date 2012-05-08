@@ -6,11 +6,11 @@
 			<% if @author_eleitas.empty? %>
 				<div class="half_quotes round">
 					<div class= "sign">
-						Nenhuma raspa favoritada.<br />
-						Visite o perfil de <%= link_to @author.name, @author %> e marque suas favoritas!<br />
+						Nada? <%= link_to @author.name, @author %> deve estar se remoendo!<br />
+						Que tal uma mãozinha? Visite o <%= link_to "perfil", @author %> e marque uma favorita.<br />
 					</div>
 					<div class= "flag_sign">
-						<%= image_tag "happy.png" %>
+						<%= image_tag "dull.png" %>
 					</div>
 				</div>
 			<% else %>

@@ -1,14 +1,39 @@
 <div class= "user_feed">
     <%= render 'user_idols' %>
 </div>
-<% if @user.idols.empty? %>
-	<div class= "title">
-		<p class= "p_search">nenhum ídolo encontrado</p><%= link_to "explorar pensadores", authors_path %>
-	</div>
-<% else %>
-	<div class= "home">
-		<ul class="users">
-			<li><%= render @user.idols %></li>
-		</ul>
-	</div>
-<% end %>
+<div class= "home">
+	<% if current_user?(@user) %>
+		<% if @user.idols.empty? %>
+	        <div class="half_quotes round">
+	          <div class= "sign">
+	           	Você ainda não é fã de ninguém...<br />
+	            Explore abaixo os últimos pensadores ou encontre seus ídolos na busca acima!
+	          </div>
+	          <div class= "flag_sign">
+	            <%= image_tag "happy.png" %>
+	          </div>
+	        </div>
+	        <div class= "home_authors">
+	          <% @authors_intro.each do |author| %>
+	            <p><%= link_to author.name, author %></p>
+	            <%= link_to image_tag(author.image_url(:medium)), author %>
+	          <% end %>
+	        </div>
+	    <% else %>
+	      <div>
+			<%= render @user.idols %>
+	      </div>
+	    <% end %> 
+	<% else %>
+		<% if @user.idols.empty? %>
+			<div class= "title">
+				<p class= "p_search"><%= @user.name %> ainda não é fã de nenhum pensador</p>
+				<%= link_to "explorar pensadores", authors_path %>
+			</div>
+		<% else %>
+			<div>
+				<%= render @user.idols %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

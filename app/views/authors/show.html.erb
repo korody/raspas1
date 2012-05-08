@@ -18,7 +18,17 @@
     <%# end %> 
     <% unless @author.microposts.empty? %>
       <%= render @microposts %>
-    <% end %>
+    <% else %>
+      <div class= "half_quotes round">
+        <div class= "sign">
+          Nada por aqui! <%= @author.name %> está em baixa...<br />
+          Explore as raspas de outros <%= link_to "pensadores", authors_path %>.
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "sad.png" %>
+        </div>
+      </div>
       <%= will_paginate @microposts %>
+    <% end %>
   </div>
 </div>

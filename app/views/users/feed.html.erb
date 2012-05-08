@@ -3,33 +3,33 @@
     <%= render 'users/user_bar' %>
   </div>
   <div class= "home">
-    <% if @feed_items.empty? %>
-      <div class="half_quotes round">
-        <div class= "sign">
-          Para começar escreva um pensamento clicando no lápis acima.<br />
-          Quer exemplos? Veja nossas últimas raspas abaixo e inspire-se.
+    <% if @user_following.empty? %>
+      <% if @user.idols.empty? %>
+        <div class="half_quotes round">
+          <div class= "sign">
+            Torne-se fã de pensadores e siga seus amigos para acompanhar todas as raspas aqui!<br />
+            Explore abaixo os últimos perfis criados ou ache seus ídolos e amigos na busca acima!
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "super.png" %>
+          </div>
         </div>
-        <div class= "flag_sign">
-          <%= image_tag "raspa_sign.png" %>
+        <div class= "home_authors">
+          <% @authors_intro.each do |author| %>
+            <p><%= link_to author.name, author %></p>
+            <%= link_to (image_tag author.image_url(:medium)), author %>
+          <% end %>
         </div>
-      </div>
-        <%= render @feed_intro %>
-      <br />
-      <div class="half_quotes round">
-        <div class= "sign">
-          Está sem ideias? <%= link_to "Crie um perfil", new_author_path %> para um pensador, <br />
-          ou veja os últimos perfis criados por nossos usuários.
+        <br />
+        <br />
+        <div class= "home_authors">
+          <% @users_intro.each do |user| %>
+            <p><%= link_to user.name, user %></p>
+            <%= link_to image_tag(user.image_url(:medium)), user %>
+          <% end %>
         </div>
-        <div class= "flag_sign">
-          <%= image_tag "happy.png" %>
-        </div>
-      </div>
-      <div class= "home_authors">
-        <% @authors_intro.each do |author| %>
-          <%= link_to image_tag(author.image_url(:medium)), author, title: "#{author.name}" %>
-        <% end %>
-      </div>  
-    <% else %> 
+      <% end %>
+    <% else %>
       <div>
         <%= render 'shared/feed' %>
       </div>
