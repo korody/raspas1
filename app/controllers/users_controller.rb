@@ -1,6 +1,6 @@
   # encoding: utf-8
   class UsersController < ApplicationController
-  before_filter :authenticate, :except => [:show, :new, :create, :search, :index, :following, :followers, :favourites]
+  before_filter :authenticate, :except => [:show, :new, :create, :search, :index, :following, :followers, :favourites, :idols]
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
