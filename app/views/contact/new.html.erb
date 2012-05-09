@@ -1,27 +1,27 @@
-<div class="cartela round">
-    <div class= "cartela_corner round">
-        <div class= "user_avatar">
-            <%= image_tag "raspas_logo_user.jpg" %>
-        </div>
-    </div>
-    <div class= "sobre">
-        Sua opinião vale ouro! Nós queremos ouvi-la.<br />
-        Sinta-se à vontade para criticar, sugerir ou até elogiar ; )<br />
-    </div>  
-</div>
 <%= form_for @message, :url => contact_path do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>  
   <div class="cartela round">
+      <div class= "cartela_corner round">
+          <div class= "user_avatar">
+              <%= image_tag "raspas_logo_user.jpg" %>
+          </div>
+      </div>
+      <div class= "sobre">
+          Sua opinião vale ouro! Nós queremos ouvi-la.<br />
+          Sinta-se à vontade para criticar, sugerir ou até elogiar ; )<br />
+      </div>  
+  </div>
+  <div class="cartela round">
     <div class= "cartela_corner round">
       <div class= "field">
-        <%= f.text_field :name, placeholder: " seu nome", :class => "round field_info" %>
+        <%= f.text_field :nome, placeholder: " seu nome", :class => "round field_info" %>
         <%= f.text_field :email, placeholder: " seu e-mail", :class => "round field_info" %>
-        <%= f.text_field :mobile, placeholder: " telefone(opcional)", :class => "round field_info" %>
-        <%= f.text_field :subject, placeholder: " o assunto", :class => "round field_info" %>
+        <%= f.text_field :fone, placeholder: " telefone(opcional)", :class => "round field_info" %>
+        <%= f.text_field :assunto, placeholder: " o assunto", :class => "round field_info" %>
       </div>
     </div>
     <div class= "board_bio">
-      <%= f.text_area :body, placeholder: " conte-nos algo", :class => "round", id: "contact", title: "conte-nos algo" %>
+      <%= f.text_area :texto, placeholder: " conte-nos algo", :class => "round", id: "contact", title: "conte-nos algo" %>
     </div>
   </div>
   <div class= "author_create">
