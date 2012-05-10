@@ -1,5 +1,5 @@
 <div class= "user_feed_avatar">
-	<%= link_to image_tag(@user.image_url(:medium)), @user %>
+	<%= link_to image_tag(@user.image_url(:medium)), @user, title: "voltar para #{@user.name}" %>
 </div>
 <div class= "user_feed_side">
 	<br />
@@ -9,7 +9,7 @@
 	<%= image_tag "ico_following_big.png", :alt => "lê", title: "seguindo" %>
 </div>
 <div class= "user_feed_follow">
-	<% @users_following.each do |user| %>
-		<%= link_to image_tag(user.image_url(:tiny)), user %>
+    <% @following.shuffle.first(40).each do |user| %>	
+		<%= link_to image_tag(user.image_url(:tiny)), user, title: "#{user.name}" %>
 	<% end %>
 </div>

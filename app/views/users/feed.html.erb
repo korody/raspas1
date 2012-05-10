@@ -1,21 +1,21 @@
 <% if signed_in? %>
   <div class= "user_feed">
-    <%= render 'users/user_bar' %>
+    <%= render 'users/user_following' %>
   </div>
   <div class= "home">
-    <% if @user_following.empty? %>
+    <% if @following.empty? %>
       <% if @user.idols.empty? %>
         <div class="half_quotes round">
           <div class= "sign">
             Torne-se fã de pensadores e siga seus amigos para acompanhar todas as raspas aqui!<br />
-            Explore abaixo os últimos perfis criados ou ache seus ídolos e amigos na busca acima!
+            Explore abaixo alguns perfis já criados ou ache seus ídolos e amigos na busca acima!
           </div>
           <div class= "flag_sign">
             <%= image_tag "super.png" %>
           </div>
         </div>
         <div class= "home_authors">
-          <% @authors_intro.each do |author| %>
+          <% @authors_intro.shuffle.first(24).each do |author| %>
             <p><%= link_to author.name, author %></p>
             <%= link_to (image_tag author.image_url(:medium)), author %>
           <% end %>
@@ -23,7 +23,7 @@
         <br />
         <br />
         <div class= "home_authors">
-          <% @users_intro.each do |user| %>
+          <% @users_intro.shuffle.first(24).each do |user| %>
             <p><%= link_to user.name, user %></p>
             <%= link_to image_tag(user.image_url(:medium)), user %>
           <% end %>

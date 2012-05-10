@@ -3,7 +3,7 @@
 </div>
 <div class= "home">
 	<% if current_user?(@user) %>
-		<% if @user.following.empty? %>
+		<% if @following.empty? %>
 	        <div class="half_quotes round">
 	          <div class= "sign">
 	           	Você ainda não segue ninguém...<br />
@@ -21,19 +21,20 @@
 	        </div>
 	    <% else %>
 	      <div>
-			<%= render @user.following %>
+			<%= render @following %>
 	      </div>
 	    <% end %> 
 	<% else %>
-		<% if @user.following.empty? %>
+		<% if @following.empty? %>
 			<div class= "title">
 				<p class= "p_search"><%= @user.name %> ainda não segue ninguém</p>
 				<%= link_to "explorar usuários", users_path %>
 			</div>
 		<% else %>
 			<div>
-				<%= render @user.following %>
+				<%= render @following %>
 			</div>
 		<% end %>
 	<% end %>
 </div>
+<%= will_paginate @following %>

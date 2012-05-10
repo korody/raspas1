@@ -1,16 +1,17 @@
 <div class= "user_feed">
     <%= render 'user_followers' %>
 </div>
-<% if @user.followers.empty? %>
+<% if @followers.empty? %>
 	<div class= "title">
 		<p class= "p_search">nenhum seguidor encontrado</p>
 	</div>
 <% else %>
 	<div class= "home">
-		<% unless @user.followers.empty? %>
+		<% unless @followers.empty? %>
 			<div>
-				<%= render @user.followers %>
+				<%= render @followers %>
 			</div>
 		<% end %>
 	</div>
 <% end %>
+<%= will_paginate @followers %>

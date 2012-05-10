@@ -56,7 +56,7 @@
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
 			</div>
 			<div>
-				<% @tags.first(8).each do |tag| %>
+				<% @tags.shuffle.first(8).each do |tag| %>
 				  <div>
 				    <%= link_to tag.name, tag, title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
 				  </div>

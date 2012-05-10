@@ -3,7 +3,7 @@
 </div>
 <div class= "home">
 	<% if current_user?(@user) %>
-		<% if @user.idols.empty? %>
+		<% if @idols.empty? %>
 	        <div class="half_quotes round">
 	          <div class= "sign">
 	           	Você ainda não é fã de ninguém...<br />
@@ -14,26 +14,27 @@
 	          </div>
 	        </div>
 	        <div class= "home_authors">
-	          <% @authors_intro.each do |author| %>
-	            <p><%= link_to author.name, author %></p>
-	            <%= link_to image_tag(author.image_url(:medium)), author %>
-	          <% end %>
+          		<% @authors_intro.shuffle.first(24).each do |author| %>
+		            <p><%= link_to author.name, author %></p>
+		            <%= link_to image_tag(author.image_url(:medium)), author %>
+				<% end %>
 	        </div>
 	    <% else %>
 	      <div>
-			<%= render @user.idols %>
+			<%= render @idols %>
 	      </div>
 	    <% end %> 
 	<% else %>
-		<% if @user.idols.empty? %>
+		<% if @user.idols? %>
 			<div class= "title">
 				<p class= "p_search"><%= @user.name %> ainda não é fã de nenhum pensador</p>
 				<%= link_to "explorar pensadores", authors_path %>
 			</div>
 		<% else %>
 			<div>
-				<%= render @user.idols %>
+				<%= render @idols %>
 			</div>
 		<% end %>
 	<% end %>
 </div>
+<%= will_paginate @idols %>

@@ -34,7 +34,7 @@
 		  <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
 		</div>
 		<div>
-			<% Author.first(4).each do |author| %>
+			<% @authors.shuffle.first(2).each do |author| %>
 				<div class= "last">
 				  <div class= "last_users">
 				    <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>

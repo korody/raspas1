@@ -22,10 +22,10 @@
 			title: "ver raspas de #{author.name}" %>
 		</div>
 		<div id= "fans" class= "stats">
-			<p class= "p_stats">favoritadas</p> 
+			<p class= "p_stats">as favoritas</p> 
 			<%= link_to (image_tag "ico_heart.png"), favourites_author_path(author), :alt => "fäs", :class => "ico round" %>
 			<%= link_to author.eleitas.count, favourites_author_path(author), :class => "but round", 
-			title: "#{author.name} recebeu #{author.eleitas.count} favoritos" %>
+			title: "ver raspas de #{author.name} marcadas como favoritas" %>
 		</div>
 	</div>
 </div>

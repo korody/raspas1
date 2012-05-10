@@ -2,7 +2,7 @@
 	<div class= "user_feed">
 	    <%= render 'author_fans' %>
 	</div>
-	<% if @author.fans.empty? %>
+	<% if @fans.empty? %>
 		<div class= "title">
 			<p class= "p_search">nenhum fã encontrado</p><%= link_to "você é fã de #{@author.name}?", 
 			@author %>
@@ -10,8 +10,9 @@
 	<% else %>
 		<div class= "home">
 			<ul class="users">
-				<li><%= render @author.fans %></li>
+				<li><%= render @fans %></li>
 			</ul>
 		</div>
 	<% end %>
 </div>	
+<%= will_paginate @fans %>

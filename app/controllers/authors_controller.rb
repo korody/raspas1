@@ -67,20 +67,19 @@ class AuthorsController < ApplicationController
     redirect_to root_path
   end
 
-    def tags
-      @title = "temas"
-      @author = Author.find(params[:id])
-      @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
-      @authors = @author.tags.paginate(:page => params[:page])
-      @new_micropost = Micropost.new
-      render 'show_tags'
+  def tags
+    @title = "temas"
+    @author = Author.find(params[:id])
+    @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
+    @authors = @author.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    render 'show_tags'
   end
 
   def fans
     @title = "fãs"
     @author = Author.find(params[:id])
-    @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
-    @authors = @author.fans.paginate(:page => params[:page])
+    @fans = @author.fans.paginate(:page => params[:page], order: "name")
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
@@ -101,6 +100,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @author_eleitas = @author.eleitas
     @author_eleitas = @author.eleitas.paginate(:page => params[:page])
+    @authors = Author.all
     @new_micropost = Micropost.new
     render 'show_favourites'
   end

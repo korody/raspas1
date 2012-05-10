@@ -24,10 +24,9 @@
     @user = User.find(params[:id])
     @new_micropost = Micropost.new        
     @feed_items = current_user.feed.paginate(:page => params[:page])
-    @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 24)
-    @users_intro = User.all(order: 'users.created_at DESC', limit: 24)
-    @user_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
-
+    @authors_intro = Author.all
+    @users_intro = User.all
+    @following = @user.following.paginate(:page => params[:page], order: "name") 
   end
 
   def tags
@@ -85,9 +84,8 @@
   def following
     @title = "seguindo"
     @user = User.find(params[:id])
-    @users_following = @user.following.all(:order => 'users.created_at DESC', :limit => 40) 
-    @users = @user.following.paginate(:page => params[:page])
-    @users_intro = User.all(order: 'users.created_at DESC', limit: 24)
+    @following = @user.following.paginate(:page => params[:page], order: "name")
+    @users_intro = User.all
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
@@ -97,8 +95,7 @@
   def followers
     @title = "seguidores"
     @user = User.find(params[:id])
-    @users_followers = @user.followers.all(:order => 'users.created_at DESC', :limit => 40)
-    @users = @user.followers.paginate(:page => params[:page])
+    @followers = @user.followers.paginate(:page => params[:page], order: "name")
     @new_micropost = Micropost.new
     render 'show_followers'
   end
@@ -106,10 +103,9 @@
   def idols
     @title = "ídolos"
     @user = User.find(params[:id])
-    @users_idols = @user.idols.all(:order => 'authors.created_at DESC', :limit => 40)
-    @users = @user.idols.paginate(:page => params[:page])
+    @idols = @user.idols.paginate(:page => params[:page], order: "name")
     @author_favourites = @user.authors
-    @authors_intro = Author.all(order: 'authors.created_at DESC', limit: 24)
+    @authors_intro = Author.all
     @new_micropost = Micropost.new
     render 'show_idols'
   end
