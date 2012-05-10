@@ -25,7 +25,7 @@
 	      </div>
 	    <% end %> 
 	<% else %>
-		<% if @user.idols? %>
+		<% if @user.idols.empty? %>
 			<div class= "title">
 				<p class= "p_search"><%= @user.name %> ainda não é fã de nenhum pensador</p>
 				<%= link_to "explorar pensadores", authors_path %>
