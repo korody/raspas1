@@ -9,7 +9,7 @@
 	<%= image_tag "ico_following_big.png", :alt => "lê", title: "seguindo" %>
 </div>
 <div class= "user_feed_follow">
-    <% @following.shuffle.first(40).each do |user| %>	
+    <% @user.following.shuffle.first(40).each do |user| %>	
 		<%= link_to image_tag(user.image_url(:tiny)), user, title: "#{user.name}" %>
 	<% end %>
 </div>

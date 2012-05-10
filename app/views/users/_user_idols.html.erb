@@ -9,7 +9,7 @@
 	<%= image_tag "ico_star_big.png", :alt => "fãs", :class => "ico", title: "ídolos" %>
 </div>
 <div class= "user_feed_follow">
-    <% @idols.shuffle.first(40).each do |author| %>
+    <% @user.idols.shuffle.first(40).each do |author| %>
 		<%= link_to image_tag(author.image_url(:tiny)), author, title: "#{author.name}" %>
 	<% end %>
 </div>
