@@ -63,8 +63,8 @@ nav input:-moz-placeholder {
   color:    #FFF5EE;
 }
 
-nav.placeholder {
-  color:    #FFF5EE;
+ nav .hasPlaceholder {
+  color: #FFF5EE;
 }
 
 .raspas_logo {
@@ -271,8 +271,8 @@ input:-moz-placeholder {
   color:    #B0B0B0;
 }
 
-.placeholder {
-  color:    #B0B0B0;
+.hasPlaceholder {
+  color: #B0B0B0;
 }
 
 .raspas {
@@ -382,6 +382,9 @@ textarea#contact:hover {
   border: 1px solid #D8D8D8;
 }
 
+input#message_nome.hasPlaceholder, input#message_email.hasPlaceholder, input#message_fone.hasPlaceholder, input#message_assunto.hasPlaceholder {
+  color: #B0B0B0;
+}
 
 /* SIGNUP PAGE */
 
@@ -656,6 +659,8 @@ div.board_avatar input {
   margin-right: 0;
 }
 
+/* RASPA */
+
 textarea#micropost_content {
   border: 1px solid transparent;
   float: left;
@@ -699,15 +704,19 @@ input#micropost_author_name, input#micropost_origem, input#micropost_tag_names {
   width: 156px;
 }
 
-input#micropost_author_name::-webkit-input-placeholder {
-  color:    #E2492F;
-}
-input#micropost_author_name:-moz-placeholder {
-  color:    #E2492F;
+input#micropost_origem.hasPlaceholder, input#micropost_tag_names.hasPlaceholder {
+  color: #B0B0B0;
 }
 
-input#micropost_author_name.placeholder {
-  color:    #FFF5EE;
+input#micropost_author_name::-webkit-input-placeholder {
+  color:  #E2492F;
+}
+input#micropost_author_name:-moz-placeholder {
+  color:  #E2492F;
+}
+
+input#micropost_author_name.hasPlaceholder {
+  color:#E2492F;
 }
 
 .write {
@@ -976,6 +985,10 @@ div.field input.field_info {
   width: 180px;
 }
 
+input#user_name.hasPlaceholder, input#user_job.hasPlaceholder, input#user_origin.hasPlaceholder, input#user_email.hasPlaceholder {
+  color: #B0B0B0;
+}
+
 /* FOLLOW PAGE */
 
 div.user_feed {
@@ -1218,12 +1231,12 @@ textarea#bio:hover {
 }
 
 input#author_image {
-  background: transparent;
-  border: 0px solid #D8D8D8;
-  color: #E2492F;
+  background: #E2492F;
+  border: 1px solid #D8D8D8;
+  color: #FFF;
   float: left;
-  padding: 94px 0;
-  margin-top: -204px;
+  padding: 6px 0;
+  margin-top: -30px;
   position: relative;
   visibility: visible;
   width: 198px;
@@ -1251,6 +1264,10 @@ div.update_apagar {
   float: right;
   font-size: 100%;
   margin-top: 3em;
+}
+
+input#author_name.hasPlaceholder, input#author_job.hasPlaceholder, input#author_origin.hasPlaceholder, input#author_tipo.hasPlaceholder {
+  color: #B0B0B0;
 }
 
 /* TAGS */

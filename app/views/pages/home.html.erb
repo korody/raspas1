@@ -71,9 +71,11 @@
       <div class= "user_info_board round" >
         <p class= "p_tags"><%= link_to "sobre o raspas", about_path, title: "saiba mais" %></p></br>
       </div>
-      <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
-      </div>
+      <% if !signed_in? %>
+        <div class= "user_info_board round" >
+          <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
+        </div>
+      <% end %>
       <div class= "user_info_board round" >
         <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
       </div>

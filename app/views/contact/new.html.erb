@@ -14,8 +14,8 @@
   <div class="cartela round">
     <div class= "cartela_corner round">
       <div class= "field">
-        <%= f.text_field :nome, placeholder: " seu nome", :class => "round field_info" %>
-        <%= f.text_field :email, placeholder: " seu e-mail", :class => "round field_info" %>
+        <%= f.text_field :nome, value: "#{current_user.name if current_user}", placeholder: " seu nome", :class => "round field_info" %>
+        <%= f.text_field :email, value: "#{current_user.email if current_user}", placeholder: " seu e-mail", :class => "round field_info" %>
         <%= f.text_field :fone, placeholder: " telefone(opcional)", :class => "round field_info" %>
         <%= f.text_field :assunto, placeholder: " o assunto", :class => "round field_info" %>
       </div>
