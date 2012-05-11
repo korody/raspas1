@@ -4,15 +4,15 @@
     	<div class= "cartela_corner round">
     		<div class= "board_avatar">
       			<%= image_tag @user.image_url(:regular).to_s %>
-	          	<%= f.file_field :image %>
+	          	<%= f.file_field :image, class: "round" %>
 	        </div>
     	</div>
 		<div class= "board_avatar">
 			<div class= "field">
 	    		<%= f.text_field :name, placeholder: " nome e sobrenome", :class => "round field_info" %>
-	    		<%= f.text_field :email, placeholder: " um e-mail válido", :class => "round field_info" %>
 	    		<%= f.text_field :job, placeholder: " ocupação principal", :class => "round field_info" %>
 	    		<%= f.text_field :origin, placeholder: " local de origem", :class => "round field_info" %>
+	    		<%= f.text_field :email, placeholder: " um e-mail válido", :class => "round field_info" %>
     		</div>
     	</div>
     	<div>		
@@ -23,8 +23,19 @@
 			<div id= "count_bio">321</div>
 		</div>
 	</div>
-	<div class= "author_create">
-		<%= submit_tag "atualizar", :alt => "atualizar", :class => "but round actions" %>
+	<div class= "update">
+		<div class= "update_">
+			<%= submit_tag "atualizar", :alt => "atualizar", :class => "but round actions" %>
+		</div>
+		<div class= "update_apagar">
+			<% if current_user %>
+		      <%= link_to "apagar conta", current_user, 
+		                                              :class => "round",
+		                                              :method => :delete, 
+		                                              :confirm => "têm certeza que deseja remover o usuário permanentemente?",
+		                                              :title => "deixar o raspas?" %></p>
+		    <% end %>
+		</div>
 	</div>
 <% end %>
 	

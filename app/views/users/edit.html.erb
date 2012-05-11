@@ -1,13 +1,5 @@
 <% if signed_in? %>
   <div class="home">  
     <%= render "form" %> 
-      <% if current_user %>
-        <%= link_to "apagar conta", current_user, 
-                                                        :class => "but round actions",
-                                                        :method => :delete, 
-                                                        :confirm => "têm certeza que deseja remover o usuário permanentemente?",
-                                                        :title => "apagar #{current_user.name}" %></p>
-      <% end %>
-    </div>
   </div> 
 <% end %>

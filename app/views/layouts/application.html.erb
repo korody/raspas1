@@ -6,10 +6,13 @@
     <meta name="description" content="Raspas são pensamentos, momentos em palavras. Crie, colecione e compartilhe. Inpire-se, questione e aprenda. Um único pensamento é a origem de todas as ações grandiosas." />
     <meta name="google-site-verification" content="M4EZ5LyutNzTFZWcuBfubxatkAhSyctyJcLZ0zVhEKs" />
     <title><%= title %></title>
-    <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
     <%#= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
     <div class="container">

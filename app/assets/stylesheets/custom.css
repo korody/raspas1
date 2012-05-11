@@ -957,12 +957,12 @@ textarea {
 }
 
 input#user_image {
-  background: transparent;
-  border: 0px solid #D8D8D8;
-  color: #E2492F;
+  background: #E2492F;
+  border: 1px solid #D8D8D8;
+  color: #FFF;
   float: left;
-  padding: 94px 0;
-  margin-top: -204px;
+  padding: 6px 0;
+  margin-top: -30px;
   position: relative;
   visibility: visible;
   width: 198px;
@@ -1233,9 +1233,24 @@ input#author_image:hover {
   cursor: pointer;
 }
 
-div.author_create {
+div.update {
+  display: block;
   float: right;
   font-size: 120%;
+  width: 10em;
+}
+
+div.update_ {
+  display: block;
+  float: right;
+}
+
+div.update_apagar {
+  color: #B0B0B0;
+  display: block;
+  float: right;
+  font-size: 100%;
+  margin-top: 3em;
 }
 
 /* TAGS */
