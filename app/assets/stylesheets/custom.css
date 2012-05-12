@@ -439,8 +439,8 @@ div.back_avatar {
 
 div.back_avatar img {
   border: 0px solid transparent;
-  height: 65px;
-  width: 65px;
+  height: 98px;
+  width: 98px;
   opacity: 0.5;
   filter:alpha(opacity=40);
 }
