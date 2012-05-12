@@ -41,7 +41,7 @@ header {
   -moz-box-shadow: 0 1px 2px #2F4F4F;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#F8F8F8')";
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#D8D8D8');
-  z-index: 1;
+  z-index: 4;
 }
 
 li {
@@ -396,20 +396,24 @@ input#message_nome.hasPlaceholder, input#message_email.hasPlaceholder, input#mes
 div.logo_avatar {
   background: #FFF5EE;
   border: 1px solid #D8D8D8;
+  position: fixed;
   height: 96px;
+  margin-bottom: 4em;
   width: 200px;
+  z-index: 3;
 }
 
 div.intro {
   background-color: #FFF5EE;
   border: 1px solid #E2492F;
   height: 95px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0.5em;
   margin-bottom: 1em;
-  width: 98%;
+  position: fixed;
+  width: 582px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+  z-index: 3;
 }
 
 div.intro_text {
@@ -547,7 +551,7 @@ div.user_info_board {
   border: 1px solid #E8E8E8;
   color: #B0B0B0;
   float: right;
-  margin-top: 1em;
+  margin-bottom: 1em;
   padding: 0.5em;
   width: 94%;
 }
