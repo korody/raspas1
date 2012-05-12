@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta http-equiv="content-language" content="pt-BR" />
-    <meta name="description" content="Raspas são pensamentos, momentos em palavras. Crie, colecione e compartilhe. Inpire-se, questione e aprenda. Um único pensamento é a origem de todas as ações grandiosas." />
+    <meta name="description" content="Raspas são pensamentos, momentos em palavras. Crie, colecione e compartilhe. Inpire-se, questione e aprenda. Um único pensamento é a origem de todas as ações grandiosas. Participe do Raspas, a rede contemporânea de pensadores." />
     <meta name="google-site-verification" content="M4EZ5LyutNzTFZWcuBfubxatkAhSyctyJcLZ0zVhEKs" />
     <title><%= title %></title>
     <%= render 'layouts/stylesheets' %>
@@ -22,6 +22,13 @@
           <%= render 'layouts/raspas' %>
         <% end %>
         <div>
+          <% if !signed_in? %>
+            <div class= "back_avatar">
+              <% @authors.shuffle.each do |author| %>  
+                  <%= link_to (image_tag author.image_url(:small).to_s), author %>
+              <% end %>
+            </div>
+          <% end %>
           <% if @author %>
             <%= image_tag @author.image_url.to_s, :class => "author_back" %>
           <% end %>

@@ -1,4 +1,5 @@
-  class PagesController < ApplicationController
+# encoding: utf-8
+class PagesController < ApplicationController
   
   def home
     @title = "crie, colecione e compartilhe pensamentos"

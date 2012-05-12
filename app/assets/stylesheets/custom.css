@@ -248,7 +248,12 @@ footer {
   -webkit-border-radius: 4px;
   -khtml-border-radius: 4px;
   border-radius: 4px;
-  }
+}
+
+.shadow {
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 2px 2px #D8D8D8;
+}
 
 .actions {
   float: left;
@@ -384,6 +389,61 @@ textarea#contact:hover {
 
 input#message_nome.hasPlaceholder, input#message_email.hasPlaceholder, input#message_fone.hasPlaceholder, input#message_assunto.hasPlaceholder {
   color: #B0B0B0;
+}
+
+/* HOME */
+
+div.logo_avatar {
+  background: #FFF5EE;
+  border: 1px solid #D8D8D8;
+  height: 96px;
+  width: 200px;
+}
+
+div.intro {
+  background-color: #FFF5EE;
+  border: 1px solid #E2492F;
+  height: 95px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  width: 98%;
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 2px 2px #D8D8D8;
+}
+
+div.intro_text {
+  border: 0px solid black;
+  float: left;
+  font-size: 140%;
+  height: 50px;
+  margin-top: 1.2em;
+  text-align: center;
+  width: 580px;
+}
+
+div.intro a {
+  font-size: 75%;
+}
+
+div.back_avatar {
+  float: left;
+  margin-top: 40px;
+  position: fixed;
+  z-index: -5;
+}
+
+div.back_avatar img {
+  border: 0px solid transparent;
+  height: 65px;
+  width: 65px;
+  opacity: 0.5;
+  filter:alpha(opacity=40);
+}
+
+div.back_avatar img:hover {
+  opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 /* SIGNUP PAGE */
@@ -779,7 +839,7 @@ div.half_quotes {
   height: 95px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.7em;
+  margin-bottom: 1em;
   width: 98%;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
@@ -1153,7 +1213,7 @@ div.name_edit a {
   font-size: 100%;
 }
 
-  div.sobre {
+div.sobre {
   border: 0px solid black;
   float: left;
   font-size: 150%;
@@ -1184,8 +1244,9 @@ div.flag_sign {
   width: 40px;
 }
 
- div.sobre a {
+div.intro a {
   font-size: 100%;
+  font-weight: normal;
 }
 
 div.sign a {

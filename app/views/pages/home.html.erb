@@ -1,9 +1,9 @@
 <div class="raspas">
   <div class="raspas">
     <div class= "user_info">
-      <div class= "user_avatar">
-        <%= image_tag "raspas_logo_user.jpg" %>
-      </div> 
+      <div class= "logo_avatar round shadow">
+        <%= image_tag "half_logo_.png" %>
+      </div>
       <div class= "user_info_board round" >
         <div class= "last_header">
           <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag"> raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p>
@@ -90,13 +90,11 @@
     </div>
     <div class="stack">
       <% if !signed_in? %>
-        <div class="quotes round">
-          <div class= "sobre">
-            "Crie, colecione e compartilhe pensamentos.<br />
-            Conecte-se através do
-            <%= link_to "facebook", "/auth/facebook", title: "entre com facebook" %>,
-            <%= link_to "twitter", "/auth/twitter", title: "entre com twitter" %> ou
-            <%= link_to "google", "/auth/google", title: "entre com google" %>."
+        <div class="intro round shadow">
+          <div class= "intro_text">
+            Rede contemporânea de pensadores atemporais.<br />
+            Crie, colecione e compartilhe pensamentos.
+            <%= link_to "entrar", signin_path, title: "entrar" %>
           </div>
         </div>
       <% end %>  
