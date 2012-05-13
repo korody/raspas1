@@ -26,7 +26,7 @@
         <% end %>
       <% end %>
       <% unless !micropost.origem? %>
-        extraído de <%= micropost.origem %>
+        extraído de <%= micropost.origem %> /
       <% end %>
       <% if micropost.author %>
         por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>

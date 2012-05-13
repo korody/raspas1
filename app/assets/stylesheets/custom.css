@@ -543,6 +543,7 @@ div.user_avatar {
   background: #F8F8F8;
   border: 1px solid #E8E8E8;
   height: 200px;
+  margin-bottom: 1em;
   width: 200px;
 }
 
@@ -553,7 +554,7 @@ div.user_info_board {
   float: right;
   margin-bottom: 1em;
   padding: 0.5em;
-  width: 94%;
+  width: 185px;
 }
 
 div.user_info_board input {  

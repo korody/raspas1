@@ -26,7 +26,7 @@
         <% end %>      
       <% end %>
       <% unless !feed_item.origem? %>
-        extraído de <%= feed_item.origem %>
+        extraído de <%= feed_item.origem %> /
       <% end %>
       <% if feed_item.author %>
         <% if !current_user?(feed_item.user) %>
