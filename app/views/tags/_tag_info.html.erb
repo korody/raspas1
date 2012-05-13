@@ -1,6 +1,6 @@
 <div class= "user_info">
-	<div class= "user_avatar">
-		<%= link_to (image_tag "raspas_logo_user.jpg"), root_path %>
+	<div class= "logo_avatar round shadow">
+		<%= link_to (image_tag "half_logo_.png"), root_path %>
 	</div>
 	<div class= "show_info">
 		<div class= "user_info_board round">
@@ -9,10 +9,30 @@
 		<div class= "user_info_board round">
 			<p class="p_tag">citado</p> <p class="p_tags"> <%= @tag.taggings.count %></p> <p class="p_tag">x</p>
 		</div>
+		<% if !@tag.users.empty? %>
+			<div class= "user_info_board round" >
+				<div class= "last_header">
+					<p class="p_tags">pelos</p> <p class="p_tag">usuários</p>
+					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sobre #{@tag.name}" %></p>
+				</div>
+				<div>
+			        <% @users.first(4).each do |user| %>
+				        <div class= "last">
+				            <div class= "last_users">
+				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+                				<div class= "last_upwards">
+				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+				        		</div>
+				        	</div>
+				        </div>
+			        <% end %>
+		        </div>
+		    </div>
+		<% end %>
 		<% if !@tag.authors.empty? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
-					<p class="p_tags">últimos</p> <p class="p_tag">pensadores</p>
+					<p class="p_tag">com</p> <p class="p_tags">os</p> <p class="p_tag">pensadores</p>
 					<p class= "p_mais"><%= link_to "+", authors_tag_path, 
 					title: "ver todos autores que escreveram sobre #{@tag.name}" %></p>
 				</div>
@@ -29,26 +49,6 @@
 		            <% end %>
 		        </div>	
 			</div>
-		<% end %>
-		<% if !@tag.users.empty? %>
-			<div class= "user_info_board round" >
-				<div class= "last_header">
-					<p class="p_tags">últimos</p> <p class="p_tag">usuários</p>
-					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sobre #{@tag.name}" %></p>
-				</div>
-				<div>
-			        <% @users.first(4).each do |user| %>
-				        <div class= "last">
-				            <div class= "last_users">
-				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-                				<div class= "last_upwards">
-				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
-				        		</div>
-				        	</div>
-				        </div>
-			        <% end %>
-		        </div>
-		    </div>
 		<% end %>	   
 		<div class= "user_info_board round" >
 			<div class= "last_header">

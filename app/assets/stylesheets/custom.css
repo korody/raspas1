@@ -41,7 +41,7 @@ header {
   -moz-box-shadow: 0 1px 2px #2F4F4F;
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#F8F8F8')";
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#D8D8D8');
-  z-index: 4;
+  z-index: 5;
 }
 
 li {
@@ -340,7 +340,7 @@ div.likes {
   _position: absolute; /* hack for internet explorer 6*/  
   top: 0;  
   width: 100%;  
-  z-index: 1;  
+  z-index: 3;  
 }
 
 #popupContact {  
@@ -351,7 +351,7 @@ div.likes {
   position: fixed;  
   _position: absolute; /* hack for internet explorer 6*/  
   width: 800px;  
-  z-index: 2;  
+  z-index: 4;  
 }
 
 #popupContactClose {
@@ -396,11 +396,9 @@ input#message_nome.hasPlaceholder, input#message_email.hasPlaceholder, input#mes
 div.logo_avatar {
   background: #FFF5EE;
   border: 1px solid #D8D8D8;
-  position: fixed;
-  height: 96px;
-  margin-bottom: 4em;
+  height: 95px;
+  margin-bottom: 1em;
   width: 200px;
-  z-index: 3;
 }
 
 div.intro {
@@ -413,7 +411,7 @@ div.intro {
   width: 582px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
-  z-index: 3;
+  z-index: 2;
 }
 
 div.intro_text {
@@ -434,7 +432,7 @@ div.back_avatar {
   float: left;
   margin-top: 40px;
   position: fixed;
-  z-index: -5;
+  z-index: -2;
 }
 
 div.back_avatar img {
@@ -1191,7 +1189,7 @@ div.home_authors p:hover {
 
 div.name_edit {
   border: 0px solid #D8D8D8;
-  height: 30px;
+  min-height: 30px;
   margin-bottom: 2px;
 }
 

@@ -12,13 +12,13 @@
 			<% end %>
 		</div>
 		<% if @user.job? %>
-			<%= @user.job %><br />
+			<p><%= @user.job %></p>
 		<% end %>
 		<% if @user.tipo? %>
-			<%= @user.tipo %><br />
+			<p><%= @user.tipo %></p>
 		<% end %>
 		<% if @user.origin? %>
-			<%= @user.origin %><br />
+			<p><%= @user.origin %></p>
 		<% end %>		
 		<%= render 'follow_form' if signed_in? %>
 	</div>
