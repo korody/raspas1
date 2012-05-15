@@ -49,6 +49,9 @@
                                                      :confirm => "apagar esta raspa?",
                                                      :title => "descartar",
                                                      :class => "top_button round" %>
+            <div class= "but_stats round">
+              <p>apagar</p>
+            </div>
           <% else %>
             <% if feed_item.favourites.find_by_user_id(current_user) %>  
               <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
@@ -62,21 +65,29 @@
                 <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
               </div>
             <% end %>
+            <% if feed_item.favourites.any? %>
+              <div class= "but_stats round">
+                  <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+              </div>
+            <% else %>
+              <div class= "but_stats round">
+                <p>favoritar</p>
+              </div>
+            <% end %>
           <% end %>
-        
         <% else %>
           <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
+          <% if feed_item.favourites.any? %>
+            <div class= "but_stats round">
+                <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+            </div>
+          <% else %>
+            <div class= "but_stats round">
+              <p>favoritar</p>
+            </div>
+          <% end %>    
         <% end %>
       </div>
-      <% if feed_item.favourites.any? %>
-        <div class= "but_stats round">
-            <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
-        </div>
-      <% else %>
-        <div class= "but_stats round">
-          <p>favoritar</p>
-        </div>
-      <% end %>    
       <div class= "share">
         <% unless @micropost %>  
           <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
