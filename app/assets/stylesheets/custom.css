@@ -401,6 +401,17 @@ div.logo_avatar {
   width: 200px;
 }
 
+div.stack_home {
+  border: 0px solid #D8D8D8;
+  float: right;
+  height: 100%;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  padding-top: 1px;
+  width: 595px;
+  margin-top: 108px;
+}
+
 div.intro {
   background-color: #FFF5EE;
   border: 1px solid #E2492F;
@@ -408,6 +419,7 @@ div.intro {
   margin-left: 0.5em;
   margin-bottom: 1em;
   position: fixed;
+  top: 40px;
   width: 582px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
@@ -425,7 +437,7 @@ div.intro_text {
 }
 
 div.intro a {
-  font-size: 75%;
+  font-size: 90%;
 }
 
 div.back_avatar {
@@ -521,7 +533,7 @@ div.field input.but:hover {
 
 /* USER SHOW PAGE */
 
-  div.stack {
+div.stack {
   border-left: 0px solid #D8D8D8;
   float: right;
   height: 100%;
@@ -920,7 +932,6 @@ div.quote_corner {
 
 div.top_corner a.top_button {
   border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;
   display: block;
   float: right;
   height: 32px;
@@ -933,7 +944,6 @@ div.top_corner a.top_button {
 
 div.top_corner a.top_button:hover {
   border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;
   background: #E2492F;
   color: #FFF;
   opacity: 1;
@@ -959,19 +969,55 @@ div.top_corner input:hover {
   opacity: 1;
 }
 
+div.favourites_count {
+  display: block;
+  float: right;
+  height: 18px;
+  text-align: center;
+  min-width: 65px;
+}
+
+div.favourites_count p {
+  border: 1px solid #E8E8E8;
+  border-top: 0px solid #D8D8D8;
+  color: #B0B0B0;
+}
+
+div.share {
+  border: 0px solid black;
+  float: right;
+  height: 46px;
+  margin-top: 1.5em;
+  width: 63px;
+}
+
+div.sharers {
+  border: 0px solid black;
+  display: inline;
+  float: left;
+}
+
+div.sharers img {
+  margin-right: 6px;
+}
+
+div.sharers img:hover {
+  opacity: 0.9;
+}
+
 div.user_id img {
   border: 1px solid #D8D8D8;
   border-bottom: 0px;
   display: inline-block;
   float: right;
   height: 65px;
-  margin-top: 4.5em;
+  margin-top: 1.2em;
   width: 65px;
   -webkit-box-shadow: 0 1px 1px #D8D8D8;
   -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
-div.quotes:hover div.timestamp {
+div.quotes:hover div.timestamp, div.quotes:hover div.favourites_count p {
   color: #2F4F4F;
 }
 
@@ -999,23 +1045,6 @@ div.sharing img:hover {
 
 a.social_but img{
   margin: 2.2em;
-}
-
-/* SOCIAL */
-
-div.sharers {
-  border: 0px solid black;
-  display: block;
-  float: right;
-  height: 110px;
-  margin-top: 3.4em;
-  width: 62px;
-}
-
-div.sharers img:hover {
-  opacity: 0.9;
-  -webkit-box-shadow: 0 1px 2px #2F4F4F;
-  -moz-box-shadow: 0 1px 2px #2F4F4F;
 }
 
 /* USER EDIT PAGE */
@@ -1245,11 +1274,6 @@ div.flag_sign {
   margin-right: 1.5em;
   margin-top: 2em;
   width: 40px;
-}
-
-div.intro a {
-  font-size: 100%;
-  font-weight: normal;
 }
 
 div.sign a {

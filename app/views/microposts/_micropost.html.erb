@@ -37,36 +37,103 @@
       <%# end %>
     </div>
   </div>
-    <div class= "quote_corner">
-      <div class= "top_corner">   
-        <% if signed_in? %>
+  <div class= "quote_corner">
+    <div class= "top_corner">   
+      <% if signed_in? %>
 
-          <% if current_user?(micropost.user) %>
-            <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
-                                                     :confirm => "apagar esta raspa?",
-                                                     :title => "descartar",
-                                                     :class => "top_button round" %>
-          <% else %>
-            <% if micropost.favourites.find_by_user_id(current_user) %>  
-              <%= form_for micropost.favourites.find_by_micropost_id(micropost),
-                   :html => { :method => :delete } do |f| %>
-                <div>
-                  <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
-                </div>
-              <% end %>
-            <% else %>
-              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+        <% if current_user?(micropost.user) %>
+          <%= link_to (image_tag "trash.png"), micropost, :method => :delete,
+                                                   :confirm => "apagar esta raspa?",
+                                                   :title => "descartar",
+                                                   :class => "top_button round" %>
+        <% else %>
+          <% if micropost.favourites.find_by_user_id(current_user) %>  
+            <%= form_for micropost.favourites.find_by_micropost_id(micropost),
+                 :html => { :method => :delete } do |f| %>
+              <div>
+                <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+              </div>
             <% end %>
+          <% else %>
+            <div>
+              <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+            </div>
           <% end %>
-        
-        <% else %>
-          <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
-        <% end %>    
-        <% unless @micropost %>  
-          <%= link_to (image_tag "share.png"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
-        <% else %>
-          <%= render "microposts/social" %>
         <% end %>
+      
+      <% else %>
+        <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+      <% end %>
+      <div class= "favourites_count">
+        <% if micropost.favourites.any? %>
+          <p class= "round">x <%= micropost.favourites.count %></p>
+        <% end %>    
+      </div>
+
+              <!-- Add the following three tags to your body. -->
+      <meta property="og:title" content="<% if micropost.author %><%= micropost.author.name %><% else %><%= micropost.user.name %><% end %>" />
+      <meta property="og:image" content="" />
+      <meta property="og:description" content="'<%= micropost.content %>'" />
+
+      <div id='fb-root'></div>
+      <script src='http://connect.facebook.net/pt_BR/all.js'></script>
+      <script> 
+        FB.init({appId: "282523151767333", status: true, cookie: true});
+
+        function postToFeed() {
+
+          // calling the API ...
+          var obj = {
+            method: 'feed',
+            link: 'https://raspas.com.br/raspas/<%= micropost.id %>',
+            picture: '<% if micropost.author %><%= micropost.author.image_url(:regular) %><% else %><%= micropost.user.image_url(:regular) %><% end %>',
+            name: "'<%= micropost.content %>'",
+            caption: '<% if micropost.author %>{ <%= micropost.author.name %><% else %>{ <%= micropost.user.name %><% end %>',                                
+            description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores.',  
+          };
+
+          function callback(response) {
+            document.getElementById('msg').innerHTML = "/ compartilhado";
+          }
+
+          FB.ui(obj, callback);
+        }
+
+      </script>
+
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=282523151767333";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+      </script>
+
+      <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+      <div class= "share">
+
+        <div class= "sharers">
+          <div id='fb-root'></div>
+          <p><a onclick='postToFeed(); return false;'><%= image_tag "fb_20.png", title: "compartilhar raspa no facebook" %></a></p>
+        </div>
+        <div class= "sharers">  
+          <g:plusone size="medium" annotation= "none"></g:plusone>
+        </div>
+        <div class= "sharers">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="none" data-via="raspas_app" 
+          data-text="'<%= micropost.content %>'
+          {  <% if micropost.author %><%= micropost.author.name %>
+
+          <% else %><%= micropost.user.name %>
+
+          <% end %>" 
+          data-lang="none" data-size="medium" data-related="raspas_app" data-count="none" title="tweetar esta raspa"></a> 
+        </div>
       </div>
       <% unless @micropost %>   
         <% if micropost.author %>
@@ -77,5 +144,6 @@
         <% end %>
       <% end %>
     </div>
+  </div>
 </div>
 

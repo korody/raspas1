@@ -88,9 +88,9 @@
         <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
       </div>
     </div>
-    <div class="stack">
+    <div class= "stack_home">
       <% if !signed_in? %>
-        <div class="intro round shadow">
+        <div class= "intro round shadow">
           <div class= "intro_text">
             Rede contemporânea de pensadores atemporais.<br />
             Crie, colecione e compartilhe pensamentos.
@@ -98,12 +98,6 @@
           </div>
         </div>
       <% end %>
-      <br />  
-      <br />  
-      <br />  
-      <br />  
-      <br />  
-      <br />  
       <div>
         <%= render @feed_items %>
       </div>

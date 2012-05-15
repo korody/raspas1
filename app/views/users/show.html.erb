@@ -23,6 +23,18 @@
             <%= image_tag "happy.png" %>
           </div>
         </div>
+      <% else %>
+        <% if current_user.image.default_url %>
+          <div class="half_quotes round">
+            <div class= "sign">
+              Dica: Que tal uma foto bacana para o hall da fama?<br />
+              Edite seu perfil clicando na engrenagem ao lado de seu nome!
+            </div>
+            <div class= "flag_sign">
+              <%= image_tag "happy.png" %>
+            </div>
+          </div>
+        <% end %>
       <% end %> 
     <% end %>
     <% unless @microposts.empty? %>
