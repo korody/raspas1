@@ -40,25 +40,55 @@
     </div>
   </div>
   <div class= "quote_corner">
-    <div class= "top_corner">                                             
-      <% if current_user?(feed_item.user) %>
-        <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
-                                               :confirm => "apagar esta raspa?",
-                                               :title => "descartar favorita",
-                                               :class => "top_button round" %>
-      <% else %>
-        <% if feed_item.favourites.find_by_user_id(current_user) %>  
-          <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
-               :html => { :method => :delete } do |f| %>
-            <div>
-              <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
-            </div>
+    <div class= "top_corner">
+      <div>   
+        <% if signed_in? %>
+
+          <% if current_user?(feed_item.user) %>
+            <%= link_to (image_tag "trash.png"), feed_item, :method => :delete,
+                                                     :confirm => "apagar esta raspa?",
+                                                     :title => "descartar",
+                                                     :class => "top_button round" %>
+          <% else %>
+            <% if feed_item.favourites.find_by_user_id(current_user) %>  
+              <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
+                   :html => { :method => :delete } do |f| %>
+                <div>
+                  <%= image_submit_tag "heart_broken.png", :class => "unfollow round", title: "descartar favorita" %>
+                </div>
+              <% end %>
+            <% else %>
+              <div>
+                <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
+              </div>
+            <% end %>
           <% end %>
+        
         <% else %>
           <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
         <% end %>
-      <% end %>
-      <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>  
+      </div>
+      <% if feed_item.favourites.any? %>
+        <div class= "but_stats round">
+            <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+        </div>
+      <% else %>
+        <div class= "but_stats round">
+          <p>favoritar</p>
+        </div>
+      <% end %>    
+      <div class= "share">
+        <% unless @micropost %>  
+          <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
+        <% else %>
+          <%= render "microposts/social" %>
+        <% end %>
+        <% if !@micropost %>
+          <div class= "but_stats round">
+            <p>compartilhar</p>
+          </div>
+        <% end %>
+      </div>
     </div>
     <% if feed_item.author %>
       <div class= "user_id">
