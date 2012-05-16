@@ -1,6 +1,6 @@
 <div class= "home">
 	<div class= "title">
-		<p class= "p_search"><%= @favouriters.count %> usuários favoritaram esta raspa</p>
+		<p class= "p_search">raspa marcada como favorita por <%= pluralize @favouriters.count, "usuário" %></p>
 		<%= link_to "explorar outras raspas", microposts_path, title: "+ raspas" %>
 	</div>
 	<div class= "home_authors">
