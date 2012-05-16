@@ -1219,18 +1219,24 @@ div.user_card_info {
 
 div.home_authors {
   border: 0px solid #D8D8D8;
+  float: left;
   position: relative;
 }
 
-div.home_authors img {
+div.home_authors_each {
+  border: 0px solid #E8E8E8;
+  display: inline-block;
+  float: left;
   height: 130px;
+  margin: 0 1px 1px 0;
+  position: relative;
   width: 130px;
 }
 
-div.home_authors p {
+div.home_authors_each p {
   background: #F8F8F8;
-  border: 0px solid #D8D8D8;
-  bottom: 16px;
+  border: 0px solid blue;
+  bottom: 10px;
   color: #E2492F;
   display: inline-block;
   font-weight: bold;

@@ -5,8 +5,10 @@
 	</div>
 	<div class= "home_authors">
 		<% @favouriters.each do |favourite| %>
-		    <p><%= link_to favourite.user.name, favourite.user, title: "ver perfil de #{favourite.user.name}" %></p>
-		    <%= link_to (image_tag favourite.user.image_url(:medium)), favourite.user, title: "ver perfil de #{favourite.user.name}" %>
+            <div class= "home_authors_each">
+			    <p><%= link_to favourite.user.name, favourite.user, title: "ver perfil de #{favourite.user.name}" %></p>
+			    <%= link_to (image_tag favourite.user.image_url(:medium)), favourite.user, title: "ver perfil de #{favourite.user.name}" %>
+			</div>
 		<% end %>
 	</div>
 </div>

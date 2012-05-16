@@ -24,7 +24,7 @@
           </div>
         </div>
       <% else %>
-        <% if !current_user.image.default_url.empty? %>
+        <% if current_user.image.default_url.empty? %>
           <div class="half_quotes round">
             <div class= "sign">
               Dica: Que tal uma foto bacana para o hall da fama?<br />
