@@ -1,6 +1,6 @@
 # encoding: utf-8
 class MicropostsController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :favourites]
+  before_filter :authenticate, :only => [:create, :destroy, :favourites, :edit]
   before_filter :authorized_user, :only => :destroy
 
   def index
@@ -29,6 +29,24 @@ class MicropostsController < ApplicationController
     else
       flash[:error] = "Opa! Algo deu errado. Parece que já temos esta raspa."
       redirect_back_or current_user
+    end
+  end
+
+  def edit
+    @micropost = Micropost.find(params[:id])
+    @title = "editar"
+    @new_micropost = Micropost.new
+  end
+
+  def update
+    @micropost = Micropost.find(params[:id])
+    @new_micropost = Micropost.new
+    if @micropost.update_attributes(params[:micropost])
+      flash[:success] = "Raspa atualizada com sucesso!"
+      redirect_to @micropost.user
+    else
+      @title = "editar raspa"
+      render 'edit'
     end
   end
 

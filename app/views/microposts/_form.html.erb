@@ -1,0 +1,19 @@
+<%= form_for @micropost do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>  
+  <div class= "user_bar">
+    <% @user ||= current_user %>
+    <div class= "board_avatar">
+      <%= link_to image_tag(@user.image_url(:regular)), current_user %>
+    </div>
+    <div class= "user_board">
+      <%= f.text_area :content, :maxlength => 246, placeholder: '"escreva aqui um pensamento"', title: "escreva uma raspa aqui" %>
+      <div class= "count_micropost">
+        <div id= "count">246</div>
+      </div>
+      <%= f.text_field :author_name, data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "nome do pensador", title: "caso não seja você mesmo" %>
+      <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas envolvidos", title: "separe temas com vírgulas" %>
+      <%= f.text_field :origem, placeholder: "origem da raspa", title: "livros, músicas, filmes..." %>
+      <%= image_submit_tag "raspa_.png", :class => "write round" %>
+<% end %>
+    </div>
+</div>

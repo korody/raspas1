@@ -17,7 +17,7 @@
       picture: '<% if @micropost.author %><%= @micropost.author.image_url(:regular) %><% else %><%= @micropost.user.image_url(:regular) %><% end %>',
       name: "'<%= @micropost.content %>'",
       caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
-      description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais.',  
+      description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores.',  
     };
 
     function callback(response) {
@@ -47,10 +47,10 @@
 <div class= "sharers">
   <div id='fb-root'></div>
   <p><a onclick='postToFeed(); return false;'><%= image_tag "fb_20.png", title: "compartilhar raspa no facebook" %></a></p>
-</div>
-<div class= "sharers">
+</div>  
+<div class= "sharers">  
   <g:plusone size="medium" annotation= "none"></g:plusone>
-</div>
+</div>  
 <div class= "sharers">
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="none" data-via="raspas_app" 
   data-text="'<%= @micropost.content %>'
@@ -60,4 +60,4 @@
 
   <% end %>" 
   data-lang="none" data-size="medium" data-related="raspas_app" data-count="none" title="tweetar esta raspa"></a>
-</div>   
+</div>

@@ -437,7 +437,7 @@ div.intro_text {
 }
 
 div.intro a {
-  font-size: 90%;
+  font-size: 100%;
 }
 
 div.back_avatar {
@@ -647,6 +647,8 @@ div.stats a.but {
 
 div.user_info_board a.temas {
   float: left;
+  font-size: 120%;
+  font-weight: normal;
   margin: 0 0.4em 0.4em 0;
 }
 
@@ -962,7 +964,6 @@ div.top_corner input {
   display: block;
   float: right;
   height: 32px;
-  opacity: 0.7;
   padding: 1px 1.2em;
   width: 30px;
 }
@@ -993,6 +994,23 @@ div.but_stats {
 
 div.but_stats a {
   border: 0px solid #E8E8E8;
+  font-size: 100%;
+  padding: 0.1em 0.6em;
+}
+
+div.but_stats_own {
+  background: #E2492F;
+  border: 1px solid #E8E8E8;
+  border-top: 0px solid #D8D8D8;
+  display: block;
+  float: right;
+  padding: 2px 0;
+  text-align: center;
+  width: 64px;
+ }
+
+div.but_stats_own a {
+  color: #FFF;
   font-size: 100%;
   padding: 0.1em 0.6em;
 }
