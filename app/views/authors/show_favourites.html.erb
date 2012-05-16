@@ -14,11 +14,7 @@
 					</div>
 				</div>
 			<% else %>
-			  	<% unless @author_eleitas.empty? %>
-					<div>
-						<%= render @author_eleitas %>
-					</div>
-			  	<% end %>
+				<%= render @author_eleitas %>
 			<% end %>
 		</div>
 <%= will_paginate @author_eleitas %>

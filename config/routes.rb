@@ -49,12 +49,16 @@ Benfeitor::Application.routes.draw do
       get :favourites, path: "favoritas"
     end
   end
+
+  resources :favourites, path: "favoritas" do
+    member do
+      get :favouriters, path: "favoritaram"
+    end
+  end
   
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
-  resources :favourites, :only => [:create, :destroy] 
-
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

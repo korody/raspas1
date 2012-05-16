@@ -49,7 +49,7 @@
     <div class= "top_corner">
       <div>   
         <% if feed_item.favourites.find_by_user_id(current_user) %>  
-          <%= form_for feed_item.favourites.find_by_micropost_id(feed_item),
+          <%= form_for feed_item.favourites.find_by_user_id(current_user),
                :html => { :method => :delete } do |f| %>
             <div>
               <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
@@ -63,11 +63,11 @@
         <% if feed_item.favourites.any? %>
           <% if current_user?(feed_item.user) %>  
             <div class= "but_stats_own round">
-                <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram sua raspa" %>
+                <%= link_to "x #{feed_item.favourites.count}", favouriters_favourite_path(feed_item), class: "round", title: "ver usuários que favoritaram sua raspa" %>
             </div>
           <% else %>
             <div class= "but_stats round">
-                <%= link_to "x #{feed_item.favourites.count}", micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+                <%= link_to "x #{feed_item.favourites.count}", favouriters_favourite_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
             </div>
           <% end %>  
         <% else %>

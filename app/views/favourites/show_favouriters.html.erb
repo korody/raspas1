@@ -1,0 +1,12 @@
+<div class= "home">
+	<div class= "title">
+		<p class= "p_search"><%= @favouriters.count %> usuários favoritaram esta raspa</p>
+		<%= link_to "explorar outras raspas", microposts_path, title: "+ raspas" %>
+	</div>
+	<div class= "home_authors">
+		<% @favouriters.each do |favourite| %>
+		    <p><%= link_to favourite.user.name, favourite.user, title: "ver perfil de #{favourite.user.name}" %></p>
+		    <%= link_to (image_tag favourite.user.image_url(:medium)), favourite.user, title: "ver perfil de #{favourite.user.name}" %>
+		<% end %>
+	</div>
+</div>

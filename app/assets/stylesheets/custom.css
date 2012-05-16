@@ -1218,6 +1218,7 @@ div.user_card_info {
 }
 
 div.home_authors {
+  border: 0px solid #D8D8D8;
   position: relative;
 }
 

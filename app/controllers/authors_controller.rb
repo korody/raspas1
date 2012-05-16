@@ -98,6 +98,7 @@ class AuthorsController < ApplicationController
   def favourites
     @title = "favoritas"
     @author = Author.find(params[:id])
+    @favourites = @author.favourites.all
     @author_eleitas = @author.eleitas
     @author_eleitas = @author.eleitas.paginate(:page => params[:page])
     @authors = Author.all
