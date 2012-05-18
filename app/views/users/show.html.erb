@@ -7,20 +7,11 @@
       <% if current_user.microposts.empty? %>
         <div class="half_quotes round">
           <div class= "sign">
-            Novo por aqui? Você ainda não escreveu nenhum pensamento.<br />
-            Clique no lápis acima para escrever suas primeiras raspas!
+            Clique no lápis acima e <u>escreva suas primeiras raspas!</u><br />
+            <u>Crie um pensador</u> especificando seu nome em uma nova raspa.
           </div>
           <div class= "flag_sign">
             <%= image_tag "super.png" %>
-          </div>
-        </div>
-        <div class="half_quotes round">
-          <div class= "sign">
-            Você também já pode criar um perfil para seu ídolo!<br />
-            Especifique o "nome do pensador" em uma nova raspa.
-          </div>
-          <div class= "flag_sign">
-            <%= image_tag "happy.png" %>
           </div>
         </div>
       <% else %>

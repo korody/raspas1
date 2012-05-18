@@ -59,9 +59,9 @@ class MicropostsController < ApplicationController
     original_micropost = Micropost.find(params[:id])
     if original_micropost
       if original_micropost.author
-        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, author_id: original_micropost.author.id)
+        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, author_id: original_micropost.author.id, poster_id: original_micropost.user.id)
       else
-        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id)
+        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, poster_id: original_micropost.user.id)
       end
       if favourite_micropost.save
         redirect_to favourites_user_path(current_user)
@@ -73,6 +73,14 @@ class MicropostsController < ApplicationController
       redirect_back_or current_user
       flash[:error] = "A raspa mencionada não existe mais!"
     end
+  end
+
+  def favouriters
+    @title = "favoritaram"
+    @micropost = Micropost.find(params[:id])
+    @favouriters = @micropost.favouriters.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    render 'show_favouriters'
   end
 
   private

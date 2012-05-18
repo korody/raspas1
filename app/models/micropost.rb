@@ -17,7 +17,7 @@ class Micropost < ActiveRecord::Base
   has_many :tags, :through => :taggings
 
   has_many :favourites, dependent: :destroy
-  has_many :users, through: :favourites
+  has_many :favouriters, through: :favourites, source: :user
 
   belongs_to :user
   belongs_to :author

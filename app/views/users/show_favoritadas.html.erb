@@ -1,0 +1,38 @@
+<div class="raspas">
+	<div class="user_info">
+		<%= render 'user_info_favourites' %>
+	</div>
+	<div class= "stack">
+		<% if @favoritadas.empty? %>
+	  		<% if current_user?(@user) %>
+				<div class="half_quotes round">
+					<div class= "sign">
+						Por enquanto nenhuma de suas raspas foi favoritada...<br />
+						Que tal favoritar as raspas de seus <%= link_to "seguidores", followers_user_path(@user) %>?
+					</div>
+					<div class= "flag_sign">
+						<%= image_tag "happy.png" %>
+					</div>
+				</div>
+			<% else %>
+				<div class="half_quotes round">
+					<div class= "sign">
+						Nenhuma raspa favoritada por aqui...							
+						Volte para o perfil de <%= link_to @user.name, @user %> e dê uma força!...<br />
+						<%= link_to "pensadores", authors_path %>!
+					</div>
+					<div class= "flag_sign">
+						<%= image_tag "wink.png" %>
+					</div>
+				</div>
+			<% end %>		
+		<% else %>
+		  	<% unless @favoritadas.empty? %>
+				<div>
+					<%= render @favoritadas %>
+				</div>
+		  	<% end %>
+		<% end %>
+	</div>
+    <%= will_paginate @favoritadas %>
+</div>

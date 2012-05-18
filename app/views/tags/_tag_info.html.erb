@@ -4,15 +4,15 @@
 	</div>
 	<div class= "show_info">
 		<div class= "user_info_board round">
-			<p class= "p_tags">sobre</p> <p class="p_tag"><%= @tag.name %></p>
+			<p class= "p_tags">sobre</p><p class="p_tag"><%= @tag.name %></p>
 		</div>
 		<div class= "user_info_board round">
-			<p class="p_tag">citado</p> <p class="p_tags"> <%= @tag.taggings.count %></p> <p class="p_tag">x</p>
+			<p class="p_tag">citado</p><p class="p_tags"><%= @tag.taggings.count %></p><p class="p_tag">x</p>
 		</div>
 		<% if !@tag.users.empty? %>
 			<div class= "user_info_board round" >
 				<div class= "last_header">
-					<p class="p_tags">pelos</p> <p class="p_tag">usuários</p>
+					<p class="p_tags">pelos</p><p class="p_tag">usuários</p>
 					<p class= "p_mais"><%= link_to "+", users_tag_path, title: "ver todos usuários que escreveram sobre #{@tag.name}" %></p>
 				</div>
 				<div>
@@ -32,7 +32,7 @@
 		<% if !@tag.authors.empty? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
-					<p class="p_tag">com</p> <p class="p_tags">os</p> <p class="p_tag">pensadores</p>
+					<p class="p_tag">com</p><p class="p_tags">os</p><p class="p_tag">pensadores</p>
 					<p class= "p_mais"><%= link_to "+", authors_tag_path, 
 					title: "ver todos autores que escreveram sobre #{@tag.name}" %></p>
 				</div>
@@ -52,7 +52,7 @@
 		<% end %>	   
 		<div class= "user_info_board round" >
 			<div class= "last_header">
-				<p class="p_tags">outros</p> <p class="p_tag">temas</p>
+				<p class="p_tags">outros</p><p class="p_tag">temas</p>
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
 			</div>
 			<div>

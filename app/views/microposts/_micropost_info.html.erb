@@ -12,10 +12,59 @@
 			<p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar + raspas" %></p>
 		</div>
 	</div>
-	<% if @micropost.favourites?(@micropost) %>
+	<div class= "user_info_board round">
+        <div class= "last_header">
+			<p class="p_tags">pelo</p><p class="p_tag">usuário</p>
+        	<p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
+        <div>
+            <div class= "last">
+	          	<div class= "last_users">
+	          		<%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
+	          		<div class= "last_upwards">
+              			<p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
+           			</div>
+       			</div>
+       		</div>
+        </div>
+    </div>
+	<% if @micropost.author %>
+		<div class= "user_info_board round">
+	        <div class= "last_header">
+				<p class="p_tag">com</p><p class="p_tags">o</p><p class="p_tag">pensador</p>
+	         	<p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+	        </div>
+	        <div>
+	            <div class= "last">
+	              	<div class= "last_users">
+	              		<%= link_to image_tag(@micropost.author.image_url(:tiny)), @micropost.author, title: "ver perfil de #{@micropost.author.name}" %>
+		            	<div class= "last_upwards">	
+		              		<p><%= link_to @micropost.author.name, @micropost.author, title: "ver perfil de #{@micropost.author.name}" %></p>
+		            	</div>
+		            </div>
+	            </div>    
+	        </div>
+	    </div>
+	<% end %>
+	<% if !@tags.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">favorita</p><p class="p_tags">de</p><p class="p_tag"><%= @micropost.favourites.count %></p><p class="p_tags">usuários</p>
+				<p class="p_tag">sobre</p>
+				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar + temas" %></p>
+			</div>
+			<div>
+				<% @tags.each do |tag| %>
+				  <div>
+				    <%= link_to tag.name, tag, :class => "but round temas", title: "ver + raspas sobre #{tag.name}" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+    <% if @micropost.favourites?(@micropost) %>
+		<div class= "user_info_board round">
+			<div class= "last_header">
+				<p class="p_tag">favorita</p><p class="p_tags"><%= @micropost.favourites.count %></p><p class="p_tag">x</p>
 				<p class= "p_mais"><%= link_to "+", favouriters_favourite_path, title: "ver outros que favoritaram" %></p>
 			</div>
 			<div>
@@ -32,53 +81,4 @@
 			</div>
 		</div>
 	<% end %>
-	<% if !@tags.empty? %>
-		<div class= "user_info_board round">
-			<div class= "last_header">
-				<p class="p_tag">temas</p> <p class="p_tags">envolvidos</p>
-				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar + temas" %></p>
-			</div>
-			<div>
-				<% @tags.each do |tag| %>
-				  <div>
-				    <%= link_to tag.name, tag, :class => "but round temas", title: "ver + raspas sobre #{tag.name}" %>
-				  </div>
-				<% end %>
-			</div>
-		</div>
-	<% end %>
-	<% if @micropost.author %>
-		<div class= "user_info_board round">
-	        <div class= "last_header">
-	          <p class="p_tag">pensador</p> <p class= "p_tags">citado</p>
-	          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
-	        </div>
-	        <div>
-	            <div class= "last">
-	              	<div class= "last_users">
-	              		<%= link_to image_tag(@micropost.author.image_url(:tiny)), @micropost.author, title: "ver perfil de #{@micropost.author.name}" %>
-		            	<div class= "last_upwards">	
-		              		<p><%= link_to @micropost.author.name, @micropost.author, title: "ver perfil de #{@micropost.author.name}" %></p>
-		            	</div>
-		            </div>
-	            </div>    
-	        </div>
-	    </div>
-	<% end %>
-	<div class= "user_info_board round">
-        <div class= "last_header">
-          <p class="p_tag">usuário</p> <p class= "p_tags">contribuinte</p>
-          <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
-        </div>
-        <div>
-            <div class= "last">
-	          	<div class= "last_users">
-	          		<%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
-	          		<div class= "last_upwards">
-              			<p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
-           			</div>
-       			</div>
-       		</div>
-        </div>
-    </div>
 </div>

@@ -5,8 +5,14 @@
 	title: "ver raspas de #{@user.name}" %>
 </div>
 <div class= "stats">
-	<p class= "p_stats">favoritas</p>
+	<p class= "p_stats">favoritadas</p>
 	<%= link_to (image_tag "ico_heart.png"), favourites_user_path(@user), :alt => "raspas", :class => "round" %>
+	<%= link_to @user.favoritadas.count, favoritadas_user_path(@user), :class => "but round", 
+	title: "ver raspas favoritas de #{@user.name}" %>
+</div>
+<div class= "stats">
+	<p class= "p_stats">favoritas</p>
+	<%= link_to (image_tag "ico_heart_fill.png"), favourites_user_path(@user), :alt => "raspas", :class => "round" %>
 	<%= link_to @user.eleitas.count, favourites_user_path(@user), :class => "but round", 
 	title: "ver raspas favoritas de #{@user.name}" %>
 </div>

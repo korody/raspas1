@@ -15,22 +15,22 @@
 			title: "ver raspas de #{user.name}" %>
 		</div>
 		<div class= "stats">
-			<p class= "p_stats">favoritas</p>
+			<p class= "p_stats">favoritadas</p>
 			<%= link_to (image_tag "ico_heart.png"), favourites_user_path(user), :alt => "raspas", :class => "round" %>
-			<%= link_to user.eleitas.count, favourites_user_path(user), :class => "but round", 
+			<%= link_to user.favoritadas.count, favoritadas_user_path(user), :class => "but round", 
 			title: "ver raspas favoritas de #{user.name}" %>
-		</div>
-		<div class= "stats">
-			<p class= "p_stats">ídolos</p> 
-			<%= link_to (image_tag "ico_star.png"), idols_user_path(user), :alt => "ídolos", :class => "round" %>
-			<%= link_to user.idols.count, idols_user_path(user), :class => "but round", 
-			title: "ver ídolos de #{user.name}" %>
 		</div>
 		<div id= "followers" class= "stats">
 			<p class= "p_stats">seguidores</p>
 			<%= link_to (image_tag "ico_followers.png"), followers_user_path(user), :alt => "raspas", :class => "round" %>
 			<%= link_to user.followers.count, followers_user_path(user), :class => "but round", 
 			title: "ver seguidores de #{user.name}" %>
+		</div>
+		<div class= "stats">
+			<p class= "p_stats">ídolos</p> 
+			<%= link_to (image_tag "ico_star.png"), idols_user_path(user), :alt => "ídolos", :class => "round" %>
+			<%= link_to user.idols.count, idols_user_path(user), :class => "but round", 
+			title: "ver ídolos de #{user.name}" %>
 		</div>
 	</div>
 </div>

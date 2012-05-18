@@ -4,13 +4,11 @@
 	</div>
 	<div class= "show_info">
 		<div class= "user_info_board round">
-			<p class="p_tags">explorando</p> 
-			<br /><p class="p_tag"><%= Micropost.count %></p>
-			<p class="p_tags">raspas</p>
+			<p class="p_tag">explorando</p><p class="p_tags"><%= Micropost.count %></p><p class="p_tag">raspas</p>
 		</div>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">filtre </p><p class="p_tags">por</p><p class="p_tag"> temas</p>
+				<p class="p_tag">filtre</p><p class="p_tags">por</p><p class="p_tag">temas</p>
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar + temas" %></p>
 			</div>
 			<% @tags.last(8).each do |tag| %>

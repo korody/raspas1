@@ -24,6 +24,7 @@ Benfeitor::Application.routes.draw do
       get :tags, path: "temas"
       get :authors, path: "pensadores"
       get :favourites, path: "favoritas"
+      get :favoritadas
     end
   end
 
@@ -47,11 +48,6 @@ Benfeitor::Application.routes.draw do
   resources :microposts, path: "raspas" do
     member do
       get :favourites, path: "favoritas"
-    end
-  end
-
-  resources :favourites, path: "favoritas" do
-    member do
       get :favouriters, path: "favoritaram"
     end
   end
@@ -59,6 +55,7 @@ Benfeitor::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :authenticate, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :subscriptions, :only => [:create, :destroy]
+  resources :favourites, :only => [:create, :destroy]
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

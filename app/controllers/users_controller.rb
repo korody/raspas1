@@ -1,7 +1,7 @@
   # encoding: utf-8
   class UsersController < ApplicationController
-  before_filter :authenticate, :except => [:show, :new, :create, :search, :index, :following, :followers, :favourites, :idols]
-  before_filter :correct_user, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update, :destroy]
+  before_filter :correct_user, :only => [:edit, :update, :destroy]
 
   def index
     @title = "usuários"
@@ -136,6 +136,14 @@
     @user_eleitas = @user.eleitas.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     render 'show_favourites'
+  end
+
+  def favoritadas
+    @title = "favoritadas"
+    @user = User.find(params[:id])
+    @favoritadas = @user.favoritadas.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    render 'show_favoritadas'
   end
 
  private

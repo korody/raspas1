@@ -995,7 +995,7 @@ div.but_stats {
 div.but_stats a {
   border: 0px solid #E8E8E8;
   font-size: 100%;
-  padding: 0.1em 0.6em;
+  padding: 0.1em 1.4em;
 }
 
 div.but_stats_own {
@@ -1012,7 +1012,7 @@ div.but_stats_own {
 div.but_stats_own a {
   color: #FFF;
   font-size: 100%;
-  padding: 0.1em 0.6em;
+  padding: 0.1em 1.4em;
 }
 
 div.share {
@@ -1247,7 +1247,7 @@ div.home_authors_each p {
   width: 130px;
 }
 
-div.home_authors p:hover {
+div.home_authors_each:hover p {
   opacity: 1;
   filter:alpha(opacity=100);
 }
