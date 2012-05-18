@@ -37,7 +37,7 @@
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost#, :uniq => true
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost, :uniq => true
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
