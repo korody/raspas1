@@ -64,8 +64,8 @@
     <% if @micropost.favourites?(@micropost) %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">favorita</p><p class="p_tags"><%= @micropost.favourites.count %></p><p class="p_tag">x</p>
-				<p class= "p_mais"><%= link_to "+", favouriters_favourite_path, title: "ver outros que favoritaram" %></p>
+				<p class="p_tag">favoritada</p><p class="p_tags"><%= @micropost.favourites.count %></p><p class="p_tag">x</p>
+				<p class= "p_mais"><%= link_to "+", favouriters_micropost_path, title: "ver outros que favoritaram" %></p>
 			</div>
 			<div>
 				<% @micropost.favourites.first(4).each do |favourite| %>

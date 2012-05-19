@@ -266,7 +266,9 @@ footer {
 
 .absolute {
   float: left;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 input::-webkit-input-placeholder {

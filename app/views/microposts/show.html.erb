@@ -3,6 +3,9 @@
 </div>
 <div class="stack">
 	<% if @micropost %>
-	  <%= render @micropost %>
+		<%= render @micropost %>
+		<div class= "absolute">
+			<%= image_tag "compartilhar.png" %>
+		</div>	
 	<% end %>
 </div>
