@@ -27,7 +27,7 @@
 
   mount_uploader :image, ImageUploader
 
-  has_many :microposts, :dependent => :destroy#, order: "microposts.created_at DESC"
+  has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
   
   has_many :favourites, dependent: :destroy
 
@@ -37,7 +37,7 @@
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "favourites.created_at DESC", select: "DISTINCT microposts.*"
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "favourites.created_at DESC"#, select: "DISTINCT microposts.*"
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy

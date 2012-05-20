@@ -11,13 +11,13 @@
 class Tag < ActiveRecord::Base
   attr_accessible :name
 
-	has_many :taggings, :dependent => :destroy 
+	has_many :taggings, :dependent => :destroy, order: "taggings.created_at DESC"
 
-	has_many :microposts, :through => :taggings
+	has_many :microposts, :through => :taggings, order: "microposts.created_at DESC"
 
-  has_many :users, through: :microposts
+  has_many :users, through: :microposts, order: "microposts.created_at DESC"
 
-  has_many :authors, through: :microposts
+  has_many :authors, through: :microposts, order: "microposts.created_at DESC"
 
   validates :name,  :length   => { :maximum => 20 }
 

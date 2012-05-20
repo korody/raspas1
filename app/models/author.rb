@@ -17,9 +17,9 @@ class Author < ActiveRecord::Base
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
 
-  has_many :microposts, :dependent => :destroy
+  has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
 
-  has_many :tags, through: :microposts
+  has_many :tags, through: :microposts, order: "microposts.created_at DESC"#, select: "DISTINCT tags.*"
 
   has_many :subscriptions, :dependent => :destroy
 
@@ -28,11 +28,11 @@ class Author < ActiveRecord::Base
 
   has_many :fans, :through => :reverse_subscriptions, :source => :user
 
-  has_many :users, :through => :microposts
+  has_many :users, :through => :microposts, order: "microposts.created_at DESC"#, select: "DISTINCT users.*"
 
   has_many :favourites
 
-  has_many :eleitas, through: :favourites, source: :micropost, select: "DISTINCT microposts.*", order: "favourites.created_at DESC"
+  has_many :eleitas, through: :favourites, source: :micropost, order: "favourites.created_at DESC"#, select: "DISTINCT microposts.*"
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },
