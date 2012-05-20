@@ -55,7 +55,7 @@
 
   has_many :idols, through: :subscriptions, source: :author
 
-  has_many :authors, through: :microposts, order: "microposts.created_at DESC", uniq: true#, select: "DISTINCT authors.*"
+  has_many :authors, through: :microposts, order: "authors.created_at DESC", uniq: true#, select: "DISTINCT authors.*"
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", uniq: true#, select: "DISTINCT tags.*"
 
