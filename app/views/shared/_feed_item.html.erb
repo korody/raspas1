@@ -31,7 +31,9 @@
       <% if feed_item.favouriters.any? %>
         <% feed_item.favouriters.last(1).each do |favouriters| %>
           favoritada por <%= link_to favouriters.name, favouriters %> 
-          e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item) %>
+          <% unless feed_item.favouriters.count == 1 %>
+            e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram sua raspa" %>
+          <% end %>
         <% end %>
       <% end %>
       <% if feed_item.author %>
