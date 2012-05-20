@@ -30,9 +30,9 @@
       <%# end %>
       <% if micropost.favouriters.any? %>
         <% micropost.favouriters.last(1).each do |favouriters| %>
-          favoritada por <%= link_to favouriters.name, favouriters %> 
+          favoritada por <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
             <% unless micropost.favouriters.count == 1 %>
-              e <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram sua raspa" %>
+              e <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
             <% end %>
         <% end %>
       <% end %>

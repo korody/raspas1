@@ -19,7 +19,7 @@ class Author < ActiveRecord::Base
 
   has_many :microposts, :dependent => :destroy
 
-  has_many :tags, through: :microposts, :uniq => true
+  has_many :tags, through: :microposts, select: "DISTINCT tags.*"
 
   has_many :subscriptions, :dependent => :destroy
 
@@ -28,11 +28,11 @@ class Author < ActiveRecord::Base
 
   has_many :fans, :through => :reverse_subscriptions, :source => :user
 
-  has_many :users, :through => :microposts, :uniq => true
+  has_many :users, :through => :microposts, select: "DISTINCT users.*"
 
   has_many :favourites
 
-  has_many :eleitas, through: :favourites, source: :micropost
+  has_many :eleitas, through: :favourites, source: :micropost, select: "DISTINCT microposts.*"
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },
