@@ -15,7 +15,7 @@ class Tag < ActiveRecord::Base
 
 	has_many :microposts, :through => :taggings, order: "microposts.created_at DESC"
 
-  has_many :users, through: :microposts, order: "microposts.created_at DESC", select: "DISTINCT users.*"
+  has_many :users, through: :microposts, order: "users.created_at DESC", select: "DISTINCT users.*"
 
   has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
 
