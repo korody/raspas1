@@ -32,11 +32,15 @@ class Micropost < ActiveRecord::Base
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
 
+  scope :recent, order("microposts.created_at DESC")
+
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user) }
   scope :from_authors_idols_of, lambda { |author| idols_of(author) }
-  scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost) }
+  scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost).recent }
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
+  
+  scope :user_feed, order("microposts.created_at DESC")
 
   attr_accessor :author_name
   attr_writer :tag_names
