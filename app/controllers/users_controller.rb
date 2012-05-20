@@ -14,7 +14,7 @@
     @user = User.find(params[:id])
     @title = @user.name
     @new_micropost = Micropost.new
-    @microposts = @user.favo.paginate(:page => params[:page])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all
     @authors = @user.authors.all
   end
