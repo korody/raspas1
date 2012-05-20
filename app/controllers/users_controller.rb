@@ -32,7 +32,7 @@
   def tags
       @title = "temas"
       @user = User.find(params[:id])
-      @user_tags = @user.tags.all(:order => 'tags.created_at DESC', :limit => 20)
+      @user_tags = @user.tags.all(limit: 20)
       @users = @user.tags.paginate(:page => params[:page])
       @new_micropost = Micropost.new
       @authors = Author.all
