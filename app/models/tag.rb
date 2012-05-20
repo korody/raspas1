@@ -15,9 +15,9 @@ class Tag < ActiveRecord::Base
 
 	has_many :microposts, :through => :taggings
 
-  has_many :users, through: :microposts, select: "DISTINCT users.*"
+  has_many :users, through: :microposts
 
-  has_many :authors, through: :microposts, select: "DISTINCT authors.*"
+  has_many :authors, through: :microposts
 
   validates :name,  :length   => { :maximum => 20 }
 
