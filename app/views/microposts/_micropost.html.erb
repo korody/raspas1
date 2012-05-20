@@ -25,11 +25,17 @@
           <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
         <% end %>
       <% end %>
-      <% unless !micropost.origem? %>
-        extraído de <%= micropost.origem %> /
+      <%# unless !micropost.origem? %>
+        <!-- extraído de <%#= micropost.origem %> / -->
+      <%# end %>
+      <% if micropost.favouriters.any? %>
+        <% micropost.favouriters.last(1).each do |favouriters| %>
+          favoritada por <%= link_to favouriters.name, favouriters %> 
+          e <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost) %>
+        <% end %>
       <% end %>
       <% if micropost.author %>
-        por <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+        / postado por <strong><%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %></strong>
       <% end %>
       <%# if !micropost.published? %>
         <!-- / sob <%#= link_to "análise", @author %> -->

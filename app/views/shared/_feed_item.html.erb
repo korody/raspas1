@@ -28,10 +28,14 @@
       <% unless !feed_item.origem? %>
         extraído de <%= feed_item.origem %> /
       <% end %>
-      <% if feed_item.author %>
-        <% if !current_user?(feed_item.user) %>
-          por <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+      <% if feed_item.favouriters.any? %>
+        <% feed_item.favouriters.last(1).each do |favouriters| %>
+          favoritada por <%= link_to favouriters.name, favouriters %> 
+          e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item) %>
         <% end %>
+      <% end %>
+      <% if feed_item.author %>
+        / postada por <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
       <% end %>
       <%# if !feed_item.published? %>
         <!-- / sob <%#= link_to "análise", @author %> -->

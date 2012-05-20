@@ -37,7 +37,7 @@
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, :uniq => true
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost#, :uniq => true
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
@@ -55,9 +55,9 @@
 
   has_many :idols, through: :subscriptions, source: :author
 
-  has_many :authors, through: :microposts#, :uniq => true
+  has_many :authors, through: :microposts, :uniq => true
 
-  has_many :tags, through: :microposts#, :uniq => true
+  has_many :tags, through: :microposts, :uniq => true
 
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
