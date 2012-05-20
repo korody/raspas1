@@ -38,9 +38,6 @@ class Micropost < ActiveRecord::Base
   scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost) }
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
 
-  scope :from_microposts_favourites_of, order: "microposts.created_at DESC"
-  scope :user_feed, order: "microposts.created_at DESC"
-
   attr_accessor :author_name
   attr_writer :tag_names
   attr_reader :tag_tokens
