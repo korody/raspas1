@@ -15,8 +15,8 @@
     @title = @user.name
     @new_micropost = Micropost.new
     @microposts = @user.favo.paginate(:page => params[:page])
-    @tags = @user.tags.all(:order => 'tags.created_at DESC')
-    @authors = @user.authors.all(:order => 'authors.created_at DESC')
+    @tags = @user.tags.all
+    @authors = @user.authors.all
   end
 
   def feed
@@ -113,19 +113,10 @@
   def authors
     @title = "pensadores"
     @user = User.find(params[:id])
-    @users_authors = @user.authors.all(:order => 'authors.created_at DESC', :limit => 40)
+    @users_authors = @user.authors.all(limit: 40)
     @users = @user.authors.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     render 'show_authors'
-  end
-
-  def fans
-    @title = "fãs"
-    @user = User.find(params[:id])
-    @authors_fans = @author.fans.all(:order => 'users.created_at DESC', :limit => 40)
-    @authors = @author.fans.paginate(:page => params[:page])
-    @new_micropost = Micropost.new
-    render 'show_fans'
   end
 
   def favourites

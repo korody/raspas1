@@ -27,17 +27,17 @@
 
   mount_uploader :image, ImageUploader
 
-  has_many :microposts, :dependent => :destroy
+  has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
   
   has_many :favourites, dependent: :destroy
 
-  has_many :eleitas, through: :favourites, source: :micropost
+  has_many :eleitas, through: :favourites, source: :micropost, order: "favourites.created_at DESC"
 
   has_many :reverse_favourites, :foreign_key => "poster_id",
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, select: "DISTINCT microposts.*"
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost, select: "DISTINCT microposts.*", order: "favourites.created_at DESC"
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
@@ -55,9 +55,9 @@
 
   has_many :idols, through: :subscriptions, source: :author
 
-  has_many :authors, through: :microposts, select: "DISTINCT authors.*"
+  has_many :authors, through: :microposts, select: "DISTINCT authors.*", order: "microposts.created_at DESC"
 
-  has_many :tags, through: :microposts, select: "DISTINCT tags.*"
+  has_many :tags, through: :microposts, select: "DISTINCT tags.*", order: "microposts.created_at DESC"
 
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
