@@ -450,7 +450,7 @@ div.back_avatar {
 }
 
 div.back_avatar img {
-  border: 0px solid transparent;
+  border: 0px solid #D8D8D8;
   height: 98px;
   width: 98px;
   opacity: 0.5;
@@ -780,7 +780,7 @@ input#micropost_author_name, input#micropost_origem, input#micropost_tag_names {
   margin-left : 0.4em;
   margin-right: 0.5em;
   margin-top: 1em;
-  width: 156px;
+  width: 240px;
 }
 
 input#micropost_origem.hasPlaceholder, input#micropost_tag_names.hasPlaceholder {
