@@ -55,9 +55,9 @@
 
   has_many :idols, through: :subscriptions, source: :author
 
-  has_many :authors, through: :microposts, order: "authors.created_at DESC", uniq: true#, select: "DISTINCT authors.*"
+  has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
 
-  has_many :tags, through: :microposts, order: "tags.created_at DESC", uniq: true#, select: "DISTINCT tags.*"
+  has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
