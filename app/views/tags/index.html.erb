@@ -7,7 +7,7 @@
 	<div class= "tag_word">
 		<% @tags.each do |tag| %>
 			<div class= "tag_index">
-		  		<%= link_to tag.name, tag, class: "but round" %><p class= "p_tags">x <%= tag.taggings.count %></p>
+		  		<%= link_to tag.name, tag, class: "but round shadow" %><p class= "p_tags">x <%= tag.taggings.count %></p>
 			</div>  	
 	  	<% end %>
 	</div>
