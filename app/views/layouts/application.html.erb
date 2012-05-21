@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta http-equiv="content-language" content="pt-BR" />
-    <meta name="description" content="Raspas são pensamentos, momentos em palavras. Crie, colecione e compartilhe. Inpire-se, questione e aprenda. Um único pensamento é a origem de todas as ações grandiosas. Participe do Raspas, a rede contemporânea de pensadores." />
+    <meta name="description" content="crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais." />
     <meta name="google-site-verification" content="M4EZ5LyutNzTFZWcuBfubxatkAhSyctyJcLZ0zVhEKs" />
     <title><%= title %></title>
     <%= render 'layouts/stylesheets' %>
@@ -47,6 +47,7 @@
       </section>
       <%= render 'layouts/footer' %>
       <%#= debug(params) if Rails.env.development? %>
-    </div> 
+    </div>
+    <%= render "shared/sharers" %> 
   </body>
 </html>

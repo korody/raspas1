@@ -21,8 +21,8 @@
       <div class= "user_info_board round">
         <div class= "last_header">
           <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
-              <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
-          </div>
+          <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+        </div>
         <div>
           <% @tags.first(8).each do |tag| %>
             <div>
@@ -81,7 +81,7 @@
       </div>
       <% if !signed_in? %>
         <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no raspas" %></p></br>
+          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no Raspas" %></p></br>
         </div>
       <% end %>
       <div class= "user_info_board round" >
@@ -89,6 +89,21 @@
       </div>
     </div>
     <div class= "stack_home">
+      <div class= "likes">
+        <div class= "likes_each">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="www.raspas.com.br" data-via="entre_raspas" 
+          data-text="Crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais." 
+          data-lang="none" data-size="medium" data-related="raspas_app" data-count="horizontal" title="tweetar Raspas"></a>
+        </div>
+        <div class= "likes_each">
+          <div id="fb-root"></div>
+          <div class="fb-like" data-href="http://www.facebook.com/entre.raspas" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-font="tahoma"></div>
+        </div>
+        <div class= "likes_each">
+          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+          <g:plusone size="medium" annotation= "bubble"></g:plusone>
+        </div>
+      </div>
       <% if !signed_in? %>
         <div class= "intro round shadow">
           <div class= "intro_text">

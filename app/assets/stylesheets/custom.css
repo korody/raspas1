@@ -321,13 +321,18 @@ div.title a {
 
 div.likes {
   border: 0px solid #D8D8D8;
-  display: inline;
-  float: left;
-  height: 6em;
+  display: block;
+  float: right;
+  height: 80px;
+  margin: 0.8em 0 0 592px;
+  position: absolute;
+  top: 40px;
+  width: 10em;
+}
+
+div.likes_each {
+  height: 2em;
   margin-bottom: 0.5em;
-  margin-right: 0.8em;
-  margin-top: 1.5em;
-  width: 4.5em;
 }
 
 /* POPPUP FORMS */

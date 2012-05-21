@@ -1,12 +1,14 @@
-<!-- Add the following three tags to your body. -->
+<!-- META TAGS for G+ SHARER -->
+
 <meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name %><% else %><%= @micropost.user.name %><% end %>" />
 <meta property="og:image" content="" />
 <meta property="og:description" content="'<%= @micropost.content %>'" />
 
+
+<!-- SCRIPT for FB FEED DIALOG -->
+
 <div id='fb-root'></div>
-<script src='http://connect.facebook.net/pt_BR/all.js'></script>
 <script> 
-  FB.init({appId: "282523151767333", status: true, cookie: true});
 
   function postToFeed() {
 
@@ -29,21 +31,6 @@
 
 </script>
 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=282523151767333";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
-
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
-
 <div class= "sharers">
   <div id='fb-root'></div>
   <p><a onclick='postToFeed(); return false;'><%= image_tag "fb_20.png", title: "compartilhar raspa no facebook" %></a></p>
@@ -52,7 +39,7 @@
   <g:plusone size="medium" annotation= "none"></g:plusone>
 </div>  
 <div class= "sharers">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="none" data-via="raspas_app" 
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="none" data-via="entre_raspas" 
   data-text="'<%= @micropost.content %>'
   {  <% if @micropost.author %><%= @micropost.author.name %>
 
