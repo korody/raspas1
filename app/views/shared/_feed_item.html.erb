@@ -1,105 +1,116 @@
-<div class="quotes round">
-  <div class= "quote">
-    <div class= "quote_text">
-      <div class= "upwards">
-        <% if !feed_item.author %>
-          <%= feed_item.content %>
-        <% else %>
-          &quot;<%= feed_item.content %>&quot;
-        <% end %>
-      </div>
-    </div>
-    <div class="user">
-      <%= image_tag "ico_raspas.png", alt: "raspa por" %>
-      <% if !feed_item.author %>
-        <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
-      <% else %>
-        <%= link_to feed_item.author.name, feed_item.author, title: "ver + de #{feed_item.author.name}" %>
-      <% end %>
-    </div>
-    <div class="timestamp">
-      <%= time_ago_in_words(feed_item.created_at) %> /
-      <% if !feed_item.tags.empty? %>
-        sobre 
-        <% feed_item.tags.each do |tag| %>
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> / 
-        <% end %>      
-      <% end %>
-      <%# unless !feed_item.origem? %>
-        <!-- extraído de <%#= feed_item.origem %> / -->
-      <%# end %>
-      <% if feed_item.favouriters.any? %>
-        <% feed_item.favouriters.last(1).each do |favouriters| %>
-          favoritada por <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
-          <% unless feed_item.favouriters.count == 1 %>
-            e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <% if feed_item.author %>
-        / postada por <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
-      <% end %>
-      <%# if !feed_item.published? %>
-        <!-- / sob <%#= link_to "análise", @author %> -->
-        <%#= link_to (image_tag "flag_ico.png"), root_path %>
-      <%# end %>
-      <% if current_user?(feed_item.user) %>
-          / <%= link_to "editar", edit_micropost_path(feed_item) %>
-          / <%= link_to "apagar", feed_item, :method => :delete,
-                                           :confirm => "apagar esta raspa?",
-                                           :title => "descartar" %>
-      <% end %>
-    </div>
-  </div>
-  <div class= "quote_corner">
-    <div class= "top_corner">
-      <div>   
-        <% if feed_item.favourites.find_by_user_id(current_user) %>  
-          <%= form_for feed_item.favourites.find_by_user_id(current_user),
-               :html => { :method => :delete } do |f| %>
-            <div>
-              <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
-            </div>
-          <% end %>
-        <% else %>
-          <div>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
-          </div>
-        <% end %>
-        <% if feed_item.favourites.any? %>
-          <% if current_user?(feed_item.user) %>  
-            <div class= "but_stats_own round">
-                <%= link_to "x #{feed_item.favourites.count}", favouriters_micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram sua raspa" %>
-            </div>
-          <% else %>
-            <div class= "but_stats round">
-                <%= link_to "x #{feed_item.favourites.count}", favouriters_micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
-            </div>
-          <% end %>  
-        <% else %>
-          <div class= "but_stats round">
-            <p>favoritar</p>
-          </div>
-        <% end %>
-      </div> 
-      <div class= "share">
-        <% unless @micropost %>  
-          <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
-        <% else %>
-          <%= render "microposts/social" %>
-        <% end %>
-        <% if !@micropost %>
-          <div class= "but_stats round">
-            <p>compartilhar</p>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<div class= "feed_quotes">
+  <div class= "user_info">
     <% if feed_item.author %>
-      <div class= "user_id">
-        <%= link_to image_tag(feed_item.user.image_url(:small)), feed_item.user, 
-        title: "ver perfil de #{feed_item.user.name}" %>
-      </div>
+      <%= link_to image_tag(feed_item.author.image_url(:regular)), feed_item.author, title: "ver perfil de #{feed_item.author.name}" %>
+    <% else %>  
+      <%= link_to image_tag(feed_item.user.image_url(:regular)), feed_item.user, title: "ver perfil de #{feed_item.user.name}" %>
     <% end %>
   </div>
-</div>
+  <div class= "stack_feed">
+    <div class="quotes round">
+      <div class= "quote">
+        <div class= "quote_text">
+          <div class= "upwards">
+            <% if !feed_item.author %>
+              <%= feed_item.content %>
+            <% else %>
+              &quot;<%= feed_item.content %>&quot;
+            <% end %>
+          </div>
+        </div>
+        <div class="user">
+          <%= image_tag "ico_raspas.png", alt: "raspa por" %>
+          <% if !feed_item.author %>
+            <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+          <% else %>
+            <%= link_to feed_item.author.name, feed_item.author, title: "ver + de #{feed_item.author.name}" %>
+          <% end %>
+        </div>
+        <div class="timestamp">
+          <%= time_ago_in_words(feed_item.created_at) %> /
+          <% if !feed_item.tags.empty? %>
+            sobre 
+            <% feed_item.tags.each do |tag| %>
+              <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> / 
+            <% end %>      
+          <% end %>
+          <%# unless !feed_item.origem? %>
+            <!-- extraído de <%#= feed_item.origem %> / -->
+          <%# end %>
+          <% if feed_item.favouriters.any? %>
+            <% feed_item.favouriters.last(1).each do |favouriters| %>
+              favoritada por <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+              <% unless feed_item.favouriters.count == 1 %>
+                e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if feed_item.author %>
+            / postada por <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
+          <% end %>
+          <%# if !feed_item.published? %>
+            <!-- / sob <%#= link_to "análise", @author %> -->
+            <%#= link_to (image_tag "flag_ico.png"), root_path %>
+          <%# end %>
+          <% if current_user?(feed_item.user) %>
+              / <%= link_to "editar", edit_micropost_path(feed_item) %>
+              / <%= link_to "apagar", feed_item, :method => :delete,
+                                               :confirm => "apagar esta raspa?",
+                                               :title => "descartar" %>
+          <% end %>
+        </div>
+      </div>
+      <div class= "quote_corner">
+        <div class= "top_corner">
+          <div>   
+            <% if feed_item.favourites.find_by_user_id(current_user) %>  
+              <%= form_for feed_item.favourites.find_by_user_id(current_user),
+                   :html => { :method => :delete } do |f| %>
+                <div>
+                  <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
+                </div>
+              <% end %>
+            <% else %>
+              <div>
+                <%= link_to (image_tag "heart.png"), favourites_micropost_path(feed_item), :class => "top_button round", title: "adicionar às favoritas" %>
+              </div>
+            <% end %>
+            <% if feed_item.favourites.any? %>
+              <% if current_user?(feed_item.user) %>  
+                <div class= "but_stats_own round">
+                    <%= link_to "x #{feed_item.favourites.count}", favouriters_micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram sua raspa" %>
+                </div>
+              <% else %>
+                <div class= "but_stats round">
+                    <%= link_to "x #{feed_item.favourites.count}", favouriters_micropost_path(feed_item), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+                </div>
+              <% end %>  
+            <% else %>
+              <div class= "but_stats round">
+                <p>favoritar</p>
+              </div>
+            <% end %>
+          </div> 
+          <div class= "share">
+            <% unless @micropost %>  
+              <%= link_to (image_tag "share.png"), micropost_path(feed_item), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
+            <% else %>
+              <%= render "microposts/social" %>
+            <% end %>
+            <% if !@micropost %>
+              <div class= "but_stats round">
+                <p>compartilhar</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% if feed_item.author %>
+          <div class= "user_id">
+            <%= link_to image_tag(feed_item.user.image_url(:small)), feed_item.user, 
+            title: "ver perfil de #{feed_item.user.name}" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>    

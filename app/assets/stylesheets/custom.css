@@ -914,13 +914,11 @@ ul.ui-autocomplete li a.ui-state-hover, a.ui-state-active {
 div.quotes {
   background-color: #F8F8F8;
   border: 1px solid #E8E8E8;
-  height: 200px;
+  height: 199px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
   width: 98%;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 2px 2px #D8D8D8;
 }
 
 div.half_quotes {
@@ -1117,8 +1115,6 @@ div.user_id img {
   float: right;
   height: 65px;
   width: 65px;
-  -webkit-box-shadow: 0 1px 1px #D8D8D8;
-  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 div.quotes:hover div.timestamp {
@@ -1215,6 +1211,7 @@ div.user_feed_side {
   display: inline;
   float: left;
   height: 130px;
+  line-height: 1.5;
   padding: 0em 1em;
   width: 180px;
 }
@@ -1245,6 +1242,19 @@ div.user_feed_follow img {
   float: left;
   height: 32px;
   width: 32px
+}
+
+div.feed_quotes {
+  border: 0px solid #D8D8D8;
+  height: 200px;
+  margin-bottom: 3em;
+  width: 798px;
+}
+
+div.stack_feed {
+  float: right;
+  height: 200px;
+  width: 595px;
 }
 
 div.user_card {
