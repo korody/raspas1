@@ -71,7 +71,7 @@ nav input:-moz-placeholder {
   border: 0px solid #E6674A;
   float: left;
   height: 18px;
-  padding: 12px 14px 9px;
+  padding: 12px 14px 10px;
   width: 74px;
 }
 
@@ -113,9 +113,8 @@ nav ul.nave_r li a {
   float: left;
 }
 
-nav ul.nave_r li.sider a img {
-  height: 15px;
-  padding: 0;
+nav ul.nave_r li.sider a {
+  padding: 12px 8px;
 }
 
 nav ul li input {
@@ -154,10 +153,10 @@ nav ul li.search input.lupa {
 
 nav ul.nave_r li input#button {
   border: 0px solid #E6674A;
-  height: 15px;
+  height: 18px;
   margin-top: 0;
-  padding: 12px;
-  width: 20px;
+  padding: 11px;
+  width: 22px;
 }
 
 nav ul li a:hover, nav ul.nave_r li input#button:hover {
@@ -168,6 +167,10 @@ nav ul li a:hover, nav ul.nave_r li input#button:hover {
 div.topo {
   border: 0px solid blue;
   width: 142px;
+}
+
+div.topo li a {
+  padding: 12px 8px;
 }
 
 /* PAGINATION */
@@ -437,6 +440,7 @@ div.intro_text {
   float: left;
   font-size: 140%;
   height: 50px;
+  line-height: 1.5em;
   margin-top: 1.2em;
   text-align: center;
   width: 580px;
@@ -459,8 +463,8 @@ div.back_avatar_each {
   display: inline-block;
   float: left;
   height: 98px;
-  opacity: 0.5;
-  filter:alpha(opacity=40);
+  opacity: 0.4;
+  filter:alpha(opacity=30);
   position: relative;
   width: 98px;
 }
@@ -479,6 +483,7 @@ div.back_avatar_each p {
   padding: 8px 0;
   position: absolute;
   text-align: center;
+  left: 0;
   visibility: hidden;
   width: 98px;
 }
@@ -502,13 +507,13 @@ div.back_avatar_each:hover p {
   /* fallback (Opera) */
   background: transparent;
   /* Mozilla: */
-  background: -moz-linear-gradient(top, #00FF00, #000000);
+  background: -moz-linear-gradient(top, transparent, #D8D8D8);
   /* Chrome, Safari:*/
   background: -webkit-gradient(linear,
               left top, left bottom, from(transparent), to(#D8D8D8));
   /* MSIE */
   filter: progid:DXImageTransform.Microsoft.Gradient(
-              StartColorStr='#00FF00', EndColorStr='#000000', GradientType=0);
+              StartColorStr='#F8F8F8', EndColorStr='#707070', GradientType=0);
 }
 
 /* SIGNUP PAGE */
@@ -633,7 +638,7 @@ div.user_info_board a.edit {
   float: left;
   height: 22px;
   margin-top: 0.5em;
-  padding: 0;
+  padding: 2px 0 0;
   text-align: center;
   width: 99%;
 }
@@ -687,10 +692,10 @@ div.stats img:hover {
 }
 
 div.stats a.but {
-  border: 1px solid #D8D8D8;
   font-weight: normal;
   height: 20px;
   padding: 1px 4px;
+  line-height: 1.5;
   margin-right: 0;
   min-width: 16px;
   text-align: center;
@@ -1371,13 +1376,6 @@ div.sign a {
   font-weight: normal;
 }
 
-.user_info_board a.mimic {
-  margin-bottom: 0.5em;  
-  padding: 0;
-  text-align: center;
-  width: 94%;
-}
-
 div.user_info_board input.fan, div.user_info_board a.fan  {
   background: #E2492F;
   color: #FFF;
@@ -1428,7 +1426,12 @@ div.update {
   display: block;
   float: right;
   font-size: 120%;
-  width: 10em;
+}
+
+div.update_author {
+  display: block;
+  float: left;
+  font-size: 120%;
 }
 
 div.update_ {

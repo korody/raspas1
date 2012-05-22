@@ -20,7 +20,7 @@
 		<% if @user.origin? %>
 			<p><%= @user.origin %></p>
 		<% end %>		
-		<%= render 'follow_form' if signed_in? %>
+		<%= render 'follow_form' %>
 	</div>
 	<% if @user.bio? %>
 		<div class= "user_info_board round">

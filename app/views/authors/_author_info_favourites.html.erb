@@ -18,13 +18,13 @@
 		<% end %>		
 		<%= render 'fan_form' if signed_in? %>
 	</div>
-		<% if @author.bio? %>
-			<div class= "user_info_board round">
-				<div class= "bio">
-					<%= @author.bio %>
-				</div>
+	<% if @author.bio? %>
+		<div class= "user_info_board round">
+			<div class= "bio">
+				<%= @author.bio %>
 			</div>
-		<% end %>
+		</div>
+	<% end %>
 	<div class= "user_info_board round" >
 		<%= render 'stats' %>
 	</div>

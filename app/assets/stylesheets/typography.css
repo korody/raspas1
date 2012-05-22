@@ -9,10 +9,10 @@
    The font-size percentage is of 16px. (0.75 * 16px = 12px) */
 html { font-size:100%; }
 body {
-  font-size: 75%;
-  color: #2F4F4F;
   background: #fff;
+  color: #2F4F4F;
   font-family: "Helvetica Light", Arial, Helvetica, sans-serif;
+  font-size: 75%;
 }
 
 input {
@@ -23,6 +23,10 @@ textarea {
   color: #2F4F4F;
   font-family: "Helvetica Light", Arial, Helvetica, sans-serif;
   font-size: 120%;
+  line-height: 1.5em;
+}
+
+p {
   line-height: 1.5em;
 }
 
