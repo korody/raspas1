@@ -323,18 +323,34 @@ div.title a {
 }
 
 div.likes {
-  border: 0px solid #D8D8D8;
+  border: 0px solid black;
   display: block;
-  height: 80px;
   margin: 0.8em 0 0 592px;
   position: fixed;
   top: 40px;
-  width: 8em;
+  width: 12em;
 }
 
 div.likes_each {
-  height: 2em;
+  border: 0px solid #D8D8D8;
+  float: left;
+  height: 1.8em;
   margin-bottom: 0.5em;
+  width: 12em;
+}
+
+div.likes_each_home {
+  border: 0px solid #D8D8D8;
+  float: left;
+  height: 1.8em;
+  width: 2em;
+}
+
+div.fb-like {
+  border: 0px solid #D8D8D8;
+  float: left;
+  height: 1.8em;
+  width: 9em;
 }
 
 /* POPPUP FORMS */
@@ -1251,8 +1267,19 @@ div.user_gravatar_card img {
   width: 185px;
 }
 
+div.user_card_info {
+  border: 0px solid #D8D8D8;
+  color: #B0B0B0;
+  display: inline-block;
+  float: right;
+  height: 100%;
+  margin-right: 0.8em;
+  width: 47%;
+}
+
 div.user_card_name {
   border-bottom: 1px solid #D8D8D8;
+  line-height: 1.8;
   margin-top: 0.2em;
   height: 4.7em;
   width: 100%;
@@ -1262,16 +1289,6 @@ div.user_card_name a {
   display: block;
   font-size: 120%;
   font-weight: bold;;
-}
-
-div.user_card_info {
-  border: 0px solid #D8D8D8;
-  color: #B0B0B0;
-  display: inline-block;
-  float: right;
-  height: 100%;
-  margin-right: 0.8em;
-  width: 47%;
 }
 
 div.home_authors {
@@ -1345,8 +1362,9 @@ div.sobre {
   float: left;
   font-size: 150%;
   height: 55px;
+  line-height: 2;
   margin-left: 1em;
-  margin-top: 4em;
+  margin-top: 3.6em;
   width: 560px;
 }
 
@@ -1356,6 +1374,7 @@ div.sign {
   float: left;
   font-size: 140%;
   height: 55px;
+  line-height: 1.5;
   margin-left: 1em;
   margin-top: 1.4em;
   width: 84%;
@@ -1379,6 +1398,10 @@ div.sign a {
 div.user_info_board input.fan, div.user_info_board a.fan  {
   background: #E2492F;
   color: #FFF;
+}
+
+div.user_info_board a.fan {
+  line-height: 1.4;
 }
 
 div.user_info_board input.unfan, div.user_info_board a.unfan {
