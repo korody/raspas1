@@ -15,4 +15,10 @@ class PagesController < ApplicationController
   	@title = "sobre o raspas"
     @new_micropost = Micropost.new
   end
+
+  def mosaico
+    @title = "mosaico"
+    @authors = Author.all
+    @new_micropost = Micropost.new
+  end
 end

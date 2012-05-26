@@ -1,0 +1,10 @@
+<div class= "mosaico">
+	<div class= "back_avatar">
+		<% @authors.shuffle.each do |author| %>
+			<div class= "mosaico_each">
+			  <%= link_to (image_tag author.image_url(:medium)), author %>
+			  <p class= "gradient"><%= link_to author.name, author %></p>
+			</div>
+		<% end %>
+	</div>
+</div>

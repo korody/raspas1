@@ -353,6 +353,25 @@ div.fb-like {
   width: 9em;
 }
 
+/* MOSAICO */
+
+.mosaico {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+div.mosaico_each {
+  border: 1px solid #E8E8E8;
+  display: inline-block;
+  float: left;
+  height: 98px;
+  position: relative;
+  width: 98px;
+}
+
 /* POPPUP FORMS */
 
 #backgroundPopup {  
@@ -485,12 +504,12 @@ div.back_avatar_each {
   width: 98px;
 }
 
-div.back_avatar_each img {
+div.back_avatar_each img, div.mosaico_each img {
   height: 98px;
   width: 98px;
 }
 
-div.back_avatar_each p {
+div.back_avatar_each p, div.mosaico_each p {
   border: 0px solid blue;
   bottom: 0px;
   display: inline-block;
@@ -504,7 +523,7 @@ div.back_avatar_each p {
   width: 98px;
 }
 
-div.back_avatar_each a {
+div.back_avatar_each a, div.mosaico_each a {
   color: #FFF;
 }
 
@@ -513,7 +532,7 @@ div.back_avatar_each:hover {
   filter:alpha(opacity=100);
 }
 
-div.back_avatar_each:hover p {
+div.back_avatar_each:hover p, div.mosaico_each:hover p {
   visibility: visible;
 }
 
