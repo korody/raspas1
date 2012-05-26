@@ -37,11 +37,11 @@
       </div>   -->
       <div class= "timestamp_each">
         <% if micropost.favouriters.any? %>
-          <% micropost.favouriters.last(2).each do |favouriters| %>
+          <% micropost.favouriters.last(1).each do |favouriters| %>
             <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
             <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
-              <% unless micropost.favouriters.count <= 2 %>
-                + <%= link_to pluralize(micropost.favouriters.count - 2, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
+              <% unless micropost.favouriters.count == 1 %>
+                + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
               <% end %>
           <% end %>
         <% end %>

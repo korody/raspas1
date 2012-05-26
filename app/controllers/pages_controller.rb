@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @title = "crie, colecione e compartilhe pensamentos"
     @user = User.new
-    @feed_items = Micropost.all(:order => 'microposts.created_at DESC')
+    @feed_items = Micropost.paginate(:page => params[:page], order: "microposts.created_at DESC") 
     @new_micropost = Micropost.new
     @authors = Author.all(:order => 'authors.created_at DESC')
     @users = User.all(:order => 'users.created_at DESC')
