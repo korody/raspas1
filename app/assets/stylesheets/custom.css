@@ -758,11 +758,14 @@ div.last_upwards {
   border: 0px solid black;
   bottom: 0;
   font-weight: bold;
-  line-height: 1.2em;
   margin-left: 0.3em;
   position: absolute;
   left: 32px;
   width: 145px;
+}
+
+div.last_upwards p {
+  line-height: 1.2;
 }
 
 /* USER HOME PAGE */
@@ -981,11 +984,25 @@ div.timestamp {
   color: #B0B0B0;
   display: block;
   float: left;  
-  margin: 0.8em 0 0 0.4em;
+  margin: 0.9em 0 0 0.4em;
 }
 
-div.timestamp {
-  line-height: 1.2;
+div.timestamp_each {
+  border: 0px solid #D8D8D8;
+  display: block;
+  float: left;  
+  margin: 0 1em 2px 0;
+}
+
+div.timestamp_each img {
+  height: 12px;
+  margin: 0 0 0 2px;
+  width: 12px;
+}
+
+div.timestamp_each img.raspa {
+  height: 12px;
+  width: 15px;
 }
 
 div.timestamp a {
@@ -1348,9 +1365,9 @@ div.name_edit img {
   border: 0px solid #D8D8D8;
   display: inline;
   float: right;
-  height: 15px;
+  height: 12px;
   margin: 3px 3px 0 0;
-  width: 20px;
+  width: 12px;
 }
 
 div.name_edit p {
@@ -1456,9 +1473,9 @@ input#author_image:hover {
 }
 
 div.update {
+  border: 0px solid #D8D8D8;
   display: block;
   float: right;
-  font-size: 120%;
 }
 
 div.update_author {
@@ -1470,14 +1487,18 @@ div.update_author {
 div.update_ {
   display: block;
   float: right;
+  font-size: 110%;
 }
 
 div.update_apagar {
-  color: #B0B0B0;
   display: block;
-  float: right;
   font-size: 100%;
-  margin-top: 3em;
+  line-height: 1.5;
+  margin-top: 10em;
+}
+
+div.update_apagar a {
+  color: #B0B0B0;
 }
 
 input#author_name.hasPlaceholder, input#author_job.hasPlaceholder, input#author_origin.hasPlaceholder, input#author_tipo.hasPlaceholder {

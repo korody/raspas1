@@ -7,15 +7,15 @@
       <% if current_user.microposts.empty? %>
         <div class="half_quotes round">
           <div class= "sign">
-            Clique no lápis acima e <u>escreva suas primeiras raspas!</u><br />
-            <u>Crie um pensador</u> especificando seu nome em uma nova raspa.
+            Clique no lápis acima e <strong>escreva suas primeiras raspas!</strong><br />
+            <strong>Crie um pensador</strong> especificando seu nome em uma nova raspa.
           </div>
           <div class= "flag_sign">
             <%= image_tag "super.png" %>
           </div>
         </div>
       <% else %>
-        <% if current_user.image.default_url.empty? %>
+        <% if current_user.image.blank? %>
           <div class="half_quotes round">
             <div class= "sign">
               Dica: Que tal uma foto bacana para o hall da fama?<br />

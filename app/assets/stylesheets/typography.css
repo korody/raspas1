@@ -69,6 +69,13 @@ h4 img, h5 img, h6 img {
   font-size: 100%;
 }
 
+.p_feed {
+  color: #E6674A;
+  display: inline;
+  font-size: 100%;
+  font-weight: bold;
+}
+
 .p_mais {
   display: inline;
   float: right;

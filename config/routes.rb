@@ -25,6 +25,7 @@ Benfeitor::Application.routes.draw do
       get :authors, path: "pensadores"
       get :favourites, path: "favoritas"
       get :favoritadas
+      get :twitter
     end
   end
 

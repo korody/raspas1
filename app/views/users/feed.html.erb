@@ -3,36 +3,34 @@
     <%= render 'users/user_following' %>
   </div>
   <div class= "home">
-    <% if @following.empty? %>
-      <% if @user.idols.empty? %>
-        <div class="half_quotes round">
-          <div class= "sign">
-            Torne-se fã de pensadores e siga seus amigos para acompanhar todas as raspas aqui!<br />
-            Explore abaixo alguns perfis já criados ou ache seus ídolos e amigos na busca acima!
+    <% if @following.empty? && @user.idols.empty? %>
+      <div class="half_quotes round">
+        <div class= "sign">
+          Torne-se fã de pensadores e siga seus amigos para acompanhar todas as raspas aqui!<br />
+          Explore abaixo alguns perfis já criados ou ache seus ídolos e amigos na busca acima!
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "super.png" %>
+        </div>
+      </div>
+      <div class= "home_authors">
+        <% @authors_intro.shuffle.first(12).each do |author| %>
+          <div class= "home_authors_each">
+            <p><%= link_to author.name, author %></p>
+            <%= link_to (image_tag author.image_url(:medium)), author %>
           </div>
-          <div class= "flag_sign">
-            <%= image_tag "super.png" %>
+        <% end %>
+      </div>
+      <br />
+      <br />
+      <div class= "home_authors">
+        <% @users_intro.shuffle.first(12).each do |user| %>
+          <div class= "home_authors_each">
+            <p><%= link_to user.name, user %></p>
+            <%= link_to image_tag(user.image_url(:medium)), user %>
           </div>
-        </div>
-        <div class= "home_authors">
-          <% @authors_intro.shuffle.first(12).each do |author| %>
-            <div class= "home_authors_each">
-              <p><%= link_to author.name, author %></p>
-              <%= link_to (image_tag author.image_url(:medium)), author %>
-            </div>
-          <% end %>
-        </div>
-        <br />
-        <br />
-        <div class= "home_authors">
-          <% @users_intro.shuffle.first(12).each do |user| %>
-            <div class= "home_authors_each">
-              <p><%= link_to user.name, user %></p>
-              <%= link_to image_tag(user.image_url(:medium)), user %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% else %>
       <div>
         <%= render 'shared/feed' %>

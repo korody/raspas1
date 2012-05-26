@@ -11,7 +11,7 @@
     </ul>
     <% if signed_in? %> 
       <ul>
-        <li><%= link_to "mural", feed_user_path(current_user) %></li>
+        <li><%= link_to "mural", feed_user_path(current_user) %><% if current_user.following.any? %><p class= "p_feed">(<%= current_user.feed.count %>)</p><% end %></li>
       </ul>
       <ul class= "nave_r"> 
         <div class= "topo">

@@ -18,37 +18,54 @@
       <% end %>  
     </div>
     <div class="timestamp">
-      <%= time_ago_in_words(micropost.created_at) %> /
-      <% if !micropost.tags.empty? %>
-        sobre 
-        <% micropost.tags.each do |tag| %>
-          <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> /
+      <div class= "timestamp_each">
+        <%= image_tag "clock_ico.png", title: "tempo no ar" %>
+        <%= time_ago_in_words(micropost.created_at) %>
+      </div>
+      <div class= "timestamp_each">
+        <% if !micropost.tags.empty? %>
+          <% micropost.tags.each do |tag| %>
+            <%= link_to (image_tag "tag_ico.png"), tag, title: "ver + raspas sobre #{tag.name}"  %>
+            <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+          <% end %>
         <% end %>
-      <% end %>
-      <%# unless !micropost.origem? %>
-        <!-- extraído de <%#= micropost.origem %> / -->
-      <%# end %>
-      <% if micropost.favouriters.any? %>
-        <% micropost.favouriters.last(1).each do |favouriters| %>
-          favoritada por <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
-            <% unless micropost.favouriters.count == 1 %>
-              e <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
-            <% end %>
+      </div>
+      <!-- <div class= "timestamp_each">
+        <%# unless !micropost.origem? %>
+          <%#= micropost.origem %>
+        <%# end %>
+      </div>   -->
+      <div class= "timestamp_each">
+        <% if micropost.favouriters.any? %>
+          <% micropost.favouriters.last(2).each do |favouriters| %>
+            <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
+            <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+              <% unless micropost.favouriters.count <= 2 %>
+                + <%= link_to pluralize(micropost.favouriters.count - 2, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
+              <% end %>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if micropost.author %>
-        / postada por <strong><%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %></strong>
-      <% end %>
-      <%# if !micropost.published? %>
-        <!-- / sob <%#= link_to "análise", @author %> -->
-        <%#= link_to (image_tag "flag_ico.png"), root_path %>
-      <%# end %>
-      <% if current_user?(micropost.user) %>
-          / <%= link_to "editar", edit_micropost_path(micropost) %>
-          / <%= link_to "apagar", micropost, :method => :delete,
-                                           :confirm => "apagar esta raspa?",
-                                           :title => "descartar" %>
-      <% end %>
+      </div>
+      <div class= "timestamp_each">  
+        <% if micropost.author %>
+          <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{micropost.user.name}" %>
+          <strong><%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %></strong>
+        <% end %>
+      </div>
+      <div class= "timestamp_each"> 
+        <%# if !micropost.published? %>
+          <!-- sob <%#= link_to "análise", @author %> -->
+          <%#= link_to (image_tag "flag_ico.png"), root_path %>
+        <%# end %>
+      </div>
+      <div class= "timestamp_each">
+        <% if current_user?(micropost.user) %>
+           <%= link_to (image_tag "edit.png"), edit_micropost_path(micropost) %>
+           <%= link_to (image_tag "trash_ico.png"), micropost, :method => :delete,
+                                             :confirm => "apagar esta raspa?",
+                                             :title => "descartar" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class= "quote_corner">

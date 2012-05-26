@@ -67,8 +67,8 @@
                     :uniqueness => { :case_sensitive => false }
 
  # validates :email, :presence   => true,
- #                     :format     => { :with => email_regex },
- #                     :uniqueness => { :case_sensitive => false }
+ #                   :format     => { :with => email_regex },
+ #                   :uniqueness => { :case_sensitive => false }
 	
 
   def self.create_with_omniauth(auth)
@@ -76,10 +76,10 @@
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-      user.email = auth["info"]["email"]
+      user.email = auth["info"]["email"] 
       user.origin = auth["info"]["location"]
-      user.bio = auth["info"]["bio"]
-      user.image = auth["info"]["image"]    
+      user.bio = auth["info"]["description"]
+      user.image = auth["info"]["image"]
     end
   end
 

@@ -14,7 +14,7 @@
     @user = User.find(params[:id])
     @title = @user.name
     @new_micropost = Micropost.new
-    @microposts = @user.favo.paginate(:page => params[:page])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all
     @authors = @user.authors.all
   end
@@ -77,7 +77,6 @@
   def destroy
     User.find(params[:id]).destroy
     sign_out
-    flash[:success] = "Obrigado por honrar-nos com suas raspas! Até logo."
     redirect_to root_path
   end
 

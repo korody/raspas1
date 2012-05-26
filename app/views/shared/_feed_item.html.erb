@@ -27,37 +27,54 @@
           <% end %>
         </div>
         <div class="timestamp">
-          <%= time_ago_in_words(feed_item.created_at) %> /
-          <% if !feed_item.tags.empty? %>
-            sobre 
-            <% feed_item.tags.each do |tag| %>
-              <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %> / 
-            <% end %>      
-          <% end %>
-          <%# unless !feed_item.origem? %>
-            <!-- extraído de <%#= feed_item.origem %> / -->
-          <%# end %>
-          <% if feed_item.favouriters.any? %>
-            <% feed_item.favouriters.last(1).each do |favouriters| %>
-              favoritada por <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
-              <% unless feed_item.favouriters.count == 1 %>
-                e <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
+          <div class= "timestamp_each">
+            <%= image_tag "clock_ico.png", title: "tempo no ar" %>
+            <%= time_ago_in_words(feed_item.created_at) %>
+          </div>
+          <div class= "timestamp_each">
+            <% if !feed_item.tags.empty? %>
+              <% feed_item.tags.each do |tag| %>
+              <%= link_to (image_tag "tag_ico.png"), tag, title: "ver + raspas sobre #{tag.name}"  %>
+                <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+              <% end %>      
+            <% end %>
+          </div>
+          <div class= "timestamp_each">
+            <%# unless !feed_item.origem? %>
+              <!-- extraído de <%#= feed_item.origem %>-->
+            <%# end %>
+          </div>
+          <div class= "timestamp_each">
+            <% if feed_item.favouriters.any? %>
+              <% feed_item.favouriters.last(2).each do |favouriters| %>
+              <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
+              <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+                <% unless feed_item.favouriters.count <= 2 %>
+                  + <%= link_to pluralize(feed_item.favouriters.count - 2, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-          <% if feed_item.author %>
-            / postada por <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
-          <% end %>
-          <%# if !feed_item.published? %>
-            <!-- / sob <%#= link_to "análise", @author %> -->
-            <%#= link_to (image_tag "flag_ico.png"), root_path %>
-          <%# end %>
-          <% if current_user?(feed_item.user) %>
-              / <%= link_to "editar", edit_micropost_path(feed_item) %>
-              / <%= link_to "apagar", feed_item, :method => :delete,
-                                               :confirm => "apagar esta raspa?",
-                                               :title => "descartar" %>
-          <% end %>
+          </div>
+          <div class= "timestamp_each">
+            <% if feed_item.author %>
+            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
+            <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
+            <% end %>
+          </div>
+          <div class= "timestamp_each">
+            <%# if !feed_item.published? %>
+              <!--sob <%#= link_to "análise", @author %> -->
+              <%#= link_to (image_tag "flag_ico.png"), root_path %>
+            <%# end %>
+          </div>
+          <div class= "timestamp_each">
+            <% if current_user?(feed_item.user) %>
+               <%= link_to (image_tag "edit.png"), edit_micropost_path(feed_item) %>
+               <%= link_to (image_tag "trash_ico.png"), feed_item, :method => :delete,
+                                                 :confirm => "apagar esta raspa?",
+                                                 :title => "descartar" %>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class= "quote_corner">
