@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
   def new
     @title = "entrar"
     @new_micropost = Micropost.new
+    if signed_in?
+      redirect_back_or current_user
+      flash[:success] = "Olá! Sentindo-se inspirado hoje?"
+    end
   end
 
   def create

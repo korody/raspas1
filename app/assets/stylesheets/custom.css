@@ -364,7 +364,7 @@ div.fb-like {
 }
 
 div.mosaico_each {
-  border: 1px solid #E8E8E8;
+  border: 0px solid #E8E8E8;
   display: inline-block;
   float: left;
   height: 98px;
