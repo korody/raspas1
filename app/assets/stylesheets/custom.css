@@ -895,6 +895,7 @@ input#micropost_author_name.hasPlaceholder {
   border: 1px solid #D8D8D8;
   float: left;
   height: 25px;
+  margin-top: 0.4em;
   padding: 0 1.3em;
   width: 25px;
 }

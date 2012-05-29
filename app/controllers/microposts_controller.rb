@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
 
   def index
     @title = "microposts"
-    @microposts = Micropost.paginate(:page => params[:page])
+    @microposts = Micropost.paginate(:page => params[:page], order: "microposts.created_at DESC")
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
@@ -15,26 +15,34 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @new_micropost = Micropost.new
     @tags = @micropost.tags
+      
   end
 
   def create
-    @micropost = current_user.microposts.build(params[:micropost])
-    if @micropost.save
-      if @micropost.author
-        redirect_to @micropost.author
-        flash[:success] = "Você adicionou um pensamento de #{@micropost.author.name}! Obrigado."
+    micropost = current_user.microposts.build(params[:micropost])
+    if micropost.save
+      if micropost.author
+        redirect_to micropost.author
+        flash[:success] = "Você adicionou um pensamento de #{micropost.author.name}! Obrigado."
       else
         redirect_back_or current_user
+        flash[:success] = "Adoramos ver raspas de sua própria autoria! Obrigado."
       end
     else
-      flash[:error] = "Opa! Algo deu errado. Parece que já temos esta raspa."
-      redirect_back_or current_user
+      content = micropost.content
+      old_micropost = Micropost.find(:all, :conditions => ['content LIKE ?', "#{content}"])
+      if content
+        redirect_to micropost_path(old_micropost)
+        flash[:error] = "Ops! Sua raspa é repetida...favorite-a para guardá-la!"
+      else
+        redirect_to root_path
+      end
     end
   end
 
   def edit
     @micropost = Micropost.find(params[:id])
-    @title = "editar"
+    @title = "editar raspas"
     @new_micropost = Micropost.new
   end
 

@@ -37,7 +37,7 @@
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "favourites.created_at DESC", select: "DISTINCT microposts.*"
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
@@ -116,7 +116,7 @@
   end  
 
   def feed
-    Micropost.from_users_followed_by(self)
+    Micropost.user_feed(self)
   end
 
   def favo

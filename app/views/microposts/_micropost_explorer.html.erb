@@ -11,7 +11,7 @@
 				<p class="p_tag">filtre</p><p class="p_tags">por</p><p class="p_tag">temas</p>
 				<p class= "p_mais"><%= link_to "+", tags_path, title: "explorar + temas" %></p>
 			</div>
-			<% @tags.last(8).each do |tag| %>
+			<% @tags.shuffle.last(20).each do |tag| %>
 			  <div>
 			    <%= link_to tag.name, tag, :class => "but round temas", title: "ver raspas sobre #{tag.name}" %>
 			  </div>

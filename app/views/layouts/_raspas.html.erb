@@ -11,7 +11,7 @@
         <div class= "count_micropost">
           <div id= "count">246</div>
         </div>
-        <%= f.text_field :author_name, data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador (caso não seja você)", title: "nome de um pensador" %>
+        <%= f.text_field :author_name, value: "#{@author.name if @author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador (caso não seja você)", title: "nome de um pensador" %>
         <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas (separe temas com vírgulas)", title: "separe temas com vírgulas" %>
         <%#= f.text_field :origem, placeholder: "origem da raspa", title: "livros, músicas, filmes..." %>
         <%= image_submit_tag "raspa_.png", :class => "write round" %>

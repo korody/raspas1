@@ -15,7 +15,18 @@
           </div>
         </div> -->
       <%# end %> 
-    <%# end %> 
+    <%# end %>
+    <% if @author.image.blank? %>
+      <div class="half_quotes round">
+        <div class= "sign">
+          Dica: Que tal uma foto bacana para o hall da fama?<br />
+          Edite <%= @author.name %> pela engrenagem ao lado do nome!
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "happy.png" %>
+        </div>
+      </div>
+    <% end %> 
     <% unless @author.microposts.empty? %>
       <%= render @microposts %>
     <% else %>
