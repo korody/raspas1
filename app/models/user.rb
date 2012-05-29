@@ -116,7 +116,7 @@
   end  
 
   def feed
-    Micropost.user_feed(self)
+    Micropost.from_users_followed_by(self)
   end
 
   def favo
