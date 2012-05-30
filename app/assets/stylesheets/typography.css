@@ -70,10 +70,11 @@ h4 img, h5 img, h6 img {
 }
 
 .p_feed {
-  color: #E6674A;
+  color: #FFF5EE;
   display: inline;
-  font-size: 100%;
+  font-size: 90%;
   font-weight: bold;
+  height: 30px;
 }
 
 .p_mais {

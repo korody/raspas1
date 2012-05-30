@@ -31,11 +31,12 @@ class MicropostsController < ApplicationController
     else
       content = micropost.content
       old_micropost = Micropost.find(:all, :conditions => ['content LIKE ?', "#{content}"])
-      if content
+      if old_micropost
         redirect_to micropost_path(old_micropost)
-        flash[:error] = "Ops! Sua raspa é repetida...favorite-a para guardá-la!"
+        flash[:error] = "Ops! Sua raspa é repetida...favorite-a abaixo para guardá-la!"
       else
         redirect_to root_path
+        flash[:error] = "Ops! Algo deu errado...parece que já temos esta raspa."
       end
     end
   end

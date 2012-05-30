@@ -164,6 +164,29 @@ nav ul li a:hover, nav ul.nave_r li input#button:hover {
   color: #FFF;
 }
 
+nav ul li a.mural {
+  border: 0px solid #E6674A;
+  margin-left: 0.8em;
+  padding: 4px; 
+}
+
+ nav ul li a.mural img {
+  border: 0px solid #E6674A;
+  height: 30px;
+  margin: 0;
+  padding: 0px; 
+  width: 30px;
+ }
+
+div.mural_count {
+  background: #E6674A;
+  border: 1px solid #E6674A;
+  margin-left: 3.9em;
+  padding: 1px 4px;
+  position: absolute;
+  top: 11px;
+}
+
 div.topo {
   border: 0px solid blue;
   width: 142px;
@@ -689,7 +712,7 @@ div.user_info_board input.follow {
 
 div.user_info_board input.unfollow {
   background: #F8F8F8;
-  color: #E2492F;
+  color: #B0B0B0;
 }
 
 div.user_info_board input.unfollow:hover {
@@ -1294,6 +1317,26 @@ div.stack_feed {
   width: 595px;
 }
 
+div.mural_feed {
+  border: 1px solid #D8D8D8;
+  height: 20px;
+  line-height: 1.5;
+  text-indent: 5px;
+  width: 330px;
+}
+
+div.mural_feed a{
+  color: #B0B0B0;
+}
+
+div.mural_feed:hover {
+  background: #E8E8E8;
+}
+
+div.mural_feed:hover a{
+  color: #2F4F4F;
+}
+
 div.user_card {
   background-color: #F8F8F8;
   border: 1px solid #D8D8D8;
@@ -1326,7 +1369,7 @@ div.user_card_info {
 
 div.user_card_name {
   border-bottom: 1px solid #D8D8D8;
-  line-height: 1.8;
+  line-height: 1.5;
   margin-top: 0.2em;
   height: 4.7em;
   width: 100%;
@@ -1377,7 +1420,7 @@ div.home_authors_each:hover p {
 
 div.name_edit {
   border: 0px solid #D8D8D8;
-  min-height: 30px;
+  min-height: 25px;
   margin-bottom: 2px;
 }
 

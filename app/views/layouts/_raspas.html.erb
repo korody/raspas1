@@ -7,9 +7,9 @@
     </div>
     <div class= "user_board">
       <%= form_for @new_micropost do |f| %>
-        <%= f.text_area :content, :maxlength => 246, placeholder: "escreva aqui um pensamento (sem aspas ;)", title: "escreva uma raspa aqui" %>
+        <%= f.text_area :content, :maxlength => 345, placeholder: "escreva aqui um pensamento (sem aspas ;)", title: "escreva uma raspa aqui" %>
         <div class= "count_micropost">
-          <div id= "count">246</div>
+          <div id= "count">345</div>
         </div>
         <%= f.text_field :author_name, value: "#{@author.name if @author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador (caso não seja você)", title: "nome de um pensador" %>
         <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas (separe temas com vírgulas)", title: "separe temas com vírgulas" %>

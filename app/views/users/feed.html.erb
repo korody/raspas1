@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <div class= "user_feed">
-    <%= render 'users/user_following' %>
+    <%= render 'users/user_feed' %>
   </div>
   <div class= "home">
     <% if @following.empty? && @user.idols.empty? %>
