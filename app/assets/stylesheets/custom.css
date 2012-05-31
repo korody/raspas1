@@ -899,18 +899,7 @@ input#micropost_author_name, input#micropost_origem, input#micropost_tag_names {
   width: 240px;
 }
 
-input#micropost_origem.hasPlaceholder, input#micropost_tag_names.hasPlaceholder {
-  color: #B0B0B0;
-}
-
-input#micropost_author_name::-webkit-input-placeholder {
-  color:  #E2492F;
-}
-input#micropost_author_name:-moz-placeholder {
-  color:  #E2492F;
-}
-
-input#micropost_author_name.hasPlaceholder {
+input#micropost_author_name.hasPlaceholder, input#micropost_tag_names.hasPlaceholder {
   color:#E2492F;
 }
 

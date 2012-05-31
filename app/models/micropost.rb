@@ -34,7 +34,7 @@ class Micropost < ActiveRecord::Base
   
   # Return microposts from the users being followed by the given user.
   scope :from_users_followed_by, lambda { |user| followed_by(user).recent }
-  scope :from_authors_idols_of, lambda { |author| idols_of(author).recent }
+  scope :from_authors_idols_of, lambda { |user| idols_of(user).recent }
   scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost).recent }
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)) }
 

@@ -6,7 +6,7 @@
 	<%= render "stats" %>
 </div>
 <div class= "user_feed_arrow">
-	<%= image_tag "ico_heart_big.png", :alt => "fãs", :class => "ico", title: "fãs" %>
+	<%= image_tag "ico_star_big.png", :alt => "fãs", :class => "ico", title: "fãs" %>
 </div>
 <div class= "user_feed_follow">
 	<% @author.fans.shuffle.first(40).each do |user| %>

@@ -62,7 +62,6 @@
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
-
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validates :name,  :presence => true,
