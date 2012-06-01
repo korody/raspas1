@@ -1,7 +1,7 @@
 class NotificationsMailer < ActionMailer::Base
 
   default :from => "noreply@youdomain.dev"
-  default :to => "korody@raspas.com.br"
+  default :to => "admin@raspas.com.br"
 
   def new_message(message)
     @message = message

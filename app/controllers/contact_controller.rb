@@ -6,6 +6,7 @@ class ContactController < ApplicationController
   end
 
   def create
+    @new_micropost = Micropost.new
     @message = Message.new(params[:message])
     
     if @message.valid?
