@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       user = User.create_with_omniauth(auth)
       if user.save
         if !email.blank?
-          #UserMailer.registration_confirmation(@user).deliver
+          NotificationsMailer.registration_confirmation(user).deliver
           session[:user_id] = user.id
           redirect_back_or user
           flash[:success] = "Olá #{user.name}! Seja bem-vindo à sua coleção de raspas!"

@@ -1,4 +1,5 @@
 class ContactController < ApplicationController
+  before_filter :authenticate, :only => :create
 
   def new
     @message = Message.new

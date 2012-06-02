@@ -62,6 +62,7 @@
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
+
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
 	validates :name,  :presence => true,
@@ -118,7 +119,7 @@
   end  
 
   def feed
-    Micropost.from_users_followed_by(self)
+    Micropost.user_feed(self)
   end
 
   def favo
