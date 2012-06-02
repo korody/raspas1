@@ -8,7 +8,9 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to @user }
       format.js
       if relationship.save
-        NotificationsMailer.follower_notice(relationship).deliver
+        unless relationship.followed.email.blank?
+          NotificationsMailer.follower_notice(relationship).deliver
+        end
       end  
     end
   end

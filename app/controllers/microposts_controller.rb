@@ -73,7 +73,9 @@ class MicropostsController < ApplicationController
         favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, poster_id: original_micropost.user.id)
       end
       if favourite_micropost.save
-        NotificationsMailer.favourite_notice(favourite_micropost).deliver
+        unless favourite_micropost.poster.email.blank?
+          NotificationsMailer.favourite_notice(favourite_micropost).deliver
+        end
         redirect_to favourites_user_path(current_user)
         flash[:success] = "Raspa adicionada às suas favoritas!"   
       else
