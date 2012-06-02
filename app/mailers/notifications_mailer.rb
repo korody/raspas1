@@ -14,11 +14,11 @@ class NotificationsMailer < ActionMailer::Base
 
 	def favourite_notice(favourite_micropost)
 		@favourite_micropost = favourite_micropost
-		mail(to: "#{favourite_micropost.poster.name} <#{favourite_micropost.poster.email}>", from: "raspas@raspas.com.br", subject: "Sua raspa foi favoritada :)")
+		mail(to: "#{favourite_micropost.poster.name} <#{favourite_micropost.poster.email}>", from: "raspas@raspas.com.br", subject: "Sua raspa foi favoritada por #{favourite_micropost.user.name} :)")
 	end
 
 	def follower_notice(relationship)
 		@relationship = relationship
-		mail(to: "#{relationship.followed.name} <#{relationship.followed.email}>", from: "raspas@raspas.com.br", subject: "Tem alguém seguindo suas raspas :)")
+		mail(to: "#{relationship.followed.name} <#{relationship.followed.email}>", from: "raspas@raspas.com.br", subject: "#{relationship.follower.name} está te seguindo no Raspas :)")
 	end
 end

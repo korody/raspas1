@@ -46,7 +46,7 @@ module Benfeitor
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => "raspas.com.br",
-      :user_name            => "raspas@raspas.com.br",
+      :user_name            => "raspas",
       :password             => "nddssssef7",
       :authentication       => :plain,
       :enable_starttls_auto => true
@@ -56,7 +56,7 @@ module Benfeitor
     config.action_mailer.default_url_options = {
       :host => "www.raspas.com.br"
     }
-    
+
     #config.assets.initialize_on_precompile = false
   end
 end

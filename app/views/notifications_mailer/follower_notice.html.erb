@@ -1,9 +1,9 @@
-Olá <%= link_to @relationship.followed.name, @relationship.followed %>. Sentindo-se inspirado?
+Olá <%= link_to @relationship.followed.name, user_url(@relationship.followed) %>. A inspiração está em alta?
 <br />
 <br />
-Parece que sim...<%= link_to @relationship.follower.name, @relationship.follower %> começou a seguir suas raspas!
+Parece que sim...<%= link_to @relationship.follower.name, user_url(@relationship.follower) %> está agora lhe seguindo e acompanhando suas raspas!
 <br />
 <br />
-Grato pela atenção.
+Grata pela atenção.
 <br />
 Equipe Raspas
