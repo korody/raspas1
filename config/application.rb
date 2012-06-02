@@ -54,10 +54,9 @@ module Benfeitor
 
     #ActionMailer::Base.default_url_options[:host] = "raspas.com.br"
     config.action_mailer.default_url_options = {
-      :host => "raspas.com.br"
+      :host => "www.raspas.com.br"
     }
-
-
+    
     #config.assets.initialize_on_precompile = false
   end
 end
