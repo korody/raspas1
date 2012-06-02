@@ -19,6 +19,6 @@ class NotificationsMailer < ActionMailer::Base
 
 	def follower_notice(relationship)
 		@relationship = relationship
-		mail(to: "#{relationship.followed.name} <#{relationship.followed.email}>", from: "raspas@raspas.com.br", subject: "#{relationship.follower.name} está te seguindo no Raspas :)")
+		mail(to: "#{relationship.followed.name} <#{relationship.followed.email}>", from: "raspas@raspas.com.br", subject: "#{relationship.follower.name} está lhe seguindo no Raspas :)")
 	end
 end
