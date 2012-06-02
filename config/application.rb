@@ -46,8 +46,8 @@ module Benfeitor
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => "raspas.com.br",
-      :user_name            => "Raspas",
-      :password             => "nddssssef",
+      :user_name            => "raspas",
+      :password             => "nddssssef7",
       :authentication       => :plain,
       :enable_starttls_auto => true
     }
