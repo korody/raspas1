@@ -9,7 +9,7 @@ Olá <%= link_to @favourite_micropost.poster.name, user_url(@favourite_micropost
 <% if @favourite_micropost.micropost.author %>
 { <%= link_to @favourite_micropost.micropost.author.name, author_url(@favourite_micropost.micropost.author) %>
 <% else %>
-{ <%= link_to @favourite_micropost.micropost.poster.name, user_url(@favourite_micropost.micropost.user) %>
+{ <%= link_to @favourite_micropost.poster.name, user_url(@favourite_micropost.micropost.user) %>
 <% end %>
 <br />
 <br />
