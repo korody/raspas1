@@ -6,7 +6,11 @@ Olá <%= link_to @favourite_micropost.poster.name, user_url(@favourite_micropost
 <br />
 &quot;<%= link_to @favourite_micropost.micropost.content, micropost_url(@favourite_micropost.micropost) %>&quot;
 <br />
-{ <%= link_to @favourite_micropost.micropost.author.name, author_url(@favourite_micropost.micropost.author) if @favourite_micropost.micropost.author %>
+<% if @favourite_micropost.micropost.author %>
+{ <%= link_to @favourite_micropost.micropost.author.name, author_url(@favourite_micropost.micropost.author) %>
+<% else %>
+{ <%= link_to @favourite_micropost.micropost.poster.name, user_url(@favourite_micropost.micropost.user) %>
+<% end %>
 <br />
 <br />
 Grata pela atenção.
