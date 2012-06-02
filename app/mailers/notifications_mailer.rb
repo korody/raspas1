@@ -9,7 +9,7 @@ class NotificationsMailer < ActionMailer::Base
 	def registration_confirmation(user)
 		@user = user
 		#attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-		mail(to: "#{user.name} <#{user.email}>", from: "raspas@raspas.com.br", subject: "Bem-vindo ao Raspas!")
+		mail(to: "#{user.name} <#{user.email}>", from: "raspas@raspas.com.br", subject: "Olá #{user.name}! Obrigado por experimentar o Raspas!")
 	end
 
 	def favourite_notice(favourite_micropost)
