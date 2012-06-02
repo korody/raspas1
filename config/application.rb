@@ -52,11 +52,11 @@ module Benfeitor
       :enable_starttls_auto => true
     }
 
+    #ActionMailer::Base.default_url_options[:host] = "raspas.com.br"
     config.action_mailer.default_url_options = {
       :host => "raspas.com.br"
     }
 
-    ActionMailer::Base.default_url_options[:host] = "raspas.com.br"
 
     #config.assets.initialize_on_precompile = false
   end
