@@ -5,36 +5,37 @@
 <meta property="og:description" content="'<%= @micropost.content %>'" />
 
 
-<!-- SCRIPT for FB FEED DIALOG -->
-
-<div id='fb-root'></div>
-<script> 
-
-  function postToFeed() {
-
-    // calling the API ...
-    var obj = {
-      method: 'feed',
-      link: 'https://raspas.com.br/raspas/<%= @micropost.id %>',
-      picture: '<% if @micropost.author %><% if !@micropost.author.image.blank? %><%= @micropost.author.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_author.png" %><% end %><% else %><% if !@micropost.user.image.blank? %><%= @micropost.user.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_user.png" %><% end %><% end %>',
-      name: "'<%= @micropost.content %>'",
-      caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
-      description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais.',  
-    };
-
-    function callback(response) {
-      document.getElementById('msg').innerHTML = "/ compartilhado";
-    }
-
-    FB.ui(obj, callback);
-  }
-
-</script>
-
 <div class= "sharers">
   <div id='fb-root'></div>
+  <script src='http://connect.facebook.net/pt_BR/all.js'></script>
   <p><a onclick='postToFeed(); return false;'><%= image_tag "fb_20.png", title: "compartilhar raspa no facebook" %></a></p>
-</div>  
+
+  <!-- SCRIPT for FB FEED DIALOG -->
+
+  <script> 
+    FB.init({appId: "282523151767333", status: true, cookie: true});
+    
+    function postToFeed() {
+
+      // calling the API ...
+      var obj = {
+        method: 'feed',
+        link: 'https://raspas.com.br/raspas/<%= @micropost.id %>',
+        picture: '<% if @micropost.author %><% if !@micropost.author.image.blank? %><%= @micropost.author.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_author.png" %><% end %><% else %><% if !@micropost.user.image.blank? %><%= @micropost.user.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_user.png" %><% end %><% end %>',
+        name: "'<%= @micropost.content %>'",
+        caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
+        description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais.',  
+      };
+
+      function callback(response) {
+        document.getElementById('msg').innerHTML = "/ compartilhado";
+      }
+
+      FB.ui(obj, callback);
+    }
+  </script>
+</div>
+
 <div class= "sharers">  
   <g:plusone size="medium" annotation= "none"></g:plusone>
 </div>  
