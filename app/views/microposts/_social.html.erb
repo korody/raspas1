@@ -13,7 +13,6 @@
   <!-- SCRIPT for FB FEED DIALOG -->
 
   <script> 
-    FB.init({appId: "282523151767333", status: true, cookie: true});
     
     function postToFeed() {
 
@@ -28,7 +27,7 @@
       };
 
       function callback(response) {
-        document.getElementById('msg').innerHTML = "/ compartilhado";
+        document.getElementById('msg').innerHTML = "compartido!";
       }
 
       FB.ui(obj, callback);
@@ -49,3 +48,4 @@
   <% end %>" 
   data-lang="none" data-size="medium" data-related="entre_raspas" data-count="none" title="tweetar esta raspa"></a>
 </div>
+<div id= "msg"></div>
