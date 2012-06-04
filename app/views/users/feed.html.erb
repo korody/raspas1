@@ -1,15 +1,9 @@
 <% if signed_in? %>
   <div class= "feed_mosaico">
-    <% @idols.shuffle.each do |author| %>
+    <% @avatars.shuffle.each do |a| %>
       <div class= "feed_mosaico_each">
-        <%= link_to (image_tag author.image_url(:medium)), author %>
-        <p class= "gradient"><%= link_to author.name, author %></p>
-      </div>
-    <% end %>
-    <% @following.shuffle.each do |user| %>
-      <div class= "feed_mosaico_each">
-        <%= link_to (image_tag user.image_url(:medium)), user %>
-        <p class= "gradient"><%= link_to user.name, user %></p>
+        <%= link_to (image_tag a.image_url(:medium)), a %>
+        <p class= "gradient"><%= link_to a.name, a %></p>
       </div>
     <% end %>
   </div>
@@ -17,7 +11,7 @@
     <%= render 'users/user_feed' %>
   </div>
   <div class= "home">
-    <% if @following.empty? && @user.idols.empty? %>
+    <% if @avatars.empty? %>
       <div class="half_quotes round">
         <div class= "sign">
           Torne-se fã de pensadores e siga seus amigos para acompanhar todas as raspas aqui!<br />
@@ -28,20 +22,10 @@
         </div>
       </div>
       <div class= "home_authors">
-        <% @authors_intro.shuffle.first(12).each do |author| %>
+        <% @intro.shuffle.first(48).each do |a| %>
           <div class= "home_authors_each">
-            <p><%= link_to author.name, author %></p>
-            <%= link_to (image_tag author.image_url(:medium)), author %>
-          </div>
-        <% end %>
-      </div>
-      <br />
-      <br />
-      <div class= "home_authors">
-        <% @users_intro.shuffle.first(12).each do |user| %>
-          <div class= "home_authors_each">
-            <p><%= link_to user.name, user %></p>
-            <%= link_to image_tag(user.image_url(:medium)), user %>
+            <p><%= link_to a.name, a %></p>
+            <%= link_to (image_tag a.image_url(:medium)), a %>
           </div>
         <% end %>
       </div>

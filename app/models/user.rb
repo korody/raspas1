@@ -125,9 +125,5 @@
 
   def favo
     Micropost.from_microposts_favourites_of(self)
-  end
-
-  def avatars
-    All.user_feed(self).suffle
   end    
 end
