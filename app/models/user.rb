@@ -1,28 +1,5 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#  admin              :boolean         default(FALSE)
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  photo_updated_at   :datetime
-#  bio                :string(255)
-#  origin             :string(255)
-#  born               :string(255)
-#  tipo               :string(255)
-#
-
-
-  require 'digest'
-  class User < ActiveRecord::Base
+require 'digest'
+class User < ActiveRecord::Base
   attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
 
   mount_uploader :image, ImageUploader
