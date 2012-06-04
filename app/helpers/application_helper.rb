@@ -10,7 +10,7 @@ module ApplicationHelper
           "#{base_title} | #{@title}"
         end
       else
-        @micropost.content  
+        base_title = @micropost.content  
       end
   end
 
