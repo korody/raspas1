@@ -23,7 +23,7 @@
     @title = "mural"
     @user = User.find(params[:id])
     @new_micropost = Micropost.new        
-    @feed_items = current_user.feed.paginate(:page => params[:page])
+    @feed_items = current_user.feed
     @authors_intro = Author.all
     @users_intro = User.all
     @following = @user.following.paginate(:page => params[:page]) 
