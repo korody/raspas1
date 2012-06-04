@@ -14,12 +14,12 @@
     			<%= link_to image_tag(micropost.author.image_url(:tiny)), micropost_path(micropost), title: "ver raspa de #{micropost.author.name}" %>
     			<b><p><%= link_to micropost.user.name, micropost.user %></b> citou <b><%= link_to micropost.author.name, micropost.author %></b>:
     			<br />
-				<%= link_to micropost.content.first(42), micropost_path(micropost), title: "ver raspa" %>...</p>
+				<%= link_to micropost.content.first(43), micropost_path(micropost), title: "ver raspa" %>...</p>
 			<% else %>
     			<%= link_to image_tag(micropost.user.image_url(:tiny)), micropost_path(micropost), title: "ver raspa de #{micropost.user.name}" %>
 				<p><b><%= link_to micropost.user.name, micropost.user %></b> escreveu:
     			<br />
-				<%= link_to micropost.content.first(42), micropost_path(micropost), title: "ver raspa" %>...</p>
+				<%= link_to micropost.content.first(43), micropost_path(micropost), title: "ver raspa" %>...</p>
 			<% end %>
 		</div>
 	<% end %>
