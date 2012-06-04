@@ -26,7 +26,8 @@
     @feed_items = current_user.feed.paginate(:page => params[:page])
     @authors_intro = Author.all
     @users_intro = User.all
-    @following = @user.following.paginate(:page => params[:page]) 
+    @following = @user.following.all
+    @idols = @user.idols.all 
   end
 
   def tags
