@@ -20,7 +20,7 @@
         method: 'feed',
         link: 'https://raspas.com.br/raspas/<%= @micropost.id %>',
         picture: '',
-        name: "'<%= @micropost.content %>'",
+        name: "",
         caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
         description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais.',  
       };
