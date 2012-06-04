@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"] 
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["description"]
-      user.image = auth["extra"]["raw_info"]["image"] 
+      user.image = auth["extra"]["info"]["image"] 
     end
   end
 
