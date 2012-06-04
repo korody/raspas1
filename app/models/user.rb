@@ -83,7 +83,7 @@
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["description"]
       user.image = auth["info"]["image"]
-      #user.image = auth["extra"]["raw_info"]["image"] 
+      user.image = auth["extra"]["raw_info"]["image"] 
     end
   end
 
@@ -120,7 +120,7 @@
   end  
 
   def feed
-    Micropost.user_feed(self)
+    Micropost.user_feed(self).sort{ |a,b| b.created_at <=> a.created_at }
   end
 
   def favo
