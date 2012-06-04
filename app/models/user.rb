@@ -1,5 +1,28 @@
-require 'digest'
-class User < ActiveRecord::Base
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  photo_updated_at   :datetime
+#  bio                :string(255)
+#  origin             :string(255)
+#  born               :string(255)
+#  tipo               :string(255)
+#
+
+
+  require 'digest'
+  class User < ActiveRecord::Base
   attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
 
   mount_uploader :image, ImageUploader
@@ -59,7 +82,8 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"] 
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["description"]
-      user.image = auth["extra"]["info"]["image"] 
+      user.image = auth["info"]["image"]
+      #user.image = auth["extra"]["raw_info"]["image"] 
     end
   end
 
@@ -96,7 +120,7 @@ class User < ActiveRecord::Base
   end  
 
   def feed
-    Micropost.from_users_followed_by(self)
+    Micropost.user_feed(self)
   end
 
   def favo
