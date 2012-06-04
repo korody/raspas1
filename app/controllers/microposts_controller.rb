@@ -15,7 +15,6 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @new_micropost = Micropost.new
     @tags = @micropost.tags
-      
   end
 
   def create
