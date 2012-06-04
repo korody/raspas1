@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-      if !@author
+      if @author
         "photos/default/" + [version_name, "author.png"].compact.join('_')
       else
         "photos/default/" + [version_name, "user.png"].compact.join('_')
