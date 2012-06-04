@@ -15,7 +15,6 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     @new_micropost = Micropost.new
     @tags = @micropost.tags
-    @title = @micropost.content
       
   end
 
@@ -74,9 +73,6 @@ class MicropostsController < ApplicationController
         favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, poster_id: original_micropost.user.id)
       end
       if favourite_micropost.save
-        unless favourite_micropost.poster.email.blank?
-          NotificationsMailer.favourite_notice(favourite_micropost).deliver
-        end
         redirect_to favourites_user_path(current_user)
         flash[:success] = "Raspa adicionada às suas favoritas!"   
       else
@@ -84,7 +80,7 @@ class MicropostsController < ApplicationController
       end
     else
       redirect_back_or current_user
-      flash[:error] = "Esta raspa não existe mais!"
+      flash[:error] = "A raspa mencionada não existe mais!"
     end
   end
 
