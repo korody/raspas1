@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"] 
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["description"]
-      user.image = auth["info"]["image"]
+      user.image = auth["info"]["#{options[:secure_image_url] ? 'https' : 'http'}://graph.facebook.com/#{uid}/picture?type=square"]
     end
   end
 
