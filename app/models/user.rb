@@ -120,7 +120,7 @@
   end  
 
   def feed
-    Micropost.user_feed(self).sort{ |a,b| b.created_at <=> a.created_at }
+    Micropost.user_feed(self).reverse
   end
 
   def favo
