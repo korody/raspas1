@@ -1345,11 +1345,15 @@ div.mural_feed a {
 
 
 div.mural_feed:hover {
-  background: #E8E8E8;
+  background: #FFF;
 }
 
-div.mural_feed:hover a{
+div.mural_feed:hover a {
   color: #2F4F4F;
+}
+
+div.mural_feed a:hover {
+  color: #E2492F;
 }
 
 div.user_card {

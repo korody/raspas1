@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class= "home_authors">
-        <% @intro.shuffle.first(48).each do |a| %>
+        <% @intro.shuffle.first(120).each do |a| %>
           <div class= "home_authors_each">
             <p><%= link_to a.name, a %></p>
             <%= link_to (image_tag a.image_url(:medium)), a %>
