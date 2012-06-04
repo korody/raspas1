@@ -8,9 +8,19 @@
 	<%= image_tag "ico_mural_big.png", :alt => "lê", title: "mural" %>
 </div>
 <div class= "user_feed_follow">
-    <% @user.feed.shuffle.last(6).each do |micropost| %>
-    	<div class= "mural_feed">	
-			<%= link_to micropost.content.first(45), micropost_path(micropost), title: "ver raspa" %>...
+    <% @user.feed.shuffle.last(4).each do |micropost| %>
+    	<div class= "mural_feed">
+    		<% if micropost.author %>	
+    			<%= link_to image_tag(micropost.author.image_url(:tiny)), micropost_path(micropost), title: "ver raspa de #{micropost.author.name}" %>
+    			<u><p><%= link_to micropost.user.name, micropost.user %></u> citou <u><%= link_to micropost.author.name, micropost.author %></u>:
+    			<br />
+				<%= link_to micropost.content.first(45), micropost_path(micropost), title: "ver raspa" %>...</p>
+			<% else %>
+    			<%= link_to image_tag(micropost.user.image_url(:tiny)), micropost_path(micropost), title: "ver raspa de #{micropost.user.name}" %>
+				<p><u><%= link_to micropost.user.name, micropost.user %></u> escreveu:
+    			<br />
+				<%= link_to micropost.content.first(45), micropost_path(micropost), title: "ver raspa" %>...</p>
+			<% end %>
 		</div>
 	<% end %>
 </div>

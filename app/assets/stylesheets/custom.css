@@ -1318,15 +1318,31 @@ div.stack_feed {
 
 div.mural_feed {
   border: 1px solid #D8D8D8;
-  height: 20px;
-  line-height: 1.5;
-  text-indent: 5px;
+  height: 31px;
   width: 330px;
 }
 
-div.mural_feed a{
-  color: #B0B0B0;
+div.mural_feed_half {
+  border: 1px solid #D8D8D8;
+  height: 15px;
+  width: 330px;
 }
+
+div.mural_feed img{
+  height: 31px;
+  width: 31px;
+}
+
+div.mural_feed p {
+  line-height: 1.2;
+  margin-left: 36px;
+}
+
+div.mural_feed a {
+  color: #B0B0B0;
+  font-size: 110%;
+}
+
 
 div.mural_feed:hover {
   background: #E8E8E8;
