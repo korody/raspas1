@@ -123,14 +123,9 @@ nav ul li input {
   border: 1px solid #E6674A;
   border-right: 0px solid #E6674A;
   color: #FFF;
-  float: left;
   height: 25px;
   margin-top: 6px;
   text-align: center;
-}
-
-nav ul li input:hover {
-  background: #E6674A;
 }
 
 nav ul li.search {
@@ -146,28 +141,25 @@ nav ul li.search input.lupa {
   border-right: 1px solid #E6674A;
   border-left: 0px solid #E6674A;
   float: left;
+  margin-right: 11em;
   opacity: 0.8;
   padding: 0 0.2em;
   height: 27px;
   width: 27px;
 }
 
-nav ul.nave_r li input#button {
+nav ul li input#button {
   border: 0px solid #E6674A;
   height: 18px;
-  margin-top: 0;
+  margin: 0;
   padding: 11px;
   width: 22px;
 }
 
-nav ul li a:hover, nav ul.nave_r li input#button:hover {
-  background: #E6674A;
-  color: #FFF;
-}
-
 nav ul li a.mural {
   border: 0px solid #E6674A;
-  margin-left: 0.8em;
+  float: left;
+  margin: 0em;
   padding: 4px; 
 }
 
@@ -175,9 +167,13 @@ nav ul li a.mural {
   border: 0px solid #E6674A;
   height: 30px;
   margin: 0;
-  padding: 0px; 
+  padding: 0 2px; 
   width: 30px;
  }
+
+nav ul li input:hover, nav ul li a:hover, nav ul li input#button:hover {
+  background: #E6674A;
+}
 
 div.mural_count {
   background: #E6674A;
