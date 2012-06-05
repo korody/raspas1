@@ -10,14 +10,11 @@
       </li>
     </ul>
     <% if signed_in? %> 
-      <ul>
+      <!-- <ul>
         <li>
-          <%= link_to (image_tag "mural.png"), feed_user_path(current_user), class: "mural", title: "mural" %>
-            <div class= "mural_count round">
-              <% if current_user.feed.any? %><p class= "p_feed"><%= current_user.feed.count %></p><% end %>
-            </div>
+          <%#= link_to (image_tag "heart.png"), feed_user_path(current_user), class: "mural", title: "mural" %>
         </li>
-      </ul>
+      </ul> -->
       <ul class= "nave_r"> 
         <div class= "topo">
           <li><%= link_to (image_tag "menu_arrow.png"), current_user %> 
@@ -27,6 +24,12 @@
         </div>   
       </ul> 
       <ul class= "nave_r"> 
+        <li><!-- 
+          <div class= "mural_count round">
+            <%# if current_user.feed.any? %><p class= "p_feed"><%#= current_user.feed.count %></p><%# end %>
+          </div> -->
+          <%= link_to (image_tag "mural.png"), feed_user_path(current_user), class: "mural", title: "mural" %>
+        </li>
         <li><%= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
         <li><%= link_to current_user.name, current_user %></li>
       <ul>
