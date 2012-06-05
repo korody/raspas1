@@ -37,7 +37,7 @@
                                    :class_name => "Favourite",
                                    :dependent => :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "favourites.created_at DESC", select: "DISTINCT microposts.*"#, 
+  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"#, 
                                               # :select => "microposts.id, count(favoritadas.id) AS favouritadas_count",
                                               # :joins => :favourites,
                                               # :order => "favouritadas_count"
