@@ -2,20 +2,20 @@
 	<div class="author_info">
 		<%= render 'author_info_favourites' %>
 	</div>	
-		<div class= "stack">
-			<% if @author_eleitas.empty? %>
-				<div class="half_quotes round">
-					<div class= "sign">
-						Nada? <%= link_to @author.name, @author %> deve estar se remoendo!<br />
-						Que tal uma mãozinha? Visite o <%= link_to "perfil", @author %> e marque uma favorita.<br />
-					</div>
-					<div class= "flag_sign">
-						<%= image_tag "dull.png" %>
-					</div>
+	<div class= "stack">
+		<% if @eleitas.empty? %>
+			<div class="half_quotes round">
+				<div class= "sign">
+					Nada? <%= link_to @author.name, @author %> deve estar se remoendo!<br />
+					Que tal uma mãozinha? Visite o <%= link_to "perfil", @author %> e marque uma favorita.<br />
 				</div>
-			<% else %>
-				<%= render @author_eleitas %>
-				<%= will_paginate @author_eleitas %>
-			<% end %>
-		</div>
+				<div class= "flag_sign">
+					<%= image_tag "dull.png" %>
+				</div>
+			</div>
+		<% else %>
+			<%= render @eleitas %>
+		<% end %>
+	</div>
+	<%= will_paginate @eleitas %>
 </div>

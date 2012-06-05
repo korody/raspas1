@@ -528,6 +528,11 @@ div.back_avatar_each, div.feed_mosaico_each {
   width: 98px;
 }
 
+div.feed_mosaico_each {
+  opacity: 0.3;
+  filter:alpha(opacity=20);
+}
+
 div.back_avatar_each img, div.mosaico_each img, div.feed_mosaico_each img {
   height: 98px;
   width: 98px;

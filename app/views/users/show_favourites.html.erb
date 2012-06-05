@@ -3,7 +3,7 @@
 		<%= render 'user_info_favourites' %>
 	</div>
 	<div class= "stack">
-		<% if @user.eleitas.empty? %>
+		<% if @eleitas.empty? %>
 	  		<% if current_user?(@user) %>
 				<div class="half_quotes round">
 					<div class= "sign">
@@ -27,12 +27,12 @@
 				</div>
 			<% end %>		
 		<% else %>
-		  	<% unless @user_eleitas.empty? %>
+		  	<% unless @eleitas.empty? %>
 				<div>
-					<%= render @user_eleitas %>
+					<%= render @eleitas %>
 				</div>
 		  	<% end %>
 		<% end %>
 	</div>
-    <%= will_paginate @user_eleitas %>
+    <%= will_paginate @eleitas %>
 </div>

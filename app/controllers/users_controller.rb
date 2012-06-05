@@ -125,7 +125,7 @@
     @title = "favoritas"
     @user = User.find(params[:id])
     @favourites = @user.favourites.all
-    @user_eleitas = @user.eleitas.paginate(:page => params[:page])
+    @eleitas = @user.eleitas.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     render 'show_favourites'
   end

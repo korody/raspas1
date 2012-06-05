@@ -99,8 +99,7 @@ class AuthorsController < ApplicationController
     @title = "favoritas"
     @author = Author.find(params[:id])
     @favourites = @author.favourites.all
-    @author_eleitas = @author.eleitas
-    @author_eleitas = @author.eleitas.paginate(:page => params[:page])
+    @eleitas = @author.eleitas.paginate(:page => params[:page])
     @authors = Author.all
     @new_micropost = Micropost.new
     render 'show_favourites'
