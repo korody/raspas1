@@ -141,7 +141,6 @@ nav ul li.search input.lupa {
   border-right: 1px solid #E6674A;
   border-left: 0px solid #E6674A;
   float: left;
-  margin-right: 11em;
   opacity: 0.8;
   padding: 0 0.2em;
   height: 27px;
@@ -160,6 +159,7 @@ nav ul li a.mural {
   border: 0px solid #E6674A;
   float: left;
   margin: 0em;
+  margin-left: 11em;
   padding: 4px; 
 }
 
