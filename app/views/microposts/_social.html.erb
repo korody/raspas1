@@ -20,7 +20,7 @@
         method: 'feed',
         link: 'https://raspas.com.br/raspas/<%= @micropost.id %>',
         picture: '<% if @micropost.author %><% if !@micropost.author.image.blank? %><%= @micropost.author.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_author.png" %><% end %><% else %><% if !@micropost.user.image.blank? %><%= @micropost.user.image_url(:regular) %><% else %><%= image_tag "photos/default/medium_user.png" %><% end %><% end %>',
-        name: '"<%=raw h(@micropost.content).gsub(/\n/, '<br/>') %>"',
+        name: '"<%=raw simple_format h(@micropost.content).gsub(/\n/, '<br/>') %>"',
         caption: '<% if @micropost.author %>{ <%= @micropost.author.name %><% else %>{ <%= @micropost.user.name %><% end %>',                                
         description: 'crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais.',  
       };
