@@ -3,9 +3,9 @@
     <div class= "quote_text">
       <div class= "upwards">
         <% if !micropost.author %>
-          <%= micropost.content %>
+          <%= h(micropost.content).gsub(/#{/\n/}|&quot;/, '') %>
         <% else %>
-          &quot;<%= micropost.content %>&quot;
+          &quot;<%= h(micropost.content).gsub(/#{/\n/}|&quot;/, '') %>&quot;
         <% end %>
       </div>
     </div>

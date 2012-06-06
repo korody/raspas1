@@ -12,9 +12,9 @@
         <div class= "quote_text">
           <div class= "upwards">
             <% if !feed_item.author %>
-              <%= feed_item.content %>
+              <%= h(feed_item.content).gsub(/#{/\n/}|&quot;/, '') %>
             <% else %>
-              &quot;<%= feed_item.content %>&quot;
+              &quot;<%= h(feed_item.content).gsub(/#{/\n/}|&quot;/, '') %>&quot;
             <% end %>
           </div>
         </div>
