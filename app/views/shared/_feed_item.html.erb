@@ -46,7 +46,7 @@
           </div>
           <div class= "timestamp_each">
             <% if feed_item.favouriters.any? %>
-              <% feed_item.favouriters.last(1).each do |favouriters| %>
+              <% feed_item.favouriters.first(1).each do |favouriters| %>
               <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
               <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
                 <% unless feed_item.favouriters.count == 1 %>

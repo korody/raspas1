@@ -37,7 +37,7 @@
       </div>   -->
       <div class= "timestamp_each">
         <% if micropost.favouriters.any? %>
-          <% micropost.favouriters.last(1).each do |favouriters| %>
+          <% micropost.favouriters.first(1).each do |favouriters| %>
             <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
             <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
               <% unless micropost.favouriters.count == 1 %>
