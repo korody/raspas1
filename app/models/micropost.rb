@@ -41,8 +41,14 @@ class Micropost < ActiveRecord::Base
   attr_accessor :author_name
   attr_writer :tag_names
   attr_reader :tag_tokens
-  before_save :assign_author
+  before_save :assign_author, :normalize
   after_save :assign_tags
+
+  def normalize
+    if content
+      self.content = content.gsub('"', '').gsub("\r\n", ' ')
+    end  
+  end
 
   def favourites?(micropost)
     favourites.find_by_micropost_id(micropost)
