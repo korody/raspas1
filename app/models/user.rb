@@ -72,7 +72,6 @@
  # validates :email, :presence   => true,
  #                   :format     => { :with => email_regex },
  #                   :uniqueness => { :case_sensitive => false }
-	
 
   def self.create_with_omniauth(auth)
     create! do |user|

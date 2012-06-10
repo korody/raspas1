@@ -48,18 +48,6 @@
     @title = "cadastre-se"
   end
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Seja bem-vindo à sua coleção de raspas! Divirta-se."
-      redirect_to @user
-    else
-      @title = "cadastre-se"
-      render 'new'
-    end
-  end
-
   def edit
     @user = User.find(params[:id])
     @title = "editar"

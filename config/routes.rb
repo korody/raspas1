@@ -65,6 +65,7 @@ Benfeitor::Application.routes.draw do
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   match '/auth/:provider/callback', :to => 'sessions#create'
+  match 'auth/failure', to: redirect('/')
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
 
