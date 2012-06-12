@@ -21,13 +21,11 @@ class Tag < ActiveRecord::Base
 
   validates :name,  :length   => { :maximum => 20 }
 
-	  def self.search(search)
+  def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else
       find(:all)
     end
   end
-
-
 end

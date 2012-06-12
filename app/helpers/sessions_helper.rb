@@ -27,7 +27,7 @@ module SessionsHelper
 
   def deny_access
     store_location
-    redirect_to signin_path, :notice => "Opa! Vamos por partes. Você já se conectou ao raspas?"
+    redirect_to signin_path, :notice => "Opa! Vamos por partes. Você já conectou-se ao raspas?"
   end
 
   def redirect_back_or(default)
