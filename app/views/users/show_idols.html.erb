@@ -14,9 +14,11 @@
 	          </div>
 	        </div>
 	        <div class= "home_authors">
-          		<% @authors_intro.shuffle.first(24).each do |author| %>
-		            <p><%= link_to author.name, author %></p>
-		            <%= link_to image_tag(author.image_url(:medium)), author %>
+          		<% @authors_intro.shuffle.first(120).each do |author| %>
+			        <div class= "home_authors_each">
+			        	<p><%= link_to author.name, author %></p>
+			            <%= link_to image_tag(author.image_url(:medium)), author %>
+			        </div>
 				<% end %>
 	        </div>
 	    <% else %>
