@@ -1,7 +1,7 @@
   # encoding: utf-8
   class UsersController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update, :destroy]
+  before_filter :correct_user, :only => [:edit, :update, :destroy, :feed]
 
   def index
     @title = "usuários"
