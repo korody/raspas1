@@ -1,3 +1,11 @@
+<% if current_user?(@user) %>
+	<div id= "feed" class= "stats">
+		<p class= "p_stats">mural</p>
+		<%= link_to (image_tag "ico_mural.png"), feed_user_path(@user), :alt => "raspas", :class => "round" %>
+		<%= link_to @user.feed.count, feed_user_path(@user), :class => "but round", 
+		title: "ver raspas + recentes" %>
+	</div>
+<% end %>
 <div id= "following" class= "stats">
 	<p class= "p_stats">seguindo</p>
 	<%= link_to (image_tag "ico_following.png"), following_user_path(@user), :alt => "raspas", :class => "round" %>

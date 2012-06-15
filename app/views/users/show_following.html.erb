@@ -14,12 +14,12 @@
 	          </div>
 	        </div>
 	        <div class= "home_authors">
-			<% @users_intro.shuffle.first(120).each do |user| %>
-				<div class= "home_authors_each">
-				    <p><%= link_to user.name, user %></p>
-				    <%= link_to image_tag(user.image_url(:medium)), user %>
-				</div>
-			<% end %>
+				<% @users_intro.shuffle.first(120).each do |user| %>
+					<div class= "home_authors_each">
+					    <p><%= link_to user.name, user %></p>
+					    <%= link_to image_tag(user.image_url(:medium)), user %>
+					</div>
+				<% end %>
 	        </div>
 	    <% else %>
 	      <div>

@@ -2,7 +2,9 @@
 	<%= link_to image_tag(@user.image_url(:medium)), @user, title: "voltar para #{@user.name}" %>
 </div>
 <div class= "user_feed_side">
-	<br />
+	<% if !current_user?(@user) %>
+		<br />
+	<% end %>	
 	<%= render "stats_relations" %>
 </div>
 <div class= "user_feed_arrow">
