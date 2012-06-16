@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     email = auth['info']['email']
     if user
       sign_in user
-      redirect_back_or root_path
+      redirect_back_or feed_user_path(user)
       #flash.now[:success] = "Olá! Sentindo-se inspirado hoje?"
     else
       user = User.create_with_omniauth(auth)
