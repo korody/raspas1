@@ -2,23 +2,33 @@
 module SessionsHelper
 
   def home
-    request.fullpath == root_path
+    request.fullpath == home_path
   end	
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find_by_salt(cookies[:remember_token]) if cookies[:remember_token]
   end
 
-  def signin(user)
-      self.current_user = user
+  def sign_in(user)
+    cookies.permanent[:remember_token] = user.salt
+    self.current_user = user
   end
 
   def current_user?(user)
     user == current_user
   end
 
+  def current_user=(user)
+    @current_user = user
+  end
+
   def signed_in?
     !current_user.nil?
+  end
+
+  def sign_out
+    self.current_user = nil
+    cookies.delete(:remember_token)
   end
 
    def authenticate
