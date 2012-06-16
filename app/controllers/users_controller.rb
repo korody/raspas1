@@ -21,7 +21,7 @@
 
   def feed
     @title = "mural"
-    @user = User.find_by_salt(cookies[:remember_token])
+    @user = current_user
     @new_micropost = Micropost.new        
     @feed_items = @user.feed.paginate(:page => params[:page])
     authors_intro = Author.all
@@ -130,7 +130,7 @@
  private
 
   def correct_user
-    @user = User.find_by_salt(cookies[:remember_token])
+    @user = current_user
     redirect_to(root_path) unless current_user?(@user)
   end
 
