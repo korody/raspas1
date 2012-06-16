@@ -71,8 +71,8 @@ Benfeitor::Application.routes.draw do
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
 
-  root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
-  root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
+  root :to => "pages#home"#, :constraints => LoggedInConstraint.new(false)
+  #root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

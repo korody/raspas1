@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <%= link_to logo, home_path, :class => "raspas_logo" %>
+    <%= link_to logo, root_path, :class => "raspas_logo" %>
     <ul>
       <li class= "search">
         <%= form_tag :search, :action => 'search', :method => 'get' do %>
@@ -20,7 +20,7 @@
           <div class= "mural_count round">
             <%# if current_user.feed.any? %><p class= "p_feed"><%#= current_user.feed.count %></p><%# end %>
           </div> -->
-          <%= link_to (image_tag "mural.png"), root_path, class: "mural", title: "mural" %>
+          <%= link_to (image_tag "mural.png"), feed_user_path(current_user), class: "mural", title: "mural" %>
         </li>
         <li><%= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
       </ul>
