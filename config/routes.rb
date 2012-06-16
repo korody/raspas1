@@ -1,6 +1,5 @@
 Benfeitor::Application.routes.draw do
   ActiveAdmin.routes(self)
-  require File.expand_path("../../lib/logged_in_constraint", __FILE__)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
@@ -61,9 +60,8 @@ Benfeitor::Application.routes.draw do
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/signout', to: 'sessions#destroy'
   match '/about',   to: 'pages#about'
-  match '/home',   to: 'pages#home'
   match 'contact' => 'contact#new', as: 'contact', via: :get
   match 'contact' => 'contact#create', as: 'contact', via: :post
   match '/auth/:provider/callback', to: 'sessions#create'
@@ -71,8 +69,7 @@ Benfeitor::Application.routes.draw do
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
 
-  root :to => "pages#home"#, :constraints => LoggedInConstraint.new(false)
-  #root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
+  root to: 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

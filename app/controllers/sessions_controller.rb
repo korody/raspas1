@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
     email = auth['info']['email']
     if user
-      sign_in user
+      session[:user_id] = user.id
       redirect_back_or feed_user_path(user)
       #flash.now[:success] = "Olá! Sentindo-se inspirado hoje?"
     else
@@ -19,22 +19,23 @@ class SessionsController < ApplicationController
       if user.save
         if !email.blank?
           NotificationsMailer.registration_confirmation(user).deliver
-          sign_in user
+          session[:user_id] = user.id
           redirect_back_or user
           flash[:success] = "Olá #{user.name}! Seja bem-vindo à sua coleção de raspas!"
         else
-          sign_in user
+          session[:user_id] = user.id
           redirect_back_or edit_user_path(current_user)
           flash[:notice] = "Ops! Faltou o seu e-mail... Diga-nos qual é para finalizarmos o seu cadastro."
         end  
       else
+        session[:user_id] = auth.except('extra')
         redirect_to new_user_url
       end  
     end 
   end
 
   def destroy
-    sign_out
+    session[:user_id] = nil
     redirect_to root_url
   end
 
