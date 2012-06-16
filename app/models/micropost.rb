@@ -46,7 +46,7 @@ class Micropost < ActiveRecord::Base
 
   def normalize
     if content
-      self.content = content.gsub('"', '').gsub("\r\n", ' ')
+      self.content = content.gsub('"', '').gsub("'", '`').gsub("\r\n", ' ')
     end  
   end
 
