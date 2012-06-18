@@ -21,7 +21,7 @@
 
   def feed
     @title = "mural"
-    @user = User.find(params[:id])
+    @user = User.find_by_salt(cookies[:remember_token])
     @new_micropost = Micropost.new        
     @feed_items = @user.feed.paginate(:page => params[:page])
     authors_intro = Author.all
@@ -57,6 +57,7 @@
   def update
     @new_micropost = Micropost.new
     if @user.update_attributes(params[:user])
+      sign_in @user
       flash[:success] = "Perfil atualizado com sucesso! Veja aí as alterações."
       redirect_to @user
     else
@@ -129,7 +130,7 @@
  private
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by_salt(cookies[:remember_token])
     redirect_to(root_path) unless current_user?(@user)
   end
 

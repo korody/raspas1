@@ -24,6 +24,7 @@
   require 'digest'
   class User < ActiveRecord::Base
   attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
+  before_save :create_remember_token
 
   mount_uploader :image, ImageUploader
 
@@ -124,5 +125,11 @@
 
   def favo
     Micropost.from_microposts_favourites_of(self)
-  end    
+  end
+
+  private
+
+    def create_remember_token
+      self.salt = SecureRandom.urlsafe_base64
+    end
 end
