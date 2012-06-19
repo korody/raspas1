@@ -2,7 +2,11 @@
 module SessionsHelper
 
   def home
-    request.fullpath == home_path
+    if signed_in?
+      request.fullpath == home_path
+    else  
+      request.fullpath == root_path && home_path
+    end
   end	
 
   def sign_in(user)
