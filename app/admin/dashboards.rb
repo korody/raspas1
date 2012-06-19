@@ -2,7 +2,7 @@
 ActiveAdmin::Dashboards.build do
 
   section 'ÚLTIMAS RASPAS' do
-    table_for Micropost.order("created_at desc").limit(10) do
+    table_for Micropost.order("created_at desc").limit(20) do
       column :id do |micropost|
         link_to micropost.id, [:admin, micropost]
       end
@@ -18,7 +18,7 @@ ActiveAdmin::Dashboards.build do
   end
 
   section 'ÚLTIMOS PENSADORES' do
-    table_for Author.order("created_at desc").limit(10) do
+    table_for Author.order("created_at desc").limit(20) do
       column :id do |author|
         link_to author.id, [:admin, author]
       end
@@ -33,7 +33,7 @@ ActiveAdmin::Dashboards.build do
   end
 
    section 'ÚLTIMOS USUÁRIOS' do
-    table_for User.order("created_at desc").limit(10) do
+    table_for User.order("created_at desc").limit(20) do
       column :id do |user|
         link_to user.id, [:admin, user]
       end
@@ -44,6 +44,18 @@ ActiveAdmin::Dashboards.build do
       column :bio
     end
     strong { link_to "TODOS USUÁRIOS", admin_authors_path }
+  end
+
+  section 'ÚLTIMOS TEMAS' do
+    table_for Tags.order("created_at desc").limit(20) do
+      column :id do |tag|
+        link_to tag.id, [:admin, tag]
+      end
+      column :name do |tag|
+        link_to user.name, [:admin, tag]
+      end
+    end
+    strong { link_to "TODOS TEMAS", admin_tags_path }
   end
 
   # Define your dashboard sections here. Each block will be
