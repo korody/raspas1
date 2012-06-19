@@ -1,48 +1,42 @@
 ActiveAdmin::Dashboards.build do
 
-  section 'ÚLTIMAS RASPAS' do
+  section 'RECENT QUOTES' do
     table_for Micropost.order("created_at desc").limit(10) do
       column :id do |micropost|
         link_to micropost.id, [:admin, micropost]
       end
       column :user
       column :author
-      column :content do |micropost|
-        link_to micropost.content, [:admin, micropost]
-      end
+      column :content
       column :tag_names
       column :published
     end
-    strong { link_to "TODAS RASPAS", admin_microposts_path }
+    strong { link_to "ALL QUOTES", admin_microposts_path }
   end
 
-  section 'ÚLTIMOS PENSADORES' do
+  section 'RECENT AUTHORS' do
     table_for Author.order("created_at desc").limit(10) do
       column :id do |author|
         link_to author.id, [:admin, author]
       end
-      column :name do |author|
-        link_to author.name, [:admin, author]
-      end
+      column :name
       column :job
       column :bio
       column :published
     end
-    strong { link_to "TODOS PENSADORES", admin_authors_path }
+    strong { link_to "ALL AUTHORS", admin_authors_path }
   end
 
-   section 'ÚLTIMOS USUÁRIOS' do
+   section 'RECENT USERS' do
     table_for User.order("created_at desc").limit(10) do
       column :id do |user|
         link_to user.id, [:admin, user]
       end
-      column :name do |user|
-        link_to user.name, [:admin, user]
-      end
+      column :name
       column :job
       column :bio
     end
-    strong { link_to "TODOS USUÁRIOS", admin_authors_path }
+    strong { link_to "ALL USERS", admin_authors_path }
   end
 
   # Define your dashboard sections here. Each block will be
