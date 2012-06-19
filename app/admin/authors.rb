@@ -7,7 +7,7 @@ ActiveAdmin.register Author do
 	  	column :id
 	  	column :name
 	  	column :job
-	  	column :photo_content_type	
+	  	column :image
 	  	column :published, as: 'boolean', select: 'check_box'
 	  	default_actions
   	end  

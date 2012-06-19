@@ -4,7 +4,7 @@ ActiveAdmin.register User do
   	column :name
   	column :email
   	column :job
-  	column :photo_content_type	
+  	column :image
   	column :admin
   	default_actions
   end

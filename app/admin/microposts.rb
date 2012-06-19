@@ -1,4 +1,4 @@
-ActiveAdmin.register Micropost, path: "raspas" do
+ActiveAdmin.register Micropost do
   
   scope :PUBLISHED
   scope :UNPUBLISHED
