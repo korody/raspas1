@@ -8,7 +8,6 @@ ActiveAdmin.register Micropost, path: "raspas" do
   	column :user
   	column :author
   	column :content
-  	column :tag
   	column :origem
   	column :published
   	default_actions

@@ -32,19 +32,19 @@ ActiveAdmin::Dashboards.build do
     strong { link_to "TODOS PENSADORES", admin_authors_path }
   end
 
-   section 'ÚLTIMOS USUÁRIOS' do
-    table_for User.order("created_at desc").limit(20) do
-      column :id do |user|
-        link_to user.id, [:admin, user]
-      end
-      column :name do |user|
-        link_to user.name, [:admin, user]
-      end
-      column :job
-      column :bio
-    end
-    strong { link_to "TODOS USUÁRIOS", admin_authors_path }
-  end
+  #  section 'ÚLTIMOS USUÁRIOS' do
+  #   table_for User.order("created_at desc").limit(20) do
+  #     column :id do |user|
+  #       link_to user.id, [:admin, user]
+  #     end
+  #     column :name do |user|
+  #       link_to user.name, [:admin, user]
+  #     end
+  #     column :job
+  #     column :bio
+  #   end
+  #   strong { link_to "TODOS USUÁRIOS", admin_authors_path }
+  # end
 
   section 'ÚLTIMOS TEMAS' do
     table_for Tag.order("created_at desc").limit(20) do
