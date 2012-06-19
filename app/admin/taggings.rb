@@ -9,9 +9,7 @@ ActiveAdmin.register Tagging do
 
 	form do |f|
 	    f.inputs "Taggings" do
-			f.inputs :micropost do |micropost|
-				micropost.id, [:admin, micropost]
-			end
+			f.inputs :micropost
 			f.inputs :tag
 	    end
 	    f.buttons
