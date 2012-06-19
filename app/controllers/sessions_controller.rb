@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         create_salt = SecureRandom.urlsafe_base64
         user.update_attributes(remember_token: create_salt)
       end
-      sign_in user
+      signin user
       redirect_back_or root_path
       #flash.now[:success] = "Olá! Sentindo-se inspirado hoje?"
     else
@@ -23,11 +23,11 @@ class SessionsController < ApplicationController
       if user.save
         unless email.blank?
           NotificationsMailer.registration_confirmation(user).deliver
-          sign_in user
+          signin user
           redirect_back_or user
           flash[:success] = "Olá #{user.name}! Seja bem-vindo à sua coleção de raspas!"
         else
-          sign_in user
+          signin user
           redirect_back_or edit_user_path(current_user)
           flash[:notice] = "Ops! Faltou o seu e-mail... Diga-nos qual é para finalizarmos o seu cadastro."
         end  

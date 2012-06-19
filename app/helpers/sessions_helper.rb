@@ -9,7 +9,7 @@ module SessionsHelper
     end
   end	
 
-  def sign_in(user)
+  def signin(user)
     cookies.permanent[:remember_token] = user.salt
     self.current_user = user
   end

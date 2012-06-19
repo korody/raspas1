@@ -25,7 +25,7 @@
         <div>
           <% if home %>
             <div class= "back_avatar">
-              <% @authors.shuffle.each do |author| %>
+              <% @authors.shuffle.first(250).each do |author| %>
                 <div class= "back_avatar_each">
                   <%= link_to (image_tag author.image_url(:medium).to_s), author %>
                   <p class= "gradient"><%= link_to author.name, author %></p>
