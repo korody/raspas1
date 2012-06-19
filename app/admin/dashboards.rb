@@ -52,7 +52,7 @@ ActiveAdmin::Dashboards.build do
         link_to tag.id, [:admin, tag]
       end
       column :name do |tag|
-        link_to user.name, [:admin, tag]
+        link_to tag.name, [:admin, tag]
       end
     end
     strong { link_to "TODOS TEMAS", admin_tags_path }
