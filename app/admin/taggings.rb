@@ -9,10 +9,8 @@ ActiveAdmin.register Tagging do
 
 	form do |f|
 	    f.inputs "Taggings" do
-	      f.inputs :micropost do |micropost|
-	        link_to micropost.id, [:admin, micropost]
-	      end
-		f.inputs :tag
+			f.inputs :micropost
+			f.inputs :tag
 	    end
 	    f.buttons
   	end
