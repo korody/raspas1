@@ -47,7 +47,7 @@ ActiveAdmin::Dashboards.build do
   end
 
   section 'ÚLTIMOS TEMAS' do
-    table_for Tags.order("created_at desc").limit(20) do
+    table_for Tag.order("created_at desc").limit(20) do
       column :id do |tag|
         link_to tag.id, [:admin, tag]
       end
