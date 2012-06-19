@@ -1,6 +1,10 @@
 <header>
   <nav>
-    <%= link_to logo, home_path, :class => "raspas_logo" %>
+    <% if signed_in? %>
+      <%= link_to logo, home_path, :class => "raspas_logo" %>
+    <% else %>
+      <%= link_to logo, root_path, :class => "raspas_logo" %>
+    <% end %>
     <ul>
       <li class= "search">
         <%= form_tag :search, :action => 'search', :method => 'get' do %>
