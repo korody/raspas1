@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   def new
     @title = "entrar"
     @new_micropost = Micropost.new
+    @authors = Author.all(:order => 'authors.created_at DESC')
   end
 
   def create

@@ -1176,7 +1176,7 @@ div.quotes:hover div.timestamp {
 
 div.sharing {
   border: 1px solid #E2492F;
-  background: transparent;
+  background: #FFF;
 }
 
 div.sharing a, div.sharing img {
