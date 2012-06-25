@@ -1688,7 +1688,7 @@ div.flash.success img{
 }
 
 div.flash.notice {
-  background: transparent;
+  background: white;
   background-image: url('surprise_.png');
   background-repeat: no-repeat;
   background-position: right center;
@@ -1697,12 +1697,18 @@ div.flash.notice {
   color: #B0B0B0;
   display: inline-block;
   font-size: 140%;
-  padding: 2em 0;
   margin: 0 auto 1em;
+  padding: 2.3em 0;
+  position: relative;
   text-align: center;
   width: 792px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
+  z-index: 5;
+}
+
+div.flash.notice a {
+  font-size: 100%;
 }
 
 div.flash.error {

@@ -26,20 +26,32 @@
           <%= image_tag "happy.png" %>
         </div>
       </div>
-    <% end %> 
-    <% unless @author.microposts.empty? %>
-      <%= render @microposts %>
-    <% else %>
-      <div class= "half_quotes round">
-        <div class= "sign">
-          Nada por aqui! <%= @author.name %> está em baixa...<br />
-          Explore as raspas de outros <%= link_to "pensadores", authors_path %>.
-        </div>
-        <div class= "flag_sign">
-          <%= image_tag "sad.png" %>
-        </div>
-      </div>
-      <%= will_paginate @microposts %>
     <% end %>
+    <% if !signed_in? %>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <%= render 'shared/welcome' %>
+    <% end %>
+    <div>
+      <% unless @author.microposts.empty? %>
+        <%= render @microposts %>
+      <% else %>
+        <div class= "half_quotes round">
+          <div class= "sign">
+            Nada por aqui! <%= @author.name %> está em baixa...<br />
+            Explore as raspas de outros <%= link_to "pensadores", authors_path %>.
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "sad.png" %>
+          </div>
+        </div>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </div>  
   </div>
 </div>

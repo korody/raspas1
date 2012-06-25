@@ -70,9 +70,10 @@
             	      :length   => { :maximum => 50 },
                     :uniqueness => { :case_sensitive => false }
 
- # validates :email, :presence   => true,
- #                   :format     => { :with => email_regex },
- #                   :uniqueness => { :case_sensitive => false }
+ validates :email, :presence   => true,
+                   :format     => { :with => email_regex },
+                   :uniqueness => { :case_sensitive => false },
+                   :on => :update
 
   def self.create_with_omniauth(auth)
     create! do |user|

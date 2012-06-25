@@ -32,7 +32,8 @@ class SessionsController < ApplicationController
           flash[:notice] = "Ops! Faltou o seu e-mail... Diga-nos qual é para finalizarmos o seu cadastro."
         end  
       else
-        redirect_to new_user_url
+        contact = "<a href= 'contact'>contate-nos</a>"
+        redirect_to signin_path, notice: "Ops! Algo deu errado...Por favor, tente novamente ou #{contact} para averiguarmos.".html_safe
       end  
     end 
   end

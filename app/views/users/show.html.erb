@@ -28,6 +28,16 @@
         <% end %>
       <% end %> 
     <% end %>
+    <% if !signed_in? %>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <%= render 'shared/welcome' %>
+    <% end %>
     <% unless @microposts.empty? %>
     	<%= render @microposts %>
     <% else %>
