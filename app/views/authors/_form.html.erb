@@ -26,4 +26,9 @@
     <div class= "update">
         <%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
     </div>
+    <div class= "update_">
+        <% if @author %>
+            <%= link_to "voltar", @author, class: "but round", title: "voltar para o perfil de #{@author.name}" %> 
+        <% end %>
+    </div>
 <% end %>

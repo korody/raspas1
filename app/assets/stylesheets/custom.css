@@ -155,7 +155,7 @@ nav ul li input#button {
   width: 22px;
 }
 
-nav ul li a.mural {
+nav ul li a#mural {
   border: 0px solid #E6674A;
   float: left;
   margin: 0em;
@@ -163,7 +163,7 @@ nav ul li a.mural {
   padding: 4px; 
 }
 
- nav ul li a.mural img {
+ nav ul li a#mural img {
   border: 0px solid #E6674A;
   height: 30px;
   margin: 0;
@@ -292,6 +292,20 @@ footer {
   position: absolute;
   top: 0;
   z-index: -1;
+}
+
+.active {
+  background-color: #E6674A;
+}
+
+.relative {
+  position: relative;
+}
+
+#waiting {
+  position: absolute;
+  left: 0;
+  visibility: hidden;
 }
 
 input::-webkit-input-placeholder {
@@ -710,6 +724,7 @@ div.user_info_board a.edit {
 div.user_info_board input.follow {
   background: #E2492F;
   color: #FFF;
+  z-index: 2;
 }
 
 div.user_info_board input.unfollow {
@@ -1559,28 +1574,16 @@ div.update {
   border: 0px solid #D8D8D8;
   display: block;
   float: right;
-}
-
-div.update_author {
-  display: block;
-  float: left;
   font-size: 120%;
 }
 
 div.update_ {
   display: block;
-  float: right;
-  font-size: 110%;
-}
-
-div.update_apagar {
-  display: block;
-  font-size: 100%;
-  line-height: 1.5;
+  font-size: 90%;
   margin-top: 10em;
 }
 
-div.update_apagar a {
+div.update_ a {
   color: #B0B0B0;
 }
 

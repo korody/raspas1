@@ -58,7 +58,7 @@
     @new_micropost = Micropost.new
     if @user.update_attributes(params[:user])
       signin @user
-      flash[:success] = "Perfil atualizado com sucesso! Veja aí as alterações."
+      flash[:success] = "Perfil atualizado com sucesso!"
       redirect_to @user
     else
       @title = "editar"

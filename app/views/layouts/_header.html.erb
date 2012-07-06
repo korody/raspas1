@@ -24,7 +24,7 @@
           <div class= "mural_count round">
             <%# if current_user.feed.any? %><p class= "p_feed"><%#= current_user.feed.count %></p><%# end %>
           </div> -->
-          <%= link_to (image_tag "mural.png"), root_path, class: "mural", title: "mural" %>
+          <%= link_to (image_tag "mural.png"), root_path, class: active?('users', 'feed'), id: "mural", title: "mural" %> 
         </li>
         <li><%= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
       </ul>
@@ -37,11 +37,11 @@
         </div>   
       </ul> 
       <ul class= "nave_r"> 
-        <li><%= link_to current_user.name, current_user %></li>
+        <li><%= link_to current_user.name, current_user, class: active?('users', 'show') || active?('users', 'edit') %></li>
       <ul>
     <% else %>
       <ul>
-        <li><%= link_to "sobre o raspas", about_path %></li>
+        <li><%= link_to "sobre o raspas", about_path, class: active?('pages', 'about') %></li>
       </ul> 
       <ul class= "nave_r">
         <div class= "topo">
@@ -53,7 +53,7 @@
         </div>
       </ul>
       <ul class= "nave_r"> 
-        <li><%= link_to "entrar", signin_path %></li>
+        <li><%= link_to "entrar", signin_path, class: active?('sessions', 'new') %></li>
       </ul>
     <% end %>
   </nav>

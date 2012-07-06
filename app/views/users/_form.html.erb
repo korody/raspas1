@@ -23,19 +23,17 @@
 			<div id= "count_bio">680</div>
 		</div>
 	</div>
-	<div class= "update">
-		<div class= "update_">
-			<%= submit_tag "atualizar", :alt => "atualizar", :class => "but round actions" %>
-		</div>
-		<div class= "update_apagar">
-			<% if current_user %>
-		      <%= link_to "apagar conta", current_user, 
-		                                              :class => "but round",
-		                                              :method => :delete, 
-		                                              :confirm => "têm certeza que deseja remover o usuário permanentemente?",
-		                                              :title => "deixar o raspas?" %>
-		    <% end %>
-		</div>
+	<div class= "update actions">
+		<%= submit_tag "pronto", :alt => "atualizar", :class => "but round" %>
+	</div>
+	<div class= "update_">
+		<% if current_user %>
+	      <%= link_to "apagar conta", current_user, 
+	                                              :class => "but round",
+	                                              :method => :delete, 
+	                                              :confirm => "têm certeza que deseja remover o usuário permanentemente?",
+	                                              :title => "deixar o raspas?" %>
+	    <% end %>
 	</div>
 <% end %>
 	
