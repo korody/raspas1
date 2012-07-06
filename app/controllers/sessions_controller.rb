@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
           flash[:notice] = "Só faltou um e-mail para finalizarmos o cadastro. O twitter voou antes de nos contar!".html_safe
         end  
       else
-        redirect_to signin_path, notice: "Ops! O twitter parece meio zonzo. Por favor, tente novamente.".html_safe
+        redirect_to signin_path, notice: "Ops! Parece que o twitter está meio avoado hoje. Por favor, tente novamente.".html_safe
       end  
     end 
   end
