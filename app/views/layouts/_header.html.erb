@@ -7,13 +7,13 @@
     <% end %>
     <ul>
       <li class= "search">
-        <%= form_tag :search, :action => 'search', :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder: "buscar", :id => 'search_field', class: "search_li" %>
+        <%= form_tag :search, action: 'search', method: 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder: "buscar", :id => 'search_field', class: "search_li", autofocus: true %>
           <%= image_submit_tag "lupa.png", :name => nil, :class => "lupa" %> 
         <% end %> 
       </li>
     </ul>
-    <% if signed_in? %> 
+    <% if signed_in? %>
       <!-- <ul>
         <li>
           <%#= link_to (image_tag "heart.png"), feed_user_path(current_user), class: "mural", title: "mural" %>

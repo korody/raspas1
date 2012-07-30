@@ -22,7 +22,7 @@
 	<div class= "title">
 		<p class= "p_search">nenhum pensador encontrado</p>
 		<%= link_to "| explorar pensadores", authors_path %>
-		<%= link_to "criar perfil para #{(params[:search].capitalize)} ", new_author_path %>
+		<%= link_to "criar perfil para #{(params[:search].titlecase)} ", new_author_path %>
 	</div>
 <% else %>
 	<div class= "title">

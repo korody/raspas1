@@ -4,21 +4,24 @@ class PagesController < ApplicationController
   def home
     @title = "crie, colecione e compartilhe pensamentos"
     @user = User.new
-    @feed_items = Micropost.paginate(:page => params[:page], order: "microposts.created_at DESC") 
+    @feed_items = Micropost.paginate(page: params[:page], order: 'microposts.created_at DESC')
+    @authors = Author.scoped(order: 'authors.created_at DESC')
+    @users = User.scoped(order: 'users.created_at DESC')
+    @tags = Tag.scoped(order: 'tags.created_at DESC')
     @new_micropost = Micropost.new
-    @authors = Author.all(:order => 'authors.created_at DESC')
-    @users = User.all(:order => 'users.created_at DESC')
-    @tags = Tag.all(:order => 'tags.created_at DESC')
   end
 
   def about
-  	@title = "sobre o raspas"
+    @title = "sobre o raspas"
     @new_micropost = Micropost.new
+      expires_in 24.hours, public: true
   end
 
   def mosaico
     @title = "mosaico"
-    @authors = Author.all
+    @authors = Author.scoped
+      expires_in 24.hours 
+      fresh_when etag: @authors, public: true
     @new_micropost = Micropost.new
   end
 end

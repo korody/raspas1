@@ -9,23 +9,30 @@
         <% end %>
       </div>
     </div>
-    <div class="user">
+    <div class="quote_author">
       <%= image_tag "ico_raspas.png", alt: "raspa por" %>
       <% if !micropost.author %>
-        <%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %>
+        <%= link_to micropost.user.name, micropost.user %>
       <% else %>
-        <%= link_to micropost.author.name, micropost.author, title: "ver + de #{micropost.author.name}" %>
+        <%= link_to micropost.author.name, micropost.author %>
       <% end %>  
+    </div>
+    <div class= "tooltip">
+      <% if !micropost.author %>
+        <%= render micropost.user %>
+      <% else %>  
+        <%= render micropost.author %>
+      <% end %>
     </div>
     <div class="timestamp">
       <div class= "timestamp_each">
-        <%= image_tag "clock_ico.png", title: "tempo no ar" %>
+        <%= image_tag "clock_ico.png", title: "tempo no ar", alt: "há" %>
         <%= time_ago_in_words(micropost.created_at) %>
       </div>
       <div class= "timestamp_each">
         <% if !micropost.tags.empty? %>
           <% micropost.tags.each do |tag| %>
-            <%= link_to (image_tag "tag_ico.png"), tag, title: "ver + raspas sobre #{tag.name}"  %>
+            <%= link_to (image_tag "tag_ico.png", alt: "sobre"), tag, title: "ver + raspas sobre #{tag.name}"  %>
             <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
           <% end %>
         <% end %>
@@ -38,19 +45,29 @@
       <div class= "timestamp_each">
         <% if micropost.favouriters.any? %>
           <% micropost.favouriters.first(1).each do |favouriters| %>
-            <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
-            <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
-              <% unless micropost.favouriters.count == 1 %>
-                + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
-              <% end %>
+            <div class= "quote_favouriters">
+              <%= link_to (image_tag "heart_ico.png", alt: "favoritaram"), favouriters, title: "ver + de #{favouriters.name}"  %>
+              <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+            </div>  
+            <% unless micropost.favouriters.count == 1 %>
+              + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
+            <% end %>
+            <div class= "tooltip">
+              <%= render favouriters %>
+            </div>
           <% end %>
         <% end %>
       </div>
       <div class= "timestamp_each">  
         <% if micropost.author %>
-          <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{micropost.user.name}" %>
-          <strong><%= link_to micropost.user.name, micropost.user, title: "ver + de #{micropost.user.name}" %></strong>
+          <div class= "quote_poster">
+            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{micropost.user.name}", alt: "raspa de" %>
+            <%= link_to micropost.user.name, micropost.user %>
+          </div>
         <% end %>
+      </div>
+      <div class= "tooltip">
+        <%= render micropost.user %>
       </div>
       <div class= "timestamp_each"> 
         <%# if !micropost.published? %>
@@ -60,10 +77,15 @@
       </div>
       <div class= "timestamp_each">
         <% if current_user?(micropost.user) %>
-           <%= link_to (image_tag "edit.png"), edit_micropost_path(micropost) %>
-           <%= link_to (image_tag "trash_ico.png"), micropost, :method => :delete,
-                                             :confirm => "apagar esta raspa?",
-                                             :title => "descartar" %>
+          <%= link_to (image_tag "edit.png", alt: "editar"), edit_micropost_path(micropost) %>
+          <%= link_to "editar", edit_micropost_path(micropost) %>
+          <%= link_to (image_tag "trash_ico.png", alt: "remover"), micropost, :method => :delete,
+                                           :confirm => "apagar esta raspa?",
+                                           :title => "descartar" %>
+          <%= link_to "apagar", micropost, :method => :delete,
+                                           :confirm => "apagar esta raspa?",
+                                           :title => "descartar" %>
+
         <% end %>
       </div>
     </div>
@@ -80,7 +102,7 @@
           <% end %>
         <% else %>
           <div>
-            <%= link_to (image_tag "heart.png"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+            <%= link_to (image_tag "heart.png", alt: "favoritar"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
           </div>
         <% end %>
         <% if micropost.favourites.any? %>
@@ -101,22 +123,20 @@
       </div>    
       <div class= "share">
         <% unless @micropost %>  
-          <%= link_to (image_tag "share.png"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
-        <% else %>
-          <%= render "microposts/social" %>
-        <% end %>
-        <% if !@micropost %>
+          <%= link_to (image_tag "share.png", alt: "compartilhar"), micropost_path(micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
           <div class= "but_stats round">
             <p>compartilhar</p>
           </div>
+        <% else %>
+          <%= render "microposts/social" %>
         <% end %>
       </div>
     </div>
-    <% if micropost.author %>
-      <div class= "user_id">
-        <%= link_to image_tag(micropost.user.image_url(:small)), micropost.user, 
-        title: "ver perfil de #{micropost.user.name}" %>
-      </div>
-    <% end %>
+    <div class= "quote_poster_pic">
+      <%= link_to image_tag(micropost.user.image_url(:small)), micropost.user %>
+    </div>
+    <div class= "tooltip">
+      <%= render micropost.user %>
+    </div>
   </div>
 </div>

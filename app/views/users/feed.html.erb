@@ -1,7 +1,7 @@
 <% if signed_in? %>
-  <div class= "feed_mosaico">
+  <div class= "mosaico">
     <% @avatars.shuffle.each do |a| %>
-      <div class= "feed_mosaico_each">
+      <div class= "mosaico_item">
         <%= link_to (image_tag a.image_url(:medium)), a %>
         <p class= "gradient"><%= link_to a.name, a %></p>
       </div>

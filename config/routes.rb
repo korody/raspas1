@@ -1,9 +1,18 @@
-Benfeitor::Application.routes.draw do
+  Benfeitor::Application.routes.draw do
   ActiveAdmin.routes(self)
-  require File.expand_path("../../lib/logged_in_constraint", __FILE__)
-
+ 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
+  
+  require File.expand_path("../../lib/logged_in_constraint", __FILE__)
+  root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
+  root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
+  
+  # scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
+  #   root :to => "users#feed"#, :constraints => LoggedInConstraint.new(true)
+  # end
+  # root :to => "pages#home"
+  
+  # get 'authors/page/:page', to: 'authors#index'
   resources :authors, :path => "pensadores" do
     member do
       get :fans, path: "fas"
@@ -70,9 +79,6 @@ Benfeitor::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
-
-  root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
-  root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -43,7 +43,7 @@ class MicropostsController < ApplicationController
 
   def edit
     @micropost = Micropost.find(params[:id])
-    @title = "editar raspas"
+    @title = "editar raspa"
     @new_micropost = Micropost.new
   end
 

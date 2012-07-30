@@ -1,9 +1,23 @@
+<% cache "mosaico" do %>  
+  <div class= "mosaico">
+    <% @authors.shuffle.first(250).each do |author| %>
+      <div class= "mosaico_item">
+        <% cache author do %>
+          <%= link_to (image_tag author.image_url(:medium).to_s), author %>
+          <p class= "gradient"><%= link_to author.name, author %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 <div class="raspas">
   <div class="raspas">
     <div class= "user_info">
-      <div class= "logo_avatar round shadow">
-        <%= image_tag "half_logo_.png" %>
-      </div>
+      <% cache do %>  
+        <div class= "logo_avatar round shadow">
+          <%= image_tag "half_logo_.png" %>
+        </div>
+      <% end %>
       <div class= "user_info_board round" >
         <div class= "last_header">
           <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag">raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p>
@@ -18,108 +32,95 @@
           <p class= "p_tags"><%= User.count %></p><p class= "p_tag">usuários</p><p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
         </div>
       </div>
-      <div class= "user_info_board round">
-        <div class= "last_header">
-          <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
-          <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+      <% cache @tags do %>
+        <div class= "user_info_board round">
+          <div class= "last_header">
+            <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
+            <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
+          </div>
+          <div>
+            <% @tags.first(8).each do |tag| %>
+              <div>
+                <%= link_to tag.name, tag, 
+                title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div>
-          <% @tags.first(8).each do |tag| %>
-            <div>
-              <%= link_to tag.name, tag, 
-              title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class= "user_info_board round">
-        <div class= "last_header">
-          <p class= "p_tags">últimos</p><p class="p_tag">pensadores</p>
-          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
-        </div>
-        <div>
-          <% @authors.first(4).each do |author| %>
-            <div class= "last">
-              <div class= "last_users">
-                <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
-                <div class= "last_upwards">
-                  <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
+      <% end %>  
+      <% cache @authors do %>
+        <div class= "user_info_board round">
+          <div class= "last_header">
+            <p class= "p_tags">últimos</p><p class="p_tag">pensadores</p>
+            <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+          </div>
+          <div>
+            <% @authors.first(4).each do |author| %>
+              <div class= "last">
+                <div class= "last_users">
+                  <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+                  <div class= "last_upwards">
+                    <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <div class= "user_info_board round">
-        <div class= "last_header">
-          <p class= "p_tags">últimos</p><p class="p_tag">usuários</p>
-          <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
-        </div>
-        <div>
-          <% @users.first(4).each do |user| %>
-            <div class= "last">
-              <div class= "last_users">
-                <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-                <div class= "last_upwards">
-                  <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+      <% end %>  
+      <% cache @users do %>
+        <div class= "user_info_board round">
+          <div class= "last_header">
+            <p class= "p_tags">últimos</p><p class="p_tag">usuários</p>
+            <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+          </div>
+          <div>
+            <% @users.first(4).each do |user| %>
+              <div class= "last">
+                <div class= "last_users">
+                  <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+                  <div class= "last_upwards">
+                    <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "sobre o raspas", about_path, title: "saiba mais" %></p></br>
-      </div>
-      <% if !signed_in? %>
-        <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
+            <% end %>
+          </div>
         </div>
       <% end %>
-      <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
-      </div>
-      <% if !signed_in? %>
+      <% cache do %>  
         <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no Raspas" %></p></br>
+          <p class= "p_tags"><%= link_to "sobre o raspas", about_path, title: "saiba mais" %></p></br>
+        </div>
+        <% if !signed_in? %>
+          <div class= "user_info_board round" >
+            <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
+          </div>
+        <% end %>
+        <div class= "user_info_board round" >
+          <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
+        </div>
+        <% if !signed_in? %>
+          <div class= "user_info_board round" >
+            <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no Raspas" %></p></br>
+          </div>
+        <% end %>
+        <div class= "user_info_board round" >
+          <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
         </div>
       <% end %>
-      <div class= "user_info_board round" >
-        <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
-      </div>
     </div>
     <div class= "stack_home">
-      <div class= "likes">
-        <div class= "likes_each">
-          <div class= "likes_each_home">
-            <%= link_to (image_tag "twitter_20.png"), "http://twitter.com/#!/entre_raspas", title: "twitter raspas", target: "blank" %>
-          </div>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.raspas.com.br" data-via="entre_raspas" 
-          data-text="crie, colecione e compartilhe pensamentos com o Raspas, a rede contemporânea de pensadores atemporais" 
-          data-lang="none" data-counturl= "http://www.raspas.com.br" data-size="medium" data-related="entre_raspas" data-count="horizontal" title="tweetar Raspas"></a>
-        </div>
-        <div class= "likes_each">
-          <div class= "likes_each_home">
-            <%= link_to (image_tag "facebook_20.png"), "http://www.facebook.com/entre.raspas", title: "faceblog raspas", target: "blank" %>
-          </div>
-          <div id="fb-root"></div>
-          <div class="fb-like" data-href="http://www.facebook.com/entre.raspas" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true" data-font="tahoma"></div>
-        </div>
-        <div class= "likes_each">
-          <div class= "likes_each_home">
-            <%= link_to (image_tag "google_20.png"), "http://www.google.com/+", title: "google +", target: "blank" %>
-          </div>
-          <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-          <g:plusone size="medium" annotation= "bubble"></g:plusone>
-        </div>
-      </div>
+      <%= render 'shared/likes' %>
       <% if !signed_in? %>
         <%= render 'shared/welcome' %>
       <% end %>
-      <div>
-        <%= render @feed_items %>
-      </div>
-      <%= will_paginate @feed_items %>
+      <% cache @feed_items do %>  
+        <div>
+          <%= render @feed_items %>
+        </div>
+        <%= will_paginate @feed_items %>
+      <% end %>
     </div>
   </div>
 </div>

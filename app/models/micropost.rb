@@ -39,8 +39,7 @@ class Micropost < ActiveRecord::Base
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
 
   attr_accessor :author_name
-  attr_writer :tag_names
-  attr_reader :tag_tokens
+  attr_writer :tag_names, :author_name
   before_save :assign_author, :normalize
   after_save :assign_tags
 
@@ -55,7 +54,7 @@ class Micropost < ActiveRecord::Base
   end
 
   def tag_names
-    @tag_names || tags.map(&:name).join(' ')
+    @tag_names || tags.map(&:name).join(',')
   end
 
   private

@@ -8,8 +8,8 @@
     <title><%= title %></title>
     <%= render 'layouts/stylesheets' %>
     <%#= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
+    <%= render "layouts/async_javascript", path: "application" %>
+    <%= csrf_meta_tag unless response.cache_control[:public] %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -22,29 +22,14 @@
         <% if signed_in? %>
           <%= render 'layouts/raspas' %>
         <% end %>
-        <div>
-          <% if home %>
-            <div class= "back_avatar">
-              <% @authors.shuffle.first(250).each do |author| %>
-                <div class= "back_avatar_each">
-                  <%= link_to (image_tag author.image_url(:medium).to_s), author %>
-                  <p class= "gradient"><%= link_to author.name, author %></p>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-          <% if @author %>
-            <%= image_tag @author.image_url.to_s, :class => "author_back" %>
-          <% end %>
-          <% if @micropost %>
-            <%= image_tag @micropost.author.image_url.to_s, :class => "author_back" if @micropost.author %>
-          <% end %>
-        </div>
+        <%= render 'shared/background_image' %>
       </div>
       <section>
         <div class="raspas">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= key %>"><%= value %></div>
+          <% unless response.cache_control[:public] %>
+            <% flash.each do |key, value| %>
+              <div class="flash <%= key %>"><%= value %></div>
+            <% end %>
           <% end %>
           <%= yield %>
         </div>
@@ -52,6 +37,6 @@
       <%= render 'layouts/footer' %>
       <%#= debug(params) if Rails.env.development? %>
     </div>
-    <%= render "shared/sharers" %> 
+    <%= render 'shared/sharers' %>
   </body>
 </html>

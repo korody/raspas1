@@ -5,9 +5,10 @@
 
   def index
     @title = "usuários"
-    @users = User.all(order: :name)
+    @users = User.scoped(order: :name)
     # @users = User.paginate(:page => params[:page])
     @new_micropost = Micropost.new
+      fresh_when etag: @users, public: true
   end
 
   def show
@@ -17,6 +18,7 @@
     @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all
     @authors = @user.authors.all
+      fresh_when etag: [@user, @microposts], public: true
   end
 
   def feed
@@ -29,7 +31,8 @@
     @intro = authors_intro.concat(users_intro)
     following = @user.following.all
     idols = @user.idols.all 
-    @avatars = idols.concat(following) 
+    @avatars = idols.concat(following)
+      fresh_when etag: @feed_items
   end
 
   def tags

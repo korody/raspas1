@@ -2,9 +2,16 @@
 	<%= render 'micropost_info' %>
 </div>
 <div class="stack">
+	<% if !signed_in? %>
+		<div class ="welcome_space"></div>
+  		<%= render 'shared/welcome' %>
+ 	<% end %>
 	<% if @micropost %>
 		<%= render @micropost %>
 		<div class= "absolute">
+			<% if !signed_in? %>
+				<div class ="welcome_space"></div>
+			<% end %>
 			<%= image_tag "compartilhar.png" %>
 		</div>	
 	<% end %>

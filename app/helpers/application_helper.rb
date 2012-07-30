@@ -2,12 +2,20 @@ module ApplicationHelper
 
   # Return a title on a per-page basis.
 	def title
-    	base_title = "raspas"
-    	if @title.nil?
-      	base_title
-      else      
-        "#{base_title} | #{@title}"
-      end
+  	base_title = "raspas"
+  	if @title.nil?
+    	base_title
+    else 
+      if @micropost
+        if @micropost.author
+          "#{@title} { #{@micropost.author.name}"
+        else
+          "#{@title} { #{@micropost.user.name}"
+        end
+      else
+        "#{@title} { #{base_title}"
+      end     
+    end
   end
 
   def logo

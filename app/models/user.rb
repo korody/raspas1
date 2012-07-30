@@ -42,6 +42,7 @@
                                               # :select => "microposts.id, count(favoritadas.id) AS favouritadas_count",
                                               # :joins => :favourites,
                                               # :order => "favouritadas_count"
+                                              # group_clause
 
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
@@ -90,9 +91,9 @@
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      where('name @@ :q', q: search)
     else
-      find(:all)
+      scoped
     end
   end
 

@@ -19,6 +19,7 @@ function loadPopup(){
 		$("#backgroundPopup").fadeIn("slow");
 		$("#popupContact").fadeIn("slow");
 		popupStatus = 1;
+		$('#micropost_content').focus();
 	}
 }
 

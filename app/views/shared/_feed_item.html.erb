@@ -18,12 +18,19 @@
             <% end %>
           </div>
         </div>
-        <div class="user">
+        <div class="quote_author">
           <%= image_tag "ico_raspas.png", alt: "raspa por" %>
           <% if !feed_item.author %>
             <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
           <% else %>
             <%= link_to feed_item.author.name, feed_item.author, title: "ver + de #{feed_item.author.name}" %>
+          <% end %>
+        </div>
+        <div class= "tooltip">
+          <% if !feed_item.author %>
+            <%= render feed_item.user %>
+          <% else %>  
+            <%= render feed_item.author %>
           <% end %>
         </div>
         <div class="timestamp">
@@ -47,19 +54,29 @@
           <div class= "timestamp_each">
             <% if feed_item.favouriters.any? %>
               <% feed_item.favouriters.first(1).each do |favouriters| %>
-              <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
-              <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+                <div class= "quote_favouriters">
+                  <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
+                  <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+                </div>
                 <% unless feed_item.favouriters.count == 1 %>
                   + <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
                 <% end %>
+                <div class= "tooltip">
+                  <%= render favouriters %>
+                </div>
               <% end %>
             <% end %>
           </div>
           <div class= "timestamp_each">
             <% if feed_item.author %>
-            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
-            <strong><%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %></strong>
+              <div class= "quote_poster">
+                <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
+                <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+              </div>
             <% end %>
+          </div>
+          <div class= "tooltip">
+            <%= render feed_item.user %>
           </div>
           <div class= "timestamp_each">
             <%# if !feed_item.published? %>
@@ -69,10 +86,14 @@
           </div>
           <div class= "timestamp_each">
             <% if current_user?(feed_item.user) %>
-               <%= link_to (image_tag "edit.png"), edit_micropost_path(feed_item) %>
-               <%= link_to (image_tag "trash_ico.png"), feed_item, :method => :delete,
+              <%= link_to (image_tag "edit.png"), edit_micropost_path(feed_item) %>
+              <%= link_to "editar", edit_micropost_path(feed_item) %>
+              <%= link_to (image_tag "trash_ico.png"), feed_item, :method => :delete,
+                                               :confirm => "apagar esta raspa?",
+                                               :title => "descartar" %>
+              <%= link_to "apagar", feed_item, :method => :delete,
                                                  :confirm => "apagar esta raspa?",
-                                                 :title => "descartar" %>
+                                                 :title => "descartar" %>             
             <% end %>
           </div>
         </div>
@@ -122,11 +143,13 @@
           </div>
         </div>
         <% if feed_item.author %>
-          <div class= "user_id">
-            <%= link_to image_tag(feed_item.user.image_url(:small)), feed_item.user, 
-            title: "ver perfil de #{feed_item.user.name}" %>
+          <div class= "quote_poster_pic">
+            <%= link_to image_tag(feed_item.user.image_url(:small)), feed_item.user %>
           </div>
         <% end %>
+        <div class= "tooltip">
+          <%= render feed_item.user %>
+        </div>
       </div>
     </div>
   </div>
