@@ -58,9 +58,6 @@
                   <%= link_to (image_tag "heart_ico.png"), favouriters %>
                   <%= link_to favouriters.name, favouriters %> 
                 </div>
-                <div class= "tooltip">
-                  <%= render favouriters %>
-                </div>
                 <% unless feed_item.favouriters.count == 1 %>
                   + <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
                 <% end %>
