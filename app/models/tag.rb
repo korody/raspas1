@@ -25,7 +25,7 @@ class Tag < ActiveRecord::Base
     if search
       where('name @@ :q', q: search)
     else
-      find(:all)
+      scoped
     end
   end
 end
