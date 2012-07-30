@@ -92,7 +92,21 @@
   def self.search(search)
     if search
       where("name ilike ?", "%#{search}%")
-      
+    else
+      find(:all)
+    end
+  end
+
+  def following?(followed)
+    relationships.find_by_followed_id(followed)
+  end
+
+  def follow!(followed)
+    relationships.create!(:followed_id => followed.id)
+  end
+
+  def unfollow!(followed)
+    relationships.find_by_followed_id(followed).destroy
   end
 
   def idols?(author)
