@@ -8,7 +8,7 @@
     @users = User.scoped(order: :name)
     # @users = User.paginate(:page => params[:page])
     @new_micropost = Micropost.new
-      fresh_when etag: @users#, public: true
+      fresh_when etag: @users, public: false
   end
 
   def show
@@ -18,7 +18,7 @@
     @microposts = @user.microposts.paginate(:page => params[:page])
     @tags = @user.tags.all
     @authors = @user.authors.all
-      fresh_when etag: [@user, @microposts]#, public: true
+      fresh_when etag: [@user, @microposts], public: false
   end
 
   def feed

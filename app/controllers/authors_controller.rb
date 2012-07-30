@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
     # @authors = Author.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @tags = Tag.all
-        fresh_when etag: @authors#, public: true
+        fresh_when etag: @authors, public: false
   end
 
   def autocomplete
@@ -22,7 +22,7 @@ class AuthorsController < ApplicationController
       @users = @author.users.scoped
       @tags = @author.tags.scoped
       @authors = Author.scoped
-        fresh_when etag: [@author, @microposts], public: true
+        fresh_when etag: [@author, @microposts], public: false
       @new_micropost = Micropost.new
       @title = @author.name
   end
