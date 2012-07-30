@@ -18,7 +18,9 @@
   <body>
     <div class="container">
       <div>
-        <%= render 'layouts/header' %>
+        <% unless response.cache_control[:public] %>
+          <%= render 'layouts/header' %>
+        <% end %>
         <% if signed_in? %>
           <%= render 'layouts/raspas' %>
         <% end %>
