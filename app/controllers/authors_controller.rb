@@ -22,7 +22,7 @@ class AuthorsController < ApplicationController
       @users = @author.users.scoped
       @tags = @author.tags.scoped
       @authors = Author.scoped
-        fresh_when etag: [@author, @microposts], public: true
+        fresh_when etag: [@author, @microposts]
       @new_micropost = Micropost.new
       @title = @author.name
   end
