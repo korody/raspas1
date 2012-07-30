@@ -8,7 +8,7 @@ class AuthorsController < ApplicationController
     # @authors = Author.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @tags = Tag.all
-        fresh_when etag: @authors, public: false
+        # fresh_when etag: @authors, public: true
   end
 
   def autocomplete
@@ -22,7 +22,7 @@ class AuthorsController < ApplicationController
       @users = @author.users.scoped
       @tags = @author.tags.scoped
       @authors = Author.scoped
-        fresh_when etag: [@author, @microposts], public: false
+        # fresh_when etag: [@author, @microposts], public: true
       @new_micropost = Micropost.new
       @title = @author.name
   end
@@ -55,7 +55,7 @@ class AuthorsController < ApplicationController
   	@author = Author.find(params[:id])
     @new_micropost = Micropost.new
     if @author.update_attributes(params[:author])
-      expire_fragment("mosaico")
+      expire_fragment("mosaico, photo_background")
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author
     else

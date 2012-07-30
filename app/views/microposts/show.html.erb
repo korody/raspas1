@@ -7,6 +7,13 @@
   		<%= render 'shared/welcome' %>
  	<% end %>
 	<% if @micropost %>
+		<% cache "photo_background" do %>  
+			<% if @micropost.author %>
+	    		<%= image_tag @micropost.author.image_url.to_s, class: "author_back" %>
+			<% else %>
+	    		<%= image_tag @micropost.user.image_url.to_s, class: "author_back" %>
+			<% end %>
+		<% end %>
 		<%= render @micropost %>
 		<div class= "absolute">
 			<% if !signed_in? %>
@@ -16,3 +23,12 @@
 		</div>	
 	<% end %>
 </div>
+
+
+
+
+
+
+
+
+

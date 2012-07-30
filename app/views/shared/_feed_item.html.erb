@@ -38,21 +38,21 @@
             <%= image_tag "clock_ico.png", title: "tempo no ar" %>
             <%= time_ago_in_words(feed_item.created_at) %>
           </div>
-          <div class= "timestamp_each">
-            <% if !feed_item.tags.empty? %>
+          <% if !feed_item.tags.empty? %>
+            <div class= "timestamp_each">
               <% feed_item.tags.each do |tag| %>
               <%= link_to (image_tag "tag_ico.png"), tag, title: "ver + raspas sobre #{tag.name}"  %>
                 <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
               <% end %>      
-            <% end %>
-          </div>
-          <div class= "timestamp_each">
-            <%# unless !feed_item.origem? %>
-              <!-- extraído de <%#= feed_item.origem %>-->
-            <%# end %>
-          </div>
-          <div class= "timestamp_each">
-            <% if feed_item.favouriters.any? %>
+            </div>
+          <% end %>
+          <%# unless !feed_item.origem? %>
+            <!--<div class= "timestamp_each">
+              extraído de <%#= feed_item.origem %>
+            </div> -->
+          <%# end %>
+          <% if feed_item.favouriters.any? %>
+            <div class= "timestamp_each">
               <% feed_item.favouriters.first(1).each do |favouriters| %>
                 <div class= "quote_favouriters">
                   <%= link_to (image_tag "heart_ico.png"), favouriters %>
@@ -65,16 +65,16 @@
                   + <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
                 <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <div class= "timestamp_each">
-            <% if feed_item.author %>
+            </div>
+          <% end %>
+          <% if feed_item.author %>
+            <div class= "timestamp_each">
               <div class= "quote_poster">
                 <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
                 <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
           <div class= "tooltip">
             <%= render feed_item.user %>
           </div>

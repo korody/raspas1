@@ -69,12 +69,12 @@
           <%= render micropost.user %>
         </div>
       <% end %>
+      <%# if !micropost.published? %>
       <!--<div class= "timestamp_each"> 
-        <%# if !micropost.published? %>
           sob <%#= link_to "análise", @author %>
           <%#= link_to (image_tag "flag_ico.png"), root_path %>
-        <%# end %>
-      </div> -->
+        </div> -->
+      <%# end %>
       <% if current_user?(micropost.user) %>
         <div class= "timestamp_each">
           <%= link_to (image_tag "edit.png", alt: "editar"), edit_micropost_path(micropost) %>
