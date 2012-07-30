@@ -7,11 +7,13 @@
   		<%= render 'shared/welcome' %>
  	<% end %>
 	<% if @micropost %>
-		<% cache "photo_background" do %>  
-			<% if @micropost.author %>
-	    		<%= image_tag @micropost.author.image_url.to_s, class: "author_back" %>
-			<% else %>
-	    		<%= image_tag @micropost.user.image_url.to_s, class: "author_back" %>
+		<% if @micropost.author %>
+			<% cache @author do %>  
+    		<%= image_tag @micropost.author.image_url.to_s, class: "author_back" %>
+			<% end %>
+		<% else %>
+			<% cache @user do %>  
+    		<%= image_tag @micropost.user.image_url.to_s, class: "author_back" %>
 			<% end %>
 		<% end %>
 		<%= render @micropost %>
