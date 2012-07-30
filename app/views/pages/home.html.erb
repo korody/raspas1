@@ -13,7 +13,7 @@
 <div class="raspas">
   <div class="raspas">
     <div class= "user_info">
-      <% cache do %>  
+      <% cache "logo_topo" do %>  
         <div class= "logo_avatar round shadow">
           <%= image_tag "half_logo_.png" %>
         </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
       <% end %>
-      <% cache do %>  
+      <% cache "extra_info" do %>  
         <div class= "user_info_board round" >
           <p class= "p_tags"><%= link_to "sobre o raspas", about_path, title: "saiba mais" %></p></br>
         </div>
