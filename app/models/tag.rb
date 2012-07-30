@@ -23,7 +23,7 @@ class Tag < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name like ?', '%#{search}%')
+      where("name ilike ?", "%#{search}%")
     else
       find(:all)
     end
