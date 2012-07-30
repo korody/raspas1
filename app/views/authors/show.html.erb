@@ -1,4 +1,3 @@
-<%= image_tag @author.image_url.to_s, :class => "author_back" %>
 <div class="raspas"> 
   <div class="user_info">
     <%= render 'author_info' %>
@@ -28,6 +27,8 @@
             <%= image_tag "happy.png" %>
           </div>
         </div>
+      <% else %>
+        <%= image_tag @author.image_url.to_s, class: "author_back" %>
       <% end %>
     <% else %>
       <div class ="welcome_space"></div>
