@@ -9,7 +9,7 @@
     <%= render 'layouts/stylesheets' %>
     <%#= stylesheet_link_tag "application" %>
     <%= render "layouts/async_javascript", path: "application" %>
-    <%= csrf_meta_tag unless response.cache_control[:public] %>
+    <%= csrf_meta_tag %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -25,10 +25,8 @@
       </div>
       <section>
         <div class="raspas">
-          <% unless response.cache_control[:public] %>
-            <% flash.each do |key, value| %>
-              <div class="flash <%= key %>"><%= value %></div>
-            <% end %>
+          <% flash.each do |key, value| %>
+            <div class="flash <%= key %>"><%= value %></div>
           <% end %>
           <%= yield %>
         </div>
