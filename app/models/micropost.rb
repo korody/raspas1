@@ -97,7 +97,7 @@ class Micropost < ActiveRecord::Base
 
     def self.search(search)
     if search
-      where('content ilike ?', search)
+      where('content ilike ?', '%#{search}%')
     else
       find(:all)
     end

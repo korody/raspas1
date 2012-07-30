@@ -91,7 +91,7 @@
 
   def self.search(search)
     if search
-      where('name ilike ?', search)
+      where('name ilike ?', '%#{search}%')
     else
       find(:all)
     end
