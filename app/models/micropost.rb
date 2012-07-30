@@ -90,16 +90,16 @@ class Micropost < ActiveRecord::Base
 
     def assign_author
       if author_name
-        author = Author.find_or_create_by_name(author_name.titlecase)
+        author = Author.find_or_create_by_name(author_name)
         self.author_id = author ? author.id : 0
       end
     end
 
     def self.search(search)
     if search
-      where('content @@ :q', q: search)
+      where('content ilike ?', search)
     else
-      scoped
+      find(:all)
     end
   end
 end

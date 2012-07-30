@@ -1057,7 +1057,7 @@ div.timestamp {
 }
 
 div.timestamp_each {
-  border: 0px solid #D8D8D8;
+  border: 1px solid #D8D8D8;
   display: block;
   float: left;  
   margin: 0 1em 2px 0;

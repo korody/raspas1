@@ -41,9 +41,9 @@ class Author < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name @@ :q', q: search)
+      where('name ilike ?', search)
     else
-      scoped
+      find(:all)
     end
   end
 
