@@ -18,13 +18,13 @@ class TagsController < ApplicationController
 	end
 
 	def autocomplete
-	    @tags = Tag.order(:name).where("name @@ :q", q: "#{params[:term]}")
+	    @tags = Tag.order(:name).where("name @@ :q", q: params[:term])
    		render json: @tags.map(&:name) 
    	end
 
    	def users
       @tag = Tag.find(params[:id])
-	  @title = "usuários sobre #{@tag.name}"
+	    @title = "usuários sobre #{@tag.name}"
       @users = @tag.users.paginate(:page => params[:page])
       @new_micropost = Micropost.new
       render 'show_users'
@@ -32,7 +32,7 @@ class TagsController < ApplicationController
 
   	def authors
       @tag = Tag.find(params[:id])
-	  @title = "pensadores sobre #{@tag.name}"
+	    @title = "pensadores sobre #{@tag.name}"
       @authors = @tag.authors.paginate(:page => params[:page])
       @new_micropost = Micropost.new
       render 'show_authors'
