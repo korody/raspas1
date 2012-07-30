@@ -12,7 +12,7 @@ class AuthorsController < ApplicationController
   end
 
   def autocomplete
-    @authors = Author.order(:name).where("name like ?", "%#{params[:term].titlecase}%")
+    @authors = Author.order(:name).where("where('name @@ :q', q: :term")
     render json: @authors.map(&:name) 
   end
 

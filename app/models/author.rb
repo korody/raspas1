@@ -43,7 +43,7 @@ class Author < ActiveRecord::Base
     if search
       where('name @@ :q', q: search)
     else
-      scoped
+      find(:all)
     end
   end
 
