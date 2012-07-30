@@ -21,9 +21,9 @@
         <div class="quote_author">
           <%= image_tag "ico_raspas.png", alt: "raspa por" %>
           <% if !feed_item.author %>
-            <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
+            <%= link_to feed_item.user.name, feed_item.user %>
           <% else %>
-            <%= link_to feed_item.author.name, feed_item.author, title: "ver + de #{feed_item.author.name}" %>
+            <%= link_to feed_item.author.name, feed_item.author %>
           <% end %>
         </div>
         <div class= "tooltip">
@@ -55,15 +55,15 @@
             <% if feed_item.favouriters.any? %>
               <% feed_item.favouriters.first(1).each do |favouriters| %>
                 <div class= "quote_favouriters">
-                  <%= link_to (image_tag "heart_ico.png"), favouriters, title: "ver + de #{favouriters.name}"  %>
-                  <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+                  <%= link_to (image_tag "heart_ico.png"), favouriters %>
+                  <%= link_to favouriters.name, favouriters %> 
+                </div>
+                <div class= "tooltip">
+                  <%= render favouriters %>
                 </div>
                 <% unless feed_item.favouriters.count == 1 %>
                   + <%= link_to pluralize(feed_item.favouriters.count - 1, "outro"), favouriters_micropost_path(feed_item), title: "ver usuários que favoritaram esta raspa" %>
                 <% end %>
-                <div class= "tooltip">
-                  <%= render favouriters %>
-                </div>
               <% end %>
             <% end %>
           </div>

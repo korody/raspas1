@@ -46,15 +46,15 @@
         <% if micropost.favouriters.any? %>
           <% micropost.favouriters.first(1).each do |favouriters| %>
             <div class= "quote_favouriters">
-              <%= link_to (image_tag "heart_ico.png", alt: "favoritaram"), favouriters, title: "ver + de #{favouriters.name}"  %>
-              <%= link_to favouriters.name, favouriters, title: "ver + de #{favouriters.name}" %> 
+              <%= link_to (image_tag "heart_ico.png", alt: "favoritaram"), favouriters %>
+              <%= link_to favouriters.name, favouriters %> 
             </div>  
-            <% unless micropost.favouriters.count == 1 %>
-              + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
-            <% end %>
             <div class= "tooltip">
               <%= render favouriters %>
             </div>
+            <% unless micropost.favouriters.count == 1 %>
+              + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
