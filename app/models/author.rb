@@ -41,7 +41,7 @@ class Author < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search, against: [:name, :origin, :job],
-    using: {tsearch: {dictionary: "portuguese"}}
+    using: {tsearch: {dictionary: "english"}}
 
 
   def self.search(search)
