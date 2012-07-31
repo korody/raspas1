@@ -102,5 +102,4 @@ class Micropost < ActiveRecord::Base
         find(:all)
       end
     end
-  end
 end

@@ -8,8 +8,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 
-#gem "paperclip", "2.7.0"
-#gem 'gravatar_image_tag', '1.0.0.pre2'
 gem "will_paginate", "3.0.pre2"
 gem "carrierwave"
 gem "fog", "~> 1.3.1"
@@ -28,16 +26,7 @@ gem 'jquery-rails'
 
 group :development do
 	gem 'sqlite3', '1.3.4'
-  # gem 'rspec-rails', '2.6.1'
-  # gem 'annotate', '2.4.1.beta1'
 	gem 'faker', '0.3.1'
-end
-
-group :test do
-  #gem 'rspec-rails', '2.6.1'
-  #gem 'webrat', '0.7.1'
-  #gem 'spork', '0.9.0.rc5'
-  #gem 'factory_girl_rails', '1.0'
 end
 
 group :production do
