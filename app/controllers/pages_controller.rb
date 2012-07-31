@@ -14,14 +14,11 @@ class PagesController < ApplicationController
   def about
     @title = "sobre o raspas"
     @new_micropost = Micropost.new
-      expires_in 24.hours, public: true
   end
 
   def mosaico
     @title = "mosaico"
     @authors = Author.scoped
-      expires_in 24.hours 
-      fresh_when etag: @authors, public: true
     @new_micropost = Micropost.new
   end
 end

@@ -39,6 +39,11 @@ class Author < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
 
 
+  include PgSearch
+  pg_search_scope :search, against: [:name, :origin, :job],
+    using: {tsearch: {dictionary: "portuguese"}}
+
+
   def self.search(search)
     if search.present?
       search(search)

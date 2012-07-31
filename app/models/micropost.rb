@@ -95,11 +95,11 @@ class Micropost < ActiveRecord::Base
       end
     end
 
-    def self.search(search)
-      if search.present?
-        search(search)
-      else
-        find(:all)
-      end
-    end
+    # def self.search(search)
+    #   if search.present?
+    #     search(search)
+    #   else
+    #     find(:all)
+    #   end
+    # end
 end
