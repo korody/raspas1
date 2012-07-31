@@ -40,13 +40,11 @@ class Author < ActiveRecord::Base
 
 
   include PgSearch
-  pg_search_scope :search, against: [:name, :origin, :job],
-    using: {tsearch: {dictionary: "english"}}
+  pg_search_scope :search, against: :name
 
-
-  def self.search(search)
-    if search.present?
-      search(search)
+  def self.text_search(query)
+    if query.present?
+      where("name @@ :q", q: query)
     else
       find(:all)
     end
