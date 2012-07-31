@@ -329,6 +329,9 @@ a img {
   border: none; 
 }
 
+ul {
+  padding: 0;
+}
 
 .welcome_space {
   margin-bottom: 105px;
@@ -1415,7 +1418,7 @@ ul.users li {
 
 div.user_card {
   background-color: #F8F8F8;
-  border: 1px solid #D8D8D8;
+  border: 0px solid #D8D8D8;
   display: inline-block;
   float: left;
   height: 185px;
