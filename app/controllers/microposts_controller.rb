@@ -21,6 +21,7 @@ class MicropostsController < ApplicationController
   def create
     micropost = current_user.microposts.build(params[:micropost])
     if micropost.save
+      expire_fragment("home_feed")
       if micropost.author
         redirect_to micropost.author
         flash[:success] = "Você adicionou um pensamento de #{micropost.author.name}! Obrigado."

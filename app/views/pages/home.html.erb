@@ -115,7 +115,7 @@
       <% if !signed_in? %>
         <%= render 'shared/welcome' %>
       <% end %>
-      <% cache @feed_items do %>  
+      <% cache "home_feed" do %>  
         <div>
           <%= render @feed_items %>
         </div>

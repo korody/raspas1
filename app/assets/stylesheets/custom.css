@@ -82,6 +82,7 @@ nav input:-moz-placeholder {
 
 nav ul {
   float: left;
+  padding: 0;
 }
 
 nav ul li {
@@ -134,6 +135,7 @@ nav ul li.search {
 
 nav ul li.search input.search_li {
   float: left;
+  line-height: 1.8;
   width: 11.5em;
 }
 
@@ -142,7 +144,6 @@ nav ul li.search input.lupa {
   border-left: 0px solid #E6674A;
   float: left;
   opacity: 0.8;
-  filter:alpha(opacity=80);
   padding: 0 0.2em;
   height: 27px;
   width: 27px;
@@ -319,6 +320,15 @@ input:-moz-placeholder {
 .hasPlaceholder {
   color: #B0B0B0;
 }
+
+:focus { 
+  outline: 0; 
+}
+
+a img { 
+  border: none; 
+}
+
 
 .welcome_space {
   margin-bottom: 105px;
@@ -535,12 +545,13 @@ div.mosaico {
 }
 
 div.mosaico_item {
+  background-color: #FFF;
   border: 0px solid #E8E8E8;
   display: inline-block;
   float: left;
   height: 98px;
   opacity: 0.3;
-  filter:alpha(opacity=20);
+  filter:alpha(opacity=30);
   position: relative;
   width: 98px;
 }
@@ -759,6 +770,7 @@ div.user_info_board div.stats {
 }
 
 div.stats img {
+  background-color: #F8F8F8;
   height: 20px;
   opacity: 0.5;
   filter:alpha(opacity=50);
@@ -882,6 +894,7 @@ textarea#micropost_content {
   float: left;
   font-size: 140%;
   height: 152px;
+  overflow: auto;
   width: 500px;
 }
 
@@ -1059,7 +1072,7 @@ div.timestamp {
   float: left;
   float: left;
   line-height: 1;
-  margin: 1em 0 0 0.4em;
+  margin: 12px 0 0 5px;
   clear: both;
 }
 
@@ -1108,7 +1121,6 @@ div.top_corner a.top_button {
   float: right;
   height: 32px;
   opacity: 0.7;
-  filter:alpha(opacity=70);
   padding: 1px 1.2em;
   width: 30px;
   -webkit-box-shadow: 0 1px 1px #D8D8D8;
@@ -1580,6 +1592,7 @@ textarea#bio {
   height: 160px;
   float: left;
   margin: 1.3em 0 0 1em;
+  overflow: auto;
   width: 332px;
 }
 

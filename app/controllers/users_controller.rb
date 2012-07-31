@@ -22,7 +22,7 @@
   end
 
   def feed
-    @title = "mural"
+    @title = "mural #{@user.name}"
     @user = User.find_by_salt(cookies[:remember_token])
     @new_micropost = Micropost.new        
     @feed_items = @user.feed.paginate(:page => params[:page])
@@ -60,6 +60,7 @@
   def update
     @new_micropost = Micropost.new
     if @user.update_attributes(params[:user])
+      expire_fragment("home_feed")
       signin @user
       flash[:success] = "Perfil atualizado com sucesso!"
       redirect_to @user
