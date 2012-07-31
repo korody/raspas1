@@ -1026,9 +1026,8 @@ div.quote_author {
 
 /* tooltip styling */
 .tooltip {
-  border: 0px solid #D8D8D8;
   display:  none;
-  margin: 10px 0 0 140px;
+  margin: 10px 0 0 154px;
   z-index: 4;
 }
 
@@ -1394,6 +1393,11 @@ div.mural_feed:hover a {
 
 div.mural_feed a:hover {
   color: #E2492F;
+}
+
+ul.users li {
+  float: left;
+  margin: 12px;
 }
 
 div.user_card {
