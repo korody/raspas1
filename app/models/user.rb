@@ -89,11 +89,17 @@
     end
   end
 
-  def self.search(search)
-    if search.present?
-      search(search)
+  include PgSearch
+  pg_search_scope :search, against: [:name, :job],
+    using: {tsearch: {dictionary: "english"}}#,
+    #ignoring: :accents  
+
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
     else
-      find(:all)
+      scoped
     end
   end
 

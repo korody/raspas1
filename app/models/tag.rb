@@ -21,11 +21,16 @@ class Tag < ActiveRecord::Base
 
   validates :name,  :length   => { :maximum => 20 }
 
-  # def self.search(search)
-  #   if search.present?
-  #     search(search)
-  #   else
-  #     find(:all)
-  #   end
-  # end
+ include PgSearch
+  pg_search_scope :search, against: :name,
+    using: {tsearch: {dictionary: "english"}}#,
+    #ignoring: :accents  
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
 end
