@@ -38,9 +38,8 @@ class Author < ActiveRecord::Base
                     :length   => { :maximum => 50 },
                     :uniqueness => { :case_sensitive => false }
 
-
   include PgSearch
-  pg_search_scope :search, against: :name
+  pg_search_scope :search, against: [:name, :job]
 
   def self.text_search(query)
     if query.present?
