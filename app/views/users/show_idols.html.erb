@@ -1,31 +1,31 @@
 <div class= "user_feed">
-    <%= render 'user_idols' %>
+  <%= render 'user_idols' %>
 </div>
 <div class= "home">
 	<% if current_user?(@user) %>
 		<% if @idols.empty? %>
-	        <div class="half_quotes round">
-	          <div class= "sign">
-	           	Você ainda não é fã de ninguém...<br />
-	            Explore abaixo os últimos pensadores ou encontre seus ídolos na busca acima!
-	          </div>
-	          <div class= "flag_sign">
-	            <%= image_tag "happy.png" %>
-	          </div>
+      <div class="half_quotes round">
+        <div class= "sign">
+         	Você ainda não é fã de ninguém...<br />
+          Explore abaixo os últimos pensadores ou encontre seus ídolos na busca acima!
+        </div>
+        <div class= "flag_sign">
+          <%= image_tag "happy.png" %>
+        </div>
+      </div>
+      <div class= "home_authors">
+    		<% @authors_intro.shuffle.first(120).each do |author| %>
+	        <div class= "home_authors_each">
+	        	<p><%= link_to author.name, author %></p>
+	            <%= link_to image_tag(author.image_url(:medium)), author %>
 	        </div>
-	        <div class= "home_authors">
-          		<% @authors_intro.shuffle.first(120).each do |author| %>
-			        <div class= "home_authors_each">
-			        	<p><%= link_to author.name, author %></p>
-			            <%= link_to image_tag(author.image_url(:medium)), author %>
-			        </div>
 				<% end %>
-	        </div>
-	    <% else %>
-	      <div>
-			<%= render @idols %>
-	      </div>
-	    <% end %> 
+      </div>
+    <% else %>
+      <ul class= "users">
+				<%= render @idols %>
+      </ul>
+    <% end %> 
 	<% else %>
 		<% if @user.idols.empty? %>
 			<div class= "title">
@@ -33,9 +33,9 @@
 				<%= link_to "explorar pensadores", authors_path %>
 			</div>
 		<% else %>
-			<div>
+			<ul class= "users">
 				<%= render @idols %>
-			</div>
+			</ul>
 		<% end %>
 	<% end %>
 </div>
