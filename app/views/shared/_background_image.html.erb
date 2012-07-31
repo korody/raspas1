@@ -1,0 +1,9 @@
+<% if @micropost %>
+	<% if @micropost.author %>
+	  <%= image_tag @micropost.author.image_url.to_s, class: "author_back" %>
+	<% else %>
+	  <%= image_tag @micropost.user.image_url.to_s, class: "author_back" %>
+	<% end %>
+<% elsif @author %>
+    <%= image_tag @author.image_url.to_s, class: "author_back" %>
+<% end %>

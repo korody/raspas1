@@ -38,6 +38,17 @@
             <%= image_tag "clock_ico.png", title: "tempo no ar" %>
             <%= time_ago_in_words(feed_item.created_at) %>
           </div>
+          <% if feed_item.author %>
+            <div class= "timestamp_each">
+              <div class= "quote_poster">
+                <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
+                <%= link_to feed_item.user.name, feed_item.user %>
+              </div>
+            </div>
+            <div class= "tooltip">
+              <%= render feed_item.user %>
+            </div>
+          <% end %>
           <% if !feed_item.tags.empty? %>
             <div class= "timestamp_each">
               <% feed_item.tags.each do |tag| %>
@@ -54,10 +65,8 @@
           <% if feed_item.favouriters.any? %>
             <div class= "timestamp_each">
               <% feed_item.favouriters.first(1).each do |favouriters| %>
-                <div class= "quote_favouriters">
-                  <%= link_to (image_tag "heart_ico.png"), favouriters %>
-                  <%= link_to favouriters.name, favouriters %> 
-                </div>
+                <%= link_to (image_tag "heart_ico.png"), favouriters %>
+                <%= link_to favouriters.name, favouriters, class: "quote_favouriters" %> 
                 <div class= "tooltip">
                   <%= render favouriters %>
                 </div>
@@ -67,25 +76,14 @@
               <% end %>
             </div>
           <% end %>
-          <% if feed_item.author %>
-            <div class= "timestamp_each">
-              <div class= "quote_poster">
-                <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{feed_item.user.name}" %>
-                <%= link_to feed_item.user.name, feed_item.user, title: "ver + de #{feed_item.user.name}" %>
-              </div>
-            </div>
-          <% end %>
-          <div class= "tooltip">
-            <%= render feed_item.user %>
-          </div>
-          <div class= "timestamp_each">
-            <%# if !feed_item.published? %>
-              <!--sob <%#= link_to "análise", @author %> -->
+          <%# if !feed_item.published? %>
+            <!--<div class= "timestamp_each">
+              sob <%#= link_to "análise", @author %> 
               <%#= link_to (image_tag "flag_ico.png"), root_path %>
-            <%# end %>
-          </div>
-          <div class= "timestamp_each">
-            <% if current_user?(feed_item.user) %>
+            </div>-->
+          <%# end %>
+          <% if current_user?(feed_item.user) %>
+            <div class= "timestamp_each">
               <%= link_to (image_tag "edit.png"), edit_micropost_path(feed_item) %>
               <%= link_to "editar", edit_micropost_path(feed_item) %>
               <%= link_to (image_tag "trash_ico.png"), feed_item, :method => :delete,
@@ -94,8 +92,8 @@
               <%= link_to "apagar", feed_item, :method => :delete,
                                                  :confirm => "apagar esta raspa?",
                                                  :title => "descartar" %>             
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class= "quote_corner">

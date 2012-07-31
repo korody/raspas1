@@ -1,16 +1,15 @@
 $(function(){
 	$(".quote_author, .quote_poster, .quote_favouriters, .quote_poster_pic").tooltip({
 
-		position: 'bottom right',
-		// tweak the position
-		offset: [-2, -12],
+		// position
+		position: 'bottom center',
 
 		// use the "slide" effect
 		effect: 'slide',
 
-		predelay: '150',
+		predelay: '200',
 
-		delay: '150'
+		delay: '200'
  
 	// add dynamic plugin with optional configuration for bottom edge
 	}).dynamic({ bottom: { direction: 'down' } });

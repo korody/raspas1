@@ -9,9 +9,9 @@ body {
 
 div.container img.author_back {
   filter:alpha(opacity=20);
+  left: 0;
   opacity: 0.2;
   position: fixed;
-  left: 0;
   width: 100%;
   z-index: -2;
 }
@@ -142,6 +142,7 @@ nav ul li.search input.lupa {
   border-left: 0px solid #E6674A;
   float: left;
   opacity: 0.8;
+  filter:alpha(opacity=80);
   padding: 0 0.2em;
   height: 27px;
   width: 27px;
@@ -422,6 +423,7 @@ div.fb-like {
   border-top: 0px solid #D8D8D8;
   height: 32px;
   opacity: 0.7;
+  filter:alpha(opacity=70);
   padding: 1px 1.2em;
   position: absolute;
   right: 1.5em;
@@ -436,6 +438,7 @@ div.fb-like {
   background: #E2492F;
   color: #FFF;
   opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 textarea#contact {
@@ -757,11 +760,13 @@ div.user_info_board div.stats {
 div.stats img {
   height: 20px;
   opacity: 0.5;
+  filter:alpha(opacity=50);
   width: 20px;
 }
 
 div.stats img:hover {
   opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 div.stats a.but {
@@ -1021,7 +1026,9 @@ div.quote_author {
 
 /* tooltip styling */
 .tooltip {
+  border: 0px solid #D8D8D8;
   display:  none;
+  margin: 10px 0 0 140px;
   z-index: 4;
 }
 
@@ -1051,7 +1058,7 @@ div.timestamp {
   display: block;
   float: left;
   float: left;
-  line-height: 1.4;
+  line-height: 1;
   margin: 1em 0 0 0.4em;
   clear: both;
 }
@@ -1067,6 +1074,7 @@ div.timestamp_each img {
   height: 12px;
   margin: 0 0 0 2px;
   width: 12px;
+  vertical-align: bottom;
 }
 
 div.timestamp_each img.raspa {
@@ -1100,6 +1108,7 @@ div.top_corner a.top_button {
   float: right;
   height: 32px;
   opacity: 0.7;
+  filter:alpha(opacity=70);
   padding: 1px 1.2em;
   width: 30px;
   -webkit-box-shadow: 0 1px 1px #D8D8D8;
@@ -1111,6 +1120,7 @@ div.top_corner a.top_button:hover {
   background: #E2492F;
   color: #FFF;
   opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 div.top_corner input {
@@ -1130,6 +1140,7 @@ div.top_corner input:hover {
   border-top: 0px solid #D8D8D8;
   color: #FFF;
   opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 div.but_stats {
@@ -1191,6 +1202,7 @@ div.sharers img {
 
 div.sharers img:hover {
   opacity: 0.9;
+  filter:alpha(opacity=90);
 }
 
 div.quote_poster_pic img {
@@ -1307,12 +1319,14 @@ div.user_feed_arrow img {
   height: 130px;
   margin: 0;
   opacity: 0.5;
+  filter:alpha(opacity=50);
   width: 130px;
 }
 
 div.user_feed_arrow img:hover {
   cursor: pointer;
   opacity: 1;
+  filter:alpha(opacity=100);
 }
 
 div.user_feed_follow {
@@ -1388,7 +1402,6 @@ div.user_card {
   display: inline-block;
   float: left;
   height: 185px;
-  margin: 1em;
   width: 374px;
   -webkit-box-shadow: 0 2px 2px #D8D8D8;
   -moz-box-shadow: 0 2px 2px #D8D8D8;
@@ -1410,6 +1423,11 @@ div.user_card_info {
   height: 100%;
   margin-right: 0.8em;
   width: 47%;
+}
+
+div.user_card_info a img {
+  height: 20px;
+  width: 20px;
 }
 
 div.user_card_name {

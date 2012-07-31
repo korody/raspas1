@@ -29,6 +29,17 @@
         <%= image_tag "clock_ico.png", title: "tempo no ar", alt: "há" %>
         <%= time_ago_in_words(micropost.created_at) %>
       </div>
+      <% if micropost.author %>
+        <div class= "timestamp_each">  
+          <div class= "quote_poster">
+            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{micropost.user.name}", alt: "raspa de" %>
+            <%= link_to micropost.user.name, micropost.user %>
+          </div>
+        </div>
+        <div class= "tooltip">
+          <%= render micropost.user %>
+        </div>
+      <% end %>
       <% if !micropost.tags.empty? %>
         <div class= "timestamp_each">
           <% micropost.tags.each do |tag| %>
@@ -45,10 +56,8 @@
       <% if micropost.favouriters.any? %>
         <div class= "timestamp_each">
           <% micropost.favouriters.first(1).each do |favouriters| %>
-            <div class= "quote_favouriters">
-              <%= link_to (image_tag "heart_ico.png", alt: "favoritaram"), favouriters %>
-              <%= link_to favouriters.name, favouriters %> 
-            </div>  
+            <%= link_to (image_tag "heart_ico.png", alt: "favoritaram"), favouriters %>
+            <%= link_to favouriters.name, favouriters, class: "quote_favouriters" %> 
             <div class= "tooltip">
               <%= render favouriters %>
             </div>
@@ -56,17 +65,6 @@
               + <%= link_to pluralize(micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(micropost), title: "ver usuários que favoritaram esta raspa" %>
             <% end %>
           <% end %>
-        </div>
-      <% end %>
-      <% if micropost.author %>
-        <div class= "timestamp_each">  
-          <div class= "quote_poster">
-            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{micropost.user.name}", alt: "raspa de" %>
-            <%= link_to micropost.user.name, micropost.user %>
-          </div>
-        </div>
-        <div class= "tooltip">
-          <%= render micropost.user %>
         </div>
       <% end %>
       <%# if !micropost.published? %>

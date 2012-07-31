@@ -1,4 +1,4 @@
-# encoding: utf-8
+# encoding:   utf-8
 class AuthorsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :new]
 
