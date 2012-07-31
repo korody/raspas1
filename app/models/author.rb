@@ -40,8 +40,7 @@ class Author < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search, against: [:name, :job],
-    using: {tsearch: {dictionary: "english"}},
-    ignoring: :accents  
+    using: {tsearch: {dictionary: "english"}}
 
 
   def self.text_search(query)
