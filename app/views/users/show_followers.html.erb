@@ -8,9 +8,9 @@
 <% else %>
 	<div class= "home">
 		<% unless @followers.empty? %>
-			<div>
+			<ul class="users">
 				<%= render @followers %>
-			</div>
+			</ul>
 		<% end %>
 	</div>
 <% end %>

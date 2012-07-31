@@ -359,6 +359,7 @@ input#button {
 div.title a {
   float: right;
   margin-left: 0.5em;
+  line-height: 1.5;
 }
 
 div.likes {
