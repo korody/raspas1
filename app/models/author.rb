@@ -40,8 +40,8 @@ class Author < ActiveRecord::Base
 
 
   def self.search(search)
-    if search
-      where("name @@ ?", search)
+    if search.present?
+      search(search)
     else
       find(:all)
     end

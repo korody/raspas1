@@ -96,10 +96,11 @@ class Micropost < ActiveRecord::Base
     end
 
     def self.search(search)
-    if search
-      where("content @@ ?", search)
-    else
-      find(:all)
+      if search.present?
+        search(search)
+      else
+        find(:all)
+      end
     end
   end
 end

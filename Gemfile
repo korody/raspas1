@@ -42,6 +42,7 @@ end
 
 group :production do
   gem 'pg', '0.12.2'
+  gem 'texticle', require: 'texticle/rails'
 end
 
 gem "heroku", "2.19.0"
