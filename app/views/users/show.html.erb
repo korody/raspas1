@@ -31,26 +31,24 @@
         <% end %>
       <% end %> 
     <% end %>
-    <% cache [@microposts, @user] do %>
-      <% if !signed_in? %>
-        <div class ="welcome_space"></div>
-        <%= render 'shared/welcome' %>
-        <% unless @microposts.empty? %>
-        	<%= render @microposts %>
-        <% end %>
-      <% else %>
-        <% if !current_user?(@user) %>
-          <div class= "half_quotes round">
-            <div class= "sign">
-              <%= @user.name %> ainda não possui nenhuma raspa.<br />
-              Explore as raspas de outros <%= link_to "usuários", users_path %>!
-            </div>
-            <div class= "flag_sign">
-              <%= image_tag "happy.png" %>
-            </div>
+    <% if !signed_in? %>
+      <div class ="welcome_space"></div>
+      <%= render 'shared/welcome' %>
+    <% end %>
+    <% unless @microposts.empty? %>
+    	<%= render @microposts %>
+    <% else %>
+      <% if !current_user?(@user) %>
+        <div class= "half_quotes round">
+          <div class= "sign">
+            <%= @user.name %> ainda não possui nenhuma raspa.<br />
+            Explore as raspas de outros <%= link_to "usuários", users_path %>!
           </div>
-        <% end %>  	
-      <% end %>
+          <div class= "flag_sign">
+            <%= image_tag "happy.png" %>
+          </div>
+        </div>
+      <% end %>  	
     <% end %>
     <%= will_paginate @microposts %>
   </div>
