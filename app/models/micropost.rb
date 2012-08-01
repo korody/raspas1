@@ -98,6 +98,7 @@ class Micropost < ActiveRecord::Base
     include PgSearch
     pg_search_scope :search, against: :content,
     using: {tsearch: {dictionary: "english"}},
+    associated_against: {author: :name, user: :name},
     ignoring: :accents  
 
     def self.text_search(query)

@@ -91,7 +91,7 @@
 
   include PgSearch
   pg_search_scope :search, against: [:name, :job, :origin],
-    using: {tsearch: {dictionary: "english"}},
+    using: {tsearch: {prefix: true, dictionary: "english"}},
     ignoring: :accents  
 
   def self.text_search(query)
