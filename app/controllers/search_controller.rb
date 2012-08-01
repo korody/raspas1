@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
 
   def index
+  	@title = "busca por #{(params[:query])}"
     @tags = Tag.search(params[:query])
     @authors = Author.search(params[:query])
     @users = User.search(params[:query])

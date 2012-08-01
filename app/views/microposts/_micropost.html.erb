@@ -27,7 +27,7 @@
     <div class="timestamp">
       <div class= "timestamp_each">
         <%= image_tag "clock_ico.png", title: "tempo no ar", alt: "há" %>
-        <%= time_ago_in_words(micropost.created_at) %>
+        <%= micropost.created_at.strftime("%d.%m.%Y") %>
       </div>
       <% if micropost.author %>
         <div class= "timestamp_each">  

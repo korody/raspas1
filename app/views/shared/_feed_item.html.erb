@@ -36,7 +36,7 @@
         <div class="timestamp">
           <div class= "timestamp_each">
             <%= image_tag "clock_ico.png", title: "tempo no ar" %>
-            <%= time_ago_in_words(feed_item.created_at) %>
+            <%= feed_item.created_at.strftime("%d.%m.%Y") %>
           </div>
           <% if feed_item.author %>
             <div class= "timestamp_each">
