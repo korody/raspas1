@@ -39,7 +39,7 @@ class Author < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
 
   include PgSearch
-  pg_search_scope :search, against: [:name, :job],
+  pg_search_scope :search, against: [:name, :job, :origin],
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
     ignoring: :accents  
 
