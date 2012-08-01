@@ -90,7 +90,7 @@
   end
 
   include PgSearch
-  pg_search_scope :search, against: :name,
+  pg_search_scope :search, against: [:name, :job, :origin],
     using: {tsearch: {dictionary: "english"}},
     ignoring: :accents  
 
