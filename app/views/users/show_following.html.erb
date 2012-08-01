@@ -33,9 +33,9 @@
 				<%= link_to "explorar usuários", users_path %>
 			</div>
 		<% else %>
-			<div>
+      <ul class= "users">
 				<%= render @following %>
-			</div>
+			</ul>
 		<% end %>
 	<% end %>
 </div>
