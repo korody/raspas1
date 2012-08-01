@@ -4,7 +4,7 @@
 		<%= link_to "também quero um perfil!", signin_path if ! signed_in? %>
 	</div>
 	<ul class="users">
-	  <li><%= render @users %></li>
+		<%= render @users %>
 	</ul>
 	<div class= "pagination_square">
 		<%#= will_paginate @users %>

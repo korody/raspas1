@@ -1426,6 +1426,7 @@ div.mural_feed a:hover {
 }
 
 ul.users li {
+  border: 1px solid #D8D8D8;
   float: left;
   margin: 12px;
 }
