@@ -55,7 +55,7 @@ class AuthorsController < ApplicationController
   	@author = Author.find(params[:id])
     @new_micropost = Micropost.new
     if @author.update_attributes(params[:author])
-      expire_fragment("mosaico, home_feed")
+      expire_fragment("mosaico")
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author
     else

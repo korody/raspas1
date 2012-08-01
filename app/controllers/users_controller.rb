@@ -60,7 +60,6 @@
   def update
     @new_micropost = Micropost.new
     if @user.update_attributes(params[:user])
-      expire_fragment("home_feed")
       signin @user
       flash[:success] = "Perfil atualizado com sucesso!"
       redirect_to @user

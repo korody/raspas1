@@ -13,7 +13,7 @@ module ApplicationHelper
           "#{@title} { #{@micropost.user.name}"
         end
       else
-        "#{base_title} { #{@title}"
+        "#{@title} { #{base_title}"
       end     
     end
   end
