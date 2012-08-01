@@ -7,6 +7,19 @@ body {
   background: transparent;
 }
 
+.pattern {
+  background: url(fundo.jpg) no-repeat fixed center;
+  background-size: 100% auto;
+  height: 100%;
+  left: 0;
+  opacity: 0.4;
+  filter:alpha(opacity=40);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -4;
+}
+
 div.container img.author_back {
   filter:alpha(opacity=20);
   left: 0;

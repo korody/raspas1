@@ -1,3 +1,6 @@
+<% cache "pattern" do %>
+  <div class= "pattern"></div>
+<% end %>
 <div class="raspas">
   <div class="user_info">
     <%= render 'user_info' %>
@@ -28,24 +31,26 @@
         <% end %>
       <% end %> 
     <% end %>
-    <% if !signed_in? %>
-      <div class ="welcome_space"></div>
-      <%= render 'shared/welcome' %>
-    <% end %>
-    <% unless @microposts.empty? %>
-    	<%= render @microposts %>
-    <% else %>
-      <% if !current_user?(@user) %>
-        <div class= "half_quotes round">
-          <div class= "sign">
-            <%= @user.name %> ainda não possui nenhuma raspa.<br />
-            Explore as raspas de outros <%= link_to "usuários", users_path %>!
+    <% cache [@microposts, @user] do %>
+      <% if !signed_in? %>
+        <div class ="welcome_space"></div>
+        <%= render 'shared/welcome' %>
+        <% unless @microposts.empty? %>
+        	<%= render @microposts %>
+        <% end %>
+      <% else %>
+        <% if !current_user?(@user) %>
+          <div class= "half_quotes round">
+            <div class= "sign">
+              <%= @user.name %> ainda não possui nenhuma raspa.<br />
+              Explore as raspas de outros <%= link_to "usuários", users_path %>!
+            </div>
+            <div class= "flag_sign">
+              <%= image_tag "happy.png" %>
+            </div>
           </div>
-          <div class= "flag_sign">
-            <%= image_tag "happy.png" %>
-          </div>
-        </div>
-      <% end %>  	
+        <% end %>  	
+      <% end %>
     <% end %>
     <%= will_paginate @microposts %>
   </div>
