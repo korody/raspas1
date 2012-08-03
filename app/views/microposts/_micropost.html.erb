@@ -90,20 +90,11 @@
   </div>
   <div class= "quote_corner">
     <div class= "top_corner">
-      <div>   
-        <% if micropost.favourites.find_by_user_id(current_user) %>  
-          <%= form_for micropost.favourites.find_by_user_id(current_user),
-               :html => { :method => :delete } do |f| %>
-            <div>
-              <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
-            </div>
-          <% end %>
-        <% else %>
-          <div>
-            <%= link_to (image_tag "heart.png", alt: "favoritar"), favourites_micropost_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
-          </div>
-        <% end %>
-        <% if micropost.favourites.any? %>
+      <div>
+        <div id= "favo_section">   
+          <%= render 'favourites/favo_form', micropost: micropost %>
+        </div>   
+        <% if micropost.favourites.find_by_user_id(current_user) %>
           <% if current_user?(micropost.user) %>  
             <div class= "but_stats_own round">
                 <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram sua raspa" %>

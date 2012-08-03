@@ -1,0 +1,7 @@
+<div id= "favo_form">  
+	<% if micropost.favourites.find_by_user_id(current_user) %>
+	  <%= render 'favourites/unfavo', micropost: micropost %>
+	<% else %>
+	  <%= render 'favourites/favo', micropost: micropost %>
+	<% end %>
+</div>  

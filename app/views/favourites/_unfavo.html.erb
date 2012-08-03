@@ -1,0 +1,6 @@
+<%= form_for micropost.favourites.find_by_user_id(current_user),
+html: { method: :delete } do |f| %>
+  <div>
+    <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
+  </div>
+<% end %>

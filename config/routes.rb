@@ -58,11 +58,10 @@
 
   resources :microposts, path: "raspas" do
     member do
-      get :favourites, path: "favoritas"
       get :favouriters, path: "favoritaram"
     end
   end
-  
+
   resources :sessions, only: [:new, :create, :authenticate, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]

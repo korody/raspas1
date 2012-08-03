@@ -64,29 +64,6 @@ class MicropostsController < ApplicationController
     redirect_back_or current_user
   end
 
-  def favourites
-    original_micropost = Micropost.find(params[:id])
-    if original_micropost
-      if original_micropost.author
-        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, author_id: original_micropost.author.id, poster_id: original_micropost.user.id)
-      else
-        favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, poster_id: original_micropost.user.id)
-      end
-      if favourite_micropost.save
-        redirect_to favourites_user_path(current_user)
-        flash[:success] = "Raspa adicionada às suas favoritas!"   
-        unless original_micropost.user.email.blank?
-          NotificationsMailer.favourite_notice(favourite_micropost).deliver
-        end
-      else
-        redirect_to user_path(current_user), notice: new_micropost.errors.full_messages
-      end
-    else
-      redirect_back_or current_user
-      flash[:error] = "A raspa mencionada não existe mais!"
-    end
-  end
-
   def favouriters
     @title = "favoritaram"
     @micropost = Micropost.find(params[:id])
