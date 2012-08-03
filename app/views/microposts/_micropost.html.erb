@@ -91,7 +91,7 @@
   <div class= "quote_corner">
     <div class= "top_corner">
       <div>
-        <div id= "favo_section">   
+        <div id= "favo_section">    
           <%= render 'favourites/favo_form', micropost: micropost %>
         </div>   
         <% if micropost.favourites.find_by_user_id(current_user) %>

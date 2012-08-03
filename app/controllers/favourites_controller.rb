@@ -15,7 +15,7 @@ class FavouritesController < ApplicationController
       #   format.js { @micropost = Micropost.find(params[:favourite][:micropost_id]) }
       # end
       if favourite_micropost.save
-        redirect_to :back
+        redirect_to :back#favourites_user_path(current_user)
         # flash[:success] = "Raspa adicionada às suas favoritas!"   
         unless original_micropost.user.email.blank?
           NotificationsMailer.favourite_notice(favourite_micropost).deliver
@@ -31,7 +31,7 @@ class FavouritesController < ApplicationController
 
 	def destroy
 		@favourite = Favourite.find(params[:id]).destroy
-    redirect_to :back
+    redirect_to :back#favourites_user_path(current_user)
 		# flash[:success] = "Raspa removida de suas favoritas!"
 		# respond_to do |format|
   #     format.html { redirect_to :back }
