@@ -58,14 +58,21 @@
 
   resources :microposts, path: "raspas" do
     member do
+      get :favourites, path: "favoritas"
       get :favouriters, path: "favoritaram"
     end
   end
 
+  resources :favourites, path: "favoritas" do
+    member do
+      get :favourites, path: "favoritas"
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :authenticate, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
-  resources :favourites, only: [:create, :destroy]
+  # resources :favourites, only: [:create, :destroy]
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

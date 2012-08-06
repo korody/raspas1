@@ -1,9 +1,9 @@
 # encoding: utf-8
 class FavouritesController < ApplicationController 
 
-	 def create
-    # original_micropost = Micropost.find(params[:id])
-	 	original_micropost = Micropost.find(params[:favourite][:micropost_id])
+	 def favourites
+    original_micropost = Micropost.find(params[:id])
+	 	# original_micropost = Micropost.find(params[:favourite][:micropost_id])
     if original_micropost
       if original_micropost.author
         favourite_micropost = current_user.favourites.build(micropost_id: original_micropost.id, author_id: original_micropost.author.id, poster_id: original_micropost.user.id)

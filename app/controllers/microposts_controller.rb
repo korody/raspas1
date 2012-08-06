@@ -61,7 +61,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    redirect_to :back
+    redirect_back_or current_user
   end
 
   def favouriters
