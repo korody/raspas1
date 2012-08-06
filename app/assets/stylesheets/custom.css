@@ -446,6 +446,7 @@ div.fb-like {
 }
 
 #popupContactClose {
+  background-color: #FFF;
   border: 1px solid #D8D8D8;
   border-top: 0px solid #D8D8D8;
   height: 32px;
@@ -799,6 +800,7 @@ div.stats img:hover {
 }
 
 div.stats a.but {
+  font-size: 14px;
   font-weight: normal;
   height: 20px;
   padding: 1px 4px;
