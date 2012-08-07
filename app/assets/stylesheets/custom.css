@@ -317,7 +317,7 @@ footer {
   position: relative;
 }
 
-#waiting {
+#waiting, #waiting_favo {
   position: absolute;
   left: 0;
   visibility: hidden;
@@ -733,8 +733,8 @@ div.user_info_board input {
   float: left;
   font-size: 120%;
   font-weight: bold;
-  height: 25px;
   margin-top: 0.5em;
+  padding: 4px 0;
   width: 100%;
 }
 
@@ -1134,7 +1134,7 @@ div.top_corner {
   width: 65px;
 }
 
-div.top_corner a.top_button, div.top_corner a.favo_ajax_but {
+div.top_corner a.top_button {
   border: 1px solid #D8D8D8;
   display: block;
   float: right;
@@ -1146,7 +1146,7 @@ div.top_corner a.top_button, div.top_corner a.favo_ajax_but {
   -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
-div.top_corner a.top_button:hover, div.top_corner a.favo_ajax_but:hover {
+div.top_corner a.top_button:hover {
   border: 1px solid #D8D8D8;
   background: #E2492F;
   color: #FFF;

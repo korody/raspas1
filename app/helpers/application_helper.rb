@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  # Return a title on a per-page basis.
-	def title
-  	base_title = "raspas"
-  	if @title.nil?
-    	base_title
+   # Return a title on a per-page basis.
+  def title
+    base_title = "raspas"
+    if @title.nil?
+      base_title
     else 
       if @micropost
         if @micropost.author
@@ -14,6 +14,8 @@ module ApplicationHelper
         end
       elsif home
         "#{base_title} { #{@title}"
+      elsif @tag
+        "frases sobre #{@title} { #{base_title}"
       else
         "#{@title} { #{base_title}"
       end     
