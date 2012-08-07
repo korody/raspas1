@@ -1,5 +1,5 @@
 <div>
-	<%= link_to (image_tag "heart.png", alt: "favoritar"), favourites_favourite_path(micropost), :class => "top_button round", title: "adicionar às favoritas" %>
+	<%= link_to (image_tag "heart.png", alt: "favoritar"), criar_favourite_path(micropost), :class => "top_button round", title: "adicionar às favoritas", remote: true %>
 </div>
 <!--
 <%#= form_for micropost.favourites.build(micropost_id: micropost.id) do |f| %>

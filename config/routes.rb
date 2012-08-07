@@ -65,7 +65,7 @@
 
   resources :favourites, path: "favoritas" do
     member do
-      get :favourites, path: "favoritas"
+      get :criar
     end
   end
   

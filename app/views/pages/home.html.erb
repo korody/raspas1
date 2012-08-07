@@ -115,12 +115,10 @@
       <% if !signed_in? %>
         <%= render 'shared/welcome' %>
       <% end %>
-      <% cache @feed_items do %>  
-        <div>
-          <%= render @feed_items %>
-        </div>
-        <%= will_paginate @feed_items %>
-      <% end %>
+      <div>
+        <%= render @feed_items %>
+      </div>
+      <%= will_paginate @feed_items %>
     </div>
   </div>
 </div>

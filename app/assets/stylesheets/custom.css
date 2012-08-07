@@ -1134,7 +1134,7 @@ div.top_corner {
   width: 65px;
 }
 
-div.top_corner a.top_button {
+div.top_corner a.top_button, div.top_corner a.favo_ajax_but {
   border: 1px solid #D8D8D8;
   display: block;
   float: right;
@@ -1146,29 +1146,9 @@ div.top_corner a.top_button {
   -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
-div.top_corner a.top_button:hover {
+div.top_corner a.top_button:hover, div.top_corner a.favo_ajax_but:hover {
   border: 1px solid #D8D8D8;
   background: #E2492F;
-  color: #FFF;
-  opacity: 1;
-  filter:alpha(opacity=100);
-}
-
-div.top_corner input {
-  background: #E2492F;
-  border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;
-  display: block;
-  float: right;
-  height: 32px;
-  padding: 1px 1.2em;
-  width: 30px;
-}
-
-div.top_corner input:hover {
-  background: #F8F8F8;
-  border: 1px solid #D8D8D8;
-  border-top: 0px solid #D8D8D8;
   color: #FFF;
   opacity: 1;
   filter:alpha(opacity=100);
