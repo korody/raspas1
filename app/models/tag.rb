@@ -24,7 +24,7 @@ class Tag < ActiveRecord::Base
  include PgSearch
   pg_search_scope :search, against: :name,
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
-    associated_against: :microposts,
+    associated_against: {authors: :name},
     ignoring: :accents  
 
   def self.text_search(query)
