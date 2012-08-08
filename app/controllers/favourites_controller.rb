@@ -3,6 +3,7 @@ class FavouritesController < ApplicationController
 
 	 def criar
     original_micropost = Micropost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
 	 	# original_micropost = Micropost.find(params[:favourite][:micropost_id])
     if original_micropost
       if original_micropost.author
@@ -12,7 +13,7 @@ class FavouritesController < ApplicationController
       end
       respond_to do |format|
         format.html { redirect_to :back }
-        format.js { @micropost = Micropost.find(params[:id]) }
+        format.js { @micropost }
       end
       if favourite_micropost.save
         # redirect_to :back#favourites_user_path(current_user)
@@ -30,12 +31,14 @@ class FavouritesController < ApplicationController
   end
 
 	def destroy
-		@favourite = Favourite.find(params[:id]).destroy
-    redirect_to favourites_user_path(current_user)
-		flash[:success] = "Raspa removida de suas favoritas!"
-		# respond_to do |format|
-  #     format.html { redirect_to :back }
-  #     format.js 
-  #   end
+		@favourite = Favourite.find(params[:id])
+    @micropost = @favourite.micropost
+    @favourite.destroy
+    # redirect_to favourites_user_path(current_user)
+		# flash[:success] = "Raspa removida de suas favoritas!"
+		respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { @micropost }
+    end
 	end
 end

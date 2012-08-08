@@ -36,6 +36,13 @@
 </script>
 
 <!-- Twitter Sharer -->
-
+<!-- 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async = true;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
+ -->
+<script id="deferedjs" type="text/javascript"> 
+  var b = document.createElement('script'); 
+  b.type = 'text/javascript'; 
+  b.src = ('https://platform.twitter.com/widgets.js'); 
+  var a=document.getElementById("deferedjs"); 
+  a.parentNode.insertBefore(b,a); 
+</script> 

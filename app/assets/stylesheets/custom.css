@@ -542,6 +542,7 @@ div.mosaico_page {
   float: left;
   position: absolute;
   top: 40px;
+  width: 103%;
   z-index: 3;
 }
 
@@ -558,6 +559,7 @@ div.mosaico {
   float: left;
   position: fixed;
   top: 40px;
+  width: 103%;
   z-index: -1;
 }
 
