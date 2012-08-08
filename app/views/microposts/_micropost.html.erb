@@ -92,21 +92,6 @@
     <div class= "top_corner">
       <div>   
         <%= render 'favourites/favo_form', micropost: micropost %>
-        <% if micropost.favourites.any? %>
-          <% if current_user?(micropost.user) %>  
-            <div class= "but_stats_own round">
-                <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram sua raspa" %>
-            </div>
-          <% else %>
-            <div class= "but_stats round">
-                <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram esta raspa" %>
-            </div>
-          <% end %>  
-        <% else %>
-          <div class= "but_stats round">
-            <p>favoritar</p>
-          </div>
-        <% end %>
       </div>    
       <div class= "share">
         <% unless @micropost %>  

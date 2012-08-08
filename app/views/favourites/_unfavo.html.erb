@@ -5,3 +5,18 @@ remote: true do |f| %>
     <%= image_submit_tag "heart_broken.png", :class => "round", title: "descartar favorita" %>
   </div>
 <% end %>
+<% if micropost.favourites.any? %>
+  <% if current_user?(micropost.user) %>  
+    <div class= "but_stats_own round">
+        <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram sua raspa" %>
+    </div>
+  <% else %>
+    <div class= "but_stats round">
+        <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram esta raspa" %>
+    </div>
+  <% end %>  
+<% else %>
+  <div class= "but_stats round">
+    <p>favoritar</p>
+  </div>
+<% end %>
