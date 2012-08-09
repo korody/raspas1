@@ -272,13 +272,15 @@ footer {
   min-height: 20px;
   min-width: 8px;
   padding: 4px 7px;
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 .but:hover {
   background: #E2492F;
   color: #FFF;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 1px 1px #D8D8D8;
+  -webkit-box-shadow: 0 0px 0px #D8D8D8;
+  -moz-box-shadow: 0 0px 0px #D8D8D8;
 }
 
 .round {
@@ -317,7 +319,7 @@ footer {
   position: relative;
 }
 
-#waiting, #waiting_favo {
+.waiting {
   position: absolute;
   left: 0;
   visibility: hidden;
@@ -729,7 +731,7 @@ div.user_info_board {
   width: 185px;
 }
 
-div.user_info_board input {  
+div.user_info_board input, div.user_card_info input {  
   border: 1px solid #D8D8D8;
   color: #E2492F;
   float: left;
@@ -740,7 +742,7 @@ div.user_info_board input {
   width: 100%;
 }
 
-div.user_info_board a.edit {  
+div.user_info_board a.edit, div.user_card_info a.edit {  
   float: left;
   height: 22px;
   margin-top: 0.5em;
@@ -749,22 +751,29 @@ div.user_info_board a.edit {
   width: 99%;
 }
 
-.user_info_board input:hover {
-  cursor: pointer;
-}
-
-div.user_info_board input.follow {
+div.user_info_board input.follow, div.user_card_info input.follow, div.user_info_board input.fan, div.user_info_board a.fan, div.user_card_info a.fan {
   background: #E2492F;
   color: #FFF;
   z-index: 2;
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
-div.user_info_board input.unfollow {
+div.user_info_board input.follow:hover, div.user_card_info input.follow:hover, div.user_info_board input.fan:hover, div.user_info_board a.fan:hover, div.user_card_info a.fan:hover {
+  -webkit-box-shadow: 0 0px 0px #D8D8D8;
+  -moz-box-shadow: 0 0px 0px #D8D8D8;
+}
+
+div.user_info_board a.fan, div.user_card_info a.fan {
+  line-height: 1.4;
+}
+
+div.user_info_board input.unfollow, div.user_card_info input.unfollow, div.user_info_board input.unfan, div.user_info_board a.unfan, div.user_card_info a.unfan {
   background: #F8F8F8;
   color: #B0B0B0;
 }
 
-div.user_info_board input.unfollow:hover {
+div.user_info_board input.unfollow:hover, div.user_card_info input.unfollow:hover, div.user_info_board input.unfan:hover, div.user_info_board input.unfan:hover {
   background: #E2492F;
   color: #FFF;
 }
@@ -1060,6 +1069,7 @@ div.quote_author {
 
 /* tooltip styling */
 .tooltip {
+  border: 1px solid #D8D8D8;
   display:  none;
   margin: 10px 0 0 154px;
   z-index: 4;
@@ -1458,7 +1468,6 @@ ul.users li {
 
 div.user_card {
   background-color: #F8F8F8;
-  border: 0px solid #D8D8D8;
   display: inline-block;
   float: left;
   height: 185px;
@@ -1476,13 +1485,12 @@ div.user_gravatar_card img {
 }
 
 div.user_card_info {
-  border: 0px solid #D8D8D8;
   color: #B0B0B0;
   display: inline-block;
   float: right;
-  height: 100%;
-  margin-right: 0.8em;
-  width: 47%;
+  height: 185px;
+  margin-right: 6px;
+  width: 176px;
 }
 
 div.user_card_info a img {
@@ -1494,7 +1502,7 @@ div.user_card_name {
   border-bottom: 1px solid #D8D8D8;
   line-height: 1.4;
   margin-top: 4px;
-  height: 4.7em;
+  height: 86px;
   width: 100%;
 }
 
@@ -1607,26 +1615,6 @@ div.sign a {
   font-size: 100%;
   font-weight: normal;
 }
-
-div.user_info_board input.fan, div.user_info_board a.fan  {
-  background: #E2492F;
-  color: #FFF;
-}
-
-div.user_info_board a.fan {
-  line-height: 1.4;
-}
-
-div.user_info_board input.unfan, div.user_info_board a.unfan {
-  background: #F8F8F8;
-  color: #B0B0B0;
-}
-
-div.user_info_board input.unfan:hover {
-  background: #E2492F;
-  color: #FFF;
-}
-
 
 /* AUTHOR EDIT */
 

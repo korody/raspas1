@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:relationship][:followed_id])
     relationship = current_user.follow!(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to :back }
       format.js
       if relationship.save
         unless relationship.followed.email.blank?
@@ -19,7 +19,7 @@ class RelationshipsController < ApplicationController
     @user = Relationship.find(params[:id]).followed
     current_user.unfollow!(@user)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to :back }
       format.js
     end
   end

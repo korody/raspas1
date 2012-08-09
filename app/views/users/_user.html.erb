@@ -7,6 +7,7 @@
 			<div class= "user_card_name">
 				<%= link_to user.name, user %>
 				<%= user.job if user.job? %>
+				<%= render "users/follow_form", user: user %>
 			</div>
 			<div class= "stats">
 				<p class= "p_stats">raspas</p>
@@ -26,12 +27,12 @@
 				<%= link_to user.followers.count, followers_user_path(user), :class => "but round", 
 				title: "ver seguidores de #{user.name}" %>
 			</div>
-			<div class= "stats">
+			<!-- <div class= "stats">
 				<p class= "p_stats">ídolos</p> 
-				<%= link_to (image_tag "ico_star.png"), idols_user_path(user), :alt => "ídolos", :class => "round" %>
-				<%= link_to user.idols.count, idols_user_path(user), :class => "but round", 
+				<%#= link_to (image_tag "ico_star.png"), idols_user_path(user), :alt => "ídolos", :class => "round" %>
+				<%#= link_to user.idols.count, idols_user_path(user), :class => "but round", 
 				title: "ver ídolos de #{user.name}" %>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </li>
