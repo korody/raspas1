@@ -15,7 +15,9 @@ module ApplicationHelper
       elsif home
         "#{base_title} { #{@title}"
       elsif @tag
-        "frases sobre #{@title} { #{base_title}"
+        "pensamentos sobre #{@title} { #{base_title}"
+      elsif @author
+        "pensamentos de #{@title} { #{base_title}"  
       else
         "#{@title} { #{base_title}"
       end     
