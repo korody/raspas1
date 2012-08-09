@@ -80,32 +80,32 @@ class AuthorsController < ApplicationController
   end
 
   def fans
-    @title = "fãs de #{@author.name}"
     @author = Author.find(params[:id])
     @fans = @author.fans.paginate(:page => params[:page], order: "name")
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
     render 'show_fans'
+    @title = "fãs de #{@author.name}"
   end
 
   def users
-    @title = "citaram #{@author.name}"
     @author = Author.find(params[:id])
     @authors_users = @author.users.all(:order => 'users.created_at DESC')
     @authors = @author.users.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     render 'show_users'
+    @title = "citaram #{@author.name}"
   end
        
   def favourites
-    @title = "favoritas de #{@author.name}"
     @author = Author.find(params[:id])
     @favourites = @author.favourites.all
     @eleitas = @author.eleitas.paginate(:page => params[:page])
     @authors = Author.all
     @new_micropost = Micropost.new
     render 'show_favourites'
+    @title = "favoritas de #{@author.name}"
   end
 
  private
