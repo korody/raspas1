@@ -1,12 +1,12 @@
 <% if signed_in? %>
-  <div class= "mosaico">
-    <% @avatars.shuffle.each do |a| %>
+  <!-- <div class= "mosaico">
+    <%# @avatars.shuffle.each do |a| %>
       <div class= "mosaico_item">
-        <%= link_to (image_tag a.image_url(:medium)), a %>
-        <p class= "gradient"><%= link_to a.name, a %></p>
+        <%#= link_to (image_tag a.image_url(:medium)), a %>
+        <p class= "gradient"><%#= link_to a.name, a %></p>
       </div>
-    <% end %>
-  </div>
+    <%# end %>
+  </div> -->
   <div class= "user_feed">
     <%= render 'users/user_feed' %>
   </div>
