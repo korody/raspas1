@@ -91,9 +91,9 @@ class AuthorsController < ApplicationController
 
   def users
     @author = Author.find(params[:id])
-    @authors_users = @author.users.all(:order => 'users.created_at DESC')
-    @authors = @author.users.paginate(:page => params[:page])
+    @users = @author.users.all(:order => 'users.created_at DESC')
     @new_micropost = Micropost.new
+    @authors = Author.all
     @title = "citaram #{@author.name}"
     render 'show_users'
   end
