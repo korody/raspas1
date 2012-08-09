@@ -15,6 +15,9 @@
   </head>
   <body>  
     <div class="container">
+      <% cache "pattern" do %>
+        <div class= "pattern"></div>
+      <% end %>
       <div>
         <%= render 'layouts/header' %>
         <% if signed_in? %>

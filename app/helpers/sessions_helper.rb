@@ -7,7 +7,7 @@ module SessionsHelper
     else  
       request.fullpath == root_path
     end
-  end	
+  end
 
   def signin(user)
     cookies.permanent[:remember_token] = user.salt
