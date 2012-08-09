@@ -4,11 +4,13 @@
 			<%= link_to image_tag(author.image_url(:regular)), author %>
 		</div>
 		<div class= "user_card_info">
-			<div class= "user_card_name">
+			<div class= "user_card_name relative">
 				<%= link_to author.name, author %>
-				<%= author.job if author.job? %>	
+				<%= author.job if author.job? %>
+				<div class= "absolute_bottom">
+					<%= render "authors/fan_form", author: author %>
+				</div>	
 			</div>
-			<br />
 			<div id= "fans" class= "stats">
 				<p class= "p_stats">fãs</p> 
 				<%= link_to (image_tag "ico_star.png"), fans_author_path(author), :alt => "fäs", :class => "ico round" %>

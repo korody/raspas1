@@ -1,9 +1,9 @@
-<%= form_for current_user.subscriptions.build(author_id: @author.id),
+<%= form_for current_user.subscriptions.build(author_id: author.id),
 												:remote => true do |f| %>
 	<div>
 		<%= f.hidden_field :author_id %>
 	</div>
 	<div>
-	  	<%= f.submit "tornar-se fã", :class => "fan round" %>
+	  	<%= f.submit "tornar-se fã", class: "follow round" %>
 	</div>
 <% end %>

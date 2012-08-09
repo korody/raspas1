@@ -1,13 +1,13 @@
 <% if signed_in? %>
-	<div id= "fan_form" >
-		<% if current_user.idols?(@author) %>
-			<%= render 'unfan' %>
+	<%= div_for author do %>
+		<% if current_user.idols?(author) %>
+			<%= render 'authors/unfan', author: author %>
 		<% else %>
-			<%= render 'fan' %>
+			<%= render 'authors/fan', author: author %>
 		<% end %>
-	</div>
+	<% end %>
 <% else %>
 	<div>
-		<%= link_to "tornar-se fã", signin_path, :class => "fan edit but round actions" %>
+		<%= link_to "tornar-se fã", signin_path, class: "follow edit but round actions" %>
 	</div>
 <% end %>

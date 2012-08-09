@@ -755,7 +755,7 @@ div.user_info_board a.edit, div.user_card_info a.edit {
   width: 99%;
 }
 
-div.user_info_board input.follow, div.user_card_info input.follow, div.user_info_board input.fan, div.user_info_board a.fan, div.user_card_info a.fan {
+div.user_info_board input.follow, div.user_card_info input.follow, div.user_info_board a.follow, div.user_card_info a.follow {
   background: #E2492F;
   color: #FFF;
   z-index: 2;
@@ -763,21 +763,17 @@ div.user_info_board input.follow, div.user_card_info input.follow, div.user_info
   -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
-div.user_info_board input.follow:hover, div.user_card_info input.follow:hover, div.user_info_board input.fan:hover, div.user_info_board a.fan:hover, div.user_card_info a.fan:hover {
+div.user_info_board input.follow:hover, div.user_card_info input.follow:hover, div.user_info_board a.follow:hover, div.user_card_info a.follow:hover {
   -webkit-box-shadow: 0 0px 0px #D8D8D8;
   -moz-box-shadow: 0 0px 0px #D8D8D8;
 }
 
-div.user_info_board a.fan, div.user_card_info a.fan {
-  line-height: 1.4;
-}
-
-div.user_info_board input.unfollow, div.user_card_info input.unfollow, div.user_info_board input.unfan, div.user_info_board a.unfan, div.user_card_info a.unfan {
+div.user_info_board input.unfollow, div.user_card_info input.unfollow, div.user_info_board a.unfollow, div.user_card_info a.unfollow {
   background: #F8F8F8;
   color: #B0B0B0;
 }
 
-div.user_info_board input.unfollow:hover, div.user_card_info input.unfollow:hover, div.user_info_board input.unfan:hover, div.user_info_board input.unfan:hover {
+div.user_info_board input.unfollow:hover, div.user_card_info input.unfollow:hover {
   background: #E2492F;
   color: #FFF;
 }

@@ -9,11 +9,11 @@
 		<% end %>
 	<% else %>
 		<% if !@user %>
-  		<%= link_to "seu eu interior", '#', class: "unfan edit but round actions" %>
+  		<%= link_to "seu eu interior", current_user, class: "unfollow edit but round actions" %>
 		<% end %>
 	<% end %>	
 <% else %>
 	<div>
-		<%= link_to "seguir", signin_path, class: "fan edit but round actions" %>
+		<%= link_to "seguir", signin_path, class: "follow edit but round actions" %>
 	</div>
 <% end %>

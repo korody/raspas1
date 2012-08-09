@@ -17,7 +17,7 @@
 			<% if @author.origin? %>
 				<%= @author.origin %><br />
 			<% end %>
-			<%= render 'fan_form' %>
+			<%= render 'fan_form', author: @author %>
 		</div>
 		<% if @author.bio? %>
 			<div class= "user_info_board round" >
