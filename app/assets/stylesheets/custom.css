@@ -272,15 +272,13 @@ footer {
   min-height: 20px;
   min-width: 8px;
   padding: 4px 7px;
-  -webkit-box-shadow: 0 2px 2px #D8D8D8;
-  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 .but:hover {
   background: #E2492F;
   color: #FFF;
-  -webkit-box-shadow: 0 0px 0px #D8D8D8;
-  -moz-box-shadow: 0 0px 0px #D8D8D8;
+  -webkit-box-shadow: 0 2px 2px #D8D8D8;
+  -moz-box-shadow: 0 1px 1px #D8D8D8;
 }
 
 .round {
@@ -309,6 +307,12 @@ footer {
   position: absolute;
   top: 0;
   z-index: -1;
+}
+
+.absolute_bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .active {
@@ -1499,10 +1503,9 @@ div.user_card_info a img {
 }
 
 div.user_card_name {
-  border-bottom: 1px solid #D8D8D8;
   line-height: 1.4;
-  margin-top: 4px;
   height: 86px;
+  margin: 4px 0 2px;
   width: 100%;
 }
 
