@@ -80,7 +80,7 @@ class AuthorsController < ApplicationController
   end
 
   def fans
-    @title = "fãs"
+    @title = "fãs de #{@author.name}"
     @author = Author.find(params[:id])
     @fans = @author.fans.paginate(:page => params[:page], order: "name")
     @new_micropost = Micropost.new
@@ -90,7 +90,7 @@ class AuthorsController < ApplicationController
   end
 
   def users
-    @title = "users"
+    @title = "citaram #{@author.name}"
     @author = Author.find(params[:id])
     @authors_users = @author.users.all(:order => 'users.created_at DESC')
     @authors = @author.users.paginate(:page => params[:page])
@@ -99,7 +99,7 @@ class AuthorsController < ApplicationController
   end
        
   def favourites
-    @title = "favoritas"
+    @title = "favoritas de #{@author.name}"
     @author = Author.find(params[:id])
     @favourites = @author.favourites.all
     @eleitas = @author.eleitas.paginate(:page => params[:page])
