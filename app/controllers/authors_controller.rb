@@ -71,11 +71,11 @@ class AuthorsController < ApplicationController
   end
 
   def tags
-    @title = "temas"
     @author = Author.find(params[:id])
     @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
     @authors = @author.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
+    @title = "temas de #{@author.name}"
     render 'show_tags'
   end
 
@@ -85,8 +85,8 @@ class AuthorsController < ApplicationController
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
-    render 'show_fans'
     @title = "fãs de #{@author.name}"
+    render 'show_fans'
   end
 
   def users
@@ -94,8 +94,8 @@ class AuthorsController < ApplicationController
     @authors_users = @author.users.all(:order => 'users.created_at DESC')
     @authors = @author.users.paginate(:page => params[:page])
     @new_micropost = Micropost.new
-    render 'show_users'
     @title = "citaram #{@author.name}"
+    render 'show_users'
   end
        
   def favourites
@@ -104,8 +104,8 @@ class AuthorsController < ApplicationController
     @eleitas = @author.eleitas.paginate(:page => params[:page])
     @authors = Author.all
     @new_micropost = Micropost.new
-    render 'show_favourites'
     @title = "favoritas de #{@author.name}"
+    render 'show_favourites'
   end
 
  private
