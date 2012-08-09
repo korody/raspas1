@@ -32,7 +32,7 @@
     following = @user.following.all
     idols = @user.idols.all 
     @avatars = idols.concat(following)
-      fresh_when etag: [@feed_items, @intro]
+      fresh_when etag: [@feed_items, @intro, @avatars]
   end
 
   def tags
