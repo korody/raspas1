@@ -1,7 +1,14 @@
-<%= div_for micropost do %>
+<% if signed_in? %>
+	<%= div_for micropost do %>
 		<% if micropost.favourites.find_by_user_id(current_user) %>
 		  <%= render 'favourites/unfavo', micropost: micropost %>
 		<% else %>
 		  <%= render 'favourites/favo', micropost: micropost %>
 		<% end %>
+	<% end %>
+<% else %>
+	<div>
+		<%= link_to (image_tag "heart.png"), signin_path, class: "top_button round wait_favo" %>
+		<%= render 'shared/favo_count', micropost: micropost %>
+	</div>
 <% end %>

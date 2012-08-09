@@ -773,11 +773,6 @@ div.user_info_board input.unfollow, div.user_card_info input.unfollow, div.user_
   color: #B0B0B0;
 }
 
-div.user_info_board input.unfollow:hover, div.user_card_info input.unfollow:hover {
-  background: #E2492F;
-  color: #FFF;
-}
-
 div.user_info_board:hover {
   color: #2F4F4F;
   cursor: default;

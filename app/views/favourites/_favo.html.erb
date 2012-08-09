@@ -1,23 +1,7 @@
-<%= div_for micropost do %>
-	<div class= 'relative'>
-		<%= link_to (image_tag "heart.png", alt: "favoritar"), criar_favourite_path(micropost), class: "top_button round wait_favo", title: "adicionar às favoritas", remote: true %>
-	</div>
-	<% if micropost.favourites.any? %>
-	  <% if current_user?(micropost.user) %>  
-	    <div class= "but_stats_own round">
-	        <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram sua raspa" %>
-	    </div>
-	  <% else %>
-	    <div class= "but_stats round">
-	        <%= link_to "x #{micropost.favouriters.count}", favouriters_micropost_path(micropost), class: "round", title: "ver usuários que favoritaram esta raspa" %>
-	    </div>
-	  <% end %>  
-	<% else %>
-	  <div class= "but_stats round">
-	    <p>favoritar</p>
-	  </div>
-	<% end %>
-<% end %>
+<div class= 'relative'>
+	<%= link_to (image_tag "heart.png", alt: "favoritar"), criar_favourite_path(micropost), class: "top_button round wait_favo", title: "adicionar às favoritas", remote: true %>
+</div>
+<%= render 'shared/favo_count', micropost: micropost %>
 <!--
 <%#= form_for micropost.favourites.build(micropost_id: micropost.id) do |f| %>
   <div>
