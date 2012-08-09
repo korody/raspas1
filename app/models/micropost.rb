@@ -13,8 +13,8 @@
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :tag_names, :author_id, :author_name, :origem
   
-  has_many :taggings, :dependent => :destroy
-  has_many :tags, :through => :taggings
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   has_many :favourites, dependent: :destroy
   has_many :favouriters, through: :favourites, source: :user
@@ -22,10 +22,10 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :author
 
-  validates :content, :presence => true, :length => { :maximum => 345 }, 
-                                         :uniqueness => { :case_sensitive => false }
+  validates :content, presence: true, length: { maximum: 345 }, 
+                                  uniqueness: { :case_sensitive => false }
 
-  validates :user_id, :presence => true
+  validates :user_id, presence: true
 
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
@@ -41,7 +41,7 @@ class Micropost < ActiveRecord::Base
   attr_accessor :author_name
   attr_writer :tag_names, :author_name
   before_save :assign_author, :normalize
-  after_save :assign_tags
+  after_save :assign_tags 
 
   def normalize
     if content

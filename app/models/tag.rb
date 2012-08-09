@@ -11,15 +11,15 @@
 class Tag < ActiveRecord::Base
   attr_accessible :name
 
-	has_many :taggings, :dependent => :destroy, order: "taggings.created_at DESC"
+	has_many :taggings, dependent: :destroy, order: "taggings.created_at DESC"
 
-	has_many :microposts, :through => :taggings, order: "microposts.created_at DESC"
+	has_many :microposts, through: :taggings, order: "microposts.created_at DESC"
 
   has_many :users, through: :microposts, order: "users.created_at DESC", select: "DISTINCT users.*"
 
   has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
 
-  validates :name,  :length   => { :maximum => 20 }
+  validates :name, length: { maximum: 20 }
 
  include PgSearch
   pg_search_scope :search, against: :name,
