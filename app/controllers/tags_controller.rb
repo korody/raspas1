@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 
   	def show
 	    @tag = Tag.find(params[:id])
-	    @title = "sobre #{@tag.name}"
+	    @title = "#{@tag.name}"
 	    @tags = Tag.all(:order => 'tags.created_at DESC')
 	    @users = @tag.users(:order => 'tags.created_at DESC')
 	    @authors = @tag.authors(:order => 'tags.created_at DESC')

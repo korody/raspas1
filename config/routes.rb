@@ -58,7 +58,6 @@
 
   resources :microposts, path: "raspas" do
     member do
-      get :favourites, path: "favoritas"
       get :favouriters, path: "favoritaram"
     end
   end
