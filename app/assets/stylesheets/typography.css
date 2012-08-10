@@ -89,7 +89,3 @@ a  {
 a:hover  {
 	cursor: pointer;
 }
-
-input:hover {
-  cursor: pointer;
-}  

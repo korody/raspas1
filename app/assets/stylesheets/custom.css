@@ -738,6 +738,7 @@ div.user_info_board {
 div.user_info_board input, div.user_card_info input {  
   border: 1px solid #D8D8D8;
   color: #E2492F;
+  cursor: pointer;
   float: left;
   font-size: 120%;
   font-weight: bold;

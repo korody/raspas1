@@ -73,7 +73,8 @@ class AuthorsController < ApplicationController
   def tags
     @author = Author.find(params[:id])
     @author_tags = @author.tags.all(:order => 'tags.created_at DESC', :limit => 20)
-    @authors = @author.tags.paginate(:page => params[:page])
+    @tags = @author.tags.paginate(:page => params[:page])
+    @authors = Author.all
     @new_micropost = Micropost.new
     @title = "temas de #{@author.name}"
     render 'show_tags'

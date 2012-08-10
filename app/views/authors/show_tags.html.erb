@@ -1,10 +1,10 @@
 <div class= "home">
 	<div class= "title">
-		<p class= "p_search"><%= @author.name %> foi citado através de <%= pluralize @author.tags.count, "tema" %></p>
+		<p class= "p_search"><%= @author.name %> foi citado através de <%= pluralize @tags.count, "tema" %></p>
 		<%= link_to " explorar + temas", tags_path %><%= link_to "voltar", @author %>
 	</div>
 	<div class= "tag_word">
-		<% @author.tags.each do |tag| %>
+		<% @tags.each do |tag| %>
 			<div class= "tag_index">
 		  		<%= link_to tag.name, tag, class: "but round" %>
 			</div>  	
