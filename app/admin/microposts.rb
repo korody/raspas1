@@ -8,7 +8,6 @@ ActiveAdmin.register Micropost do
   	column :user
   	column :author
   	column :content
-  	column :origin_id
   	column :published
   	default_actions
   end
