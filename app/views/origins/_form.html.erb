@@ -1,7 +1,7 @@
 <%#= form_for @origin, html: { multipart: true } do |f| %>
-<%= form_for @origin, url: { controller: 'origins', action: 'create' }, as: :origin do |f| %>
-<%#= form_for([@origin.becomes(Origin)]) do |f| %>
-  <%# f.object = @origin.becomes(@origin.class) %>
+<%#= form_for @origin, url: { controller: 'origins', action: 'create' }, as: :origin do |f| %>
+<%= form_for([@origin.becomes(Origin)]) do |f| %>
+  <% f.object = @origin.becomes(@origin.class) %>
   <%= render 'shared/error_messages', object: f.object %>  
   <div class="cartela round">
     <div class= "cartela_corner round">

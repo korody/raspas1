@@ -737,12 +737,17 @@ div.user_info {
 }
 
 div.user_avatar {
-  background: #F8F8F8;
-  border: 1px solid #E8E8E8;
   min-height: 200px;
   max-height: 605px;
   margin-bottom: 1em;
   width: 200px;
+  img {
+    background: #F8F8F8;
+    border: 1px solid #E8E8E8;
+    max-height: 605px;
+    min-height: 200px;
+    width: 200px;
+  }
 }
 
 div.user_info_board {
@@ -1079,7 +1084,6 @@ div.quote_author {
 
 /* tooltip styling */
 .tooltip {
-  border: 1px solid #D8D8D8;
   display:  none;
   margin: 10px 0 0 154px;
   z-index: 4;
@@ -1562,14 +1566,6 @@ div.user_card_name a {
   font-weight: bold;
 }
 
-div.origin_card_name a {
-  display: inline-block;
-  float: left;
-  font-size: 120%;
-  font-weight: bold;
-  width: 164px;
-}
-
 div.home_authors {
   border: 0px solid #D8D8D8;
   float: left;
@@ -1734,6 +1730,15 @@ div.origin_card {
   max-width: 374px;
   @include shadow(2px, 2px, 2px, 2px, #D8D8D8);
   @include shadow_ie;
+}
+
+
+div.origin_card_name a {
+  display: inline-block;
+  float: left;
+  font-size: 120%;
+  font-weight: bold;
+  width: 164px;
 }
 
 div.origin_card_avatar img {
