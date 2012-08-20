@@ -35,6 +35,32 @@ body {
   zoom: 1;
 }
 
+@mixin scroller {
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+   
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
+    @include round(4px);
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    @include round(4px);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+
+//  IE SCROLLBAR STYLING
+  scrollbar-face-color: #F8F8F8;
+  scrollbar-highlight-color: #F8F8F8;
+  scrollbar-shadow-color: #B8B8B8;
+  scrollbar-3dlight-color: grey;
+  scrollbar-arrow-color: #F8F8F8;
+  scrollbar-track-color: #F8F8F8;
+  scrollbar-darkshadow-color: grey;
+}
+
 .gradient{
   /* thanks to http://blog.fakedarren.com/2010/01/cross-browser-css-gradients/ */
   /* and http://www.puremango.co.uk/2010/04/css-gradient/ */
@@ -1445,29 +1471,7 @@ div.user_feed_follow {
   width: 331px;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  &::-webkit-scrollbar {
-    width: 12px;
-  }
-   
-  &::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); 
-    @include round(4px);
-  }
-   
-  &::-webkit-scrollbar-thumb {
-    @include round(4px);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  }
-
-//  IE SCROLLBAR STYLING
-  scrollbar-face-color: #F8F8F8;
-  scrollbar-highlight-color: #F8F8F8;
-  scrollbar-shadow-color: #B8B8B8;
-  scrollbar-3dlight-color: grey;
-  scrollbar-arrow-color: #F8F8F8;
-  scrollbar-track-color: #F8F8F8;
-  scrollbar-darkshadow-color: grey;
+  @include scroller;
 }
 
 div.user_feed_follow img {
@@ -1733,6 +1737,13 @@ div.origin_card {
 }
 
 
+div.origin_card_name {
+  line-height: 1.4;
+  min-height: 35px;
+  margin: 4px 0 2px;
+  width: 100%;
+}
+
 div.origin_card_name a {
   display: inline-block;
   float: left;
@@ -1756,19 +1767,13 @@ div.origin_card_info {
   max-width: 550px;
 }
 
-div.origin_card_name {
-  line-height: 1.4;
-  min-height: 35px;
-  margin: 4px 0 2px;
-  width: 100%;
-}
-
 textarea#origin_content {
   height: 180px;
   float: left;
   margin: 5px 0 0 10px;
   width: 765px;
   overflow: auto;
+  @include scroller;
 }
 
 div.origin_type {
