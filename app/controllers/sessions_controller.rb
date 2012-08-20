@@ -25,14 +25,14 @@ class SessionsController < ApplicationController
           NotificationsMailer.registration_confirmation(user).deliver
           signin user
           redirect_back_or user
-          flash[:success] = "Olá #{user.name}! Seja bem-vindo à sua coleção de raspas!"
+          flash[:success] = "Olá #{user.name}! Seja bem-vindo à sua coleção de raspas!".html_safe
         else
           signin user
           redirect_back_or edit_user_path(current_user)
-          flash[:notice] = "Só faltou um e-mail para finalizarmos o cadastro. O twitter voou antes de nos contar!"
+          flash[:notice] = "Só faltou um e-mail para finalizarmos o cadastro. O twitter voou antes de nos contar!".html_safe
         end  
       else
-        redirect_to signin_path, notice: "Ops! Parece que o twitter está meio avoado hoje. Por favor, tente novamente."
+        redirect_to signin_path, notice: "Ops! Parece que o twitter está meio avoado hoje. Por favor, tente novamente.".html_safe
       end  
     end 
   end

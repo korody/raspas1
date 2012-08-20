@@ -51,12 +51,7 @@
       <% if micropost.origin %>
         <div class= "timestamp_each">
           <div class= "quote_origin">
-            <%= link_to (image_tag "origin_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class.blank? %>
-            <%= link_to (image_tag "book_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class == Book %>
-            <%= link_to (image_tag "poem_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class == Poem %>
-            <%= link_to (image_tag "song_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class == Song %>
-            <%= link_to (image_tag "film_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class == Film %>
-            <%= link_to (image_tag "other_ico.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if micropost.origin.class == Other %>
+            <%= link_to (image_tag "origin.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}"  %>
             <%= link_to micropost.origin.name, micropost.origin %>
           </div>
         </div>
