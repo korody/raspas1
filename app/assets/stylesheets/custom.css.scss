@@ -1727,7 +1727,7 @@ div.origin_card {
   background-color: #F8F8F8;
   float: left;
   margin-bottom: 20px;
-  max-width: 374px;
+  max-width: 550px;
   @include shadow(2px, 2px, 2px, 2px, #D8D8D8);
   @include shadow_ie;
 }
@@ -1744,16 +1744,16 @@ div.origin_card_name a {
 div.origin_card_avatar img {
   float: left;
   min-height: 200px;
-  max-height: 600px;
+  max-height: 550px;
   min-width: 200px;
-  max-width: 600px;
+  max-width: 550px;
 }
 
 div.origin_card_info {
   color: #B0B0B0;
   display: inline-block;
   margin: 4px 4px 5px;
-  max-width: 600px;
+  max-width: 550px;
 }
 
 div.origin_card_name {

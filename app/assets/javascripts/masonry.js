@@ -2,6 +2,7 @@ var $container = $('#mason');
 $container.imagesLoaded(function(){
   $container.masonry({
     itemSelector : '.origin_card',
+    // columnWidth : 374
   });
 });
 
