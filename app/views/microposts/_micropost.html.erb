@@ -51,7 +51,7 @@
       <% if micropost.origin %>
         <div class= "timestamp_each">
           <div class= "quote_origin">
-            <%= link_to (image_tag "origin.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}"  %>
+            <%= link_to (image_tag "origin.png", alt: "sobre"), micropost.origin, title: "ver + raspas de #{micropost.origin_id}" if !micropost.origin.type.blank? %>
             <%= link_to micropost.origin.name, micropost.origin %>
           </div>
         </div>

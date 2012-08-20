@@ -78,7 +78,7 @@ class OriginsController < ApplicationController
 
   def destroy
     Origin.find(params[:id]).destroy
-    flash[:success] = "A fonte foi removida com sucesso."
+    flash[:success] = "A origem foi removida com sucesso."
     redirect_to root_path
   end
 
