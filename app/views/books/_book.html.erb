@@ -6,7 +6,7 @@
     <div class= 'origin_type'>
       <%= link_to (image_tag 'book.png'), book %>
     </div>
-    <div class= "origin_card_name relative">
+    <div class= "origin_card_name">
       <%= link_to book.name, book %><br />
       <% if book.author.present? %>
         { <%= book.author.name %><br />

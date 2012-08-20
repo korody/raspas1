@@ -5,7 +5,7 @@ class OriginsController < ApplicationController
 
   def index
     @title = "origem"
-    @origins = eval("#{params[:controller].classify}.scoped")
+    @origins = eval("#{params[:controller].classify}.scoped(order: :name)")
     # @origins = params[:type].constantize.all
     # @origins = Origin.scoped(order: :name)
     # @origins = origin.paginate(:page => params[:page])

@@ -1,7 +1,7 @@
 var $container = $('#mason');
 $container.imagesLoaded(function(){
   $container.masonry({
-    itemSelector : '.origin_card',
+    itemSelector : '.origin_card'
     // columnWidth : 374
   });
 });
@@ -9,6 +9,6 @@ $container.imagesLoaded(function(){
 $('#mason').masonry({
   // set columnWidth a fraction of the container width
   columnWidth: function( containerWidth ) {
-    return containerWidth / 3;
+    return containerWidth / 2;
   }
 });
