@@ -9,9 +9,9 @@
     <div class= "origin_card_name relative">
       <%= link_to song.name, song %><br />
       <% if song.author.present? %>
-        { <%= song.author.name %><br />
+        { <%= link_to song.author.name, song.author, class: "origin_author" %><br />
       <% else %>
-        { <%= song.user.name %><br />
+        { <%= link_to song.user.name, song.user, class: "origin_author" %><br />
       <% end %>
     </div>
   </div>

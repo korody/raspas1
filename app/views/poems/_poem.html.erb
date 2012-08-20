@@ -9,9 +9,9 @@
     <div class= "origin_card_name relative">
       <%= link_to poem.name, poem %><br />
       <% if poem.author.present? %>
-        { <%= poem.author.name %><br />
+        { <%= link_to poem.author.name, poem.author, class: "origin_author" %><br />
       <% else %>
-        { <%= poem.user.name %><br />
+        { <%= link_to poem.user.name, poem.user, class: "origin_author" %><br />
       <% end %>
     </div>
   </div>

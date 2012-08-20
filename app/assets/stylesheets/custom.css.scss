@@ -1724,13 +1724,13 @@ div.origin_upwards {
 
 div#mason {
   border: 0px solid black;
-  margin-top: 55px;
+  margin-top: 45px;
 }
 
 div.origin_card {
   background-color: #F8F8F8;
   float: left;
-  margin-bottom: 20px;
+  margin: 10px;
   max-width: 374px;
   @include shadow(2px, 2px, 2px, 2px, #D8D8D8);
   @include shadow_ie;
@@ -1744,6 +1744,14 @@ div.origin_card_name {
     font-size: 14px;
     font-weight: bold;
   }
+  a.origin_author {
+    color: #B0B0B0;
+    font-size: 13px;
+    font-weight: normal;
+  }
+  &:hover a.origin_author {
+      color: #E2492F;
+    }
 }
 
 div.origin_card_avatar img {

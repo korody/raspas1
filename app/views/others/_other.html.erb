@@ -9,9 +9,9 @@
     <div class= "origin_card_name relative">
       <%= link_to other.name, other %><br />
       <% if other.author.present? %>
-        { <%= other.author.name %><br />
+        { <%= link_to other.author.name, other.author, class: "origin_author" %><br />
       <% else %>
-        { <%= other.user.name %><br />
+        { <%= link_to other.user.name, other.user, class: "origin_author" %><br />
       <% end %>
     </div>
   </div>
