@@ -34,7 +34,6 @@
 		</ul>
 	</div>
 <% end %>
-
 <% if @users.empty? %>
 	<div class= "title">
 		<p class= "p_search">nenhum usuário encontrado</p>
@@ -48,6 +47,22 @@
 	<div class= "home">
 		<ul class="users">
 			<%= render @users %>
+		</ul>
+	</div>
+<% end %>
+<% if @origins.empty? %>
+	<div class= "title">
+		<p class= "p_search">nenhum usuário encontrado</p>
+		<%= link_to "explorar usuários", origins_path %>
+	</div>
+<% else %>
+	<div class= "title">
+		<p class= "p_search">encontramos <%= pluralize @origins.count, "usuário" %></p>
+		<%= link_to "explorar + usuários", origins_path %>
+	</div>
+	<div class= "home">
+		<ul class="users">
+			<%= render @origins %>
 		</ul>
 	</div>
 <% end %>
