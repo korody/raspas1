@@ -18,11 +18,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-      if @author
-        "photos/default/" + [version_name, "author.png"].compact.join('_')
-      else
-        "photos/default/" + [version_name, "user.png"].compact.join('_')
-      end
+    if @author
+      "photos/default/" + [version_name, "author.png"].compact.join('_')
+    else
+      "photos/default/" + [version_name, "user.png"].compact.join('_')
+    end
   end
 
   # Process files as they are uploaded:
@@ -47,6 +47,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :regular do
     process :resize_to_fill => [200, 200]
+  end
+
+  version :profile do
+    process :resize_to_fit => [200, 600]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

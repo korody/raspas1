@@ -1,0 +1,2 @@
+class PoemsController < OriginsController
+end

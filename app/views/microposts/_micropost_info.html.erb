@@ -12,22 +12,6 @@
 			<p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar + raspas" %></p>
 		</div>
 	</div>
-	<div class= "user_info_board round">
-        <div class= "last_header">
-			<p class="p_tags">pelo</p><p class="p_tag">usuário</p>
-        	<p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
-        </div>
-        <div>
-            <div class= "last">
-	          	<div class= "last_users">
-	          		<%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
-	          		<div class= "last_upwards">
-              			<p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
-           			</div>
-       			</div>
-       		</div>
-        </div>
-    </div>
 	<% if @micropost.author %>
 		<div class= "user_info_board round">
 	        <div class= "last_header">
@@ -46,6 +30,22 @@
 	        </div>
 	    </div>
 	<% end %>
+	<div class= "user_info_board round">
+        <div class= "last_header">
+			<p class="p_tags">pelo</p><p class="p_tag">usuário</p>
+        	<p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
+        <div>
+            <div class= "last">
+	          	<div class= "last_users">
+	          		<%= link_to image_tag(@micropost.user.image_url(:tiny)), @micropost.user, title: "ver perfil de #{@micropost.user.name}" %>
+	          		<div class= "last_upwards">
+              			<p><%= link_to @micropost.user.name, @micropost.user, title: "ver perfil de #{@micropost.user.name}" %></p>
+           			</div>
+       			</div>
+       		</div>
+        </div>
+    </div>
 	<% if !@tags.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">

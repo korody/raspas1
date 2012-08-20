@@ -1,0 +1,17 @@
+<div class= "user_feed_avatar">
+  <%= link_to image_tag(@user.image_url(:regular)), @user, title: "voltar para #{@user.name}" %>
+</div>
+<div class= "user_feed_side">
+  <% if !current_user?(@user) %>
+    <br />
+  <% end %>
+  <%= render "stats_relations" %>
+</div>
+<div class= "user_feed_arrow">
+  <%= image_tag "ico_star_big.png", :alt => "fãs", :class => "ico", title: "ídolos" %>
+</div>
+<div class= "user_feed_follow">
+    <% @user.origins.shuffle.first(40).each do |origin| %>
+    <%= link_to image_tag(origin.image_url(:tiny)), origin, title: "#{origin.name}" %>
+  <% end %>
+</div>

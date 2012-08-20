@@ -1,0 +1,2 @@
+class SongsController < OriginsController
+end

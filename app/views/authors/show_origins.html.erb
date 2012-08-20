@@ -1,0 +1,12 @@
+<div class= "home">
+  <div class= "title">
+    <p class= "p_search"><%= @author.name %> citou <%= pluralize @author_origins.count, "origens" %></p>
+    <%= link_to "explorar outras origens", origins_path, title: "+ origens" %>
+  </div>
+  <div id= "mason">
+    <%= render @author_origins %>
+  </div>
+  <div class= "pagination_square">
+    <%#= will_paginate @authors %>
+  </div>
+</div>

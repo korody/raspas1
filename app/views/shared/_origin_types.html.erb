@@ -1,0 +1,22 @@
+<div class= "radio">
+  <div class= "radio_type">
+    <%= f.radio_button :origin_type, 'Book', class: 'book_radio', title: 'livro' %>
+    <%= f.label :origin_type, "livro", value: 'Book' %><br />
+  </div>  
+  <div class= "radio_type">
+    <%= f.radio_button :origin_type, 'Poem', class: 'poem_radio', title: 'poema' %>
+    <%= f.label :origin_type, "poema", value: 'Poem' %><br />
+  </div>
+  <div class= "radio_type">
+    <%= f.radio_button :origin_type, 'Song', class: 'song_radio', title: 'música' %>
+    <%= f.label :origin_type, "música", value: 'Song' %><br />
+  </div>  
+  <div class= "radio_type">
+    <%= f.radio_button :origin_type, 'Film', class: 'film_radio', title: 'filme' %>
+    <%= f.label :origin_type, "filme", value: 'Film' %><br />
+  </div>
+  <div class= "radio_type">
+    <%= f.radio_button :origin_type, 'Other', class: 'other_radio', title: 'outras origens' %>
+    <%= f.label :origin_type, "outros", value: 'Other' %><br />
+  </div>  
+</div>

@@ -20,6 +20,7 @@
       get :users, path: "usuarios"
       get :tags, path: "temas"
       get :favourites, path: "favoritas"
+      get :origins, path: "origens"
       get :subscriptions, :autocomplete
     end
   end
@@ -34,6 +35,7 @@
       get :tags, path: "temas"
       get :authors, path: "pensadores"
       get :favourites, path: "favoritas"
+      get :origins, path: "origens"
       get :favoritadas
       get :twitter
     end
@@ -67,11 +69,32 @@
       get :criar
     end
   end
+
+  resources :origins, path: "origens" do
+
+    member do
+      get :fans, path: "fas"
+      get :idols, path: "idolos"
+      get :users, path: "usuarios"
+      get :authors, path: "pensadores"
+      get :tags, path: "temas"
+      get :autocomplete
+    end
+  end
+
+  resources :books, path: "livros"
+  resources :poems, path: "poemas"
+  resources :songs, path: "musicas"
+  resources :films, path: "filmes"
+  resources :others, path: "outros"
+  # resources :books, path: "livros", controller: "origins", type: "books"
+  # resources :poems, path: "poemas", controller: "origins", type: "poems"
+  # resources :songs, path: "musicas", controller: "origins", type: "songs"
+  # resources :films, path: "filmes", controller: "origins", type: "films"
   
   resources :sessions, only: [:new, :create, :authenticate, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
-  # resources :favourites, only: [:create, :destroy]
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

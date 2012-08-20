@@ -1,0 +1,18 @@
+<div class= "origin_card">
+  <div class= "origin_card_avatar">
+    <%= link_to image_tag(film.image_url(:regular)), film %>
+  </div>
+  <div class= "origin_card_info">
+    <div class= 'origin_type'>
+      <%= link_to (image_tag 'film.png'), film %>
+    </div>
+    <div class= "origin_card_name relative">
+      <%= link_to film.name, film %><br />
+      <% if film.author.present? %>
+        { <%= film.author.name %><br />
+      <% else %>
+        { <%= film.user.name %><br />
+      <% end %>
+    </div>
+  </div>
+</div>

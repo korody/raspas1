@@ -8,6 +8,11 @@ class PagesController < ApplicationController
     @authors = Author.scoped(order: 'authors.created_at DESC')
     @users = User.scoped(order: 'users.created_at DESC')
     @tags = Tag.scoped(order: 'tags.created_at DESC')
+    @origins = Origin.scoped(order: 'origins.created_at DESC')
+    @books = Book.scoped(order: 'origins.created_at DESC')
+    @poems = Poem.scoped(order: 'origins.created_at DESC')
+    @songs = Song.scoped(order: 'origins.created_at DESC')
+    @films = Film.scoped(order: 'origins.created_at DESC')
     @new_micropost = Micropost.new
   end
 

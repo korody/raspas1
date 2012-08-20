@@ -1,0 +1,2 @@
+class FilmsController < OriginsController
+end

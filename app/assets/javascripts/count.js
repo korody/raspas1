@@ -9,3 +9,9 @@ $('#bio').live('keyup keydown', function(e) {
   var left = maxLen - $(this).val().length;
   $('#count_bio').html(left);
 });
+
+$('#origin_info').live('keyup keydown', function(e) {
+  var maxLen = 680;
+  var left = maxLen - $(this).val().length;
+  $('#count_bio').html(left);
+});

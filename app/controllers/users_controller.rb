@@ -16,8 +16,14 @@
     @title = @user.name
     @new_micropost = Micropost.new
     @microposts = @user.microposts.paginate(:page => params[:page])
-    @tags = @user.tags.all
     @authors = @user.authors.all
+    @tags = @user.tags.all
+    @origins = @user.origins.all
+    @books = @user.books.all
+    @poems = @user.poems.all
+    @songs = @user.songs.all
+    @films = @user.films.all
+    @others = @user.others.all
       # fresh_when etag: [@user, @microposts], public: false
   end
 
@@ -44,6 +50,18 @@
       @authors = Author.all
       @tags = Tag.all
       render 'show_tags'
+  end
+
+  def origins
+    @title = "origens"
+    @user = User.find(params[:id])
+    @user_origins = @user.origins.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_origins'
   end
 
   def new

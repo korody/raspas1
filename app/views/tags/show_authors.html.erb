@@ -4,7 +4,7 @@
 		<%= link_to "voltar para raspas sobre #{@tag.name}", @tag %>
 	</div>
 	<ul class="users">
-	  <li><%= render @tag.authors %></li>
+	  <%= render @tag.authors %>
 	</ul>
 	<div class= "pagination_square">
 		<%= will_paginate @authors %>

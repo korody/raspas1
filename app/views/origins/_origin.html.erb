@@ -1,0 +1,37 @@
+<div class= "origin_card">
+  <div class= "origin_card_avatar">
+    <%= link_to image_tag(origin.image_url(:regular)), origin %>
+  </div>
+  <div class= "origin_card_info">
+    <div class= "origin_card_name relative">
+      <%= link_to origin.name, origin %>
+      <% if origin.author.present? %>
+        { <%= origin.author.name %><br />
+      <% else %>
+        { <%= origin.user.name %><br />
+      <% end %>
+      <div class= "origin_type">
+        <% if origin.type? %>
+          <% if origin.class == Book %>
+            <%= image_tag "book.png" %><br />
+          <% end %>
+          <% if origin.class == Poem %>
+            <%= image_tag "poem.png" %><br />
+          <% end %>
+          <% if origin.class == Song %>
+            <%= image_tag "song.png" %><br />
+          <% end %>
+          <% if origin.class == Film %>
+            <%= image_tag "film.png" %><br />
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- <div class= "stats">
+      <p class= "p_stats">raspas</p>
+      <%#= link_to (image_tag "ico_raspas.png"), origin,  :alt => "raspas", :class => "ico round" %>
+      <%#= link_to origin.microposts.count, origin, :class => "but round", 
+      title: "ver raspas de #{origin.name}" %>
+    </div> -->
+  </div>
+</div>

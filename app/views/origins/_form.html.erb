@@ -1,0 +1,66 @@
+<%#= form_for @origin, html: { multipart: true } do |f| %>
+<%= form_for @origin, url: { controller: 'origins', action: 'create' }, as: :origin do |f| %>
+<%#= form_for([@origin.becomes(Origin)]) do |f| %>
+  <%# f.object = @origin.becomes(@origin.class) %>
+  <%= render 'shared/error_messages', object: f.object %>  
+  <div class="cartela round">
+    <div class= "cartela_corner round">
+      <div class= "board_avatar">
+          <%= image_tag @origin.image_url(:regular).to_s %>
+          <%= f.file_field :image, class: "round" %>
+      </div> 
+    </div>
+    <div class= "board_avatar">
+      <div class= "field">
+        <div class= "radio">
+          <div class= "radio_type">
+            <%= f.radio_button :type, 'Book', class: 'book_radio', title: 'livro' %>
+            <%= f.label :type, "livro", value: 'Book' %><br />
+          </div>  
+          <div class= "radio_type">
+            <%= f.radio_button :type, 'Poem', class: 'poem_radio', title: 'poema' %>
+            <%= f.label :type, "poema", value: 'Poem' %><br />
+          </div>
+          <div class= "radio_type">
+            <%= f.radio_button :type, 'Song', class: 'song_radio', title: 'música' %>
+            <%= f.label :type, "música", value: 'Song' %><br />
+          </div>  
+          <div class= "radio_type">
+            <%= f.radio_button :type, 'Film', class: 'film_radio', title: 'filme' %>
+            <%= f.label :type, "filme", value: 'Film' %><br />
+          </div>
+          <div class= "radio_type">
+            <%= f.radio_button :type, 'Other', class: 'other_radio', title: 'outras origens' %>
+            <%= f.label :type, "outros", value: 'Other' %><br />
+          </div>  
+        </div>  
+        <%= f.text_field :name, placeholder: "nome do material", class: "round field_info" %>
+        <%= f.text_field :author_name, value: "#{@origin.author.name if @origin.author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", class: "tt round field_info", title: "caso esta fonte seja sua, deixe o campo em branco" %>
+        <%= f.text_field :date, placeholder: "data de lançamento", class: "round field_info" %>
+        <%#= f.select :type, [Book.name, Song.name], prompt: 'tipo da origem', placeholder: "tipo da fonte", class: "round" %>
+      </div>
+    </div>
+    <div>
+      <%= f.text_area :info, maxlength: 680, placeholder: "breve descrição de #{@origin.name}", 
+      class: "round", id: "origin_info" %>
+    </div>
+    <div class= "count_bio">
+      <div id= "count_bio">680</div>
+    </div>
+  </div>
+  <div class="cartela round">
+    <%= f.text_area :content, placeholder: "cole o conteúdo da fonte aqui", class: "round field_info" %>
+  </div>    
+  <div class= "update">
+      <%= submit_tag "pronto", alt: "atualizar", class: "but round" %>
+  </div>
+  <div class= "update_">
+    <% if current_user %>
+      <%= link_to "apagar fonte", @origin, 
+                                              :class => "but round",
+                                              :method => :delete, 
+                                              :confirm => "têm certeza que deseja remover esta fonte permanentemente?",
+                                              :title => "deixar o raspas?" %>
+    <% end %>
+  </div>
+<% end %>

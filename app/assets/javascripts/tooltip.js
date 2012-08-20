@@ -1,5 +1,5 @@
 $(function(){
-	$(".quote_author, .quote_poster, .quote_favouriters, .quote_poster_pic").tooltip({
+	$(".quote_author, .quote_poster, .quote_favouriters, .quote_poster_pic, .quote_origin").tooltip({
 
 		// position
 		position: 'bottom center',
@@ -15,7 +15,7 @@ $(function(){
 	}).dynamic({ bottom: { direction: 'down' } });
 
 	// select all desired input fields and attach tooltips to them
-	$(".user_board :input").tooltip({
+	$(":input.tt").tooltip({
 
 		tipClass: "tooltip_field",
 
@@ -27,6 +27,5 @@ $(function(){
 
 		// custom opacity setting
 		opacity: 0.8
-
 	});
 });  

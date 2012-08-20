@@ -1,0 +1,8 @@
+<div class= "title">
+  <p class= "p_search"><%= @origin.name %> foi citado por <%= pluralize @users.count, "usuário" %></p><%= link_to "explorar + usuários", users_path %>
+</div>
+<div class= "home">
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+</div>

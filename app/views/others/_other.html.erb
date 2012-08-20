@@ -1,0 +1,18 @@
+<div class= "origin_card">
+  <div class= "origin_card_avatar">
+    <%= link_to image_tag(other.image_url(:regular)), other %>
+  </div>
+  <div class= "origin_card_info">
+    <div class= 'origin_type'>
+      <%= link_to (image_tag 'other.png'), other %>
+    </div>
+    <div class= "origin_card_name relative">
+      <%= link_to other.name, other %><br />
+      <% if other.author.present? %>
+        { <%= other.author.name %><br />
+      <% else %>
+        { <%= other.user.name %><br />
+      <% end %>
+    </div>
+  </div>
+</div>

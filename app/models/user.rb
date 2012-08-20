@@ -64,6 +64,14 @@
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
+  has_many :origins, through: :microposts, order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  
+  has_many :origins
+  has_many :books
+  has_many :poems
+  has_many :songs
+  has_many :films
+  has_many :others
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -71,7 +79,7 @@
             	      length: { maximum: 50 },
                     uniqueness: { case_sensitive: false }
 
- validates :email, presence: true,
+  validates :email, presence: true,
                    format: { with: email_regex },
                    uniqueness: { case_sensitive: false },
                    on: :update

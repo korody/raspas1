@@ -1,6 +1,6 @@
 # encoding:   utf-8
 class AuthorsController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update, :new]
+  before_filter :authenticate, only: [:edit, :update, :new]
 
   def index
     @title = "pensadores"
@@ -22,6 +22,12 @@ class AuthorsController < ApplicationController
       @users = @author.users.scoped
       @tags = @author.tags.scoped
       @authors = Author.scoped
+      @origins = @author.origins.all
+      @books = @author.books.scoped
+      @poems = @author.poems.scoped
+      @songs = @author.songs.scoped
+      @films = @author.films.scoped
+      @others = @author.others.scoped
         # fresh_when etag: [@author, @microposts], public: true
       @new_micropost = Micropost.new
       @title = @author.name
@@ -107,6 +113,18 @@ class AuthorsController < ApplicationController
     @new_micropost = Micropost.new
     @title = "favoritas de #{@author.name}"
     render 'show_favourites'
+  end
+
+  def origins
+    @title = "origens"
+    @author = Author.find(params[:id])
+    @author_origins = @author.origins.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_origins'
   end
 
  private

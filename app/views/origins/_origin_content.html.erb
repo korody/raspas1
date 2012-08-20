@@ -1,0 +1,68 @@
+<div class="origins round shadow">
+  <div class= "origin">
+    <div class= "origin_text">
+      <div class= "origin_upwards">
+        <%= simple_format h(origin.content) %>
+      </div>
+    </div>
+    <div class="quote_author">
+      <%= image_tag "ico_raspas.png", alt: "raspa por" %>
+      <% if !origin.author %>
+        <%= link_to origin.user.name, origin.user %>
+      <% else %>
+        <%= link_to origin.author.name, origin.author %>
+      <% end %>  
+    </div>
+    <div class= "tooltip">
+      <% if !origin.author %>
+        <%= render origin.user %>
+      <% else %>  
+        <%= render origin.author %>
+      <% end %>
+    </div>
+    <div class="timestamp">
+      <div class= "timestamp_each">
+        <%= image_tag "clock_ico.png", title: "tempo no ar", alt: "há" %>
+        <%= origin.created_at.strftime("%d.%m.%Y") %>
+      </div>
+      <% if origin.author %>
+        <div class= "timestamp_each">  
+          <div class= "quote_poster">
+            <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{origin.user.name}", alt: "raspa de" %>
+            <%= link_to origin.user.name, origin.user %>
+          </div>
+        </div>
+        <div class= "tooltip">
+          <%= render origin.user %>
+        </div>
+      <% end %>
+      <% if !origin.tags.empty? %>
+        <div class= "timestamp_each">
+          <% origin.tags.each do |tag| %>
+            <%= link_to (image_tag "tag_ico.png", alt: "sobre"), tag, title: "ver + raspas sobre #{tag.name}"  %>
+            <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+          <% end %>
+        </div>
+      <% end %>
+      <%# if !origin.published? %>
+      <!--<div class= "timestamp_each"> 
+          sob <%#= link_to "análise", @author %>
+          <%#= link_to (image_tag "flag_ico.png"), root_path %>
+        </div> -->
+      <%# end %>
+<!--       <%# if current_user?(origin.user) %>
+        <div class= "timestamp_each">
+          <%#= link_to (image_tag "edit.png", alt: "editar"), edit_origin_path(origin) %>
+          <%#= link_to "editar", edit_origin_path(origin) %>
+          <%#= link_to (image_tag "trash_ico.png", alt: "remover"), origin, :method => :delete,
+                                           :confirm => "apagar esta raspa?",
+                                           :title => "descartar" %>
+          <%#= link_to "apagar", origin, :method => :delete,
+                                           :confirm => "apagar este conteúdo?",
+                                           :title => "descartar" %>
+
+        </div>
+      <%# end %> -->
+    </div>
+  </div>
+</div>

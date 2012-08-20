@@ -1,0 +1,45 @@
+<div class="raspas"> 
+  <div class="user_info">
+    <%= render 'origin_info' %>
+  </div>
+  <div class="stack">
+    <%# if @origin %>
+      <%# unless @origin.published? %>
+        <!-- <div class="half_quotes round">
+          <div class= "sign">
+            O perfil de <%#= @origin.name %> é recente e está sob análise.<br />
+            Não gosta do que está vendo? Marque como abusivo!
+          </div>
+          <div class= "flag_sign">
+            <%#= link_to (image_tag "flag_sign.png"), @origin %>
+          </div>
+        </div> -->
+      <%# end %> 
+    <%# end %>
+    <% if signed_in? %>
+      <% if @origin.image.blank? %>
+        <div class="half_quotes round">
+          <div class= "sign">
+            Dica: adicione a capa de <%= @origin.name %>!<br />
+            Edite esta fonte pela engrenagem ao lado do nome.
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "happy.png" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class ="welcome_space"></div>
+      <%= render 'shared/welcome' %>
+    <% end %>
+    <div>
+      <% if !@origin.content.blank? %>
+        <%= render 'origin_content', origin: @origin %>  
+      <% end %>
+      <% if !@microposts.empty? %>
+        <%= render @microposts %>
+        <%= will_paginate @microposts %>
+      <% end %>
+    </div>
+  </div>
+</div>
