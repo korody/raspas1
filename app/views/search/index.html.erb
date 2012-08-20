@@ -52,13 +52,14 @@
 <% end %>
 <% if @origins.empty? %>
 	<div class= "title">
-		<p class= "p_search">nenhum usuário encontrado</p>
-		<%= link_to "explorar usuários", origins_path %>
+		<p class= "p_search">nenhuma fonte encontrada</p>
+		<%= link_to "explorar origens", origins_path %>
 	</div>
 <% else %>
 	<div class= "title">
-		<p class= "p_search">encontramos <%= pluralize @origins.count, "usuário" %></p>
-		<%= link_to "explorar + usuários", origins_path %>
+		<p class= "p_search">encontramos <%= pluralize @origins.count, "fonte" %></p>
+		<%= link_to "explorar + fontes", origins_path %>
+		<%= link_to "criar página para #{(params[:query].titlecase)} ", new_origin_path %>
 	</div>
 	<div class= "home">
 		<ul class="users">
