@@ -15,7 +15,7 @@
         <% end %>
       </div>
       <% if @origin.date? %>
-        <%= @origin.date %><br />
+        <%= @origin.date.strftime("%Y") %><br />
       <% end %>
       <div class= "origin_info_type">
         <% if @origin.type? %>

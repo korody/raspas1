@@ -68,7 +68,7 @@ class OriginsController < ApplicationController
 	  end
     if @origin.save
       expire_fragment("mosaico")
-      flash[:success] = "Esta fonte foi atualizada com sucesso."
+      flash[:success] = "Origem atualizada com sucesso."
       redirect_to @origin
     else
       @title = "editar"

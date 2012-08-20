@@ -36,7 +36,7 @@
         </div>  
         <%= f.text_field :name, placeholder: "nome do material", class: "round field_info" %>
         <%= f.text_field :author_name, value: "#{@origin.author.name if @origin.author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", class: "tt round field_info", title: "caso esta origem seja de sua própria autoria, deixe este campo em branco" %>
-        <%= f.text_field :date, placeholder: "data de lançamento", class: "round field_info" %>
+        <%= select_year Date.today, :prefix => :start_date, class: "round field_info" %>
         <%#= f.select :type, [Book.name, Song.name], prompt: 'tipo da origem', placeholder: "tipo da fonte", class: "round" %>
       </div>
     </div>
@@ -49,7 +49,7 @@
     </div>
   </div>
   <div class="cartela round">
-    <%= f.text_area :content, placeholder: "cole o conteúdo da fonte aqui", class: "round field_info" %>
+    <%= f.text_area :content, placeholder: "cole o conteúdo da origem aqui", class: "round field_info" %>
   </div>    
   <div class= "update">
       <%= submit_tag "pronto", alt: "atualizar", class: "but round" %>
@@ -59,7 +59,7 @@
       <%= link_to "apagar fonte", @origin, 
                                               :class => "but round",
                                               :method => :delete, 
-                                              :confirm => "têm certeza que deseja remover esta fonte permanentemente?",
+                                              :confirm => "têm certeza que deseja remover esta origem permanentemente?",
                                               :title => "deixar o raspas?" %>
     <% end %>
   </div>

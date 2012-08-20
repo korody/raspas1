@@ -1,4 +1,4 @@
-ActiveAdmin.register Micropost do
+ActiveAdmin.register Origin do
   index do
     column :id
     column :name
