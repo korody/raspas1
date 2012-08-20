@@ -19,9 +19,8 @@ class Origin < ActiveRecord::Base
 
 
   include PgSearch
-  pg_search_scope :search, against: [:name, :type],
+  pg_search_scope :search, against: :name,
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
-    associated_against: {authors: :name},
     ignoring: :accents  
 
 
