@@ -17,6 +17,14 @@ class Origin < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :user_id,  presence: true
 
+
+  include PgSearch
+  pg_search_scope :search, against: [:name, :type],
+    using: {tsearch: {prefix: true, dictionary: "portuguese"}},
+    associated_against: {authors: :name},
+    ignoring: :accents  
+
+
   def self.text_search(query)
     if query.present?
       search(query)
