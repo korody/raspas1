@@ -6,14 +6,14 @@
       <%= link_to image_tag(@user.image_url(:regular)), current_user %>
     </div>
     <div class= "user_board">
-      <%= f.text_area :content, :maxlength => 345, placeholder: '"escreva aqui um pensamento"', title: "escreva uma raspa aqui" %>
+      <%= f.text_area :content, maxlength: 345, placeholder: "escreva aqui sua raspa", title: "escreva uma raspa aqui" %>
       <div class= "count_micropost">
         <div id= "count">345</div>
       </div>
-      <%= f.text_field :author_name, value: "#{@micropost.author.name if @micropost}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "o pensador (caso não seja você)", title: "escreva o nome do pensador aqui para cria-lo" %>
-      <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas envolvidos", title: "separe temas com vírgulas" %>
-      <%#= f.text_field :origem, placeholder: "origem da raspa", title: "livros, músicas, filmes..." %>
-      <%= image_submit_tag "raspa_.png", :class => "write round" %>
-<% end %>
+      <%= f.text_field :author_name, autofocus: true, value: "#{@micropost.author.name if @micropost.author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", title: "caso esta frase seja sua, deixe o campo em branco" %>
+        <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas", title: "separe temas por vírgulas" %>
+        <%= f.text_field :origin_name, value: "#{@micropost.origin.name if @micropost.origin}", data: {autocomplete_source: autocomplete_origin_path(current_user)}, placeholder: "origem", title: "livro, música, filme..." %>
+      <%= image_submit_tag "raspa_.png", class: "write round" %>
     </div>
-</div>
+  </div>
+<% end %>
