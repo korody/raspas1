@@ -74,7 +74,7 @@
 	<% if !@books.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">livros</p><p class= "p_tags">lidos</p>
+				<p class="p_tag">livros</p><p class= "p_tags">mencionados</p>
 		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
@@ -114,7 +114,7 @@
 	<% if !@songs.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">músicas</p><p class= "p_tags">ouvidas</p>
+				<p class="p_tag">músicas</p><p class= "p_tags">citadas</p>
 		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
@@ -134,7 +134,7 @@
 	<% if !@films.empty? %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
-				<p class="p_tag">filmes</p><p class= "p_tags">vistos</p>
+				<p class="p_tag">filmes</p><p class= "p_tags">citados</p>
 		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
