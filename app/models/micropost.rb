@@ -100,27 +100,6 @@ class Micropost < ActiveRecord::Base
       end
     end
 
-    def assign_origin
-      if origin_name
-        origin = Origin.find_or_create_by_name(origin_name)
-        if origin
-          if origin.user_id.blank?
-            origin.update_attributes(user_id: user.id)
-          end
-          if !origin_type.blank?
-            origin.update_attributes(type: origin_type)
-          else
-            if origin.type.blank?
-              origin.update_attributes(type: 'Other')
-            end
-          end  
-          if !author_name.blank?
-            origin.update_attributes(author_id: @some_author.id)
-          end
-        end
-        self.origin_id = origin ? origin.id : 0
-      end
-    end
 
     include PgSearch
     pg_search_scope :search, against: :content,
