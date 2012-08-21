@@ -236,6 +236,7 @@ DEPENDENCIES
   heroku (= 2.19.0)
   hirb
   jquery-rails
+  meta_search (>= 1.1.0.pre)
   omniauth
   omniauth-facebook
   omniauth-google

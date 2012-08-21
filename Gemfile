@@ -16,6 +16,7 @@ gem "rmagick"
 
 gem "formtastic", "~> 2.1.1"
 gem "activeadmin", "~> 0.4.3"
+gem "meta_search",    '>= 1.1.0.pre'
 
 # Asset template engines
 gem 'sass-rails',   '~> 3.2.3'
