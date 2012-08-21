@@ -993,7 +993,7 @@ div#count, div#count_bio {
 }
 
 input#micropost_author_name, input#micropost_origin_name, input#micropost_tag_names {
-  background-color: transparent;
+  background: url('dropdown.png') no-repeat right center;
   border: 0px solid #D8D8D8;
   border-left: 1px solid #D8D8D8;
   color: #2F4F4F;
@@ -1778,6 +1778,10 @@ textarea#origin_content {
   width: 765px;
   overflow: auto;
   @include scroller;
+}
+
+input#origin_author_name {
+  background: url('dropdown.png') no-repeat right center;
 }
 
 div.origin_type {
