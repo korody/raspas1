@@ -26,7 +26,7 @@ class OriginsController < ApplicationController
       @origins = Origin.scoped
         # fresh_when etag: [@origin, @microposts], public: true
       @new_micropost = Micropost.new
-      @title = "#{@origin.name} { #{@origin.author.name if @origin.author}#{@origin.user.name if !@origin.author}"
+      @title = "#{@origin.name} - #{@origin.author.name if @origin.author}#{@origin.user.name if !@origin.author}"
   end
   
   def new
