@@ -1,0 +1,48 @@
+<div id= "popupContact" class= "round" >
+  <a id= "popupContactClose" class= "round"><%= image_tag "trash.png" %></a> 
+  <div class= "user_bar">
+    <% @user ||= current_user %>
+    <div class= "board_avatar">
+      <%= link_to image_tag(@user.image_url(:regular)), current_user %>
+    </div>
+    <div class= "user_board">
+      <%= form_for @new_micropost do |f| %>
+        <%= f.text_area :content, maxlength: 345, placeholder: "escreva aqui sua raspa", title: "escreva uma raspa aqui" %>
+        <div class= "count_micropost">
+          <div id= "count">345</div>
+        </div>
+        <%= f.text_field :author_name, autofocus: true, value: "#{@author.name if @author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", class: 'tt', title: "caso esta frase seja sua, deixe o campo em branco" %>
+        <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas", class: 'tt', title: "separe temas por vírgulas" %>
+        <div class= "origin_tt">
+          <%= f.text_field :origin_name, value: "#{@origin.name if @origin}", data: {autocomplete_source: autocomplete_origin_path(current_user)}, placeholder: "origem", class: 'tt', title: "livro, música, filme..." %>
+        </div>
+        <div class= "field">
+          <div class= "radio_raspa">
+            <div class= "radio_type">
+              <%= f.radio_button :origin_type, 'Book', class: 'book_radio', title: 'livro' %>
+              <%= f.label :origin_type, "livro", value: 'Book' %><br />
+            </div>  
+            <div class= "radio_type">
+              <%= f.radio_button :origin_type, 'Poem', class: 'poem_radio', title: 'poema' %>
+              <%= f.label :origin_type, "poema", value: 'Poem' %><br />
+            </div>
+            <div class= "radio_type">
+              <%= f.radio_button :origin_type, 'Song', class: 'song_radio', title: 'música' %>
+              <%= f.label :origin_type, "música", value: 'Song' %><br />
+            </div>  
+            <div class= "radio_type">
+              <%= f.radio_button :origin_type, 'Film', class: 'film_radio', title: 'filme' %>
+              <%= f.label :origin_type, "filme", value: 'Film' %><br />
+            </div>
+            <div class= "radio_type">
+              <%= f.radio_button :origin_type, 'Other', class: 'other_radio', title: 'outras origens' %>
+              <%= f.label :origin_type, "outros", value: 'Other' %><br />
+            </div>  
+          </div>
+        </div>
+        <%= image_submit_tag "raspa_.png", :class => "write round" %>
+      <% end %>
+    </div>
+  </div>
+</div> 
+<div id="backgroundPopup"></div> 
