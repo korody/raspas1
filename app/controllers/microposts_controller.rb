@@ -1,7 +1,7 @@
 # encoding: utf-8
 class MicropostsController < ApplicationController
-  before_filter :authenticate, :only => [:create, :destroy, :favourites, :edit]
-  before_filter :authorized_user, :only => :destroy
+  before_filter :authenticate, only: [:create, :destroy, :favourites, :edit]
+  before_filter :authorized_user, only: [:edit, :update, :destroy]
 
   def index
     @title = "microposts"
@@ -61,7 +61,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    redirect_back_or current_user
+    redirect_to :back
   end
 
   def favouriters
