@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
   before_filter :authorized_user, only: [:edit, :update, :destroy]
 
   def index
-    @title = "frases e pensamentos"
+    @title = "pensamentos e frases"
     @microposts = Micropost.paginate(:page => params[:page], order: "microposts.created_at DESC")
     @new_micropost = Micropost.new
     @authors = Author.all
