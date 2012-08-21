@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: microposts
-#
-#  id         :integer         not null, primary key
-#  content    :string(255)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  author_id  :integer
-#
-
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :tag_names, :author_id, :author_name, :origin_name, :origin_id, :origin_type
   
@@ -22,10 +10,6 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :author
 
-  belongs_to :origin
-  belongs_to :book
-  belongs_to :song
-  belongs_to :other
 
   validates :content, presence: true, length: { maximum: 345 }, 
                                   uniqueness: { :case_sensitive => false }
@@ -100,6 +84,27 @@ class Micropost < ActiveRecord::Base
       end
     end
 
+    def assign_origin
+      if origin_name
+        origin = Origin.find_or_create_by_name(origin_name)
+        if origin
+          if origin.user_id.blank?
+            origin.update_attributes(user_id: user.id)
+          end
+          if !origin_type.blank?
+            origin.update_attributes(type: origin_type)
+          else
+            if origin.type.blank?
+              origin.update_attributes(type: 'Other')
+            end
+          end  
+          if !author_name.blank?
+            origin.update_attributes(author_id: @some_author.id)
+          end
+        end
+        self.origin_id = origin ? origin.id : 0
+      end
+    end
 
     include PgSearch
     pg_search_scope :search, against: :content,
