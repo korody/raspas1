@@ -1,7 +1,7 @@
 class Origin < ActiveRecord::Base
 	attr_accessible :name, :date, :image, :info, :content, :author_id, :user_id, :author_name, :link, :type
   attr_accessor :author_name
-  before_save :assign_author, :assign_origin
+  before_save :assign_author, :assign_origin, :normalize
   before_create :titlelize
 
   mount_uploader :image, ImageUploader
@@ -23,6 +23,11 @@ class Origin < ActiveRecord::Base
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
     ignoring: :accents  
 
+  def normalize
+    if content
+      self.content = content.gsub("\r\n", "\r\n ")
+    end  
+  end
 
   def self.text_search(query)
     if query.present?
