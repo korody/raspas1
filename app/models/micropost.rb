@@ -11,10 +11,10 @@
 #
 
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :tag_names, :author_id, :author_name, :origin_name, :origin_id, :origin_type
+  attr_accessible :content, :tag_names, :author_id, :author_name, :origem
   
-  has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings
+  has_many :taggings, :dependent => :destroy
+  has_many :tags, :through => :taggings
 
   has_many :favourites, dependent: :destroy
   has_many :favouriters, through: :favourites, source: :user
@@ -22,15 +22,10 @@ class Micropost < ActiveRecord::Base
   belongs_to :user
   belongs_to :author
 
-  belongs_to :origin
-  belongs_to :book
-  belongs_to :song
-  belongs_to :other
+  validates :content, :presence => true, :length => { :maximum => 345 }, 
+                                         :uniqueness => { :case_sensitive => false }
 
-  validates :content, presence: true, length: { maximum: 345 }, 
-                                  uniqueness: { :case_sensitive => false }
-
-  validates :user_id, presence: true
+  validates :user_id, :presence => true
 
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
@@ -43,10 +38,10 @@ class Micropost < ActiveRecord::Base
   scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost).recent }
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
 
-  attr_accessor :author_name, :origin_name, :origin_type
-  attr_writer :tag_names, :author_name, :origin_name, :origin_type
-  before_save :assign_author, :assign_origin, :normalize
-  after_save :assign_tags 
+  attr_accessor :author_name
+  attr_writer :tag_names, :author_name
+  before_save :assign_author, :normalize
+  after_save :assign_tags
 
   def normalize
     if content
@@ -95,30 +90,8 @@ class Micropost < ActiveRecord::Base
 
     def assign_author
       if author_name
-        @some_author = Author.find_or_create_by_name(author_name)
-        self.author_id = @some_author ? @some_author.id : 0
-      end
-    end
-
-    def assign_origin
-      if origin_name
-        origin = Origin.find_or_create_by_name(origin_name)
-        if origin
-          if origin.user_id.blank?
-            origin.update_attributes(user_id: user.id)
-          end
-          if !origin_type.blank?
-            origin.update_attributes(type: origin_type)
-          else
-            if origin.type.blank?
-              origin.update_attributes(type: 'Other')
-            end
-          end  
-          if !author_name.blank?
-            origin.update_attributes(author_id: @some_author.id)
-          end
-        end
-        self.origin_id = origin ? origin.id : 0
+        author = Author.find_or_create_by_name(author_name)
+        self.author_id = author ? author.id : 0
       end
     end
 
