@@ -9,6 +9,7 @@ class Micropost < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :author
+  belongs_to :origins
 
 
   validates :content, presence: true, length: { maximum: 345 }, 
