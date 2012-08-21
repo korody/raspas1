@@ -3,14 +3,14 @@
  
   devise_for :admin_users, ActiveAdmin::Devise.config
   
-  require File.expand_path("../../lib/logged_in_constraint", __FILE__)
-  root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
-  root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
+  # require File.expand_path("../../lib/logged_in_constraint", __FILE__)
+  # root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
+  # root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
   
-  # scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
-  #   root :to => "users#feed"#, :constraints => LoggedInConstraint.new(true)
-  # end
-  # root :to => "pages#home"
+  scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
+    root :to => "users#feed"#, :constraints => LoggedInConstraint.new(true)
+  end
+  root :to => "pages#home"
   
   # get 'authors/page/:page', to: 'authors#index'
   resources :authors, :path => "pensadores" do
