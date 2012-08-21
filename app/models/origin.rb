@@ -13,19 +13,20 @@ class Origin < ActiveRecord::Base
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
   validates :name,  presence: true,
-            	      length: { maximum: 50 },
-                    uniqueness: { case_sensitive: false }
+            	      length: { maximum: 50 }
+                    #uniqueness: { case_sensitive: false }
   validates :user_id,  presence: true
 
 
   include PgSearch
   pg_search_scope :search, against: [:name, :type],
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
+    associated_against: {microposts: :content},
     ignoring: :accents  
 
   def normalize
     if content
-      self.content = content.gsub(/\r\n/, "\n ")
+      self.content = content.gsub(/\n\r/, "\r ")
     end  
   end
 

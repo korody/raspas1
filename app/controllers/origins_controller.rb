@@ -84,7 +84,7 @@ class OriginsController < ApplicationController
 
   def users
     @origin = Origin.find(params[:id])
-    @users = @origin.users.all(:order => 'users.created_at DESC')
+    @users = @origin.users.all(order: 'users.created_at DESC')
     @new_micropost = Micropost.new
     @origins = Origin.all
     @title = "citaram #{@origin.name}"

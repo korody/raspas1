@@ -30,7 +30,7 @@ class AuthorsController < ApplicationController
       @others = @author.others.scoped
         # fresh_when etag: [@author, @microposts], public: true
       @new_micropost = Micropost.new
-      @title = @author.name
+      @title = "pensamentos e frases de #{@author.name}"
   end
   
   def new
@@ -82,7 +82,7 @@ class AuthorsController < ApplicationController
     @tags = @author.tags.paginate(:page => params[:page])
     @authors = Author.all
     @new_micropost = Micropost.new
-    @title = "temas de #{@author.name}"
+    @title = "temas escritos por #{@author.name}"
     render 'show_tags'
   end
 
@@ -116,7 +116,7 @@ class AuthorsController < ApplicationController
   end
 
   def origins
-    @title = "origens"
+    @title = "materiais de #{@author.name}"
     @author = Author.find(params[:id])
     @author_origins = @author.origins.scoped
     # @origins = @origin.tags.paginate(:page => params[:page])

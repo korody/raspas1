@@ -8,8 +8,8 @@
   # root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
   
   scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
-    root :to => "users#feed"#, :constraints => LoggedInConstraint.new(true)
-  end
+    root :to => "users#feed"
+  end    
   root :to => "pages#home"
   
   # get 'authors/page/:page', to: 'authors#index'
