@@ -12,7 +12,7 @@
       </div>
       <%= f.text_field :author_name, autofocus: true, value: "#{@micropost.author.name if @micropost.author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", title: "caso esta frase seja sua, deixe o campo em branco" %>
         <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas", title: "separe temas por vírgulas" %>
-        <%= f.text_field :origin_name, value: "#{@micropost.origin.name if @micropost.origin}", data: {autocomplete_source: autocomplete_origin_path(current_user)}, placeholder: "origem", title: "livro, música, filme..." %>
+        
       <%= image_submit_tag "raspa_.png", class: "write round" %>
     </div>
   </div>
