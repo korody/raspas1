@@ -36,8 +36,8 @@
         </div>  
         <%= f.text_field :name, placeholder: "nome do material", class: "round field_info" %>
         <%= f.text_field :author_name, value: "#{@origin.author.name if @origin.author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", class: "tt round field_info", title: "caso esta origem seja de sua própria autoria, deixe este campo em branco" %>
-        <%= f.date_select :date, {:start_year => DateTime.now.year, :end_year => DateTime.now.year - 200}, placeholder: "data de lançamento", class: "round field_info" %>
-        <%#= select_year Date.today, start_year: Time.now.year, :end_year => Time.now.year - 200, field_name: :date, prefix: :origin  %>
+        <%#= f.date_select :date, {:start_year => DateTime.now.year, :end_year => DateTime.now.year - 200}, placeholder: "data de lançamento", class: "round field_info" %>
+        <%= select_year Date.today, start_year: Time.now.year, :end_year => Time.now.year - 200, field_name: :date, prefix: :origin  %>
 
         <%#= f.select :type, [Book.name, Song.name], prompt: 'tipo da origem', placeholder: "tipo da fonte", class: "round" %>
       </div>
