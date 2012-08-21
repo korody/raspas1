@@ -25,7 +25,7 @@ class Origin < ActiveRecord::Base
 
   def normalize
     if content
-      self.content = content.gsub("\r\n", "\r\n ")
+      self.content = content.gsub(/\r\n/, "\n ")
     end  
   end
 
