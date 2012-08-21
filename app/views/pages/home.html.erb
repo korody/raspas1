@@ -28,8 +28,22 @@
         <div class= "last_header">
           <p class= "p_tags"><%= Author.count %></p><p class= "p_tag">pensadores</p><p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
         </div>
-        <div>
+        <div class= "last_header">
           <p class= "p_tags"><%= User.count %></p><p class= "p_tag">usuários</p><p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
+      </div>
+      <div class= "user_info_board round" >
+        <div class= "last_header">
+          <p class= "p_tags"><%= Book.count %></p><p class= "p_tag">livros</p><p class= "p_mais"><%= link_to "+", books_path, title: "explorar livros" %></p>
+        </div>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Song.count %></p><p class= "p_tag">músicas</p><p class= "p_mais"><%= link_to "+", songs_path, title: "explorar músicas" %></p>
+        </div>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Film.count %></p><p class= "p_tag">filmes</p><p class= "p_mais"><%= link_to "+", films_path, title: "explorar filmes" %></p>
+        </div>
+        <div class= "last_header">
+          <p class= "p_tags"><%= Poem.count %></p><p class= "p_tag">poemas</p><p class= "p_mais"><%= link_to "+", poems_path, title: "explorar poemas" %></p>
         </div>
       </div>
       <% cache @tags do %>

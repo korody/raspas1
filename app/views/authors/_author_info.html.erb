@@ -1,12 +1,12 @@
 <div class= "user_info">
 	<div class= "user_avatar">
-		<%= link_to (image_tag @author.image_url(:regular).to_s), edit_author_path %>
+		<%= link_to (image_tag @author.image_url(:regular).to_s, alt: @author.name), edit_author_path %>
 	</div>
 	<div class= "user_info">
 		<div class= "user_info_board round">
 			<div class= "name_edit">
 				<p><%= @author.name %></p>
-				<%= link_to (image_tag "edit.png"), edit_author_path %>
+				<%= link_to (image_tag "edit.png", alt: "editar perfil"), edit_author_path %>
 			</div>
 			<% if @author.job? %>
 				<%= @author.job  %><br />
@@ -45,26 +45,6 @@
 				</div>
 			</div>
 		<% end %>
-		<% if !@users.empty? %>
-			<div class= "user_info_board round">
-				<div class= "last_header">
-					<p class="p_tag">citado</p><p class= "p_tags">pelos</p><p class="p_tag">usuários</p>
-			        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
-		    	</div>
-				<div>
-					<% @users.shuffle.first(4).each do |user| %>
-				        <div class= "last">
-				            <div class= "last_users">
-				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-	                			<div class= "last_upwards">
-				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
-				        		</div>
-				        	</div>
-				        </div>
-			        <% end %>
-				</div>
-			</div>
-		<% end %>
 		<% if @books.present? %>
 			<div class= "user_info_board round">
 				<div class= "last_header">
@@ -75,29 +55,9 @@
 					<% @books.shuffle.first(4).each do |book| %>
 						<div class= "last">
 						  <div class= "last_users">
-						    <%= link_to image_tag(book.image_url(:tiny)), book, title: "ver perfil de #{book.name}" %>
+						    <%= link_to image_tag(book.image_url(:tiny), alt: book.name), book, title: "ver perfil de #{book.name}" %>
 						    <div class= "last_upwards">
 						      <p><%= link_to book.name, book, title: "ver perfil de #{book.name}" %></p>
-						    </div>
-						  </div>
-						</div>
-					<% end %>
-				</div>
-			</div>
-		<% end %>
-		<% if @poems.present? %>
-			<div class= "user_info_board round">
-				<div class= "last_header">
-				  <p class= "p_tag">poemas</p><p class="p_tags">escritos</p>
-				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
-				</div>
-				<div>
-					<% @poems.shuffle.first(4).each do |poem| %>
-						<div class= "last">
-						  <div class= "last_users">
-						    <%= link_to image_tag(poem.image_url(:tiny)), poem, title: "ver perfil de #{poem.name}" %>
-						    <div class= "last_upwards">
-						      <p><%= link_to poem.name, poem, title: "ver perfil de #{poem.name}" %></p>
 						    </div>
 						  </div>
 						</div>
@@ -115,7 +75,7 @@
 					<% @songs.shuffle.first(4).each do |song| %>
 						<div class= "last">
 						  <div class= "last_users">
-						    <%= link_to image_tag(song.image_url(:tiny)), song, title: "ver perfil de #{song.name}" %>
+						    <%= link_to image_tag(song.image_url(:tiny), alt: song.name), song, title: "ver perfil de #{song.name}" %>
 						    <div class= "last_upwards">
 						      <p><%= link_to song.name, song, title: "ver perfil de #{song.name}" %></p>
 						    </div>
@@ -135,9 +95,29 @@
 					<% @films.shuffle.first(4).each do |film| %>
 						<div class= "last">
 						  <div class= "last_users">
-						    <%= link_to image_tag(film.image_url(:tiny)), film, title: "ver perfil de #{film.name}" %>
+						    <%= link_to image_tag(film.image_url(:tiny), alt: film.name), film, title: "ver perfil de #{film.name}" %>
 						    <div class= "last_upwards">
 						      <p><%= link_to film.name, film, title: "ver perfil de #{film.name}" %></p>
+						    </div>
+						  </div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+		<% if @poems.present? %>
+			<div class= "user_info_board round">
+				<div class= "last_header">
+				  <p class= "p_tag">poemas</p><p class="p_tags">escritos</p>
+				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
+				</div>
+				<div>
+					<% @poems.shuffle.first(4).each do |poem| %>
+						<div class= "last">
+						  <div class= "last_users">
+						    <%= link_to image_tag(poem.image_url(:tiny), alt: poem.name), poem, title: "ver perfil de #{poem.name}" %>
+						    <div class= "last_upwards">
+						      <p><%= link_to poem.name, poem, title: "ver perfil de #{poem.name}" %></p>
 						    </div>
 						  </div>
 						</div>
@@ -155,13 +135,33 @@
 					<% @others.shuffle.first(4).each do |other| %>
 						<div class= "last">
 						  <div class= "last_users">
-						    <%= link_to image_tag(other.image_url(:tiny)), other, title: "ver perfil de #{other.name}" %>
+						    <%= link_to image_tag(other.image_url(:tiny), alt: other.name), other, title: "ver perfil de #{other.name}" %>
 						    <div class= "last_upwards">
 						      <p><%= link_to other.name, other, title: "ver perfil de #{other.name}" %></p>
 						    </div>
 						  </div>
 						</div>
 					<% end %>
+				</div>
+			</div>
+		<% end %>
+		<% if !@users.empty? %>
+			<div class= "user_info_board round">
+				<div class= "last_header">
+					<p class="p_tag">citado</p><p class= "p_tags">pelos</p><p class="p_tag">usuários</p>
+			        <p class= "p_mais"><%= link_to "+", users_author_path(@author), title: "ver todos os usuários que já citaram #{@author.name}" %></p>
+		    	</div>
+				<div>
+					<% @users.shuffle.first(4).each do |user| %>
+				        <div class= "last">
+				            <div class= "last_users">
+				            	<%= link_to image_tag(user.image_url(:tiny), alt: user.name), user, title: "ver perfil de #{user.name}" %>
+	                			<div class= "last_upwards">
+				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
+				        		</div>
+				        	</div>
+				        </div>
+			        <% end %>
 				</div>
 			</div>
 		<% end %>
@@ -174,7 +174,7 @@
 				<% @authors.shuffle.first(4).each do |author| %>
 					<div class= "last">
 					  <div class= "last_users">
-					    <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+					    <%= link_to image_tag(author.image_url(:tiny), alt: author.name), author, title: "ver perfil de #{author.name}" %>
 					    <div class= "last_upwards">
 					      <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
 					    </div>

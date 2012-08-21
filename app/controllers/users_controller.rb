@@ -16,6 +16,7 @@
     @title = @user.name
     @new_micropost = Micropost.new
     @microposts = @user.microposts.paginate(:page => params[:page])
+    @users = User.all
     @authors = @user.authors.all
     @tags = @user.tags.all
     @origins = @user.origins.all
