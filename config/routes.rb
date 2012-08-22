@@ -25,6 +25,7 @@
       get :songs, path: "musicas"
       get :poems, path: "poemas"
       get :films, path: "filmes"
+      get :others, path: "outras"
       get :subscriptions, :autocomplete
     end
   end
