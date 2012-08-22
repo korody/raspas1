@@ -33,12 +33,12 @@
       <%= render 'shared/welcome' %>
     <% end %>
     <div>
-      <% if !@origin.content.blank? %>
-        <%= render 'origin_content', origin: @origin %>  
-      <% end %>
       <% if !@microposts.empty? %>
         <%= render @microposts %>
         <%= will_paginate @microposts %>
+      <% end %>
+      <% if !@origin.content.blank? %>
+        <%= render 'origin_content', origin: @origin %>  
       <% end %>
     </div>
   </div>

@@ -118,7 +118,7 @@ class AuthorsController < ApplicationController
   def origins
     @author = Author.find(params[:id])
     @title = "materiais de #{@author.name}"
-    @author_origins = @author.origins.scoped
+    @author_origins = @author.origins.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
@@ -130,7 +130,7 @@ class AuthorsController < ApplicationController
   def books
     @author = Author.find(params[:id])
     @title = "livros de #{@author.name}"
-    @author_books = @author.books.scoped
+    @author_books = @author.books.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
@@ -142,7 +142,7 @@ class AuthorsController < ApplicationController
   def songs
     @author = Author.find(params[:id])
     @title = "músicas de #{@author.name}"
-    @author_songs = @author.songs.scoped
+    @author_songs = @author.songs.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
@@ -154,7 +154,7 @@ class AuthorsController < ApplicationController
   def poems
     @author = Author.find(params[:id])
     @title = "poemas de #{@author.name}"
-    @author_poems = @author.poems.scoped
+    @author_poems = @author.poems.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
@@ -166,7 +166,7 @@ class AuthorsController < ApplicationController
   def films
     @author = Author.find(params[:id])
     @title = "filmes de #{@author.name}"
-    @author_films = @author.films.scoped
+    @author_films = @author.films.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
@@ -178,7 +178,7 @@ class AuthorsController < ApplicationController
    def others
     @author = Author.find(params[:id])
     @title = "materiais de #{@author.name}"
-    @author_others = @author.others.scoped
+    @author_others = @author.others.all
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
     @authors = Author.all
