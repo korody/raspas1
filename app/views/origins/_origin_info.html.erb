@@ -8,8 +8,10 @@
         <p><%= @origin.name %></p>
         <% if @origin.author_id.blank? %>
           <% if current_user?(@origin.user)  %>
-            <%= link_to (image_tag "edit.png", alt: @origin.user.name), edit_origin_path %>
+            <%= link_to (image_tag "edit.png", alt: "editar"), edit_origin_path %>
           <% end %>
+        <% else %>
+            <%= link_to (image_tag "edit.png", alt: "editar"), edit_origin_path %>
         <% end %>
       </div>
       <% if @origin.date? %>
