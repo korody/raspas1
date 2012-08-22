@@ -91,7 +91,7 @@
   resources :poems, path: "poemas"
   resources :songs, path: "musicas"
   resources :films, path: "filmes"
-  resources :others, path: "outros"
+  resources :others, path: "outras"
   # resources :books, path: "livros", controller: "origins", type: "books"
   # resources :poems, path: "poemas", controller: "origins", type: "poems"
   # resources :songs, path: "musicas", controller: "origins", type: "songs"

@@ -174,6 +174,19 @@ class AuthorsController < ApplicationController
     @origins = Origin.all
     render 'show_films'
   end
+
+   def others
+    @author = Author.find(params[:id])
+    @title = "materiais de #{@author.name}"
+    @author_others = @author.others.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_others'
+  end
+
  private
 
   def correct_user
