@@ -2,7 +2,7 @@
 class TagsController < ApplicationController
 	
 	def index
-	    @title = "temas de  frases e pensamentos"
+	    @title = "temas de pensamentos e frases"
   		@new_micropost = Micropost.new
 	    @tags = Tag.all(order: :name)
   	end

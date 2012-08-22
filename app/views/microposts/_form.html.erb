@@ -1,5 +1,5 @@
 <%= form_for @micropost do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>  
+  <%= render 'shared/error_messages', object: f.object %>  
   <div class= "user_bar">
     <% @user ||= current_user %>
     <div class= "board_avatar">

@@ -1,6 +1,6 @@
 <div class= "user_info">
   <div class= "user_avatar">
-    <%= link_to (image_tag @origin.image_url(:regular).to_s), edit_origin_path %>
+    <%= link_to (image_tag @origin.image_url(:profile).to_s, alt: @origin.name), edit_origin_path %>
   </div>
   <div class= "user_info">
     <div class= "user_info_board round">
@@ -8,10 +8,10 @@
         <p><%= @origin.name %></p>
         <% if @origin.author_id.blank? %>
           <% if current_user?(@origin.user)  %>
-            <%= link_to (image_tag "edit.png"), edit_origin_path %>
+            <%= link_to (image_tag "edit.png", alt: @origin.author.name), edit_origin_path %>
           <% end %>
         <% else %>
-            <%= link_to (image_tag "edit.png"), edit_origin_path %>
+            <%= link_to (image_tag "edit.png", alt: @origin.user.name), edit_origin_path %>
         <% end %>
       </div>
       <% if @origin.date? %>
@@ -20,19 +20,19 @@
       <div class= "origin_info_type">
         <% if @origin.type? %>
           <% if @origin.class == Book %>
-            <%= image_tag "book.png" %><br />
+            <%= image_tag "book.png", alt: 'livro' %><br />
           <% end %>
           <% if @origin.class == Poem %>
-            <%= image_tag "poem.png" %><br />
+            <%= image_tag "poem.png", alt: 'poema' %><br />
           <% end %>
           <% if @origin.class == Song %>
-            <%= image_tag "song.png" %><br />
+            <%= image_tag "song.png", alt: 'música' %><br />
           <% end %>
           <% if @origin.class == Film %>
-            <%= image_tag "film.png" %><br />
+            <%= image_tag "film.png", alt: 'filme' %><br />
           <% end %>
           <% if @origin.class == Other %>
-            <%= image_tag "other.png" %><br />
+            <%= image_tag "other.png", alt: 'outros' %><br />
           <% end %>
         <% end %>
       </div>
@@ -60,7 +60,7 @@
         </div>
         <div class= "last">
           <div class= "last_users">
-            <%= link_to image_tag(@origin.user.image_url(:tiny)), @origin.user, title: "ver perfil de #{@origin.user.name}" %>
+            <%= link_to image_tag(@origin.user.image_url(:tiny), alt: @origin.user.name), @origin.user, title: "ver perfil de #{@origin.user.name}" %>
             <div class= "last_upwards"> 
                 <p><%= link_to @origin.user.name, @origin.user, title: "ver perfil de #{@origin.user.name}" %></p>
             </div>
@@ -108,7 +108,7 @@
           <% @users.shuffle.first(4).each do |user| %>
             <div class= "last">
               <div class= "last_users">
-                <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+                <%= link_to image_tag(user.image_url(:tiny), alt: user.name), user, title: "ver perfil de #{user.name}" %>
                 <div class= "last_upwards">
                   <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
                 </div>
@@ -127,7 +127,7 @@
         <% @origins.shuffle.first(4).each do |origin| %>
           <div class= "last">
             <div class= "last_users">
-              <%= link_to image_tag(origin.image_url(:tiny)), origin, title: "ver perfil de #{origin.name}" %>
+              <%= link_to image_tag(origin.image_url(:tiny), alt: origin.name), origin, title: "ver perfil de #{origin.name}" %>
               <div class= "last_upwards">
                 <p><%= link_to origin.name, origin, title: "ver perfil de #{origin.name}" %></p>
               </div>

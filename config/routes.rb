@@ -21,6 +21,7 @@
       get :tags, path: "temas"
       get :favourites, path: "favoritas"
       get :origins, path: "origens"
+      get :books, path: "livros"
       get :subscriptions, :autocomplete
     end
   end

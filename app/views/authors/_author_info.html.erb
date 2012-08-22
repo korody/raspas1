@@ -49,7 +49,7 @@
 			<div class= "user_info_board round">
 				<div class= "last_header">
 				  <p class= "p_tag">livros</p><p class="p_tags">escritos</p>
-				  <p class= "p_mais"><%= link_to "+", origins_author_path(@author), title: "explorar pensadores" %></p>
+				  <p class= "p_mais"><%= link_to "+", books_author_path(@author), title: "explorar pensadores" %></p>
 				</div>
 				<div>
 					<% @books.shuffle.first(4).each do |book| %>

@@ -1,6 +1,6 @@
 <div class= "origin_card">
   <div class= "origin_card_avatar">
-    <%= link_to image_tag(origin.image_url), origin %>
+    <%= link_to image_tag(origin.image_url, alt: origin.name), origin %>
   </div>
   <div class= "origin_card_info">
     <div class= "origin_card_name relative">
@@ -23,6 +23,9 @@
           <% end %>
           <% if origin.class == Film %>
             <%= image_tag "film.png" %><br />
+          <% end %>
+          <% if origin.class == Other %>
+            <%= image_tag "other.png" %><br />
           <% end %>
         <% end %>
       </div>
