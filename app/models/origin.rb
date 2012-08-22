@@ -21,7 +21,7 @@ class Origin < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against: [:name, :type],
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
-    associated_against: {microposts: :content, authors: :name},
+    associated_against: {microposts: :content},
     ignoring: :accents  
 
   def normalize
