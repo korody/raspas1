@@ -1140,6 +1140,9 @@ div.timestamp {
   line-height: 1.1;
   margin: 9px 0 0 5px;
   clear: both;
+  a {
+    font-size: 100%;
+  }
 }
 
 div.timestamp_each {
@@ -1148,22 +1151,16 @@ div.timestamp_each {
   float: left;
   font-size: 12px;  
   margin: 0 12px 2px 0;
-}
-
-div.timestamp_each img {
-  height: 12px;
-  margin: 4px 0 0 2px;
-  width: 12px;
-  vertical-align: bottom;
-}
-
-div.timestamp_each img.raspa {
-  height: 12px;
-  width: 15px;
-}
-
-div.timestamp a {
-  font-size: 100%;
+  img {
+    height: 12px;
+    margin: 4px 0 0 2px;
+    width: 12px;
+    vertical-align: bottom;
+  }
+  img.raspa {
+    height: 12px;
+    width: 15px;
+  }
 }
 
 div.quote_corner {
