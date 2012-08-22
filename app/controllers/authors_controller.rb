@@ -126,9 +126,10 @@ class AuthorsController < ApplicationController
     @origins = Origin.all
     render 'show_origins'
   end
+
   def books
     @author = Author.find(params[:id])
-    @title = "materiais de #{@author.name}"
+    @title = "livros de #{@author.name}"
     @author_books = @author.books.scoped
     # @origins = @origin.tags.paginate(:page => params[:page])
     @new_micropost = Micropost.new
@@ -138,6 +139,41 @@ class AuthorsController < ApplicationController
     render 'show_books'
   end
 
+  def songs
+    @author = Author.find(params[:id])
+    @title = "músicas de #{@author.name}"
+    @author_songs = @author.songs.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_songs'
+  end
+
+  def poems
+    @author = Author.find(params[:id])
+    @title = "poemas de #{@author.name}"
+    @author_poems = @author.poems.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_poems'
+  end
+
+  def films
+    @author = Author.find(params[:id])
+    @title = "filmes de #{@author.name}"
+    @author_films = @author.films.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_films'
+  end
  private
 
   def correct_user

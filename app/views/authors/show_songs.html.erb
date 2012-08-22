@@ -1,0 +1,12 @@
+<div class= "home">
+  <div class= "title">
+    <p class= "p_search"><%= @author.name %> foi citado através de <%= pluralize @author_songs.count, "música" %></p>
+    <%= link_to "explorar outras músicas", books_path, title: "+ músicas" %>
+  </div>
+  <div id= "mason">
+    <%= render @author_songs %>
+  </div>
+  <div class= "pagination_square">
+    <%#= will_paginate @authors %>
+  </div>
+</div>
