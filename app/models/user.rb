@@ -64,8 +64,8 @@
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
-  has_many :origins, through: :microposts, order: "origins.created_at DESC", select: "DISTINCT origins.*"
-  
+  has_many :origins
+
   has_many :books, through: :microposts, source: :origin, conditions: "type = 'Book'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
   has_many :poems, through: :microposts, source: :origin, conditions: "type = 'Poem'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
   has_many :songs, through: :microposts, source: :origin, conditions: "type = 'Song'", order: "origins.created_at DESC", select: "DISTINCT origins.*"

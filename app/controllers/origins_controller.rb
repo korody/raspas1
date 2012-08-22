@@ -47,9 +47,9 @@ class OriginsController < ApplicationController
         flash[:success] = "Adoramos ver material de sua própria autoria! Obrigado."
       end
     else
-      # redirect_to :back, notice: origin.errors.full_messages 
-      @title = "nova origem"
-      render 'new'
+      redirect_to :back, notice: origin.errors.full_messages 
+      # @title = "nova origem"
+      # render 'new'
     end
   end
   
