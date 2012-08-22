@@ -69,7 +69,7 @@
 			<div class= "user_info_board round">
 				<div class= "last_header">
 				  <p class= "p_tag">músicas</p><p class="p_tags">cantadas</p>
-				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
+				  <p class= "p_mais"><%= link_to "+", songs_author_path(@author), title: "explorar pensadores" %></p>
 				</div>
 				<div>
 					<% @songs.shuffle.first(4).each do |song| %>
@@ -89,7 +89,7 @@
 			<div class= "user_info_board round">
 				<div class= "last_header">
 				  <p class= "p_tag">filmes</p><p class="p_tags">rodados</p>
-				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
+				  <p class= "p_mais"><%= link_to "+", films_author_path(@author), title: "explorar pensadores" %></p>
 				</div>
 				<div>
 					<% @films.shuffle.first(4).each do |film| %>
@@ -109,7 +109,7 @@
 			<div class= "user_info_board round">
 				<div class= "last_header">
 				  <p class= "p_tag">poemas</p><p class="p_tags">escritos</p>
-				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
+				  <p class= "p_mais"><%= link_to "+", poems_author_path(@author), title: "explorar pensadores" %></p>
 				</div>
 				<div>
 					<% @poems.shuffle.first(4).each do |poem| %>
@@ -129,7 +129,7 @@
 			<div class= "user_info_board round">
 				<div class= "last_header">
 				  <p class= "p_tag">materiais</p><p class="p_tags">publicados</p>
-				  <p class= "p_mais"><%= link_to "+", origins_path, title: "explorar pensadores" %></p>
+				  <p class= "p_mais"><%= link_to "+", others_author_path(@author), title: "explorar pensadores" %></p>
 				</div>
 				<div>
 					<% @others.shuffle.first(4).each do |other| %>

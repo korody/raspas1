@@ -14,7 +14,7 @@
         <%= f.text_field :author_name, autofocus: true, value: "#{@author.name if @author}", data: {autocomplete_source: autocomplete_author_path(current_user)}, placeholder: "pensador", class: 'tt', title: "caso esta frase seja sua, deixe o campo em branco" %>
         <%= f.text_field :tag_names, data: {autocomplete_source: autocomplete_tag_path(current_user)}, placeholder: "temas", class: 'tt', title: "separe temas por vírgulas" %>
         <div class= "origin_tt">
-          <%= f.text_field :origin_name, value: "#{@origin.name if @origin}", data: {autocomplete_source: autocomplete_origin_path(current_user)}, placeholder: "origem", class: 'tt', title: "livro, música, filme..." %>
+          <%= f.text_field :origin_name, value: "#{@origin.name if @origin}", data: {autocomplete_source: autocomplete_origin_path(current_user)}, placeholder: "origem", class: 'tt', title: "nome e tipo da origem" %>
         </div>
         <div class= "field">
           <div class= "radio_raspa">
