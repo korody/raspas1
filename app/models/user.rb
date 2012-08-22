@@ -66,12 +66,11 @@
 
   has_many :origins, through: :microposts, order: "origins.created_at DESC", select: "DISTINCT origins.*"
   
-  has_many :origins
-  has_many :books
-  has_many :poems
-  has_many :songs
-  has_many :films
-  has_many :others
+  has_many :books, through: :microposts, source: :origin, conditions: "type = 'Book'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  has_many :poems, through: :microposts, source: :origin, conditions: "type = 'Poem'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  has_many :songs, through: :microposts, source: :origin, conditions: "type = 'Song'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  has_many :films, through: :microposts, source: :origin, conditions: "type = 'Film'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  has_many :others, through: :microposts, source: :origin, conditions: "type = 'Other'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

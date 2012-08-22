@@ -60,12 +60,12 @@
           <% if feed_item.origin %>
             <div class= "timestamp_each">
               <div class= "quote_origin">
-                <%= link_to (image_tag "other_ico_.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class.blank? %>
+                <%= link_to (image_tag "other_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class.blank? %>
                 <%= link_to (image_tag "book_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Book %>
-                <%= link_to (image_tag "poem_ico_.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Poem %>
-                <%= link_to (image_tag "song_ico_.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Song %>
-                <%= link_to (image_tag "film_ico_.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Film %>
-                <%= link_to (image_tag "other_ico_.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Other %>
+                <%= link_to (image_tag "poem_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Poem %>
+                <%= link_to (image_tag "song_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Song %>
+                <%= link_to (image_tag "film_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Film %>
+                <%= link_to (image_tag "other_ico.png", alt: "sobre"), feed_item.origin, title: "ver + raspas de #{feed_item.origin_id}" if feed_item.origin.class == Other %>
                 <%= link_to feed_item.origin.name, feed_item.origin %>
               </div>
             </div>

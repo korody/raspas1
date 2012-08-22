@@ -1,7 +1,7 @@
 <div class= "home">
   <div class= "title">
     <p class= "p_search"><%= @user.name %> citou <%= pluralize @user_films.count, "filme" %></p>
-    <%= link_to "explorar outros livros", films_path, title: "+ filmes" %>
+    <%= link_to "explorar outros filmes", films_path, title: "+ filmes" %>
   </div>
   <div id= "mason">
     <%= render @user_films %>

@@ -13,8 +13,8 @@ class Origin < ActiveRecord::Base
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
   validates :name,  presence: true,
-            	      length: { maximum: 80 }
-                    #uniqueness: { case_sensitive: false }
+            	      length: { maximum: 50 },
+                    uniqueness: { case_sensitive: false }
   validates :user_id,  presence: true
 
 
