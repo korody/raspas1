@@ -691,10 +691,10 @@ div.cartela_corner {
   height: 165px;
   margin-left: 1.5em;
   margin-top: 1.5em;
-  width: 71%;
+  width: 91%;
 }
 
-div.field input, div.field select#origin_date {
+div.field input, div.field select#origin_date_3i, div.field select#origin_date_2i, div.field select#origin_date_1i {
   background: #F8F8F8;
   border: 1px solid #E8E8E8;
   color: #2F4F4F;
@@ -1365,7 +1365,7 @@ input#user_image:hover, input#author_image:hover, input#origin_image:hover {
   cursor: pointer;
 }
 
-div.field input.field_info, div.field select#origin_date {
+div.field input.field_info {
   width: 180px;
 }
 
@@ -1766,6 +1766,20 @@ div.origin_card_info {
   width: 98%;
 }
 
+div.field select#origin_date_3i {
+  margin-right: 1px;
+  width: 45px;
+}
+
+div.field select#origin_date_2i {
+  margin-right: 1px;
+  width: 75px;
+}
+  
+div.field select#origin_date_1i {
+  width: 60px;
+}
+
 textarea#origin_content {
   height: 180px;
   float: left;
@@ -1791,6 +1805,7 @@ div.origin_type {
 div.origin_info_type {
   border: 0px solid black;
   display: inline-block;
+  margin-top: 10px;
   height: 30px;
   width: 30px;
 }
