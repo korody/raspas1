@@ -22,6 +22,9 @@
       get :favourites, path: "favoritas"
       get :origins, path: "origens"
       get :books, path: "livros"
+      get :songs, path: "musicas"
+      get :poems, path: "poemas"
+      get :films, path: "filmes"
       get :subscriptions, :autocomplete
     end
   end
