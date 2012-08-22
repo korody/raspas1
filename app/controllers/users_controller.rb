@@ -65,6 +65,66 @@
     render 'show_origins'
   end
 
+  def books
+    @user = User.find(params[:id])
+    @title = "livros de #{@user.name}"
+    @user_books = @user.books.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_books'
+  end
+
+  def songs
+    @user = User.find(params[:id])
+    @title = "músicas de #{@user.name}"
+    @user_songs = @user.songs.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_songs'
+  end
+
+  def poems
+    @user = User.find(params[:id])
+    @title = "poemas de #{@user.name}"
+    @user_poems = @user.poems.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_poems'
+  end
+
+  def films
+    @user = User.find(params[:id])
+    @title = "filmes de #{@user.name}"
+    @user_films = @user.films.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_films'
+  end
+
+   def others
+    @user = User.find(params[:id])
+    @title = "materiais de #{@user.name}"
+    @user_others = @user.others.scoped
+    # @origins = @origin.tags.paginate(:page => params[:page])
+    @new_micropost = Micropost.new
+    @authors = Author.all
+    @tags = Tag.all
+    @origins = Origin.all
+    render 'show_others'
+  end
+
   def new
   	@user = User.new
     @title = "cadastre-se"

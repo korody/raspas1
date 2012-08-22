@@ -75,7 +75,7 @@
 		<div class= "user_info_board round">
 			<div class= "last_header">
 				<p class="p_tag">livros</p><p class= "p_tags">mencionados</p>
-		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
+		        <p class= "p_mais"><%= link_to "+", books_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
 				<% @books.shuffle.first(4).each do |book| %>
@@ -95,7 +95,7 @@
 		<div class= "user_info_board round">
 			<div class= "last_header">
 				<p class="p_tag">músicas</p><p class= "p_tags">citadas</p>
-		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
+		        <p class= "p_mais"><%= link_to "+", songs_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
 				<% @songs.shuffle.first(4).each do |song| %>
@@ -115,7 +115,7 @@
 		<div class= "user_info_board round">
 			<div class= "last_header">
 				<p class="p_tag">poemas</p><p class= "p_tags">recitados</p>
-		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
+		        <p class= "p_mais"><%= link_to "+", poems_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
 				<% @poems.shuffle.first(4).each do |poem| %>
@@ -135,7 +135,7 @@
 		<div class= "user_info_board round">
 			<div class= "last_header">
 				<p class="p_tag">filmes</p><p class= "p_tags">citados</p>
-		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
+		        <p class= "p_mais"><%= link_to "+", films_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
 				<% @films.shuffle.first(4).each do |film| %>
@@ -155,7 +155,7 @@
 		<div class= "user_info_board round">
 			<div class= "last_header">
 				<p class= "p_tags">outros</p><p class="p_tag">materiais</p>
-		        <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
+		        <p class= "p_mais"><%= link_to "+", others_user_path(@user), title: "ver todos as publicações de #{@user.name}" %></p>
 	    	</div>
 			<div>
 				<% @others.shuffle.first(4).each do |other| %>

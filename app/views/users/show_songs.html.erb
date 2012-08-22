@@ -1,0 +1,12 @@
+<div class= "home">
+  <div class= "title">
+    <p class= "p_search"><%= @user.name %> citou <%= pluralize @user_songs.count, "música" %></p>
+    <%= link_to "explorar outras músicas", songs_path, title: "+ músicas" %>
+  </div>
+  <div id= "mason">
+    <%= render @user_songs %>
+  </div>
+  <div class= "pagination_square">
+    <%#= will_paginate @users %>
+  </div>
+</div>
