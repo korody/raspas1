@@ -40,7 +40,7 @@
         <%= will_paginate @microposts %>
       <% end %>
           <div class= "videos">
-            <iframe width="560" height="350" src="https://www.youtube.com/embed/bDmA8qQKhMY" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="350" src="<%= (@origin.link).html_safe %>" frameborder="0" allowfullscreen></iframe>
           </div>  
         </div> 
       <% end %>
