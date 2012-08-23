@@ -25,14 +25,16 @@
 					<%= auto_link(@author.bio, :all, target: '_blank') %>
 				</div>
 			</div>
-			<div class= "user_info_board bio_poster round" >
-				<div class= "bio">
-					biografia por<br /><%= link_to @author.user.name, @author.user if @author.user %>
+			<% if @author.user %>
+				<div class= "user_info_board bio_poster round" >
+					<div class= "bio">
+						biografia por<br /><%= link_to @author.user.name, @author.user if @author.user %>
+					</div>
 				</div>
-			</div>
-			<div class= "tooltip">
-        <%= render @author.user if @author.user %>
-      </div>
+				<div class= "tooltip">
+	        <%= render @author.user %>
+	      </div>
+	    <% end %>
 		<% end %>
 		<div class= "user_info_board round" >
 			<%= render 'stats' %>
