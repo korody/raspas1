@@ -24,7 +24,7 @@
 	<% if @user.bio? %>
 		<div class= "user_info_board round">
 			<div class= "bio">
-				<%= @user.bio %>
+				<%= (@user.bio).html_safe %>
 			</div>
 		</div>
 	<% end %>

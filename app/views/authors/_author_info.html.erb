@@ -22,7 +22,7 @@
 		<% if @author.bio? %>
 			<div class= "user_info_board round" >
 				<div class= "bio">
-					<%= auto_link(@author.bio, :all, target: '_blank') %>
+					<%= auto_link(@author.bio, :all, target: '_blank').html_safe %>
 				</div>
 			</div>
 			<% if @author.user %>

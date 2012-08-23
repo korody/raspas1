@@ -37,6 +37,13 @@
         <%= render @microposts %>
         <%= will_paginate @microposts %>
       <% end %>
+      <% if !@origin.link.blank? %>
+        <div class= "origins round sahdow">
+          <div class= "videos">
+            <iframe width="560" height="350" src="<%= (@origin.link).html_safe %>" frameborder="0" allowfullscreen></iframe>
+          </div>  
+        </div> 
+      <% end %>
       <% if !@origin.content.blank? %>
         <%= render 'origin_content', origin: @origin %>  
       <% end %>

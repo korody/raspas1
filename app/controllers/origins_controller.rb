@@ -66,6 +66,9 @@ class OriginsController < ApplicationController
     if @origin.content_changed?
 	  	@origin.update_attributes(user_id: current_user.id)
 	  end
+    if @origin.info_changed?
+      @origin.update_attributes(user_id: current_user.id)
+    end
     if @origin.save
       flash[:success] = "Origem atualizada com sucesso."
       redirect_to @origin

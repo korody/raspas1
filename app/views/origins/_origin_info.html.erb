@@ -87,9 +87,19 @@
     <% if @origin.info? %>
       <div class= "user_info_board round" >
         <div class= "bio">
-          <%= auto_link(@origin.info, :all, target: '_blank') %>
+          <%= auto_link(@origin.info, :all, target: '_blank').html_safe %>
         </div>
       </div>
+      <% if @origin.user %>
+        <div class= "user_info_board bio_poster round" >
+          <div class= "bio">
+            informações por<br /><%= link_to @origin.user.name, @origin.user if @origin.user %>
+          </div>
+        </div>
+        <div class= "tooltip">
+          <%= render @origin.user %>
+        </div>
+      <% end %>
     <% end %>
    <!--  <%# if @origin.link? %>
       <div class= "user_info_board round" >
