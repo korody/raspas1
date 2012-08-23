@@ -56,12 +56,16 @@
       <%= submit_tag "pronto", alt: "atualizar", class: "but round" %>
   </div>
   <div class= "update_">
-    <% if current_user %>
-      <%= link_to "apagar fonte", @origin, 
-                                              :class => "but round",
-                                              :method => :delete, 
-                                              :confirm => "têm certeza que deseja remover esta origem permanentemente?",
-                                              :title => "deixar o raspas?" %>
+    <% if @origin.author_id.blank? %>
+      <% if current_user?(@origin.user)  %>
+        <%= link_to "apagar fonte", @origin, 
+                                                :class => "but round",
+                                                :method => :delete, 
+                                                :confirm => "têm certeza que deseja remover esta origem permanentemente?",
+                                                :title => "apagar origem?" %>
+      <% end %>
+    <% else %>
+      <%= link_to "voltar", @origin, class: "but round", title: "voltar para a página de #{@origin.name}" %> 
     <% end %>
   </div>
 <% end %>
