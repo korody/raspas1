@@ -32,7 +32,7 @@ class Origin < ActiveRecord::Base
 
   def normalize_link
     if link
-      self.link = link.gsub("watch?v=", "embed/").gsub("www", "https://www").gsub("http://www", "https://www")
+      self.link = link.gsub("watch?v=", "embed/").gsub("http://www", "https://www")
     end  
   end
 
