@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env["omniauth.auth"]
+    raise request.env["omniauth.auth"].to_yaml
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
     email = auth['info']['email']
     if user
