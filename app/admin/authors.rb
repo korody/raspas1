@@ -6,6 +6,7 @@ ActiveAdmin.register Author do
 	index do
 	  	column :id
 	  	column :name
+	  	column :user_id
 	  	column :job
 	  	column :image
 	  	column :published, as: 'boolean', select: 'check_box'
