@@ -33,11 +33,11 @@
       <%= render 'shared/welcome' %>
     <% end %>
     <div>
+      <% if !@microposts.empty? %>
+        <%= render @microposts %>
+        <%= will_paginate @microposts %>
+      <% end %>
       <% if !@origin.link.blank? %>
-        <% if !@microposts.empty? %>
-          <%= render @microposts %>
-          <%= will_paginate @microposts %>
-        <% end %>
         <div class= "origins round sahdow">
           <div class= "videos">
             <iframe width="560" height="350" src="<%= (@origin.link).html_safe %>" frameborder="0" allowfullscreen></iframe>
