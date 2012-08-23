@@ -128,6 +128,86 @@
         </div>
       </div>
     <% end %>
+    <% if @origin.class == Book %>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">outras</p><p class="p_tag">livros</p>
+          <p class= "p_mais"><%= link_to "+", books_path, title: "explorar livros" %></p>
+        </div>
+        <div>
+          <% @books.shuffle.first(4).each do |book| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(book.image_url(:tiny), alt: book.name), book, title: "ver perfil de #{book.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to book.name, book, title: "ver perfil de #{book.name}" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>  
+    <% end %>
+    <% if @origin.class == Song %>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">outras</p><p class="p_tag">músicas</p>
+          <p class= "p_mais"><%= link_to "+", songs_path, title: "explorar músicas" %></p>
+        </div>
+        <div>
+          <% @songs.shuffle.first(4).each do |song| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(song.image_url(:tiny), alt: song.name), song, title: "ver perfil de #{song.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to song.name, song, title: "ver perfil de #{song.name}" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>  
+    <% end %>
+    <% if @origin.class == Poem %>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">outros</p><p class="p_tag">poemas</p>
+          <p class= "p_mais"><%= link_to "+", poems_path, title: "explorar poemas" %></p>
+        </div>
+        <div>
+          <% @poems.shuffle.first(4).each do |poem| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(poem.image_url(:tiny), alt: poem.name), poem, title: "ver perfil de #{poem.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to poem.name, poem, title: "ver perfil de #{poem.name}" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>  
+    <% end %>
+    <% if @origin.class == Film %>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">outros</p><p class="p_tag">filmes</p>
+          <p class= "p_mais"><%= link_to "+", films_path, title: "explorar músicas" %></p>
+        </div>
+        <div>
+          <% @films.shuffle.first(4).each do |film| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(film.image_url(:tiny), alt: film.name), film, title: "ver perfil de #{film.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to film.name, film, title: "ver perfil de #{film.name}" %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>  
+    <% end %>
     <div class= "user_info_board round">
       <div class= "last_header">
         <p class= "p_tags">outras</p><p class="p_tag">origens</p>

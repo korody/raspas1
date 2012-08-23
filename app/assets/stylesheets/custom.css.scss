@@ -1359,6 +1359,7 @@ textarea {
   height: 9.6em;
   text-indent: 4px;  
   width: 535px;
+  @include scroller;
 }
 
 input#user_image, input#author_image, input#origin_image {
@@ -1798,7 +1799,6 @@ textarea#origin_content {
   margin: 5px 0 0 10px;
   width: 765px;
   overflow: auto;
-  @include scroller;
 }
 
 input#origin_author_name {

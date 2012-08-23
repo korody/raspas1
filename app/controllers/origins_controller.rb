@@ -24,6 +24,10 @@ class OriginsController < ApplicationController
       @users = @origin.users.scoped
       @tags = @origin.tags.scoped
       @origins = Origin.scoped
+      @books = Book.scoped
+      @songs = Song.scoped
+      @poems = Poem.scoped
+      @films = Film.scoped
         # fresh_when etag: [@origin, @microposts], public: true
       @new_micropost = Micropost.new
       @title = "#{@origin.name} - #{@origin.author.name if @origin.author}#{@origin.user.name if !@origin.author}"
