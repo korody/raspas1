@@ -36,4 +36,5 @@ end
 
 gem "heroku", "2.19.0"
 gem 'hirb'
-gem 'pg_search' 
+gem 'pg_search'
+gem 'rinku', '~> 1.5.0', require: 'rails_rinku'

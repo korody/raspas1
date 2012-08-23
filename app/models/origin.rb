@@ -15,8 +15,8 @@ class Origin < ActiveRecord::Base
   validates :name,  presence: true,
             	      length: { maximum: 50 },
                     uniqueness: { case_sensitive: false }
-  validates :user_id,  presence: true
 
+  validates :user_id,  presence: true
 
   include PgSearch
   pg_search_scope :search, against: [:name, :type],

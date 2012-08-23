@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815041928) do
+ActiveRecord::Schema.define(:version => 20120823005623) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120815041928) do
     t.string   "born"
     t.boolean  "published"
     t.string   "image"
+    t.integer  "user_id"
   end
 
   create_table "favourites", :force => true do |t|
@@ -74,12 +75,11 @@ ActiveRecord::Schema.define(:version => 20120815041928) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "author_id"
-    t.string   "origin_type"
-    t.boolean  "published",   :default => false
+    t.boolean  "published",  :default => false
     t.integer  "origin_id"
   end
 
-  add_index "microposts", ["origin_type", "origin_id"], :name => "index_microposts_on_origin_type_and_origin_id"
+  add_index "microposts", ["origin_id"], :name => "index_microposts_on_origin_type_and_origin_id"
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
   create_table "origins", :force => true do |t|

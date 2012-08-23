@@ -193,6 +193,7 @@ GEM
       railties (~> 3.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rinku (1.5.1)
     rmagick (2.13.1)
     ruby-hmac (0.4.0)
     rubyzip (0.9.6.1)
@@ -245,6 +246,7 @@ DEPENDENCIES
   pg_search
   rails (= 3.2.3)
   rails-i18n
+  rinku (~> 1.5.0)
   rmagick
   sass-rails (~> 3.2.3)
   sqlite3

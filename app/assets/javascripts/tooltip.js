@@ -1,5 +1,5 @@
 $(function(){
-	$(".quote_author, .quote_poster, .quote_favouriters, .quote_poster_pic, .quote_origin").tooltip({
+	$(".quote_author, .quote_poster, .quote_favouriters, .quote_poster_pic, .quote_origin, .bio_poster").tooltip({
 
 		// position
 		position: 'bottom center',

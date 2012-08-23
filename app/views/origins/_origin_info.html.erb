@@ -91,13 +91,13 @@
         </div>
       </div>
     <% end %>
-    <% if @origin.link? %>
+   <!--  <%# if @origin.link? %>
       <div class= "user_info_board round" >
         <div class= "bio">
-          <%= @origin.link %>
+          <%#= link_to @origin.link, @origin.link %>
         </div>
       </div>
-    <% end %>
+    <%# end %> -->
     <% if @origin.author && !@users.empty? %>
       <div class= "user_info_board round">
         <div class= "last_header">

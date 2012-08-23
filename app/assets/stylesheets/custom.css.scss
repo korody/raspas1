@@ -768,7 +768,7 @@ div.user_avatar {
   width: 200px;
   img {
     background: #F8F8F8;
-    border: 1px solid #E8E8E8;
+    border: 0px solid #E8E8E8;
     max-height: 605px;
     width: 200px;
   }
@@ -779,9 +779,13 @@ div.user_info_board {
   border: 1px solid #E8E8E8;
   color: #B0B0B0;
   float: right;
-  margin-bottom: 1em;
+  margin-bottom: 12px;
   padding: 0.5em;
   width: 185px;
+}
+
+.bio_poster {
+  margin-top: -12px;
 }
 
 div.user_info_board input, div.user_card_info input {  
@@ -873,7 +877,11 @@ div.user_info_board a.temas {
 }
 
 div.bio {
+  font-size: 14px;
   line-height: 1.6em;
+  a {
+    font-size: 14px;
+  }
 }
 
 div.last_header {

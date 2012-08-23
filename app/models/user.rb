@@ -59,8 +59,10 @@
                            :dependent => :destroy
 
   has_many :idols, through: :subscriptions, source: :author
-
+  
   has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
+
+  has_many :authors
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 

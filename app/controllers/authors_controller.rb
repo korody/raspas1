@@ -41,7 +41,8 @@ class AuthorsController < ApplicationController
 
   def create
     @new_micropost = Micropost.new
-    @author = Author.new(params[:author])
+    # @author = Author.new(params[:author])
+    @author = current_user.authors.build(params[:author])
     if @author.save
       flash[:success] = "Perfil para #{@author.name} criado com sucesso!"
       redirect_to @author
@@ -58,10 +59,16 @@ class AuthorsController < ApplicationController
   end
 
   def update
-  	@author = Author.find(params[:id])
     @new_micropost = Micropost.new
-    if @author.update_attributes(params[:author])
+    @author = Author.find(params[:id])
+    @author.attributes = params[:author]
+    if @author.bio_changed?
+      @author.update_attributes(user_id: current_user.id)
+    end
+    if @author.image_changed?
       expire_fragment("mosaico")
+    end
+    if @author.save
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author
     else

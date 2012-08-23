@@ -10,7 +10,7 @@
 #
 
 class Author < ActiveRecord::Base
-  attr_accessible :name, :image, :bio, :job, :tipo, :origin, :born
+  attr_accessible :name, :image, :bio, :job, :tipo, :origin, :born, :user_id
   before_create :titlelize
 
   mount_uploader :image, ImageUploader
@@ -29,11 +29,11 @@ class Author < ActiveRecord::Base
 
   has_many :fans, through: :reverse_subscriptions, :source => :user
 
+  belongs_to :user
+
   has_many :users, through: :microposts, order: "users.created_at DESC", select: "DISTINCT users.*"
 
   has_many :favourites
-
-  has_many :origins, through: :microposts
 
   has_many :origins
   has_many :books

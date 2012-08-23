@@ -36,7 +36,7 @@ class OriginsController < ApplicationController
   end
 
   def create
-    # @author = Author.new(params[:author])
+    # @origin = Origin.new(params[:origin])
     origin = current_user.origins.build(params[:origin])
     if origin.save
       if origin.author
@@ -67,7 +67,6 @@ class OriginsController < ApplicationController
 	  	@origin.update_attributes(user_id: current_user.id)
 	  end
     if @origin.save
-      expire_fragment("mosaico")
       flash[:success] = "Origem atualizada com sucesso."
       redirect_to @origin
     else
