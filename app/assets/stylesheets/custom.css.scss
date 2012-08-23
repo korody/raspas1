@@ -163,6 +163,22 @@ ul {
   padding: 0;
 }
 
+textarea {
+  background-color: transparent;
+  border: 1px solid transparent;
+  float: left;
+  height: 9.6em;
+  width: 535px;
+  padding: 4px 0 0 8px;
+  @include scroller;
+  p {
+  }
+}
+
+input { 
+  text-indent: 8px;  
+}
+
 .pattern {
   background: url(fundo.jpg) no-repeat fixed center;
   background-size: 100% auto;
@@ -997,6 +1013,13 @@ div.count_bio {
   margin-top: 13.8em;
 }
 
+div.count_info {  
+  float: left;
+  position: absolute;
+  right: 4px;
+  top: 125px;
+}
+
 div#count, div#count_bio {
   color: #B0B0B0;
   font-size: 140%;
@@ -1352,16 +1375,6 @@ a.social_but img{
 
 /* USER, AUTHOR, ORIGIN EDIT PAGE */
 
-textarea {
-  background-color: transparent;
-  border: 1px solid transparent;
-  float: left;
-  height: 9.6em;
-  text-indent: 4px;  
-  width: 535px;
-  @include scroller;
-}
-
 input#user_image, input#author_image, input#origin_image {
   background: #E2492F;
   border: 1px solid #D8D8D8;
@@ -1387,15 +1400,6 @@ textarea#bio {
   height: 160px;
   float: left;
   margin: 1.3em 0 0 1em;
-  overflow: auto;
-  width: 332px;
-}
-
-textarea#origin_info {
-  border: 1px solid #E8E8E8;
-  height: 115px;
-  float: left;
-  margin: 64px 0 0 1em;
   overflow: auto;
   width: 332px;
 }
@@ -1792,15 +1796,6 @@ div.field select#origin_date_2i {
 div.field select#origin_date_1i {
   width: 60px;
 }
-
-textarea#origin_content {
-  height: 180px;
-  float: left;
-  margin: 5px 0 0 10px;
-  width: 765px;
-  overflow: auto;
-}
-
 input#origin_author_name {
   background: url('dropdown.png') no-repeat right center;
 }
@@ -1821,6 +1816,34 @@ div.origin_info_type {
   height: 30px;
   width: 30px;
 }
+
+textarea#origin_info {
+  border: 1px solid #E8E8E8;
+  height: 72px;
+  float: left;
+  margin: 64px 0 0 1em;
+  overflow: auto;
+  width: 324px;
+}
+
+input#origin_link {
+  background-color: #F8F8F8;
+  border: 1px solid #E8E8E8;
+  height: 28px;
+  float: left;
+  margin: 10px 0 0 14px;
+  overflow: auto;
+  width: 332px;
+}
+
+textarea#origin_content {
+  height: 180px;
+  float: left;
+  margin: 5px 0 0 10px;
+  width: 765px;
+  overflow: auto;
+}
+
 
 div.videos {
   height: 350px;

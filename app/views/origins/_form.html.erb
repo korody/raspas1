@@ -3,7 +3,7 @@
 <%= form_for([@origin.becomes(Origin)]) do |f| %>
   <% f.object = @origin.becomes(@origin.class) %>
   <%= render 'shared/error_messages', object: f.object %>  
-  <div class="cartela round">
+  <div class="cartela round relative">
     <div class= "cartela_corner round">
       <div class= "board_avatar">
           <%= image_tag @origin.image_url(:regular).to_s %>
@@ -44,8 +44,9 @@
     <div>
       <%= f.text_area :info, maxlength: 680, placeholder: "breve descrição de #{@origin.name}", 
       class: "round", id: "origin_info" %>
+      <%= f.text_field :link, placeholder: "link youtube", class: "round" %>
     </div>
-    <div class= "count_bio">
+    <div class= "count_info">
       <div id= "count_bio">680</div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 class Origin < ActiveRecord::Base
 	attr_accessible :name, :date, :image, :info, :content, :author_id, :user_id, :author_name, :link, :type
   attr_accessor :author_name
-  before_save :assign_author, :assign_origin, :normalize
+  before_save :assign_author, :assign_origin, :normalize, :normalize_link
   before_create :titlelize
 
   mount_uploader :image, ImageUploader
@@ -27,6 +27,12 @@ class Origin < ActiveRecord::Base
   def normalize
     if content
       self.content = content.gsub(/\n\r/, " ")
+    end  
+  end
+
+  def normalize_link
+    if link
+      self.link = link.gsub("watch?v=", "embed/").gsub("www", "https://www").gsub("http://www", "https://www")
     end  
   end
 
