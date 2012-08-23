@@ -3,9 +3,9 @@
     <div class= "quote_text">
       <div class= "upwards">
         <% if !micropost.author %>
-          <%= h(micropost.content) %>
+          <%= (micropost.content).html_safe %>
         <% else %>
-          &quot;<%= h(micropost.content) %>&quot;
+          &quot;<%= (micropost.content).html_safe %>&quot;
         <% end %>
       </div>
     </div>

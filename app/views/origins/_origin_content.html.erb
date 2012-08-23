@@ -2,7 +2,7 @@
   <div class= "origin">
     <div class= "origin_text">
       <div class= "origin_upwards">
-        <%= simple_format h(origin.content) %>
+        <%= simple_format (origin.content).html_safe %>
       </div>
     </div>
     <div class="quote_author">
