@@ -87,7 +87,7 @@
     <% if @origin.info? %>
       <div class= "user_info_board round" >
         <div class= "bio">
-          <%= @origin.info %>
+          <%= auto_link(@origin.info, :all, target: '_blank') %>
         </div>
       </div>
     <% end %>

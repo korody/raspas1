@@ -94,7 +94,7 @@
       user.origin = auth["info"]["location"]
       user.bio = auth["info"]["description"]
       user.image = auth["info"]["image"]
-      user.tipo = auth["info"]["Twitter"]
+      user.tipo = auth["info"]["Facebook"]
       #user.image = auth["extra"]["raw_info"]["image"] 
     end
   end
