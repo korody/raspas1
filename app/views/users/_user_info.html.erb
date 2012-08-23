@@ -8,14 +8,13 @@
 			<% if signed_in? %>
 				<% if current_user?(@user) %>	
 					<%= link_to (image_tag "edit.png", alt: "editar perfil"), edit_user_path(current_user) %>
+				<% else %>
+					<%= link_to (image_tag "f_link.png", alt: "perfil do facebook"), @user.tipo, target: "_blank", title: "#{@user.name} no facebook" %>
 				<% end %>
 			<% end %>
 		</div>
 		<% if @user.job? %>
 			<p><%= @user.job %></p>
-		<% end %>
-		<% if @user.tipo? %>
-			<p><%= @user.tipo %></p>
 		<% end %>
 		<% if @user.origin? %>
 			<p><%= @user.origin %></p>

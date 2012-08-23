@@ -816,6 +816,10 @@ div.user_info_board input.follow, div.user_card_info input.follow, div.user_info
   @include shadow(2px, 2px, 1px, 1px, #D8D8D8);
 }
 
+div.user_info_board a.follow, div.user_card_info a.follow {
+  line-height: 1.5;
+}
+
 div.user_info_board input.follow:hover, div.user_card_info input.follow:hover, div.user_info_board a.follow:hover, div.user_card_info a.follow:hover {
   @include shadow(0, 0, 0, 0, #D8D8D8);
 }
