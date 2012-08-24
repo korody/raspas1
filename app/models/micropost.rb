@@ -1,5 +1,5 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :tag_names, :author_id, :author_name, :origin_name, :origin_id, :origin_type
+  attr_accessible :content, :tag_names, :author_id, :author_name, :origin_name, :origin_id, :origin_type, :user_id
   
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings

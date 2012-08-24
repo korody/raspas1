@@ -65,9 +65,9 @@ class AuthorsController < ApplicationController
     if @author.bio_changed?
       @author.update_attributes(user_id: current_user.id)
     end
-    if @author.image_changed?
-      expire_fragment("mosaico")
-    end
+    # if @author.image_changed?
+    #   expire_fragment("mosaico")
+    # end
     if @author.save
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
       redirect_to @author

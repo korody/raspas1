@@ -14,8 +14,6 @@ module ApplicationHelper
         end
       elsif home
         "#{base_title} { #{@title}"
-      elsif @tag
-        "pensamentos sobre #{@title} { #{base_title}" 
       else
         "#{@title} { #{base_title}"
       end     

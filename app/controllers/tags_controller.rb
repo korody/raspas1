@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 
   	def show
 	    @tag = Tag.find(params[:id])
-	    @title = "#{@tag.name}"
+	    @title = "pensamentos e frases sobre #{@tag.name}"
 	    @tags = Tag.all(:order => 'tags.created_at DESC')
 	    @users = @tag.users(:order => 'tags.created_at DESC')
 	    @authors = @tag.authors(:order => 'tags.created_at DESC')
@@ -32,7 +32,7 @@ class TagsController < ApplicationController
 
   	def authors
       @tag = Tag.find(params[:id])
-	  @title = "pensadores sobre #{@tag.name}"
+	    @title = "pensadores sobre #{@tag.name}"
       @authors = @tag.authors.paginate(:page => params[:page])
       @new_micropost = Micropost.new
       render 'show_authors'
