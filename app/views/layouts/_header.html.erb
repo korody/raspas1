@@ -15,10 +15,10 @@
     </ul>
     <ul>
       <!-- <li><%#= link_to "sobre o raspas", about_path, class: active?('pages', 'about') %></li> -->
-      <li><%= link_to (image_tag "others.png"), origins_path, class: active?('origins', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas e etc." %></li> 
-      <li><%= link_to (image_tag "pensador.png"), authors_path, class: active?('authors', 'index'), id: "icons", title: "explorar pensadores" %></li> 
+      <li><%= link_to (image_tag "mosaico.png"), mosaico_path, class: active?('pages', 'mosaico'), id: "icons", title: "explorar pensadores" %></li> 
+      <li><%= link_to (image_tag "origins.png"), origins_path, class: active?('origins', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas e etc." %></li> 
       <li><%= link_to (image_tag "tags.png"), tags_path, class: active?('tags', 'index'), id: "icons", title: "explorar temas" %></li> 
-      <li><%= link_to (image_tag "heart.png"), estrelada_path, class: active?('pages', 'estrelada'), id: "icons", title: "explorar raspas favoritas" %></li> 
+      <li><%= link_to (image_tag "top.png"), top_path, class: active?('pages', 'estrelada'), id: "icons", title: "explorar raspas favoritas" %></li> 
     </ul> 
     <% if signed_in? %>
       <ul class= "nave_r"> 

@@ -22,13 +22,13 @@ class PagesController < ApplicationController
   end
 
   def mosaico
-    @title = "mosaico"
+    @title = "mosaico de pensadores"
     @authors = Author.scoped
     @new_micropost = Micropost.new
   end
 
-  def estrelada
-    @title = "as melhores frases e pensamentos"
+  def top
+    @title = "melhores frases e pensamentos"
     @favourites = Favourite.all(select: "micropost_id, count(id) as favourite_count", group: "micropost_id", order: "favourite_count DESC", limit: 30)
     @authors = Author.scoped
     @users = User.scoped
