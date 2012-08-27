@@ -221,7 +221,7 @@ header {
   width: 100%;
   @include shadow(1px, 2px, 1px, 2px, #2F4F4F);
   @include shadow_ie;
-  z-index: 1;
+  z-index: 4;
 }
 
 li {
@@ -615,7 +615,7 @@ div.intro a {
 div.mosaico_page {
   left: 0;
   float: left;
-  position: absolute;
+  position: fixed;
   top: 40px;
   width: 103%;
   z-index: 3;
