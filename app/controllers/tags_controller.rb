@@ -25,7 +25,7 @@ class TagsController < ApplicationController
    	def users
       @tag = Tag.find(params[:id])
 	    @title = "pelos usuários sobre #{@tag.name}"
-      @users = @tag.users.paginate(:page: params[:page])
+      @users = @tag.users.paginate(page: params[:page])
       @new_micropost = Micropost.new
       render 'show_users'
   	end
