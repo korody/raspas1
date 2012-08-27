@@ -82,9 +82,6 @@ class Micropost < ActiveRecord::Base
         @some_author = Author.find_or_create_by_name(author_name)
         self.author_id = @some_author ? @some_author.id : 0
       end
-      if @some_author.user_id.blank?
-        @some_author.update_attributes(user_id: user.id)
-      end
     end
 
     def assign_origin
