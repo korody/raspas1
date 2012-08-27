@@ -12,9 +12,9 @@
         <div class= "quote_text">
           <div class= "upwards">
             <% if !feed_item.author %>
-              <%= h(feed_item.content) %>
+              <%= (feed_item.content).html_safe %>
             <% else %>
-              &quot;<%= h(feed_item.content) %>&quot;
+              &quot;<%= (feed_item.content).html_safe %>&quot;
             <% end %>
           </div>
         </div>

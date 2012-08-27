@@ -26,4 +26,12 @@ class PagesController < ApplicationController
     @authors = Author.scoped
     @new_micropost = Micropost.new
   end
+
+  def estrelada
+    @title = "estrelada"
+    @favourites = Favourite.all(select: "micropost_id, count(id) as favourite_count", group: "micropost_id", order: "favourite_count DESC", limit: 30)
+    @authors = Author.scoped
+    @users = User.scoped
+    @new_micropost = Micropost.new
+  end
 end

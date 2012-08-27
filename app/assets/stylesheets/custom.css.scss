@@ -175,10 +175,6 @@ textarea {
   }
 }
 
-input { 
-  text-indent: 8px;  
-}
-
 .pattern {
   background: url(fundo.jpg) no-repeat fixed center;
   background-size: 100% auto;
@@ -340,21 +336,19 @@ nav ul li input#button {
   width: 22px;
 }
 
-nav ul li a#mural {
+nav ul li a#icons {
   border: 0px solid #E6674A;
   float: left;
   margin: 0em;
-  margin-left: 17em;
-  padding: 4px; 
+  padding: 4px;
+  img {
+    border: 0px solid #E6674A;
+    height: 30px;
+    margin: 0;
+    padding: 0 2px; 
+    width: 30px;
+  } 
 }
-
- nav ul li a#mural img {
-  border: 0px solid #E6674A;
-  height: 30px;
-  margin: 0;
-  padding: 0 2px; 
-  width: 30px;
- }
 
 nav ul li input:hover, nav ul li a:hover, nav ul li input#button:hover {
   background: #E6674A;
@@ -608,6 +602,13 @@ div.intro_text {
 div.intro a {
   font-size: 100%;
 }
+
+/* ESTRELADAS */
+
+.estreadas {
+  height: 30px;
+}
+
 
 /* MOSAICO */
 

@@ -117,6 +117,7 @@
   match 'auth/failure', to: redirect('/')
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
+  match '/estrelada', to: "pages#estrelada"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

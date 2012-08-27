@@ -1,0 +1,139 @@
+<div class= "feed_quotes">
+  <div class= "user_info">
+    <% if favourite.micropost.author %>
+      <%= link_to image_tag(favourite.micropost.author.image_url(:regular)), favourite.micropost.author, title: "ver perfil de #{favourite.micropost.author.name}" %>
+    <% else %>  
+      <%= link_to image_tag(favourite.micropost.user.image_url(:regular)), favourite.micropost.user, title: "ver perfil de #{favourite.micropost.user.name}" %>
+    <% end %>
+  </div>
+  <div class= "stack_feed">
+    <div class="quotes round shadow">
+      <div class= "quote">
+        <div class= "quote_text">
+          <div class= "upwards">
+            <% if !favourite.micropost.author %>
+              <%= (favourite.micropost.content).html_safe %>
+            <% else %>
+              &quot;<%= (favourite.micropost.content).html_safe %>&quot;
+            <% end %>
+          </div>
+        </div>
+        <div class="quote_author">
+          <%= image_tag "ico_raspas.png", alt: "raspa por" %>
+          <% if !favourite.micropost.author %>
+            <%= link_to favourite.micropost.user.name, favourite.micropost.user %>
+          <% else %>
+            <%= link_to favourite.micropost.author.name, favourite.micropost.author %>
+          <% end %>
+        </div>
+        <div class= "tooltip">
+          <% if !favourite.micropost.author %>
+            <%= render favourite.micropost.user %>
+          <% else %>  
+            <%= render favourite.micropost.author %>
+          <% end %>
+        </div>
+        <div class="timestamp">
+          <div class= "timestamp_each">
+            <%= image_tag "clock_ico.png", title: "tempo no ar" %>
+            <%= favourite.micropost.created_at.strftime("%d.%m.%Y") %>
+          </div>
+          <% if favourite.micropost.author %>
+            <div class= "timestamp_each">
+              <div class= "quote_poster">
+                <%= image_tag "raspa_ico.png", class: "raspa", title: "raspa de #{favourite.micropost.user.name}" %>
+                <%= link_to favourite.micropost.user.name, favourite.micropost.user %>
+              </div>
+            </div>
+            <div class= "tooltip">
+              <%= render favourite.micropost.user %>
+            </div>
+          <% end %>
+          <% if !favourite.micropost.tags.empty? %>
+            <div class= "timestamp_each">
+              <% favourite.micropost.tags.each do |tag| %>
+              <%= link_to (image_tag "tag_ico.png"), tag, title: "ver + raspas sobre #{tag.name}"  %>
+                <%= link_to tag.name, tag, title: "ver + raspas sobre #{tag.name}" %>
+              <% end %>      
+            </div>
+          <% end %>
+          <% if favourite.micropost.origin %>
+            <div class= "timestamp_each">
+              <div class= "quote_origin">
+                <%= link_to (image_tag "other_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class.blank? %>
+                <%= link_to (image_tag "book_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class == Book %>
+                <%= link_to (image_tag "poem_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class == Poem %>
+                <%= link_to (image_tag "song_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class == Song %>
+                <%= link_to (image_tag "film_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class == Film %>
+                <%= link_to (image_tag "other_ico.png", alt: "sobre"), favourite.micropost.origin, title: "ver + raspas de #{favourite.micropost.origin_id}" if favourite.micropost.origin.class == Other %>
+                <%= link_to favourite.micropost.origin.name, favourite.micropost.origin %>
+              </div>
+            </div>
+            <div class= "tooltip">
+              <%= render favourite.micropost.origin %>
+            </div>  
+          <% end %>
+          <% if favourite.micropost.favouriters.any? %>
+            <div class= "timestamp_each">
+              <% favourite.micropost.favouriters.first(1).each do |favouriters| %>
+                <%= link_to (image_tag "heart_ico.png"), favouriters %>
+                <%= link_to favouriters.name, favouriters, class: "quote_favouriters" %> 
+                <div class= "tooltip">
+                  <%= render favouriters %>
+                </div>
+                <% unless favourite.micropost.favouriters.count == 1 %>
+                  + <%= link_to pluralize(favourite.micropost.favouriters.count - 1, "outro"), favouriters_micropost_path(favourite.micropost), title: "ver usuários que favoritaram esta raspa" %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+          <%# if !favourite.micropost.published? %>
+            <!--<div class= "timestamp_each">
+              sob <%#= link_to "análise", @author %> 
+              <%#= link_to (image_tag "flag_ico.png"), root_path %>
+            </div>-->
+          <%# end %>
+          <% if current_user?(favourite.micropost.user) %>
+            <div class= "timestamp_each">
+              <%= link_to (image_tag "edit.png"), edit_micropost_path(favourite.micropost) %>
+              <%= link_to "editar", edit_micropost_path(favourite.micropost) %>
+              <%= link_to (image_tag "trash_ico.png"), favourite.micropost, :method => :delete,
+                                               :confirm => "apagar esta raspa?",
+                                               :title => "descartar" %>
+              <%= link_to "apagar", favourite.micropost, :method => :delete,
+                                                 :confirm => "apagar esta raspa?",
+                                                 :title => "descartar" %>             
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class= "quote_corner">
+        <div class= "top_corner">
+          <div>   
+            <%= render 'favourites/favo_form', micropost: favourite.micropost %>
+          </div> 
+          <div class= "share">
+            <% unless @micropost %>  
+              <%= link_to (image_tag "share.png"), micropost_path(favourite.micropost), title: "compartilhar via facebook, twitter ou google+.", class: "top_button round" %>
+            <% else %>
+              <%= render "microposts/social" %>
+            <% end %>
+            <% if !@micropost %>
+              <div class= "but_stats round">
+                <p>compartilhar</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <% if favourite.micropost.author %>
+          <div class= "quote_poster_pic">
+            <%= link_to image_tag(favourite.micropost.user.image_url(:small)), favourite.micropost.user %>
+          </div>
+        <% end %>
+        <div class= "tooltip">
+          <%= render favourite.micropost.user %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>    

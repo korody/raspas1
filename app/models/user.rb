@@ -28,15 +28,15 @@
 
   mount_uploader :image, ImageUploader
 
-  has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
+  has_many :microposts, dependent: :destroy, order: "microposts.created_at DESC"
   
   has_many :favourites, dependent: :destroy
 
   has_many :eleitas, through: :favourites, source: :micropost, order: "favourites.created_at DESC"
 
-  has_many :reverse_favourites, :foreign_key => "poster_id",
-                                   :class_name => "Favourite",
-                                   :dependent => :destroy
+  has_many :reverse_favourites, foreign_key: "poster_id",
+                                   class_name: "Favourite",
+                                   dependent: :destroy
 
   has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"#, 
                                               # :select => "microposts.id, count(favoritadas.id) AS favouritadas_count",
@@ -44,19 +44,19 @@
                                               # :order => "favouritadas_count"
                                               # group_clause
 
-  has_many :relationships, :foreign_key => "follower_id",
-                           :dependent => :destroy
+  has_many :relationships, foreign_key: "follower_id",
+                           dependent: :destroy
 
-  has_many :following, :through => :relationships, :source => :followed
+  has_many :following, through: :relationships, source: :followed
 
-  has_many :reverse_relationships, :foreign_key => "followed_id",
-                                   :class_name => "Relationship",
-                                   :dependent => :destroy
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name: "Relationship",
+                                   dependent: :destroy
 
-  has_many :followers, :through => :reverse_relationships, :source => :follower
+  has_many :followers, through: :reverse_relationships, source: :follower
 
-  has_many :subscriptions, :foreign_key => "user_id",
-                           :dependent => :destroy
+  has_many :subscriptions, foreign_key: "user_id",
+                           dependent: :destroy
 
   has_many :idols, through: :subscriptions, source: :author
   
