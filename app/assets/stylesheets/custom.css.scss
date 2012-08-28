@@ -1093,6 +1093,16 @@ div.quotes {
   width: 98%;
 }
 
+div#user_quote {
+  background-color: lightblue;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  @include round(2px);
+}
+
 div.half_quotes {
   background-color: #F8F8F8;
   border: 1px solid #E2492F;

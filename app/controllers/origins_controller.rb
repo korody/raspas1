@@ -24,6 +24,8 @@ class OriginsController < ApplicationController
       @users = @origin.users.scoped
       @tags = @origin.tags.scoped
       @origins = Origin.scoped
+      @author = @origin.author
+      @author_origins = @author.origins.all
       @books = Book.scoped
       @songs = Song.scoped
       @poems = Poem.scoped
