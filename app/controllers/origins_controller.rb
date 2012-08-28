@@ -22,10 +22,12 @@ class OriginsController < ApplicationController
       @origin = Origin.find(params[:id])
       @microposts = @origin.microposts.paginate(:page => params[:page])
       @users = @origin.users.scoped
+      @user = @origin.user
+      @user_origins = @user.origins.all if @user
       @tags = @origin.tags.scoped
       @origins = Origin.scoped
       @author = @origin.author
-      @author_origins = @author.origins.all
+      @author_origins = @author.origins.all if @author
       @books = Book.scoped
       @songs = Song.scoped
       @poems = Poem.scoped

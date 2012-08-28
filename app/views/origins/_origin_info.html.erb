@@ -142,7 +142,28 @@
           </div>
         </div>
       <% end %>    
-    <% end %>
+    <% else %>
+      <% if @user_origins.count >= 2 %>  
+        <div class= "user_info_board round">
+          <div class= "last_header">
+            <p class= "p_tag">citou</p><p class="p_tags">também</p>
+            <p class= "p_mais"><%= link_to "+", origins_user_path(@user), title: "explorar + materiais" %></p>
+          </div>
+          <div>
+            <% @user_origins.shuffle.first(4).each do |origin| %>
+              <div class= "last">
+                <div class= "last_users">
+                  <%= link_to image_tag(origin.image_url(:tiny), alt: origin.name), origin, title: "ver perfil de #{origin.name}" %>
+                  <div class= "last_upwards">
+                    <p><%= link_to origin.name, origin, title: "ver perfil de #{origin.name}" %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>  
     <% if @origin.class == Book %>
       <div class= "user_info_board round">
         <div class= "last_header">
