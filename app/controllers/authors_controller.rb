@@ -66,8 +66,7 @@ class AuthorsController < ApplicationController
       @author.update_attributes(user_id: current_user.id)
     end
     if @author.image_changed?
-      expire_fragment("mosaico")
-      expire_fragment("mosaico_page")
+      expire_fragment("mosaico", "mosaico_page")
     end
     if @author.save
       flash[:success] = "Pensador atualizado com sucesso! Veja aí as alterações."
