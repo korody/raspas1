@@ -183,9 +183,6 @@
         </div>
       <% end %>
       <% cache "extra_info" do %>  
-        <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "sobre o raspas", about_path, title: "saiba mais" %></p></br>
-        </div>
         <% if !signed_in? %>
           <div class= "user_info_board round" >
             <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>

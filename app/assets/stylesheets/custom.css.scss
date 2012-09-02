@@ -756,6 +756,50 @@ div.field input.but:hover {
 
 /* SIGNIN PAGE */
 
+div.sharing {
+  border: 1px solid #E2492F;
+  background: #FFF;
+  a {
+    border: 1px solid transparent;
+    padding: 0;
+    float: left;
+    margin: 2.5em 0.4em 0;
+  }
+  img {
+    border: 1px solid transparent;
+    padding: 0;
+    float: left;
+    margin: 2.5em 0.4em 0;
+  }
+}
+
+div.sharing img:hover {
+  background: #E2492F;
+  border: 1px solid #D8D8D8;
+  @include round(4px);
+}
+
+a.social_but img{
+  margin: 32px;
+}
+
+div.about {
+  border: 1px solid #E2492F;
+  background: #FFF;
+}
+
+div.sobre {
+  border: 1px solid #E2492F;
+  color: #E2492F;
+  border: 0px solid black;
+  float: left;
+  font-size: 24px;
+  line-height: 2.7;
+  margin: 2px 0 10px 12px;
+  width: 755px;
+  text-align: justify;
+}
+
 .yet {
   color: #B0B0B0;
   margin-top: 1em;
@@ -1133,7 +1177,7 @@ div.quote {
 
 div.quote_text {
   border: 0px solid blue;
-  font-size: 140%;
+  font-size: 17px;
   padding-top: 7.8em;
   position: relative;
 }
@@ -1357,30 +1401,6 @@ div.quote_poster_pic img {
 
 div.quotes:hover div.timestamp {
   color: #2F4F4F;
-}
-
-/* SIGNIN */
-
-div.sharing {
-  border: 1px solid #E2492F;
-  background: #FFF;
-}
-
-div.sharing a, div.sharing img {
-  border: 1px solid transparent;
-  padding: 0;
-  float: left;
-  margin: 2.5em 0.4em 0;
-}
-
-div.sharing img:hover {
-  background: #E2492F;
-  border: 1px solid #D8D8D8;
-  @include round(4px);
-}
-
-a.social_but img{
-  margin: 2.2em;
 }
 
 /* USER, AUTHOR, ORIGIN EDIT PAGE */
@@ -1655,17 +1675,6 @@ div.name_edit p {
 
 div.name_edit a {
   font-size: 100%;
-}
-
-div.sobre {
-  border: 0px solid black;
-  float: left;
-  font-size: 150%;
-  height: 55px;
-  line-height: 2;
-  margin-left: 1em;
-  margin-top: 3.6em;
-  width: 560px;
 }
 
 div.sign {
