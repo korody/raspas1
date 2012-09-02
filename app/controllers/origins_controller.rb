@@ -4,7 +4,7 @@ class OriginsController < ApplicationController
   before_filter :authorized_user, only: [:edit, :update, :destroy]
 
   def index
-    @title = "pensamentos e frases de livros, músicas, poemas e filmes"
+    @title = "Pensamentos e Frases de livros, músicas, poemas e filmes"
     @origins = eval("#{params[:controller].classify}.scoped(order: :name)")
     # @origins = params[:type].constantize.all
     # @origins = Origin.scoped(order: :name)

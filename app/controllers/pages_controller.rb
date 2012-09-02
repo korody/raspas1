@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
   
   def home
-    @title = "crie, colecione e compartilhe pensamentos"
+    @title = "Crie, Colecione e Compartilhe Pensamentos"
     @user = User.new
     @feed_items = Micropost.paginate(page: params[:page], order: 'microposts.created_at DESC')
     @authors = Author.scoped(order: 'authors.created_at DESC')
@@ -28,7 +28,7 @@ class PagesController < ApplicationController
   end
 
   def top
-    @title = "melhores frases e pensamentos"
+    @title = "Melhores Frases e Pensamentos"
     @favourites = Favourite.all(select: "micropost_id, count(id) as favourite_count", group: "micropost_id", order: "favourite_count DESC", limit: 30)
     @authors = Author.scoped
     @users = User.scoped

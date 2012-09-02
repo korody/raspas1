@@ -2,14 +2,14 @@
 class TagsController < ApplicationController
 	
 	def index
-	    @title = "temas de pensamentos e frases"
+	    @title = "Temas de Pensamentos e Frases"
   		@new_micropost = Micropost.new
 	    @tags = Tag.all(order: :name)
   	end
 
   	def show
 	    @tag = Tag.find(params[:id])
-	    @title = "pensamentos e frases sobre #{@tag.name}"
+	    @title = "Pensamentos e Frases sobre #{@tag.name}"
 	    @tags = Tag.all(order: 'tags.created_at DESC')
 	    @users = @tag.users(order: 'tags.created_at DESC')
 	    @authors = @tag.authors(order: 'tags.created_at DESC')

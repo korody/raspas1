@@ -30,7 +30,7 @@ class AuthorsController < ApplicationController
       @others = @author.others.scoped
         # fresh_when etag: [@author, @microposts], public: true
       @new_micropost = Micropost.new
-      @title = "pensamentos e frases de #{@author.name}"
+      @title = "Pensamentos e Frases de #{@author.name}"
   end
   
   def new

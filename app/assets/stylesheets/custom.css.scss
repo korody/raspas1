@@ -337,10 +337,9 @@ nav ul li input#button {
 }
 
 nav ul li a#icons {
-  border: 0px solid #E6674A;
   float: left;
   margin: 0em;
-  padding: 4px;
+  padding: 5px 4px 2px;
   img {
     border: 0px solid #E6674A;
     height: 30px;
@@ -1226,8 +1225,8 @@ div.timestamp {
   display: block;
   float: left;
   float: left;
-  line-height: 1.1;
-  margin: 9px 0 0 5px;
+  line-height: 1;
+  margin: 6px 0 0 5px;
   clear: both;
   a {
     font-size: 100%;
