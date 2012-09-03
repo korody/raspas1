@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
   
   def home
-    @title = "Crie, Colecione e Compartilhe Pensamentos"
+    @title = "Crie, colecione e compartilhe pensamentos."
     @user = User.new
     @feed_items = Micropost.paginate(page: params[:page], order: 'microposts.created_at DESC')
     @authors = Author.scoped(order: 'authors.created_at DESC')
