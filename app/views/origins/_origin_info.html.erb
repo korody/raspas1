@@ -90,10 +90,10 @@
           <%= auto_link(@origin.info, :all, target: '_blank').html_safe %>
         </div>
       </div>
-      <% if @origin.user %>
+      <% if @origin_user %>
         <div class= "user_info_board bio_poster round" >
           <div class= "bio">
-            informações por<br /><%= link_to @origin.user.name, @origin.user if @origin.user %>
+            informações por<br /><%= link_to @origin_user.name, @origin_user if @origin_user %>
           </div>
         </div>
         <div class= "tooltip">
