@@ -9,6 +9,7 @@ class Origin < ActiveRecord::Base
   belongs_to :author
   belongs_to :user
 	has_many :microposts, order: "microposts.created_at DESC"
+  has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
   has_many :users, through: :microposts, order: "users.created_at DESC", select: "DISTINCT users.*"
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
@@ -21,7 +22,7 @@ class Origin < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against: [:name, :type],
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
-    associated_against: {microposts: :content},
+    associated_against: {microposts: :content, authors: :name},
     ignoring: :accents  
 
   def normalize
