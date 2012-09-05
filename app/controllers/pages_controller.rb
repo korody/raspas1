@@ -2,7 +2,7 @@
 class PagesController < ApplicationController
   
   def home
-    @title = "Passe seu conhecimento adiante."
+    @title = "passe seu conhecimento adiante"
     @user = User.new
     @feed_items = Micropost.paginate(page: params[:page], order: 'microposts.created_at DESC')
     @authors = Author.scoped(order: 'authors.created_at DESC')
