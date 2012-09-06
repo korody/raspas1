@@ -209,7 +209,6 @@
       <% end %>
     </div>
     <div class= "stack_home">
-      <%= render 'shared/likes' %>
       <% if !signed_in? %>
         <%= render 'shared/welcome' %>
       <% end %>
@@ -217,6 +216,7 @@
         <%= render @feed_items %>
       </div>
       <%= will_paginate @feed_items %>
+      <%= render 'shared/likes' %>
     </div>
   </div>
 </div>
