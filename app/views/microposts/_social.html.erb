@@ -1,7 +1,7 @@
 <!-- META TAGS for G+ SHARER -->
 
 <meta property="og:title" content="<% if @micropost.author %><%= @micropost.author.name %><% else %><%= @micropost.user.name %><% end %>" />
-<meta property="og:image" content="" />
+<meta property="og:image" content="<% if @micropost.author %><%= @micropost.author.image %><% else %><%= @micropost.user.image %><% end %>" />
 <meta property="og:description" content="'<%= @micropost.content %>'" />
 
 
