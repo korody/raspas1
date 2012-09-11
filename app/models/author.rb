@@ -18,16 +18,16 @@ class Author < ActiveRecord::Base
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
 
-  has_many :microposts, dependent: :destroy, order: "microposts.created_at DESC"
+  has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
 
   has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
 
-  has_many :subscriptions, dependent: :destroy
+  has_many :subscriptions, :dependent => :destroy
 
-  has_many :reverse_subscriptions, class_name: "Subscription",
-                                   dependent: :destroy
+  has_many :reverse_subscriptions, :class_name => "Subscription",
+                                   :dependent => :destroy
 
-  has_many :fans, through: :reverse_subscriptions, source: :user
+  has_many :fans, through: :reverse_subscriptions, :source => :user
 
   belongs_to :user
 
@@ -35,8 +35,8 @@ class Author < ActiveRecord::Base
 
   has_many :favourites
 
-  has_many :eleitas, through: :favourites, source: :micropost, select: "DISTINCT microposts.*"
-  
+  has_many :eleitas, through: :favourites, source: :micropost, uniq: :true
+
   has_many :origins
   has_many :books
   has_many :poems
@@ -44,9 +44,10 @@ class Author < ActiveRecord::Base
   has_many :films
   has_many :others
 
-	validates :name,  presence: true,
-                    length: { maximum: 50 },
-                    uniqueness: { case_sensitive: false }
+
+	validates :name,  :presence => true,
+                    :length   => { :maximum => 50 },
+                    :uniqueness => { :case_sensitive => false }
 
   def titlelize
     if name
