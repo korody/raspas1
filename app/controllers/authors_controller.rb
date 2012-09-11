@@ -116,7 +116,7 @@ class AuthorsController < ApplicationController
   def favourites
     @author = Author.find(params[:id])
     @favourites = @author.favourites.all
-    @eleitas = @author.eleitas.paginate(page: params[:page], select: "micropost_id, count(id) as favourite_count", group: "micropost_id", order: "favourites_count").reverse
+    @eleitas = @author.eleitas.paginate(page: params[:page])
     @authors = Author.all
     @new_micropost = Micropost.new
     @title = "favoritas de #{@author.name}"

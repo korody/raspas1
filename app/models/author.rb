@@ -17,6 +17,7 @@ class Author < ActiveRecord::Base
 
   scope :PUBLISHED, where(published: true)
   scope :UNPUBLISHED, where(published: false)
+  scope :favourites_count, where(select: "micropost_id, count(micropost_id) as favourites_count", group: "micropost_id", order: "favourites_count DESC")
 
   has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
 
@@ -35,7 +36,7 @@ class Author < ActiveRecord::Base
 
   has_many :favourites
 
-  has_many :eleitas, through: :favourites, source: :micropost, uniq: :true
+  has_many :eleitas, through: :favourites, source: :micropost, order: "favourites.created_at DESC", select: "DISTINCT microposts.*"
 
   has_many :origins
   has_many :books
