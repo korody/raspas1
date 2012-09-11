@@ -1,7 +1,7 @@
 <div class= "home">
 	<div class= "title">
 		<p class= "p_search">Citaram <%= @author.name %> através de <%= pluralize @tags.count, "tema" %></p>
-		<%= link_to " explorar + temas", tags_path %><%= link_to "voltar", @author %>
+		<%= link_to " explorar + temas", tags_path %> | <%= link_to "voltar", @author %>
 	</div>
 	<div class= "tag_word">
 		<% @tags.each do |tag| %>

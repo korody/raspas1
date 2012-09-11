@@ -42,7 +42,7 @@ class Author < ActiveRecord::Base
   has_many :films
   has_many :others
 
-  has_many :eleitas, through: :favourites, source: :micropost, order: "favourites.created_at DESC"
+  has_many :eleitas, through: :favourites, source: :micropost, select: "DISTINCT microposts.*"
 
 	validates :name,  :presence => true,
                     :length   => { :maximum => 50 },
