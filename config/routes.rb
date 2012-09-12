@@ -118,6 +118,7 @@
   match '/search', to: "search#index"
   match '/mosaico', to: "pages#mosaico"
   match '/top', to: "pages#top"
+  match '/random', to: "microposts#random"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

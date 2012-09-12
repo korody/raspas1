@@ -72,6 +72,11 @@ class MicropostsController < ApplicationController
     render 'show_favouriters'
   end
 
+  def random
+    @random = Micropost.offset(rand(Micropost.count)).first
+    redirect_to @random
+  end
+
   private
 
     def authorized_user
