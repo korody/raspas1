@@ -1,32 +1,32 @@
 <header>
   <nav>
     <% if signed_in? %>
-      <%= link_to logo, home_path, :class => "raspas_logo" %>
+      <%= link_to logo, home_path, class: "raspas_logo" %>
     <% else %>
-      <%= link_to logo, root_path, :class => "raspas_logo" %>
+      <%= link_to logo, root_path, class: "raspas_logo" %>
     <% end %>
     <ul>
       <li class= "search">
         <%= form_tag :search, action: 'search', method: 'get' do %>
           <%= text_field_tag :query, params[:query], placeholder: "buscar", class: "search_li", autofocus: true %>
-          <%= image_submit_tag "lupa.png", :name => nil, :class => "lupa" %> 
+          <%= image_submit_tag "lupa.png", name: nil, class: "lupa" %> 
         <% end %> 
       </li>
     </ul>
     <ul>
       <!-- <li><%#= link_to "sobre o raspas", about_path, class: active?('pages', 'about') %></li> -->
-      <li><%= link_to (image_tag "mosaico.png"), mosaico_path, class: active?('pages', 'mosaico'), id: "icons", title: "explorar pensadores" %></li> 
-      <li><%= link_to (image_tag "origins.png"), origins_path, class: active?('origins', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas e etc." %></li> 
-      <li><%= link_to (image_tag "tags.png"), tags_path, class: active?('tags', 'index'), id: "icons", title: "explorar temas" %></li> 
-      <li><%= link_to (image_tag "top.png"), top_path, class: active?('pages', 'estrelada'), id: "icons", title: "explorar raspas favoritas" %></li> 
-      <li><%= link_to (image_tag "random.png"), random_path, class: active?('microposts', 'show'), id: "icons", title: "raspas aleatórias" %></li> 
+      <li><%= link_to (image_tag "mosaico.png", alt: "mosaico de pensadores"), mosaico_path, class: active?('pages', 'mosaico'), id: "icons", title: "explorar pensadores" %></li> 
+      <li><%= link_to (image_tag "origins.png", alt: "origens das raspas"), origins_path, class: active?('origins', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas e etc." %></li> 
+      <li><%= link_to (image_tag "tags.png", alt: "temas das raspas"), tags_path, class: active?('tags', 'index'), id: "icons", title: "explorar temas" %></li> 
+      <li><%= link_to (image_tag "top.png", alt: "melhores raspas"), top_path, class: active?('pages', 'estrelada'), id: "icons", title: "explorar raspas favoritas" %></li> 
+      <li><%= link_to (image_tag "random.png", alt: "raspas aleatórias"), random_path, class: active?('microposts', 'show'), id: "icons", title: "raspas aleatórias" %></li> 
     </ul> 
     <% if signed_in? %>
       <ul class= "nave_r"> 
         <div class= "topo">
-          <li><%= link_to (image_tag "menu_arrow.png"), current_user %> 
-            <li class= "sider"><%= link_to (image_tag "edit_.png"), edit_user_path(current_user) %></li>   
-            <li class= "sider"><%= link_to (image_tag "sair.png"), signout_path, method: "delete" %></li>
+          <li><%= link_to (image_tag "menu_arrow.png", alt: "entrar"), current_user %> 
+            <li class= "sider"><%= link_to (image_tag "edit_.png", alt: "editar"), edit_user_path(current_user) %></li>   
+            <li class= "sider"><%= link_to (image_tag "sair.png", alt: "sair"), signout_path, method: "delete" %></li>
           </li>
         </div>   
       </ul> 
@@ -36,7 +36,7 @@
             <div class= "mural_count round">
               <%# if current_user.feed.any? %><p class= "p_feed"><%#= current_user.feed.count %></p><%# end %>
             </div> -->
-            <%= link_to (image_tag "mural.png"), root_path, class: active?('users', 'feed'), id: "icons", title: "mural" %> 
+            <%= link_to (image_tag "mural.png", alt: "mural"), root_path, class: active?('users', 'feed'), id: "icons", title: "mural" %> 
           </li>
           <li><%= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
         </ul>
@@ -46,9 +46,9 @@
       <ul class= "nave_r">
         <div class= "topo">
             <li><%= link_to (image_tag "menu_arrow.png"), signin_path %>
-              <li class= "sider"><%= link_to (image_tag "f.png"), "/auth/facebook" %></li> 
-              <li class= "sider"><%= link_to (image_tag "t.png"), "/auth/twitter" %></li>
-              <li class= "sider"><%= link_to (image_tag "g.png"), "/auth/google" %></li>
+              <li class= "sider"><%= link_to (image_tag "f.png", alt: "cadastre-se com facebook"), "/auth/facebook" %></li> 
+              <li class= "sider"><%= link_to (image_tag "t.png", alt: "cadastre-se com twitter"), "/auth/twitter" %></li>
+              <li class= "sider"><%= link_to (image_tag "g.png", alt: "cadastre-se com google"), "/auth/google" %></li>
             </li>
         </div>
       </ul>

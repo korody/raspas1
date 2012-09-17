@@ -3,6 +3,10 @@
 		<%= render 'tag_info' %>
 	</div>
 	<div class="stack">
+	    <% if !signed_in? %>
+	      <div class ="welcome_space"></div>
+	      <%= render 'shared/welcome' %>
+	    <% end %>
 		<% unless @tag.microposts.empty? %>
 		  <%= render @microposts %>
 		<% end %>

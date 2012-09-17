@@ -41,7 +41,7 @@ module SessionsHelper
 
   def deny_access
     store_location
-    redirect_to signin_path, :notice => "Ops! Vamos por partes. Você já se conectou ao Raspas?"
+    redirect_to signin_path, notice: "Por favor conecte-se para criar e favoritar raspas, criar e editar pensadores."
   end
 
   def redirect_back_or(default)

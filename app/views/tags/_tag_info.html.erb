@@ -1,6 +1,6 @@
 <div class= "user_info">
 	<div class= "logo_avatar round shadow">
-		<%= link_to (image_tag "half_logo_.png"), root_path %>
+		<%= link_to (image_tag "half_logo_.png", alt: "raspas"), root_path %>
 	</div>
 	<div class= "show_info">
 		<div class= "user_info_board round">
@@ -19,7 +19,7 @@
 			        <% @users.first(4).each do |user| %>
 				        <div class= "last">
 				            <div class= "last_users">
-				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+				            	<%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}", alt: user.name %>
                 				<div class= "last_upwards">
 				            		<p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
 				        		</div>
@@ -40,7 +40,7 @@
 		            <% @authors.first(4).each do |author| %>
 						<div class= "last">
 							<div class= "last_users">
-								<%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+								<%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}", alt: author.name %>
 								<div class= "last_upwards">
 									<p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
 								</div>
