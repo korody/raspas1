@@ -1713,23 +1713,21 @@ div.sign a {
 
 div.tag_word a {
   float: left;
-  font-size: 120%;
-  font-weight: bold;
-  margin: 0.3em;
+  margin: 5px;
   line-height: 1.5;
-  padding: 0.2em 0.8em;
+  padding: 3px 12px;
   text-align: center;
 }
 
 div.tag_index {
   border: 0px solid #E2492F;
   display: inline-block;
-  height: 3em;
-  margin: 0.5em 1.5em 0 0;
+  height: 36px;
+  margin: 6px 18px 0 0;
 }
 
 div.tag_index p {
-  line-height: 2.3em;
+  line-height: 40px;
 }
 
 /* ORIGIN */
