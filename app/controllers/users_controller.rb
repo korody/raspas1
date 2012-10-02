@@ -6,7 +6,7 @@
   def index
     @title = "usuários"
     #@users = User.scoped(order: :name)
-    @users = User.paginate(page: params[:page], per_page: 50, order: :name)
+    @users = User.paginate(page: params[:page], order: :name)
     @new_micropost = Micropost.new
       # fresh_when etag: @users, public: false
   end

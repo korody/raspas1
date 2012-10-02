@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
   def index
     @title = "pensadores"
     #@authors = Author.scoped(order: :name)
-    @authors = Author.paginate(page: params[:page], per_page: 50, order: :name)
+    @authors = Author.paginate(page: params[:page], order: :name)
     @new_micropost = Micropost.new
     @tags = Tag.all
         # fresh_when etag: @authors, public: true

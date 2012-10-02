@@ -5,7 +5,7 @@ class OriginsController < ApplicationController
 
   def index
     @title = "Pensamentos e Frases de livros, músicas, poemas e filmes"
-    @origins = eval("#{params[:controller].classify}.scoped(order: :name)")
+    @origins = eval("#{params[:controller].classify}.paginate(page: params[:page], order: :name)")
     # @origins = params[:type].constantize.all
     # @origins = Origin.scoped(order: :name)
     # @origins = origin.paginate(:page => params[:page])
@@ -20,7 +20,7 @@ class OriginsController < ApplicationController
 
   def show
       @origin = Origin.find(params[:id])
-      @microposts = @origin.microposts.paginate(:page => params[:page])
+      @microposts = @origin.microposts.paginate(page: params[:page])
       @users = @origin.users.scoped
       @origin_user = @origin.user
       @user_origins = @origin_user.origins.all if @origin_user
