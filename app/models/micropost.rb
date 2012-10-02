@@ -29,7 +29,8 @@ class Micropost < ActiveRecord::Base
 
   attr_accessor :author_name, :origin_name, :origin_type
   attr_writer :tag_names, :author_name, :origin_name, :origin_type
-  before_save :assign_author, :assign_origin, :normalize
+  before_validation :normalize
+  before_save :assign_author, :assign_origin
   after_save :assign_tags 
 
   def normalize
