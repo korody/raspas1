@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
 
   def index
     @title = "Pensamentos e Frases"
-    @microposts = Micropost.paginate(:page => params[:page], order: "microposts.created_at DESC")
+    @microposts = Micropost.paginate(page: params[:page], order: "microposts.created_at DESC")
     @new_micropost = Micropost.new
     @authors = Author.all
     @tags = Tag.all
