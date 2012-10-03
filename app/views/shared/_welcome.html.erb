@@ -1,7 +1,8 @@
 <div class= "intro round shadow">
 	<div class= "intro_text">
-	  Passe seu conhecimento adiante.<br />
+	  Passe seu conhecimento adiante.
+	  <%= link_to "veja +", root_path, title: "veja +" if !home %><br />
 	  Crie, colecione e compartilhe pensamentos.
-	  <%= link_to "entrar", signin_path, title: "entrar" %>
+	  <%= link_to "entre", signin_path, title: "conecte-se" %>
 	</div>
 </div>

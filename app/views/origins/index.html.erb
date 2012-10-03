@@ -1,7 +1,11 @@
 <div class= "home">
   <div class= "title">
-    <p class= "p_search">explorando através de nossas <%= Origin.count %> origens</p>
-    <%= link_to "crie uma nova origem", new_origin_path %>
+    <p class= "p_search">explorando entre <%= Origin.count %> origens</p>
+    <%= link_to "poemas", poems_path, class: text_active?('poems', 'index') %> 
+    <%= link_to "filmes |", films_path, class: text_active?('films', 'index') %> 
+    <%= link_to "livros |", books_path, class: text_active?('books', 'index') %> 
+    <%= link_to "músicas |", songs_path, class: text_active?('songs', 'index') %> 
+    <%= link_to "todas |", origins_path, class: text_active?('origins', 'index') %> 
   </div>
   <div id= "mason">
     <%= render @origins %>

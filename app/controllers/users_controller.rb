@@ -25,6 +25,7 @@
     @songs = @user.songs.all
     @films = @user.films.all
     @others = @user.others.all
+    @followers = @user.followers.scoped
       # fresh_when etag: [@user, @microposts], public: false
   end
 
@@ -207,6 +208,14 @@
     @favoritadas = @user.favoritadas.paginate(page: params[:page])
     @new_micropost = Micropost.new
     render 'show_favoritadas'
+  end
+
+  def proprias
+    @user = User.find(params[:id])
+    @proprias = @user.proprias.paginate(page: params[:page])
+    @new_micropost = Micropost.new
+    @title = "Pensamentos e Frases de #{@user.name}"
+    render 'show_proprias'
   end
 
  private

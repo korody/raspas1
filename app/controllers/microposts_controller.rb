@@ -25,7 +25,7 @@ class MicropostsController < ApplicationController
         redirect_to micropost.author
         flash[:success] = "Você adicionou um pensamento de #{micropost.author.name}! Obrigado."
       else
-        redirect_back_or current_user
+        redirect_back_or proprias_user_path(current_user)
         flash[:success] = "Adoramos ver raspas de sua própria autoria! Obrigado."
       end
     else

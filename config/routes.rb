@@ -47,6 +47,7 @@
       get :films, path: "filmes"
       get :others, path: "outras"
       get :favoritadas
+      get :proprias
       get :twitter
     end
   end

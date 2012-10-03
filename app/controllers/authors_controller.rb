@@ -28,6 +28,7 @@ class AuthorsController < ApplicationController
       @songs = @author.songs.scoped
       @films = @author.films.scoped
       @others = @author.others.scoped
+      @fans = @author.fans.scoped
         # fresh_when etag: [@author, @microposts], public: true
       @new_micropost = Micropost.new
       @title = "Pensamentos e Frases de #{@author.name}"

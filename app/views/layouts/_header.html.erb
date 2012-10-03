@@ -16,7 +16,7 @@
     <ul>
       <!-- <li><%#= link_to "sobre o raspas", about_path, class: active?('pages', 'about') %></li> -->
       <li><%= link_to (image_tag "mosaico.png", alt: "mosaico de pensadores"), mosaico_path, class: active?('pages', 'mosaico'), id: "icons", title: "explorar pensadores" %></li> 
-      <li><%= link_to (image_tag "origins.png", alt: "origens das raspas"), origins_path, class: active?('origins', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas e etc." %></li> 
+      <li><%= link_to (image_tag "origins.png", alt: "origens das raspas"), origins_path, class: active?('origins', 'index') || active?('songs', 'index') || active?('books', 'index') || active?('films', 'index') || active?('poems', 'index'), id: "icons", title: "explorar livros, músicas, filmes, poemas, etc." %></li> 
       <li><%= link_to (image_tag "tags.png", alt: "temas das raspas"), tags_path, class: active?('tags', 'index'), id: "icons", title: "explorar temas" %></li> 
       <li><%= link_to (image_tag "top.png", alt: "melhores raspas"), top_path, class: active?('pages', 'estrelada'), id: "icons", title: "explorar raspas favoritas" %></li> 
       <li><%= link_to (image_tag "random.png", alt: "raspas aleatórias"), random_path, class: active?('microposts', 'show'), id: "icons", title: "raspas aleatórias" %></li> 

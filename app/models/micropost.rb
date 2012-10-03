@@ -25,6 +25,7 @@ class Micropost < ActiveRecord::Base
   scope :from_users_followed_by, lambda { |user| followed_by(user).recent }
   scope :from_authors_idols_of, lambda { |user| idols_of(user).recent }
   scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost).recent }
+  scope :from_microposts_proprias_de, lambda { |micropost| proprias_de(micropost).recent }
   scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
 
   attr_accessor :author_name, :origin_name, :origin_type
@@ -67,6 +68,13 @@ class Micropost < ActiveRecord::Base
       eleitas_ids = %(SELECT micropost_id FROM favourites
                             WHERE user_id = :user_id)
       where("id IN (#{eleitas_ids}) OR user_id = :user_id",
+            { user_id: user })
+    end
+
+    def self.proprias_de(user)
+      proprias_ids = %(SELECT id FROM microposts
+                            WHERE user_id = :user_id)
+      where("id IN (#{proprias_ids}) AND author_id IS NULL",
             { user_id: user })
     end
   

@@ -1,0 +1,38 @@
+<div class="raspas">
+  <div class="user_info">
+    <%= render 'user_info_favourites' %>
+  </div>
+  <div class= "stack">
+    <% if @proprias.empty? %>
+        <% if current_user?(@user) %>
+        <div class="half_quotes round">
+          <div class= "sign">
+            Você ainda não tem nenhuma raspa de sua autoria...<br />
+            Explore outras <%= link_to "raspas", microposts_path %> e inspire-se!
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "happy.png" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="half_quotes round">
+          <div class= "sign">
+            <%= @user.name %> ainda não possui raspas próprias...<br />
+            Explore as <%= link_to "raspas", microposts_path %> de outros <%= link_to "usuários", users_path %> ou 
+            <%= link_to "pensadores", authors_path %>!
+          </div>
+          <div class= "flag_sign">
+            <%= image_tag "dull.png" %>
+          </div>
+        </div>
+      <% end %>   
+    <% else %>
+        <% unless @proprias.empty? %>
+        <div>
+          <%= render @proprias %>
+        </div>
+        <% end %>
+    <% end %>
+    <%= will_paginate @proprias %>
+  </div>
+</div>

@@ -28,6 +28,14 @@ module ApplicationHelper
     "active" if controller?(controller) && action?(action)
   end
 
+  def text_active?(controller, action)
+    "text_active" if controller?(controller) && action?(action)
+  end
+
+  def page_active?(controller, action)
+    "page_active" if controller?(controller) && action?(action)
+  end
+
   private
 
     def controller?(*controller)

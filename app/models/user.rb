@@ -140,6 +140,10 @@
     Micropost.from_microposts_favourites_of(self)
   end
 
+  def proprias
+    Micropost.from_microposts_proprias_de(self)
+  end
+
   private
 
     def create_remember_token

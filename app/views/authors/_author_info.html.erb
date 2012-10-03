@@ -175,6 +175,26 @@
 				</div>
 			</div>
 		<% end %>
+		<% if !@fans.empty? %>
+			<div class= "user_info_board round">
+				<div class= "last_header">
+					<p class="p_tag">fãs</p><p class= "p_tags">deste</p>
+					<p class= "p_mais"><%= link_to "+", fans_author_path(@author), title: "fãs de #{@author.name}" %></p>
+				</div>
+				<div>
+					<% @fans.shuffle.first(4).each do |fan| %>
+						<div class= "last">
+						  <div class= "last_users">
+						    <%= link_to image_tag(fan.image_url(:tiny), alt: fan.name), fan, title: "ver perfil de #{fan.name}" %>
+						    <div class= "last_upwards">
+						      <p><%= link_to fan.name, fan, title: "ver perfil de #{fan.name}" %></p>
+						    </div>
+						  </div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
 		<div class= "user_info_board round">
 			<div class= "last_header">
 			  <p class= "p_tags">outros</p><p class="p_tag">pensadores</p>
