@@ -26,6 +26,7 @@
     @films = @user.films.all
     @others = @user.others.all
     @followers = @user.followers.scoped
+    @idols = @user.idols.scoped
       # fresh_when etag: [@user, @microposts], public: false
   end
 

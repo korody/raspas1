@@ -198,6 +198,32 @@
 			</div>
 		</div>
 	<% end %>
+	<% if !@idols.empty? %>
+		<div class= "user_info_board round">
+			<div class= "last_header">
+				<% if current_user?(@user) %>
+					<p class= "p_tags">seus</p>
+				<% end %>
+				<p class="p_tag">ídolos</p>
+				<% if !current_user?(@user) %>
+					<p class= "p_tags">deste</p>
+				<% end %>
+				<p class= "p_mais"><%= link_to "+", idols_user_path(@user), title: "ídolos de #{@user.name}" %></p>
+			</div>
+			<div>
+				<% @idols.shuffle.first(4).each do |idol| %>
+					<div class= "last">
+					  <div class= "last_users">
+					    <%= link_to image_tag(idol.image_url(:tiny), alt: idol.name), idol, title: "ver perfil de #{idol.name}" %>
+					    <div class= "last_upwards">
+					      <p><%= link_to idol.name, idol, title: "ver perfil de #{idol.name}" %></p>
+					    </div>
+					  </div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 	<div class= "user_info_board round">
 		<div class= "last_header">
 		  <p class= "p_tags">outros</p><p class="p_tag">usuários</p>
