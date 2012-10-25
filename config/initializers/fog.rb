@@ -17,6 +17,6 @@ if Rails.env.development? or Rails.env.production? # Using Amazon S3 for Develop
       :region                 => 'sa-east-1'  # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = 'raspasimages'                     # required
-    config.asset_host     = 'https://assets.example.com'            # optional, defaults to nil
+    # config.fog_host       = false                                  # optional, defaults to true
   end
 end
