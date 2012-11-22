@@ -30,6 +30,24 @@
 	        </div>
 	    </div>
 	<% end %>
+	<% if @micropost.author %>
+		<div class= "user_info_board round">
+	        <div class= "last_header">
+				<p class="p_tag">extraída</p><p class="p_tags">de</p>
+	         	<p class= "p_mais"><%= link_to "+", origins_path, title: "explorar origens" %></p>
+	        </div>
+	        <div>
+	            <div class= "last">
+	              	<div class= "last_users">
+	              		<%= link_to image_tag(@micropost.origin.image_url(:tiny), alt: @micropost.origin.name), @micropost.origin, title: "ver perfil de #{@micropost.origin.name}" %>
+		            	<div class= "last_upwards">	
+		              		<p><%= link_to @micropost.origin.name, @micropost.origin, title: "ver página de #{@micropost.origin.name}" %></p>
+		            	</div>
+		            </div>
+	            </div>    
+	        </div>
+	    </div>
+	<% end %>
 	<div class= "user_info_board round">
         <div class= "last_header">
 			<p class="p_tags">pelo</p><p class="p_tag">usuário</p>
