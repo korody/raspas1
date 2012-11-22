@@ -58,7 +58,6 @@ class Author < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against: [:name, :job, :origin],
     using: {tsearch: {prefix: true, dictionary: "portuguese"}},
-    associated_against: {origins: :name},
     ignoring: :accents  
 
   def self.text_search(query)
