@@ -24,10 +24,7 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'jquery-rails'
-
-group :assets do
-  gem 'jquery-ui-rails'
-end
+gem 'jquery-ui-rails'
 
 group :development do
 	gem 'sqlite3'
