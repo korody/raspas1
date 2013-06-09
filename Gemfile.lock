@@ -108,6 +108,9 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
+    jquery-ui-rails (4.0.3)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.4)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
@@ -237,6 +240,7 @@ DEPENDENCIES
   heroku (= 2.19.0)
   hirb
   jquery-rails
+  jquery-ui-rails
   meta_search (>= 1.1.0.pre)
   omniauth
   omniauth-facebook
