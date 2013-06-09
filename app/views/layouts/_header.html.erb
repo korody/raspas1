@@ -38,7 +38,7 @@
             </div> -->
             <%= link_to (image_tag "mural.png", alt: "mural"), root_path, class: active?('users', 'feed'), id: "icons", title: "mural" %> 
           </li>
-          <li><%#= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
+          <li><%= image_submit_tag "raspa.png", id: "button", title: "escrever raspa" %></li>
         </ul>
         <li><%= link_to current_user.name, current_user, class: active?('users', 'show') || active?('users', 'edit') %></li>
       <ul>
