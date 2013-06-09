@@ -12,7 +12,7 @@ gem "will_paginate", git: "https://github.com/p7r/will_paginate.git", branch: "r
 gem "carrierwave"
 gem "fog", "~> 1.3.1"
 gem 'aws-s3'
-gem "rmagick"
+gem "rmagick", '2.13.2'  
 
 gem "formtastic", "~> 2.1.1"
 gem "activeadmin", "~> 0.4.3"
