@@ -212,15 +212,15 @@
       <% if !signed_in? %>
         <%= render 'shared/welcome' %>
       <% else %>
-        <!-- <div class="half_quotes round">
+        <div class="half_quotes round">
           <div class= "sign">
-            O raspas está passando por uma atualização programada...<br />
-            Nossas interações ficarão limitadas por algumas horas...
+            O raspas está passando por uma atualização programada.<br />
+            Nossas interações ficarão limitadas por algumas horas.
           </div>
           <div class= "flag_sign">
             <%= image_tag "happy.png" %>
           </div>
-        </div> -->
+        </div>
       <% end %>
       <div>
         <%= render @feed_items %>
