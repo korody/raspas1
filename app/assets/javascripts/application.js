@@ -5,18 +5,15 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery-ui
 //= require jquery_ujs
 //= require autocomplete
 //= require count
 //= require favourites
 //= require jquery.placeholder
 //= require masonry
-//= require microposts
 //= require placeholder
 //= require popup
 //= require popup_twitter
 //= require radio
-//= require tooltip
 //= require wait
 
