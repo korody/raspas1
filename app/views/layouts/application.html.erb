@@ -8,9 +8,8 @@
     <title><%= title %></title>
     <%= render 'layouts/stylesheets' %>
     <%#= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-    <%#= render "layouts/async_javascript", path: "application" %>
+    <%#= javascript_include_tag "application" %>
+    <%= render "layouts/async_javascript", path: "application" %>
     <%= csrf_meta_tag %>
     <%= render "layouts/analytics" %>
   </head>
