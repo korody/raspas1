@@ -6,4 +6,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require autocomplete
+//= require count
+//= require favourites
+//= require jquery.placeholder
+//= require masonry
+//= require placeholder
+//= require popup
+//= require popup_twitter
+//= require radio
+//= require wait
+
