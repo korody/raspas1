@@ -26,7 +26,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 
 group :development do
-	gem 'sqlite3'
+	# gem 'sqlite3'
 	gem 'faker', '0.3.1'
 end
 
