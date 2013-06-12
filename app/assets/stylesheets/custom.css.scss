@@ -502,6 +502,20 @@ div.fb-like {
   width: 9em;
 }
 
+.facebookOuter {
+    float: left;
+    height: 310px;
+    padding: 10px 0;
+    width: 180px; 
+  }
+
+ .facebookInner {
+    height: 310px;
+    overflow: hidden;
+    width: 180px; 
+  }
+
+
 /* POPPUP FORMS */
 
 #backgroundPopup {  

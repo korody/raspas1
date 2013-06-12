@@ -182,13 +182,6 @@
           </div>
         </div>
       <% end %>
-      <div class= "user_info_board round">
-        <div class= "last_header">
-          <p class= "p_tags">curtir</p><p class="p_tag">raspas</p>
-          <p class= "p_mais"><%= link_to "+", "http://www.facebook.com/entre.raspas", title: "ir para fanpage Raspas", target: "blank" %></p>
-        </div>
-        <div class="fb-like-box" data-href="http://www.facebook.com/entre.raspas" data-width="185" data-height="346" data-show-faces="true" data-show-border='false 'data-stream="false" data-header="false"></div>
-      </div>
       <% cache "extra_info" do %>  
         <% if !signed_in? %>
           <div class= "user_info_board round" >
@@ -207,6 +200,18 @@
           <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
         </div>
       <% end %>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">curtir</p><p class="p_tag">raspas</p>
+          <p class= "p_mais"><%= link_to "+", "http://www.facebook.com/entre.raspas", title: "ir para fanpage Raspas", target: "blank" %></p>
+        </div>
+        <div class="facebookOuter">
+          <div class="facebookInner">
+            <div class="fb-like-box" data-href="http://www.facebook.com/entre.raspas" data-width="185" data-height="346" data-show-faces="true" data-show-border='false 'data-stream="false" data-header="false"></div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
     <div class= "stack_home">
       <% if !signed_in? %>
@@ -214,11 +219,11 @@
       <% else %>
         <div class="half_quotes round">
           <div class= "sign">
-            O raspas está passando por uma atualização programada.<br />
-            Nossas interações ficarão limitadas por algumas horas.
+            Ufa! A manutenção terminou...estamos de volta!<br />
+            Várias novidades para o raspas estão no forno!
           </div>
           <div class= "flag_sign">
-            <%= image_tag "happy.png" %>
+            <%= image_tag "super.png" %>
           </div>
         </div>
       <% end %>
