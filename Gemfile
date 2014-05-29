@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem 'rails-i18n'
+gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -24,14 +25,11 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :development do
 	# gem 'sqlite3'
 	gem 'faker', '0.3.1'
-end
-
-group :production do
-  gem 'pg', '0.12.2'
 end
 
 gem "heroku", "2.19.0"
