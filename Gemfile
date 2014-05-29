@@ -16,7 +16,7 @@ gem 'aws-s3'
 gem "rmagick", '2.13.2'  
 
 gem "formtastic", "~> 2.1.1"
-# gem "activeadmin", "~> 0.4.3"
+gem "activeadmin", "~> 0.4.3"
 gem "meta_search",    '>= 1.1.0.pre'
 
 # Asset template engines

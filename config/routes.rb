@@ -1,7 +1,7 @@
   Benfeitor::Application.routes.draw do
-  # ActiveAdmin.routes(self)
+  ActiveAdmin.routes(self)
  
-  # devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users, ActiveAdmin::Devise.config
   
   # require File.expand_path("../../lib/logged_in_constraint", __FILE__)
   # root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
