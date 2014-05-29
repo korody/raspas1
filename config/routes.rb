@@ -1,18 +1,9 @@
-  Benfeitor::Application.routes.draw do
-  ActiveAdmin.routes(self)
- 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  
-  # require File.expand_path("../../lib/logged_in_constraint", __FILE__)
-  # root :to => "users#feed", :constraints => LoggedInConstraint.new(true)
-  # root :to => "pages#home", :constraints => LoggedInConstraint.new(false)
-  
-  scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
-    root :to => "users#feed"
-  end    
+Benfeitor::Application.routes.draw do
+  # scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
+  #   root :to => "users#feed"
+  # end    
   root :to => "pages#home"
   
-  # get 'authors/page/:page', to: 'authors#index'
   resources :authors, :path => "pensadores" do
     member do
       get :fans, path: "fas"
@@ -98,83 +89,22 @@
   resources :songs, path: "musicas"
   resources :films, path: "filmes"
   resources :others, path: "outras"
-  # resources :books, path: "livros", controller: "origins", type: "books"
-  # resources :poems, path: "poemas", controller: "origins", type: "poems"
-  # resources :songs, path: "musicas", controller: "origins", type: "songs"
-  # resources :films, path: "filmes", controller: "origins", type: "films"
   
   resources :sessions, only: [:new, :create, :authenticate, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
   
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/home',   to: 'pages#home'
-  match '/about',   to: 'pages#about'
-  match 'contact' => 'contact#new', as: 'contact', via: :get
-  match 'contact' => 'contact#create', as: 'contact', via: :post
-  match '/auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  match '/search', to: "search#index"
-  match '/mosaico', to: "pages#mosaico"
-  match '/top', to: "pages#top"
-  match '/random', to: "microposts#random"
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  get '/signup',  to: 'users#new'
+  get '/signin',  to: 'sessions#new'
+  delete '/signout', to: 'sessions#destroy'
+  get '/home',   to: 'pages#home'
+  get '/about',   to: 'pages#about'
+  get 'contact' => 'contact#new'
+  post 'contact' => 'contact#create'
+  post '/auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get '/search', to: "search#index"
+  get '/mosaico', to: "pages#mosaico"
+  get '/top', to: "pages#top"
+  get '/random', to: "microposts#random"
 end

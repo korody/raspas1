@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
-gem 'rails-i18n'
+gem 'rails', '4.0.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'pg'
 
 gem 'omniauth'
@@ -9,20 +9,17 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 
-gem "will_paginate", git: "https://github.com/p7r/will_paginate.git", branch: "rails3"
+gem "will_paginate"
+
 gem "carrierwave"
 gem "fog", "~> 1.3.1"
 gem 'aws-s3'
 gem "rmagick", '2.13.2'  
 
-gem "formtastic", "~> 2.1.1"
-gem "activeadmin", "~> 0.4.3"
-gem "meta_search",    '>= 1.1.0.pre'
-
 # Asset template engines
-gem 'sass-rails',   '~> 3.2.3'
+gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-script'
-gem 'uglifier'
+gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -34,3 +31,7 @@ end
 gem 'hirb'
 gem 'pg_search'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
+
+gem 'protected_attributes'
+
+gem 'rails_12factor', group: :production
