@@ -16,7 +16,7 @@ gem 'aws-s3'
 gem "rmagick", '2.13.2'  
 
 gem "formtastic", "~> 2.1.1"
-gem "activeadmin", "~> 0.4.3"
+# gem "activeadmin", "~> 0.4.3"
 gem "meta_search",    '>= 1.1.0.pre'
 
 # Asset template engines
@@ -28,11 +28,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :development do
-	# gem 'sqlite3'
 	gem 'faker', '0.3.1'
 end
 
-gem "heroku", "2.19.0"
 gem 'hirb'
 gem 'pg_search'
 gem 'rinku', '~> 1.5.0', require: 'rails_rinku'
