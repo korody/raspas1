@@ -25,6 +25,8 @@ gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'newrelic_rpm'
+
 group :development do
 	gem 'faker', '0.3.1'
 end
