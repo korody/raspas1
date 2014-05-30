@@ -1,23 +1,19 @@
-<% cache "mosaico" do %>  
-  <div class= "mosaico">
-    <% @authors.shuffle.first(250).each do |author| %>
-      <div class= "mosaico_item">
-        <% cache author do %>
-          <%= link_to (image_tag author.image_url(:medium).to_s), author %>
-          <p class= "gradient"><%= link_to author.name, author %></p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class= "mosaico">
+  <% @authors.shuffle.first(250).each do |author| %>
+    <div class= "mosaico_item">
+      <% cache author do %>
+        <%= link_to (image_tag author.image_url(:medium).to_s), author %>
+        <p class= "gradient"><%= link_to author.name, author %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <div class="raspas">
   <div class="raspas">
     <div class= "user_info">
-      <% cache "logo_topo" do %>  
-        <div class= "logo_avatar round shadow">
-          <%= image_tag "half_logo_.png" %>
-        </div>
-      <% end %>
+      <div class= "logo_avatar round shadow">
+        <%= image_tag "half_logo_.png" %>
+      </div>
       <div class= "user_info_board round" >
         <div class= "last_header">
           <p class= "p_tags"><%= Micropost.count %></p><p class= "p_tag">raspas</p><p class= "p_mais"><%= link_to "+", microposts_path, title: "explorar raspas" %></p>
@@ -46,160 +42,144 @@
           <p class= "p_tags"><%= Poem.count %></p><p class= "p_tag">poemas</p><p class= "p_mais"><%= link_to "+", poems_path, title: "explorar poemas" %></p>
         </div>
       </div>
-      <% cache @tags do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
-            <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
-          </div>
-          <div>
-            <% @tags.first(8).each do |tag| %>
-              <div>
-                <%= link_to tag.name, tag, 
-                title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
-              </div>
-            <% end %>
-          </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
+          <p class= "p_mais"><%= link_to "+", tags_path, title: "explorar outros temas" %></p>
         </div>
-      <% end %>  
-      <% cache @authors do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">pensadores</p>
-            <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
-          </div>
-          <div>
-            <% @authors.first(4).each do |author| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
-                  </div>
+        <div>
+          <% @tags.first(8).each do |tag| %>
+            <div>
+              <%= link_to tag.name, tag, 
+              title: "ver raspas sobre #{tag.name}", :class => "but round temas" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">pensadores</p>
+          <p class= "p_mais"><%= link_to "+", authors_path, title: "explorar pensadores" %></p>
+        </div>
+        <div>
+          <% @authors.first(4).each do |author| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(author.image_url(:tiny)), author, title: "ver perfil de #{author.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to author.name, author, title: "ver perfil de #{author.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <% cache @users do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">usuários</p>
-            <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
-          </div>
-          <div>
-            <% @users.first(4).each do |user| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
-                  </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">usuários</p>
+          <p class= "p_mais"><%= link_to "+", users_path, title: "explorar usuários" %></p>
+        </div>
+        <div>
+          <% @users.first(4).each do |user| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(user.image_url(:tiny)), user, title: "ver perfil de #{user.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to user.name, user, title: "ver perfil de #{user.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <% cache @books do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">livros</p>
-            <p class= "p_mais"><%= link_to "+", books_path, title: "explorar + origens" %></p>
-          </div>
-          <div>
-            <% @books.first(4).each do |book| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(book.image_url(:tiny)), book, title: "ver perfil de #{book.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to book.name, book, title: "ver perfil de #{book.name}" %></p>
-                  </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">livros</p>
+          <p class= "p_mais"><%= link_to "+", books_path, title: "explorar + origens" %></p>
+        </div>
+        <div>
+          <% @books.first(4).each do |book| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(book.image_url(:tiny)), book, title: "ver perfil de #{book.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to book.name, book, title: "ver perfil de #{book.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <% cache @songs do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimas</p><p class="p_tag">músicas</p>
-            <p class= "p_mais"><%= link_to "+", songs_path, title: "explorar + músicas" %></p>
-          </div>
-          <div>
-            <% @songs.first(4).each do |song| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(song.image_url(:tiny)), song, title: "ver perfil de #{song.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to song.name, song, title: "ver perfil de #{song.name}" %></p>
-                  </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimas</p><p class="p_tag">músicas</p>
+          <p class= "p_mais"><%= link_to "+", songs_path, title: "explorar + músicas" %></p>
+        </div>
+        <div>
+          <% @songs.first(4).each do |song| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(song.image_url(:tiny)), song, title: "ver perfil de #{song.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to song.name, song, title: "ver perfil de #{song.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <% cache @films do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">filmes</p>
-            <p class= "p_mais"><%= link_to "+", films_path, title: "explorar + músicas" %></p>
-          </div>
-          <div>
-            <% @films.first(4).each do |film| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(film.image_url(:tiny)), film, title: "ver perfil de #{film.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to film.name, film, title: "ver perfil de #{film.name}" %></p>
-                  </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">filmes</p>
+          <p class= "p_mais"><%= link_to "+", films_path, title: "explorar + músicas" %></p>
+        </div>
+        <div>
+          <% @films.first(4).each do |film| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(film.image_url(:tiny)), film, title: "ver perfil de #{film.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to film.name, film, title: "ver perfil de #{film.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>  
-      <% cache @poems do %>
-        <div class= "user_info_board round">
-          <div class= "last_header">
-            <p class= "p_tags">últimos</p><p class="p_tag">poemas</p>
-            <p class= "p_mais"><%= link_to "+", poems_path, title: "explorar + músicas" %></p>
-          </div>
-          <div>
-            <% @poems.first(4).each do |poem| %>
-              <div class= "last">
-                <div class= "last_users">
-                  <%= link_to image_tag(poem.image_url(:tiny)), poem, title: "ver perfil de #{poem.name}" %>
-                  <div class= "last_upwards">
-                    <p><%= link_to poem.name, poem, title: "ver perfil de #{poem.name}" %></p>
-                  </div>
+      </div>
+      <div class= "user_info_board round">
+        <div class= "last_header">
+          <p class= "p_tags">últimos</p><p class="p_tag">poemas</p>
+          <p class= "p_mais"><%= link_to "+", poems_path, title: "explorar + músicas" %></p>
+        </div>
+        <div>
+          <% @poems.first(4).each do |poem| %>
+            <div class= "last">
+              <div class= "last_users">
+                <%= link_to image_tag(poem.image_url(:tiny)), poem, title: "ver perfil de #{poem.name}" %>
+                <div class= "last_upwards">
+                  <p><%= link_to poem.name, poem, title: "ver perfil de #{poem.name}" %></p>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-      <% cache "extra_info" do %>  
-        <% if !signed_in? %>
-          <div class= "user_info_board round" >
-            <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
-          </div>
-        <% end %>
+      </div>
+      <% if !signed_in? %>
         <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
-        </div>
-        <% if !signed_in? %>
-          <div class= "user_info_board round" >
-            <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no Raspas" %></p></br>
-          </div>
-        <% end %>
-        <div class= "user_info_board round" >
-          <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
+          <p class= "p_tags"><%= link_to "escrever raspas", signin_path, title: "escrever raspas" %></p></br>
         </div>
       <% end %>
+      <div class= "user_info_board round" >
+        <p class= "p_tags"><%= link_to "criar pensador", new_author_path, title: "novo pensador" %></p></br>
+      </div>
+      <% if !signed_in? %>
+        <div class= "user_info_board round" >
+          <p class= "p_tags"><%= link_to "conectar-se", signin_path, title: "entre no Raspas" %></p></br>
+        </div>
+      <% end %>
+      <div class= "user_info_board round" >
+        <p class= "p_tags"><%= link_to "contate-nos", contact_path, title: "nós queremos ouvi-lo!" %></p></br>
+      </div>
       <div class= "user_info_board round">
         <div class= "last_header">
           <p class= "p_tags">curtir</p><p class="p_tag">raspas</p>
