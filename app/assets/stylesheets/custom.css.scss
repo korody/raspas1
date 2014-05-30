@@ -1133,6 +1133,7 @@ ul.ui-autocomplete {
   margin: 0;
   padding: 0;
   position: absolute;
+  z-index: 10;
 }
 
 ul.ui-autocomplete li {
@@ -1153,6 +1154,10 @@ ul.ui-autocomplete li a {
 ul.ui-autocomplete li a.ui-state-hover, a.ui-state-active {
   background-color: #E2492F;
   color: #FFF;
+}
+
+span.ui-helper-hidden-accessible {
+  display: none;
 }
 
 div.quotes {

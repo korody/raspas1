@@ -2,8 +2,9 @@ Benfeitor::Application.routes.draw do
   # scope :constraints => lambda{|request| request.cookies.key?("remember_token") } do
   #   root :to => "users#feed"
   # end    
+
   root :to => "pages#home"
-  
+
   resources :authors, :path => "pensadores" do
     member do
       get :fans, path: "fas"

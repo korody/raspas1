@@ -20,7 +20,8 @@ class Author < ActiveRecord::Base
 
   has_many :microposts, :dependent => :destroy, order: "microposts.created_at DESC"
 
-  has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
+  has_many :tags, through: :microposts, order: "tags.created_at DESC"#, select: "DISTINCT tags.*"
+  # has_many :tags, -> { order("tags.created_at DESC").uniq }, through: :microposts
 
   has_many :subscriptions, :dependent => :destroy
 
@@ -31,11 +32,13 @@ class Author < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :users, through: :microposts, order: "users.created_at DESC", select: "DISTINCT users.*"
+  has_many :users, through: :microposts, order: "users.created_at DESC"#, select: "DISTINCT users.*"
+  # has_many :users, -> { order("users.created_at DESC").uniq }, through: :microposts
 
   has_many :favourites
 
-  has_many :eleitas, through: :favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"
+  has_many :eleitas, through: :favourites, source: :micropost, order: "microposts.created_at DESC"#, select: "DISTINCT microposts.*"
+  # has_many :eleitas, -> { order("microposts.created_at DESC").uniq }, through: :favourites, source: :micropost
 
   has_many :origins
   has_many :books

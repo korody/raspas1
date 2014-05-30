@@ -1,28 +1,5 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
-#  encrypted_password :string(255)
-#  salt               :string(255)
-#  admin              :boolean         default(FALSE)
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  photo_updated_at   :datetime
-#  bio                :string(255)
-#  origin             :string(255)
-#  born               :string(255)
-#  tipo               :string(255)
-#
-
-
-  require 'digest'
-  class User < ActiveRecord::Base
+require 'digest'
+class User < ActiveRecord::Base
   attr_accessible :name, :email, :image, :bio, :job, :tipo, :origin, :born
   before_save :create_remember_token
 
@@ -38,7 +15,8 @@
                                    class_name: "Favourite",
                                    dependent: :destroy
 
-  has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"
+  # has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"
+  has_many :favoritadas, -> { order("microposts.created_at DESC").uniq }, through: :reverse_favourites, source: :micropost
   
   has_many :relationships, foreign_key: "follower_id",
                            dependent: :destroy
@@ -56,24 +34,31 @@
 
   has_many :idols, through: :subscriptions, source: :author
   
-  has_many :authors, through: :microposts, order: "authors.created_at DESC", select: "DISTINCT authors.*"
+  has_many :authors, through: :microposts, order: "authors.created_at DESC"#, select: "DISTINCT authors.*"
+  # has_many :authors, -> { unscope(:order).uniq }, through: :microposts, source: :microposts
 
   has_many :authors
 
-  has_many :tags, through: :microposts, order: "tags.created_at DESC", select: "DISTINCT tags.*"
+  has_many :tags, through: :microposts, order: "tags.created_at DESC"#, select: "DISTINCT tags.*"
+  # has_many :tags, -> { unscope(:order).uniq }, through: :microposts
 
   has_many :origins
 
-  has_many :books, through: :microposts, source: :origin, conditions: "type = 'Book'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
-  has_many :poems, through: :microposts, source: :origin, conditions: "type = 'Poem'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
-  has_many :songs, through: :microposts, source: :origin, conditions: "type = 'Song'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
-  has_many :films, through: :microposts, source: :origin, conditions: "type = 'Film'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
-  has_many :others, through: :microposts, source: :origin, conditions: "type = 'Other'", order: "origins.created_at DESC", select: "DISTINCT origins.*"
+  has_many :books, through: :microposts, source: :origin, conditions: "type = 'Book'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
+  has_many :poems, through: :microposts, source: :origin, conditions: "type = 'Poem'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
+  has_many :songs, through: :microposts, source: :origin, conditions: "type = 'Song'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
+  has_many :films, through: :microposts, source: :origin, conditions: "type = 'Film'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
+  has_many :others, through: :microposts, source: :origin, conditions: "type = 'Other'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
+  # has_many :books, -> { unscope(:order).where("type = 'Book'").uniq }, through: :microposts, source: :origin
+  # has_many :poems, -> { unscope(:order).where("type = 'Poem'").uniq }, through: :microposts, source: :origin
+  # has_many :songs, -> { unscope(:order).where("type = 'Song'").uniq }, through: :microposts, source: :origin
+  # has_many :films, -> { unscope(:order).where("type = 'Film'").uniq }, through: :microposts, source: :origin
+  # has_many :others, -> { unscope(:order).where("type = 'Other'").uniq }, through: :microposts, source: :origin
 
-	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-	validates :name,  presence: true,
-            	      length: { maximum: 50 },
+  validates :name,  presence: true,
+                    length: { maximum: 50 },
                     uniqueness: { case_sensitive: false }
 
   validates :email, presence: true,
