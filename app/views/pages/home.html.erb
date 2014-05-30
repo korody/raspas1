@@ -46,7 +46,7 @@
           <p class= "p_tags"><%= Poem.count %></p><p class= "p_tag">poemas</p><p class= "p_mais"><%= link_to "+", poems_path, title: "explorar poemas" %></p>
         </div>
       </div>
-      <% cache @tags do %>
+      <% cache "cached_tags" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">temas</p>
@@ -62,7 +62,7 @@
           </div>
         </div>
       <% end %>  
-      <% cache @authors do %>
+      <% cache "cached_authors" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">pensadores</p>
@@ -82,7 +82,7 @@
           </div>
         </div>
       <% end %>
-      <% cache @users do %>
+      <% cache "cached_users" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">usuários</p>
@@ -102,7 +102,7 @@
           </div>
         </div>
       <% end %>
-      <% cache @books do %>
+      <% cache "cached_books" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">livros</p>
@@ -122,7 +122,7 @@
           </div>
         </div>
       <% end %>
-      <% cache @songs do %>
+      <% cache "cached_songs" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimas</p><p class="p_tag">músicas</p>
@@ -142,7 +142,7 @@
           </div>
         </div>
       <% end %>
-      <% cache @films do %>
+      <% cache "cached_films" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">filmes</p>
@@ -162,7 +162,7 @@
           </div>
         </div>
       <% end %>  
-      <% cache @poems do %>
+      <% cache "cached_poems" do %>
         <div class= "user_info_board round">
           <div class= "last_header">
             <p class= "p_tags">últimos</p><p class="p_tag">poemas</p>
