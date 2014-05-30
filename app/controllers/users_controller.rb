@@ -34,7 +34,7 @@
     @title = "mural #{@user.name}"
     @user = User.find_by_salt(cookies[:remember_token])
     @new_micropost = Micropost.new        
-    @feed_items = @user.feed.first(20)
+    @feed_items = @user.feed.reverse.first(20)
     authors_intro = Author.all
     users_intro = User.all
     @intro = authors_intro.concat(users_intro)
