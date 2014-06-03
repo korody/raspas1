@@ -9,14 +9,11 @@ class Origin < ActiveRecord::Base
   belongs_to :author
   belongs_to :user
 	has_many :microposts, order: "microposts.created_at DESC"
-  has_many :authors, through: :microposts, order: "authors.created_at DESC"#, select: "DISTINCT authors.*"
-  # has_many :authors, -> { order("authors.created_at DESC").uniq }, through: :microposts
+  has_many :authors, -> { order("authors.created_at DESC") }, through: :microposts
 
-  has_many :users, through: :microposts, order: "users.created_at DESC"#, select: "DISTINCT users.*"
-  # has_many :users, -> { order("users.created_at DESC").uniq }, through: :microposts
+  has_many :users, -> { order("users.created_at DESC") }, through: :microposts
 
-  has_many :tags, through: :microposts, order: "tags.created_at DESC"#, select: "DISTINCT tags.*"
-  # has_many :tags, -> { order("tags.created_at DESC").uniq }, through: :microposts
+  has_many :tags, -> { order("tags.created_at DESC") }, through: :microposts
 
   validates :name,  presence: true,
             	      length: { maximum: 50 },

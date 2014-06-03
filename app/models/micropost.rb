@@ -25,7 +25,7 @@ class Micropost < ActiveRecord::Base
   scope :from_users_followed_by, lambda { |user| followed_by(user).recent }
   scope :from_authors_idols_of, lambda { |user| idols_of(user).recent }
   scope :from_microposts_favourites_of, lambda { |micropost| favourites_of(micropost).recent }
-  scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)) }
+  scope :user_feed, lambda { |user| from_users_followed_by(user).concat(from_authors_idols_of(user)).concat(from_microposts_favourites_of(user)).uniq }
 
   attr_accessor :author_name, :origin_name, :origin_type
   attr_writer :tag_names, :author_name, :origin_name, :origin_type

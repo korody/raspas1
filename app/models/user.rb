@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
                                    class_name: "Favourite",
                                    dependent: :destroy
 
-  # has_many :favoritadas, through: :reverse_favourites, source: :micropost, order: "microposts.created_at DESC", select: "DISTINCT microposts.*"
-  has_many :favoritadas, -> { order("microposts.created_at DESC").uniq }, through: :reverse_favourites, source: :micropost
+  has_many :favoritadas, -> { order("microposts.updated_at DESC").uniq }, through: :reverse_favourites, source: :micropost
   
   has_many :relationships, foreign_key: "follower_id",
                            dependent: :destroy
@@ -34,26 +33,19 @@ class User < ActiveRecord::Base
 
   has_many :idols, through: :subscriptions, source: :author
   
-  has_many :authors, through: :microposts, order: "authors.created_at DESC"#, select: "DISTINCT authors.*"
-  # has_many :authors, -> { unscope(:order).uniq }, through: :microposts, source: :microposts
+  has_many :authors, -> { order("authors.created_at DESC") }, through: :microposts
 
   has_many :authors
 
-  has_many :tags, through: :microposts, order: "tags.created_at DESC"#, select: "DISTINCT tags.*"
-  # has_many :tags, -> { unscope(:order).uniq }, through: :microposts
+  has_many :tags, -> { order("tags.created_at DESC") }, through: :microposts
 
   has_many :origins
 
-  has_many :books, through: :microposts, source: :origin, conditions: "type = 'Book'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
-  has_many :poems, through: :microposts, source: :origin, conditions: "type = 'Poem'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
-  has_many :songs, through: :microposts, source: :origin, conditions: "type = 'Song'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
-  has_many :films, through: :microposts, source: :origin, conditions: "type = 'Film'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
-  has_many :others, through: :microposts, source: :origin, conditions: "type = 'Other'", order: "origins.created_at DESC"#, select: "DISTINCT origins.*"
-  # has_many :books, -> { unscope(:order).where("type = 'Book'").uniq }, through: :microposts, source: :origin
-  # has_many :poems, -> { unscope(:order).where("type = 'Poem'").uniq }, through: :microposts, source: :origin
-  # has_many :songs, -> { unscope(:order).where("type = 'Song'").uniq }, through: :microposts, source: :origin
-  # has_many :films, -> { unscope(:order).where("type = 'Film'").uniq }, through: :microposts, source: :origin
-  # has_many :others, -> { unscope(:order).where("type = 'Other'").uniq }, through: :microposts, source: :origin
+  has_many :books, -> { order("origins.created_at DESC").where("type = 'Book'") }, through: :microposts, source: :origin
+  has_many :poems, -> { order("origins.created_at DESC").where("type = 'Poem'") }, through: :microposts, source: :origin
+  has_many :songs, -> { order("origins.created_at DESC").where("type = 'Song'") }, through: :microposts, source: :origin
+  has_many :films, -> { order("origins.created_at DESC").where("type = 'Film'") }, through: :microposts, source: :origin
+  has_many :others, -> { order("origins.created_at DESC").where("type = 'Other'") }, through: :microposts, source: :origin
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

@@ -15,11 +15,9 @@ class Tag < ActiveRecord::Base
 
 	has_many :microposts, through: :taggings, order: "microposts.created_at DESC"
 
-  has_many :users, through: :microposts, order: "users.created_at DESC"#, select: "DISTINCT users.*"
-  # has_many :users, -> { order("users.created_at DESC").uniq }, through: :microposts
+  has_many :users, -> { order("users.created_at DESC") }, through: :microposts
 
-  has_many :authors, through: :microposts, order: "authors.created_at DESC"#, select: "DISTINCT authors.*"
-  # has_many :authors, -> { order("authors.created_at DESC").uniq }, through: :microposts
+  has_many :authors, -> { order("authors.created_at DESC") }, through: :microposts
 
   validates :name, length: { maximum: 20 }
 
