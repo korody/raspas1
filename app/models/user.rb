@@ -126,7 +126,7 @@ class User < ActiveRecord::Base
   end
 
   def proprias
-    Micropost.from_microposts_proprias_de(self)
+    self.microposts.where(author_id: nil)
   end
 
   private
