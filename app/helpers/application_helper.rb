@@ -13,7 +13,7 @@ module ApplicationHelper
           "#{@title} { #{@micropost.user.name}"
         end
       elsif home
-        "Raspas { #{@title}"
+        "raspas { #{@title}"
       else
         "#{@title} { #{base_title}"
       end     
